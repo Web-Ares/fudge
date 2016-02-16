@@ -12,7 +12,7 @@
     $message = "Name: ".$name;
     $message .= ", Tel: ".$tel;
     $message .= ", Text: ".$text;
-    mail("amigo.85@list.ru", "Request from site", $message, $headers);
+    mail("85bondar@gmail.com", "Request from site", $message, $headers);
 
     echo $name;
     echo $tel;
