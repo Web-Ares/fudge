@@ -139,8 +139,11 @@
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     box-shadow: 0 0 5px rgba(0,0,0,0);
-    -webkit-transition: box-shadow 0.3s ease;
-    transition: box-shadow 0.3s ease;
+    -webkit-transition: box-shadow 0.3s ease, border 0.3s ease;
+    transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+.site__form .form-validation__error {
+    border-color: #ff0000;
 }
 .site__form textarea:focus,
 .site__form input:focus {

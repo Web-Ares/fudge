@@ -170,13 +170,13 @@
                     <div class="contact-us__form">
 
                         <!-- site__form -->
-                        <form action="#" class="site__form">
+                        <form action="php/form.php" class="site__form form-validation" novalidate>
 
-                            <input type="text" placeholder="Name">
+                            <input type="text" placeholder="Name" name="name" required>
 
-                            <input type="email" placeholder="Email">
+                            <input type="email" placeholder="Email" name="email" required>
 
-                            <textarea name="text1" id="text1" cols="30" rows="10" placeholder="Message"></textarea>
+                            <textarea name="text" id="text1" cols="30" rows="10" placeholder="Message" required></textarea>
 
                             <!-- btn -->
                             <button type="submit" class="btn"><span>SEND</span></button>
@@ -193,7 +193,6 @@
 
             </div>
             <!-- /contact-us -->
-
 
         </div>
         <!-- /site__content -->
