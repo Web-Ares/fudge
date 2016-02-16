@@ -8,7 +8,7 @@
 
 
     $headers  = "Content-type: text/html; charset=utf-8 \r\n";
-    $headers .= "From: Fudge\r\n";
+    $headers .= "From: adoric\r\n";
     $message = "Name: ".$name;
     $message .= ", Tel: ".$tel;
     $message .= ", Text: ".$text;
@@ -20,4 +20,3 @@
 
     exit;
 ?>
-

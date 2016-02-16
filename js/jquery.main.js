@@ -253,8 +253,8 @@ $(function(){
                     timeout: 20000,
                     type: "POST",
                     success: function ( msg ) {
-                        _obj.trigger('reset');
-                        console.log(101);
+                        _obj.trigger( 'reset' );
+                        console.log(msg);
                     },
                     error: function ( XMLHttpRequest ) {
                         if ( XMLHttpRequest.statusText != "abort" ) {
@@ -266,6 +266,7 @@ $(function(){
             },
             _init = function () {
                 _addEvents();
+                _obj[ 0 ].obj = _self;
             };
 
         _init();
