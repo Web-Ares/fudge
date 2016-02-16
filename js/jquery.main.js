@@ -255,6 +255,7 @@ $(function(){
                     success: function ( msg ) {
                         _obj.trigger( 'reset' );
                         console.log(msg);
+                        return false;
                     },
                     error: function ( XMLHttpRequest ) {
                         if ( XMLHttpRequest.statusText != "abort" ) {
