@@ -1,36 +1,49 @@
 $(function(){
 
-} );
+    'use strict';
 
-var Shablon = function (obj) {
-    this.obj = obj;
+    $(function(){
 
+        $.each( $( '.site' ), function(){
+            new Page ( $( this ) )
+        } );
 
-    this.init();
-};
-Shablon.prototype = {
-    init: function () {
-        var self = this;
+    });
 
-        self.core = self.core();
-        self.core.build();
-    },
-    core: function () {
-        var self = this;
+    var Page = function ( obj ) {
 
-        return {
-            addEvents: function () {
+        var _self = this,
+            _obj = obj,
+            _increase = _obj.find( '.site__increase'),
+            _footer = _obj.find( '.site__footer'),
+            _window = $( window );
+
+        var _addEvents = function () {
+
+                _window.on({
+
+                    load: function(){
+                        _calculateFooterHeight();
+                    },
+
+                    resize: function(){
+                        _calculateFooterHeight();
+                    }
+
+                })
 
             },
-            build: function () {
-                self.core.addEvents();
-            }
-        };
-    }
-};
+            _calculateFooterHeight = function(){
+                _increase.css({
+                    'height': _footer.innerHeight()
+                });
+            },
+            _init = function () {
+                _addEvents();
+            };
 
-$(window).on({
-    load: function () {
-        
-    }
-});
+        _init();
+
+    };
+
+} );
