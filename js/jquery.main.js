@@ -4,7 +4,7 @@ $(function(){
 
     $(function(){
 
-        $.each( $( '.site' ), function(){
+        $.each( $( '.site' ) , function(){
             new Page ( $( this ) )
         } );
 
@@ -18,11 +18,11 @@ $(function(){
 
         var _self = this,
             _obj = obj,
-            _increase = _obj.find( '.site__increase'),
-            _footer = _obj.find( '.site__footer'),
+            _increase = _obj.find( '.site__increase' ),
+            _footer = _obj.find( '.site__footer' ),
             _window = $( window );
 
-        var _addEvents = function () {
+        var _addEvents = function() {
 
                 _window.on({
 
@@ -38,12 +38,18 @@ $(function(){
 
             },
             _calculateFooterHeight = function(){
+
                 _increase.css({
-                    'height': _footer.innerHeight()
+                    height: _footer.innerHeight()
                 });
+
             },
-            _init = function () {
+            _init = function() {
+
+                _calculateFooterHeight();
                 _addEvents();
+                _obj[ 0 ].obj = _self;
+
             };
 
         _init();
