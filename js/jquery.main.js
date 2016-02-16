@@ -253,10 +253,10 @@ $(function(){
                     data: _obj.serialize(), // It sends the entire form
                     dataType: 'html',
                     timeout: 20000,
-                    type: "POST",
+                    type: "GET",
                     success: function ( msg ) {
                         _obj.trigger( 'reset' );
-                        console.log(msg);
+                        console.log( _obj.serialize() );
                     },
                     error: function ( XMLHttpRequest ) {
                         if ( XMLHttpRequest.statusText != "abort" ) {
