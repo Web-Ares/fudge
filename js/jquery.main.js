@@ -247,7 +247,7 @@ $(function(){
                 _request.abort();
                 _request = $.ajax({
                     url: _path,
-                    data: _obj.serialize(), // It sends the entire form
+                    data: _obj.serialize(),
                     dataType: 'html',
                     timeout: 20000,
                     type: "GET",
