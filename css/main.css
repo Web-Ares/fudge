@@ -67,14 +67,19 @@
     z-index: 2;
 }
 .site__header {
-    position: relative;
-    background: #000;
+    position: fixed;
     z-index: 3;
+    width: 100%;
 }
 .site__header-top{
     height: 60px;
-    background: #000;
+    background: transparent;
     border-bottom: 2px solid rgba(255,255,255,0.1);
+    -webkit-transition: background 0.1s ease;
+    transition: background 0.1s ease;
+}
+.site__header.fixed .site__header-top{
+    background: #000;
 }
 .site__footer {
     z-index: 2;
@@ -321,7 +326,7 @@
     text-transform: uppercase;
     padding: 12px 9.7px;
 }
-.header-menu__item:not(.opened):after {
+.header-menu__item:after {
     position: absolute;
     top: 84%;
     right: 9.7px;
@@ -442,38 +447,66 @@
 }
 /* --------------- /menu-btn --------------- */
 
-/* --------------- /menu-btn --------------- */
-.hero-timetable{
-    padding: 54px 10px;
+/* --------------- hero --------------- */
+.hero{
     text-align: center;
     color: #fff;
     font-size: 16px;
     line-height: 20px;
+    background-color: #000;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
 }
-.hero-timetable__pic{
-    width: 94px;
-    height: 94px;
-    margin: 0 auto 28px;
+.hero__items{
+    position: relative;
+    z-index: 1;
+    padding: 114px 0 54px;
 }
-.hero-timetable__pic img{
-    display: block;
-    width: 100%;
-    height: auto;
-}
-.hero-timetable .site__title{
+.hero .site__title{
     color: #fff;
 }
-.hero-timetable__place{
-    margin: 0 5px 34px;
-}
-.hero-timetable .btn{
+.hero .btn{
     margin: 0 0 57px;
     width: 231px;
     height: 54px;
     font-size: 18px;
     line-height: 18px;
 }
-.hero-timetable__save{
+.hero_slider .hero__items{
+    padding: 114px 0 41px;
+}
+.hero__video{
+    position: relative;
+    padding-bottom: 57%;
+    margin: 5px auto 46px;
+    max-width: 594px;
+}
+.hero__video>*{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+/* --------------- /hero --------------- */
+
+/* --------------- time-schedule --------------- */
+.time-schedule__pic{
+    width: 94px;
+    height: 94px;
+    margin: 0 auto 28px;
+}
+.time-schedule__pic img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.time-schedule__place{
+    margin: 0 15px 34px;
+}
+.time-schedule__save{
     display: flex;
     width: 268px;
     margin: 0 auto;
@@ -481,32 +514,34 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    font-size: 16px;
+    line-height: 20px;
 }
-.hero-timetable__save span{
+.time-schedule__save span{
     display: inline-block;
     vertical-align: middle;
     padding: 3px 0 0 4px;
 }
-.hero-timetable__save a{
+.time-schedule__save a{
     display: inline-block;
     vertical-align: middle;
     margin: 0 0 0 12px;
     width: 36px;
     height: 36px;
-    border: 2px solid #3b3b3b;
+    border: 2px solid rgba(255,255,255,0.3);
     color: #fff;
     text-align: center;
     -webkit-transition: background .3s, border .3s;
     transition: background .3s, border .3s;
 }
-.hero-timetable__save a:first-child{
+.time-schedule__save a:first-child{
     margin-left: 0;
 }
-.hero-timetable__save a:hover{
+.time-schedule__save a:hover{
     background: #ffdc1a;
     border-color: #ffdc1a;
 }
-.hero-timetable__save a i{
+.time-schedule__save a i{
     display: block;
     padding: 9px 0;
     font-size: 16px;
@@ -514,10 +549,37 @@
     -webkit-transition: color .3s;
     transition: color .3s;
 }
-.hero-timetable__save a:hover i{
+.time-schedule__save a:hover i{
     color: #000;
 }
-/* --------------- /menu-btn --------------- */
+/* --------------- /time-schedule --------------- */
+
+/* --------------- main-slider --------------- */
+.main-slider {
+    width: 100%;
+    height: 100%;
+}
+.main-slider .swiper-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.main-slider .swiper-button-prev,
+.main-slider .swiper-button-next{
+    display: none;
+}
+/* --------------- /main-slider --------------- */
 
 /* ------------ contact-us ------------ */
 .contact-us {
@@ -575,7 +637,6 @@
     /* --------------- site --------------- */
     .site__header-top{
         height: 90px;
-        background: rgba(0,0,0,0.5);
     }
     .site__footer {
         padding: 95px 71px 50px;
@@ -588,6 +649,8 @@
         line-height: 1.8;
     }
     .site__title{
+        padding: 0 0 33px;
+        margin: 0 0 32px;
         font-size: 54px;
         line-height: 62px;
     }
@@ -627,10 +690,76 @@
     /* ------------ /footer-menu ------------ */
 
     /* ------------ logo ------------ */
+    .logo {
+        top: 22px;
+        left: 24px;
+        width: 145px;
+        height: 45px;
+    }
     .logo_footer {
         margin-bottom: 48px;
     }
     /* ------------ /logo ------------ */
+
+    /* ------------ menu-btn ------------ */
+    .menu-btn {
+        top: 38px;
+        right: 19px;
+        width: 41px;
+        height: 18px;
+    }
+    /* ------------ /menu-btn ------------ */
+
+    /* ------------ header-menu ------------ */
+    .header-menu{
+        top: 90px;
+    }
+    /* ------------ /header-menu ------------ */
+
+    /* ------------ hero ------------ */
+    .hero {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .hero__items{
+        padding: 129px 0 39px;
+    }
+    .hero .btn {
+        margin: 0 0 53px;
+    }
+    .hero_slider .hero__items{
+        padding: 211px 0 38px;
+    }
+    .hero_slider .btn {
+        margin: 0 0 123px;
+    }
+    .hero__video{
+        padding-bottom: 46%;
+        margin: 15px auto 38px;
+    }
+    /* ------------ /hero ------------ */
+
+    /* ------------ time-schedule ------------ */
+    .time-schedule__pic {
+        width: 124px;
+        height: 124px;
+    }
+    .time-schedule__place {
+        margin: 0 5px 51px;
+    }
+    .time-schedule__save {
+        width: 342px;
+        padding: 4px 43px 4px 27px;
+        border-left: 2px solid rgba(255,255,255,0.3);
+        border-right: 2px solid rgba(255,255,255,0.3);
+    }
+    .time-schedule__save a {
+        margin: 0 0 0 11px;
+    }
+    .time-schedule__save a:first-child{
+        margin-left: 0;
+    }
+    /* ------------ /time-schedule ------------ */
 
     /* ------------ contact-us ------------ */
     .contact-us {
@@ -692,6 +821,8 @@
         text-align: left;
     }
     .site__title{
+        padding: 0 0 30px;
+        margin: 0 0 33px;
         font-size: 64px;
         line-height: 62px;
     }
@@ -712,10 +843,7 @@
 
     /* --------------- logo --------------- */
     .logo {
-        top: 22px;
         left: 15px;
-        width: 145px;
-        height: 45px;
     }
     .logo_footer {
         top: auto;
@@ -764,6 +892,9 @@
     .header-menu__item{
         display: block;
         padding: 12px 9.7px;
+    }
+    .header-menu__dropdown .header-menu__item:after{
+        display: none;
     }
     .header-menu .btn{
         margin: auto;
@@ -824,6 +955,74 @@
         display: none;
     }
     /* --------------- /menu-btn --------------- */
+
+    /* --------------- hero --------------- */
+    .hero__items {
+        padding: 172px 0 38px;
+    }
+    .hero .btn {
+        margin: 0 0 103px;
+    }
+    .hero_slider .hero__items{
+        padding: 234px 0 38px;
+    }
+    .hero_video .hero__items{
+        padding: 154px 0 38px;
+    }
+    .hero__video {
+        padding-bottom: 35%;
+        margin: 0 auto 72px;
+        max-width: 712px;
+    }
+    /* --------------- /hero --------------- */
+
+    /* --------------- time-schedule --------------- */
+    .time-schedule__pic {
+        width: 139px;
+        height: 139px;
+        margin: 0 auto 43px;
+    }
+    .time-schedule__place {
+        margin: 0 5px 50px;
+    }
+    /* --------------- /time-schedule --------------- */
+
+    /* --------------- main-slider --------------- */
+    .main-slider .swiper-button-prev,
+    .main-slider .swiper-button-next{
+        display: block;
+        left: 0;
+        width: 46px;
+        height: 124px;
+        margin-top: -47px;
+        background: rgba(0,0,0,0.7);
+    }
+    .main-slider .swiper-button-next{
+        left: auto;
+        right: 0;
+    }
+    .main-slider .swiper-button-prev:after,
+    .main-slider .swiper-button-next:after{
+        position: absolute;
+        top: 44%;
+        left: 75%;
+        width: 13px;
+        height: 13px;
+        border-left: 3px solid #fff;
+        border-top: 3px solid #fff;
+        -webkit-transform: translateX(-50%) translateX(-50%) rotate(-45deg);
+        transform: translateX(-50%) translateX(-50%) rotate(-45deg);
+        content: '';
+    }
+    .main-slider .swiper-button-next:after{
+        right: 4%;
+        left: auto;
+        border-left: none;
+        border-right: 3px solid #fff;
+        -webkit-transform: translateX(-50%) translateX(-50%) rotate(45deg);
+        transform: translateX(-50%) translateX(-50%) rotate(45deg);
+    }
+    /* --------------- /main-slider --------------- */
 
     /* ------------ contact-us ------------ */
     .contact-us {
