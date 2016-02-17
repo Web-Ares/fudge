@@ -6,17 +6,7 @@
     $tel = $_GET['email'];
     $text = $_GET['text'];
 
-
-    $headers  = "Content-type: text/html; charset=utf-8 \r\n";
-    $headers .= "From: Fudge\r\n";
-    $message = "Name: ".$name;
-    $message .= ", Tel: ".$tel;
-    $message .= ", Text: ".$text;
-    mail("amigo.85@list.ru", "Request from site", $message, $headers);
-
-    echo $name;
-    echo $tel;
-    echo $text;
+    echo $name, $tel, $text;
 
     exit;
 ?>
