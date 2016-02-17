@@ -512,13 +512,6 @@
 .hero .site__title{
     color: #fff;
 }
-.hero .btn{
-    margin: 0 0 57px;
-    width: 231px;
-    height: 54px;
-    font-size: 18px;
-    line-height: 18px;
-}
 .hero_slider .hero__items{
     padding: 114px 0 41px;
 }
@@ -568,6 +561,10 @@
     vertical-align: middle;
     padding: 3px 0 0 4px;
 }
+.time-schedule__save div{
+    display: inline-block;
+    vertical-align: middle;
+}
 .time-schedule__save a{
     display: inline-block;
     vertical-align: middle;
@@ -597,6 +594,13 @@
 }
 .time-schedule__save a:hover i{
     color: #000;
+}
+.time-schedule .btn{
+    margin: 0 0 57px;
+    width: 231px;
+    height: 54px;
+    font-size: 18px;
+    line-height: 18px;
 }
 /* --------------- /time-schedule --------------- */
 
@@ -877,9 +881,6 @@
     .hero__items{
         padding: 129px 0 39px;
     }
-    .hero .btn {
-        margin: 0 0 53px;
-    }
     .hero_slider .hero__items{
         padding: 211px 0 38px;
     }
@@ -911,6 +912,9 @@
     }
     .time-schedule__save a:first-child{
         margin-left: 0;
+    }
+    .time-schedule .btn {
+        margin: 0 0 53px;
     }
     /* ------------ /time-schedule ------------ */
 
@@ -1135,9 +1139,7 @@
     .hero__items {
         padding: 172px 0 38px;
     }
-    .hero .btn {
-        margin: 0 0 103px;
-    }
+
     .hero_slider .hero__items{
         padding: 234px 0 38px;
     }
@@ -1149,6 +1151,34 @@
         margin: 0 auto 72px;
         max-width: 712px;
     }
+    .hero_small{
+        text-align: left;
+    }
+    .hero_small .hero__items {
+        padding: 200px 0 105px;
+    }
+    .hero_small .site__title {
+        padding: 0 0 30px;
+        margin: 0 0 26px;
+        font-size: 50px;
+        line-height: 52px;
+    }
+    .hero_small .site__title:after{
+        left: 0;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    .hero_small .time-schedule__place {
+        margin: 0 0 51px;
+    }
+    .hero_small .time-schedule .btn {
+        margin: 0
+    }
+    .hero_small .time-schedule__save{
+        position: absolute;
+        right: 20px;
+        bottom: 1px;
+    }
     /* --------------- /hero --------------- */
 
     /* --------------- time-schedule --------------- */
@@ -1159,6 +1189,9 @@
     }
     .time-schedule__place {
         margin: 0 5px 50px;
+    }
+    .time-schedule .btn {
+        margin: 0 0 103px;
     }
     /* --------------- /time-schedule --------------- */
 

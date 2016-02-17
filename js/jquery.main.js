@@ -16,11 +16,8 @@ $(function(){
             new FormValidation ( $( this ) )
         } );
 
-        var swiper = new Swiper('.main-slider', {
-            paginationClickable: true,
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-            spaceBetween: 30
+        $.each($('.main-slider'), function () {
+            new SliderMain($(this));
         });
 
     });
@@ -273,6 +270,34 @@ $(function(){
 
         _init();
 
+    };
+
+    var SliderMain = function( obj ) {
+
+        //private properties
+        var _self = this,
+            _sliderSwiper,
+            _slider = obj;
+
+        //private methods
+        var _initSlider = function() {
+
+                _sliderSwiper = new Swiper( _slider, {
+
+                    paginationClickable: true,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    spaceBetween: 30
+
+                });
+
+            },
+            _init = function() {
+                _initSlider();
+
+            };
+
+        _init();
     };
 
 } );
