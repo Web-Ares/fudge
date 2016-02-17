@@ -631,6 +631,50 @@
 }
 /* --------------- /main-slider --------------- */
 
+/* --------------- countdown-timer --------------- */
+.countdown-timer{
+    color: #000;
+    font-size: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    background: #ffee8d;
+    background: -moz-linear-gradient(left,  #ffee8d 50%, #ffdc1a 50%);
+    background: -webkit-linear-gradient(left,  #ffee8d 50%,#ffdc1a 50%);
+    background: linear-gradient(to right,  #ffee8d 50%,#ffdc1a 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffee8d', endColorstr='#ffdc1a',GradientType=1 );
+}
+.countdown-timer>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 280px;
+    margin: 0 auto;
+}
+.countdown-timer>div>div{
+    width: 25%;
+    height: 78px;
+    padding: 16px 0;
+}
+.countdown-timer>div>div:nth-child(2){
+    background: #ffe75f;
+}
+.countdown-timer>div>div:nth-child(3){
+    background: #ffe031;
+}
+.countdown-timer span{
+    display: block;
+    margin: 3px 0 0;
+    font-size: 11px;
+    line-height: 11px;
+    text-transform: uppercase;
+    font-family: 'Roboto', serif;
+    font-weight: 400;
+}
+/* --------------- /countdown-timer --------------- */
+
 /* ------------ contact-us ------------ */
 .contact-us {
     text-align: center;
@@ -917,6 +961,26 @@
         margin: 0 0 53px;
     }
     /* ------------ /time-schedule ------------ */
+
+    /* ------------ countdown-timer ------------ */
+    .countdown-timer{
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .countdown-timer>div {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .countdown-timer>div>div {
+        height: 110px;
+        padding: 17px 0;
+    }
+    .countdown-timer span {
+        margin: 8px 0 0;
+        font-size: 16px;
+        line-height: 16px;
+    }
+    /* ------------ /countdown-timer ------------ */
 
     /* ------------ contact-us ------------ */
     .contact-us {
