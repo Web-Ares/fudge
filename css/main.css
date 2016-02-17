@@ -548,7 +548,7 @@
         -webkit-transition: visibility 0.3s, opacity 0.3s;
         transition: visibility 0.3s, opacity 0.3s;
     }
-    .header-menu .opened+.header-menu__subitems{
+    .header-menu li:hover .header-menu__subitems{
         opacity: 1;
         visibility: visible;
     }
