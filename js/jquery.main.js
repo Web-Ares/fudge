@@ -4,7 +4,7 @@ $(function(){
 
     $(function(){
 
-        $.each( $( '.site' ) , function(){
+        $.each( $( '.site' ), function(){
             new Page ( $( this ) )
         } );
 
@@ -186,11 +186,11 @@ $(function(){
         var _self = this,
             _obj = obj,
             _path = _obj.attr( 'action' ),
-            _inputs = _obj.find( $( "[required]" )),
-            _sentMssage = _obj.find( $( ".site__form-sent" )),
+            _inputs = _obj.find( $( "[required]" ) ),
+            _sentMessageMark = _obj.find( $( ".site__form-sent" ) ),
             _request = new XMLHttpRequest();
 
-        var _addEvents = function () {
+        var _addEvents = function() {
 
                 _obj.on({
 
@@ -241,7 +241,7 @@ $(function(){
                 });
 
             },
-            _ajaxRequest = function(){
+            _ajaxRequest = function() {
 
                 _request.abort();
                 _request = $.ajax({
@@ -252,10 +252,10 @@ $(function(){
                     type: "GET",
                     success: function () {
                         _obj.trigger( 'reset' );
-                        _sentMssage.removeClass( 'site__form-sent_hidden' );
+                        _sentMessageMark.removeClass( 'site__form-sent_hidden' );
                     },
                     error: function ( XMLHttpRequest ) {
-                        if ( XMLHttpRequest.statusText != "abort" ) {
+                        if( XMLHttpRequest.statusText != "abort" ) {
                             alert( "Error!" );
                         }
                     }

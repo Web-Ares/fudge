@@ -636,6 +636,84 @@
 }
 /* ------------ /connect ------------ */
 
+/* ------------ features ------------ */
+.features {
+    background: #ffdc1a;
+}
+.features__item {
+    display: block;
+    height: 180px;
+    padding-top: 35px;
+    text-align: center;
+    -webkit-transition: background 0.3s ease;
+    transition: background 0.3s ease;
+}
+.features__logo {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+}
+.features__logo span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #000;
+    white-space: nowrap;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.features__logo span i {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 30px;
+}
+.features__logo i.fa-child {
+    font-size: 24px;
+}
+.features__logo i + i {
+    margin-left: -4px;
+}
+.features__title {
+    display: block;
+    font-size: 20px;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 700;
+    color: rgb( 0, 0, 0 );
+    line-height: 1.636;
+}
+.features__item_light {
+    background:#ffee8d;
+}
+.features__item_light .features__logo {
+    background: #fff5bb;
+}
+.features__item_middle {
+    background:#ffe75f;
+}
+.features__item_middle .features__logo {
+    background: #fff19f;
+}
+.features__item_dark {
+    background:#ffdc1a;
+}
+.features__item_dark .features__logo {
+    background: #ffea76;
+}
+.features__item_light:hover {
+    background: #ffe681;
+}
+.features__item_middle:hover {
+    background: #ffd450;
+}
+.features__item_dark:hover {
+    background: #ffcf10;
+}
+/* ------------ /features ------------ */
+
 @media (min-width: 768px) {
 
     /* ------------ social ------------ */
@@ -752,6 +830,15 @@
         margin-bottom: 65px;
     }
     /* ------------ /connect ------------ */
+
+    /* ------------ features ------------ */
+    .features__item {
+        padding-top: 33px;
+    }
+    .features__logo {
+        margin-bottom: 14px;
+    }
+    /* ------------ /features ------------ */
 
 }
 
@@ -955,6 +1042,33 @@
         padding: 89px 0 62px;
     }
     /* ------------ /connect ------------ */
+
+    /* ------------ features ------------ */
+    .features {
+        display: table;
+        width: 100%;
+    }
+    .features__item {
+        display: table-cell;
+        width: 35.49%;
+        height: 177px;
+    }
+    .features__item:nth-child(1) {
+        text-align: right;
+    }
+    .features__item:nth-child(2) {
+        width: auto;
+    }
+    .features__item:nth-child(3) {
+        text-align: left;
+    }
+    .features__inner {
+        display: inline-block;
+        width: 100%;
+        max-width: 384px;
+        text-align: center;
+    }
+    /* ------------ /features ------------ */
 
 }
 
