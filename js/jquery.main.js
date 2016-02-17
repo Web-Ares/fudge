@@ -4,25 +4,29 @@ $(function(){
 
     $(function(){
 
-        $.each( $( '.site' ), function(){
+        $.each( $( '.site' ), function() {
             new Page ( $( this ) )
         } );
 
-        $.each($('.header-menu'), function () {
-            new Menu($(this));
-        });
+        $.each( $( '.header-menu' ), function() {
+            new Menu ( $( this ) );
+        } );
 
-        $.each( $( '.form-validation' ), function(){
+        $.each( $( '.form-validation' ), function() {
             new FormValidation ( $( this ) )
         } );
 
-        $.each($('.main-slider'), function () {
-            new SliderMain($(this));
-        });
+        $.each( $('.main-slider' ), function() {
+            new SliderMain ( $( this ) );
+        } );
+
+        $.each( $('.countdown-timer>div' ), function() {
+            new CountDown ( $( this ) );
+        } );
 
     });
 
-    var Page = function ( obj ) {
+    var Page = function( obj ) {
 
         var _self = this,
             _obj = obj,
@@ -182,7 +186,7 @@ $(function(){
         _init();
     };
 
-    var FormValidation = function ( obj ) {
+    var FormValidation = function( obj ) {
 
         var _self = this,
             _obj = obj,
@@ -294,6 +298,43 @@ $(function(){
             },
             _init = function() {
                 _initSlider();
+
+            };
+
+        _init();
+    };
+
+    var CountDown = function(obj) {
+
+        //private properties
+        var _self = this,
+            _obj = obj;
+
+        //private methods
+        var _addTimer = function() {
+
+                _obj.countdown( {
+
+                    date: _obj.attr( 'data-time' ),
+                    render: function( data ) {
+                        $( this.el ).html( "" +
+                            "<div>" +
+                            this.leadingZeros( data.days, 2 )
+                            +" <span>days</span></div><div>"
+                            + this.leadingZeros( data.hours, 2 )
+                            + " <span>hours</span></div><div>"
+                            + this.leadingZeros( data.min, 2 )
+                            + " <span>min</span></div><div>"
+                            + this.leadingZeros( data.sec, 2 )
+                            + " <span>sec</span></div>" +
+                            "");
+                    }
+
+                } );
+            },
+            _init = function () {
+
+                _addTimer();
 
             };
 
