@@ -156,13 +156,6 @@
     padding: 20px 21px;
     margin-bottom: 26px;
 }
-.site__form button.btn {
-    padding: 0;
-    width: 100%;
-    height: 60px;
-    font-size: 18px;
-    font-weight: 500;
-}
 .site__form-submit {
     position: relative;
     height: 60px;
@@ -174,8 +167,31 @@
     left: 0;
     height: 100%;
     width: 100%;
+    z-index: 1;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
 }
-.site__form-sent span {}
+.site__form button.btn {
+    padding: 0;
+}
+.site__form-sent {
+    padding: 21px 10px;
+    background: #ffdc1a;
+    color: #000;
+    line-height: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+.site__form-sent .fa {
+    margin-right: 9px;
+}
+.site__form-sent_hidden {
+    z-index: 0;
+    opacity: 0;
+}
 /* --------------- /site --------------- */
 
 /* ------------ footer-menu ------------ */

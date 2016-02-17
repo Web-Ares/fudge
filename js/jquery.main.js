@@ -187,6 +187,7 @@ $(function(){
             _obj = obj,
             _path = _obj.attr( 'action' ),
             _inputs = _obj.find( $( "[required]" )),
+            _sentMssage = _obj.find( $( ".site__form-sent" )),
             _request = new XMLHttpRequest();
 
         var _addEvents = function () {
@@ -251,6 +252,7 @@ $(function(){
                     type: "GET",
                     success: function () {
                         _obj.trigger( 'reset' );
+                        _sentMssage.removeClass( 'site__form-sent_hidden' );
                     },
                     error: function ( XMLHttpRequest ) {
                         if ( XMLHttpRequest.statusText != "abort" ) {
