@@ -249,9 +249,8 @@ $(function(){
                     dataType: 'html',
                     timeout: 20000,
                     type: "GET",
-                    success: function ( msg ) {
+                    success: function () {
                         _obj.trigger( 'reset' );
-                        console.log( _obj.serialize() );
                     },
                     error: function ( XMLHttpRequest ) {
                         if ( XMLHttpRequest.statusText != "abort" ) {
