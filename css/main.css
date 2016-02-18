@@ -134,9 +134,7 @@
     font-family: 'Roboto Slab', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-}
-.site__title_black{
-    color: #000;
+    text-align: center;
 }
 .site__title:after{
     position: absolute;
