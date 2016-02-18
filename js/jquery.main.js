@@ -93,9 +93,9 @@ $(function(){
         //private properties
         var _self = this,
             _menu = obj,
-            _menuItems = _menu.find( '.header-menu__dropdown' ),
+            _menuItems = _menu.find( '.header-menu__drop-down' ),
             _menuItemsLink = _menu.find( '.header-menu__item' ),
-            _subMenu = _menu.find( '.header-menu__subitems' ),
+            _subMenu = _menu.find( '.header-menu__sub-items' ),
             _window = $( window ),
             _showBtn = $( '.menu-btn' );
 
@@ -145,21 +145,21 @@ $(function(){
             _slideSubMenu = function( elem ) {
 
                 var curElem = elem,
-                    subMenu = curElem.next( '.header-menu__subitems' );
+                    subMenu = curElem.next( '.header-menu__sub-items' );
 
                 if( _window.width() < 992 && subMenu.length ) {
 
-                    if( curElem.hasClass( 'opened' ) ){
+                    if( curElem.parent().hasClass( 'opened' ) ){
 
-                        curElem.removeClass( 'opened' );
+                        curElem.parent().removeClass( 'opened' );
                         subMenu.slideUp( 300 );
 
                     } else {
 
                         _subMenu.slideUp( 300 );
-                        _menuItems.find( 'a' ).removeClass( 'opened' );
+                        _menuItems.removeClass( 'opened' );
 
-                        curElem.addClass( 'opened' );
+                        curElem.parent().addClass( 'opened' );
                         subMenu.slideDown( 300 );
 
                     }
@@ -172,7 +172,7 @@ $(function(){
             _resetStyle = function() {
 
                 _showBtn.removeClass( 'opened' );
-                _menuItemsLink.removeClass( 'opened' );
+                _menuItemsLink.parent().removeClass( 'opened' );
                 _menu.removeAttr( 'style' );
                 _subMenu.removeAttr( 'style' );
 
@@ -180,6 +180,7 @@ $(function(){
             _init = function() {
 
                 _addEvents();
+                _menu[ 0 ].obj = _self;
 
             };
 
@@ -281,10 +282,25 @@ $(function(){
         //private properties
         var _self = this,
             _sliderSwiper,
-            _slider = obj;
+            _slider = obj,
+            _items = _slider.find( '.swiper-slide'),
+            _window = $( window );
 
         //private methods
-        var _initSlider = function() {
+        var _addEvents = function() {
+
+                _window.on( {
+
+                    'load': function() {
+
+                        _setHeight();
+
+                    }
+
+                } );
+
+            },
+            _initSlider = function() {
 
                 _sliderSwiper = new Swiper( _slider, {
 
@@ -293,11 +309,21 @@ $(function(){
                     prevButton: '.swiper-button-prev',
                     spaceBetween: 30
 
-                });
+            });
+
+            },
+            _setHeight = function() {
+
+                $.each( _items, function() {
+
+                    _items.height( _slider.height() )
+
+                } );
 
             },
             _init = function() {
                 _initSlider();
+                _addEvents();
 
             };
 
