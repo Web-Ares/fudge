@@ -983,6 +983,39 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+.gallery__item_video {
+    position: relative;
+}
+.gallery__item_video:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background-color: rgba( 255, 255, 255, 0.8 );
+    width: 70px;
+    height: 70px;
+    content:'';
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+}
+.gallery__item_video:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 0 0 10px;
+    border: 14px solid transparent;
+    border-left: 22px solid #000;
+    content: '';
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.gallery__item_video:hover:before {
+    background-color: rgba( 255, 220, 26, 1 );
+}
 /* ------------ /gallery ------------ */
 
 @media (min-width: 768px) {
@@ -1723,28 +1756,44 @@
 
     /* ------------ gallery ------------ */
     .gallery {
-        padding: 69px 4px 79px;
+        padding: 74px 4px 58px;
+    }
+    .gallery__wrap {
+        margin-bottom: 47px;
     }
     .gallery p {
         margin-bottom: 32px;
+    }
+    .gallery .site__title {
+        padding: 0 0 22px;
     }
     .gallery__wrap:after {
         display: block;
         clear: both;
         content: '';
     }
+    .gallery__item-sizer {
+        width: 20%;
+    }
     .gallery__item {
         float: left;
         margin: 0;
         width: 20%;
-        padding-bottom: 18.2685%;
-        border: 9px solid #000;
+        height: 286px;
+        padding-bottom: 0;
+        border: 8px solid #000;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
     }
     .gallery__item_height2x {
-        padding-bottom: 38.292%;
+        padding-bottom: 0;
+        height: 573px;
     }
     .gallery__item_width2x {
         width: 40%;
+    }
+    .gallery__item:not(.gallery__item_video) {
+        position: relative;
     }
     /* ------------ /gallery ------------ */
 
