@@ -1350,13 +1350,13 @@
         line-height: 15px;
     }
     .header-menu__item{
-        padding: 12px 9.7px;
+        padding: 12px 10px;
     }
     .header-menu__item:after {
         position: absolute;
         top: 84%;
-        right: 9.7px;
-        left: 9.7px;
+        right: 10px;
+        left: 10px;
         height: 2px;
         background: #ffdc1a;
         content: '';
