@@ -126,14 +126,17 @@
 }
 .site__title{
     position: relative;
-    padding: 0 0 21px;
+    padding: 0 0 27px;
     margin: 0 0 19px;
-    font-size: 37px;
+    font-size: 36px;
     line-height: 38px;
     color: #000;
     font-family: 'Roboto Slab', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
+}
+.site__title_black{
+    color: #000;
 }
 .site__title:after{
     position: absolute;
@@ -500,13 +503,13 @@
 .hero__layout{
     position: relative;
     z-index: 1;
-    padding: 114px 0 54px;
+    padding: 114px 0 26px;
 }
 .hero .site__title{
     color: #fff;
 }
 .hero_slider .hero__layout{
-    padding: 114px 0 41px;
+    padding: 114px 0 13px;
 }
 .hero__video{
     position: relative;
@@ -525,6 +528,15 @@
 /* --------------- /hero --------------- */
 
 /* --------------- time-schedule --------------- */
+.time-schedule{
+    padding: 0 0 28px;
+}
+.time-schedule .site__title{
+    padding: 0 0 21px;
+    margin: 0 0 19px;
+    font-size: 37px;
+    line-height: 38px;
+}
 .time-schedule__pic{
     width: 94px;
     height: 94px;
@@ -668,6 +680,43 @@
     font-weight: 400;
 }
 /* --------------- /countdown-timer --------------- */
+
+/* --------------- description --------------- */
+.description{
+    padding: 93px 0 70px;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+}
+.description .site__title{
+    margin: 0 0 26px;
+}
+.description p{
+    margin: 0 0 43px;
+}
+.description__watch-video{
+    padding: 0 60px 0 0;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000;
+}
+.description__watch-video i{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 39px;
+    height: 39px;
+    padding: 9px 0 9px 3px;
+    border-radius: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border: 2px solid #e3e3e3;
+    font-size: 16px;
+    line-height: 16px;
+}
+/* --------------- /description --------------- */
 
 /* ------------ contact-us ------------ */
 .contact-us {
@@ -844,10 +893,10 @@
         line-height: 1.8;
     }
     .site__title{
-        padding: 0 0 33px;
+        padding: 0 0 28px;
         margin: 0 0 32px;
-        font-size: 54px;
-        line-height: 62px;
+        font-size: 50px;
+        line-height: 52px;
     }
     .site__form {
         padding: 60px 50px 52px;
@@ -937,13 +986,10 @@
         line-height: 30px;
     }
     .hero__layout{
-        padding: 129px 0 39px;
+        padding: 141px 0 16px;
     }
     .hero_slider .hero__layout{
-        padding: 211px 0 38px;
-    }
-    .hero_slider .btn {
-        margin: 0 0 123px;
+        padding: 223px 0 10px;
     }
     .hero__video{
         padding-bottom: 46%;
@@ -952,6 +998,15 @@
     /* ------------ /hero ------------ */
 
     /* ------------ time-schedule ------------ */
+    .time-schedule{
+        margin: -12px 0 0;
+    }
+    .time-schedule .site__title{
+        padding: 0 0 33px;
+        margin: 0 0 32px;
+        font-size: 54px;
+        line-height: 62px;
+    }
     .time-schedule__pic {
         width: 124px;
         height: 124px;
@@ -974,6 +1029,12 @@
     .time-schedule .btn {
         margin: 0 0 53px;
     }
+    .hero_slider .time-schedule .btn {
+        margin: 0 0 123px;
+    }
+    .hero_video .time-schedule {
+        padding-bottom: 66px;
+    }
     /* ------------ /time-schedule ------------ */
 
     /* ------------ countdown-timer ------------ */
@@ -995,6 +1056,25 @@
         line-height: 16px;
     }
     /* ------------ /countdown-timer ------------ */
+
+    /* ------------ description ------------ */
+    .description {
+        padding: 129px 0 101px;
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 20px;
+        line-height: 38px;
+    }
+    .description .site__title {
+        margin: 0 0 16px;
+    }
+    .description p {
+        margin: 0 0 33px;
+    }
+    .description__watch-video {
+        padding: 0 52px 0 0;
+    }
+    /* ------------ /description ------------ */
 
     /* ------------ contact-us ------------ */
     .contact-us {
@@ -1080,8 +1160,6 @@
     .site__title{
         padding: 0 0 30px;
         margin: 0 0 33px;
-        font-size: 64px;
-        line-height: 62px;
     }
     /* --------------- /site --------------- */
 
@@ -1241,14 +1319,13 @@
 
     /* --------------- hero --------------- */
     .hero__layout {
-        padding: 172px 0 38px;
+        padding: 140px 0 14px;
     }
-
     .hero_slider .hero__layout{
-        padding: 234px 0 38px;
+        padding: 202px 0 14px;
     }
     .hero_video .hero__layout{
-        padding: 154px 0 38px;
+        padding: 122px 0 14px;
     }
     .hero__video {
         padding-bottom: 35%;
@@ -1259,15 +1336,41 @@
         text-align: left;
     }
     .hero_small .hero__layout {
-        padding: 200px 0 105px;
+        padding: 168px 0 81px;
     }
-    .hero_small .site__title {
+    /* --------------- /hero --------------- */
+
+    /* --------------- time-schedule --------------- */
+    .time-schedule{
+        padding: 44px 0 24px;
+    }
+    .time-schedule .site__title{
+        padding: 0 0 30px;
+        margin: 0 0 33px;
+        font-size: 64px;
+        line-height: 62px;
+    }
+    .time-schedule__pic {
+        width: 139px;
+        height: 139px;
+        margin: 0 auto 43px;
+    }
+    .time-schedule__place {
+        margin: 0 5px 50px;
+    }
+    .time-schedule .btn {
+        margin: 0 0 103px;
+    }
+    .hero_slider .time-schedule .btn {
+        margin: 0 0 102px;
+    }
+    .hero_small .time-schedule .site__title {
         padding: 0 0 30px;
         margin: 0 0 26px;
         font-size: 50px;
         line-height: 52px;
     }
-    .hero_small .site__title:after{
+    .hero_small .time-schedule .site__title:after{
         left: 0;
         -webkit-transform: translateX(0);
         transform: translateX(0);
@@ -1281,21 +1384,10 @@
     .hero_small .time-schedule__save{
         position: absolute;
         right: 20px;
-        bottom: 1px;
+        bottom: 25px;
     }
-    /* --------------- /hero --------------- */
-
-    /* --------------- time-schedule --------------- */
-    .time-schedule__pic {
-        width: 139px;
-        height: 139px;
-        margin: 0 auto 43px;
-    }
-    .time-schedule__place {
-        margin: 0 5px 50px;
-    }
-    .time-schedule .btn {
-        margin: 0 0 103px;
+    .hero_video .time-schedule {
+        padding-bottom: 23px;
     }
     /* --------------- /time-schedule --------------- */
 
