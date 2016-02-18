@@ -379,7 +379,11 @@ $(function(){
             _galleryItem = '.gallery__item',
             _window = $( window ),
             _fancyBoxGroup = _obj.find( '.fancybox-group' ),
-            _isGallery = false;
+            _btnMore = _obj.find( '.gallery__more' ),
+            _btnAction = _btnMore.data( 'action' ),
+            _btnPreloader = _btnMore.find( '.gallery__preloader' ),
+            _isGallery = false,
+            _request = new XMLHttpRequest();
 
         var _addEvents = function () {
 
@@ -407,7 +411,43 @@ $(function(){
 
                     }
 
+                });
+
+                _btnMore.on({
+
+                    click: function(){
+
+                        _ajaxRequest();
+
+                        return false;
+
+                    }
+
                 })
+
+            },
+            _ajaxRequest = function(){
+
+                var galleryItem = _wrapper.find( '.gallery__item' );
+
+                _request.abort();
+                _request = $.ajax({
+                    url: _btnAction,
+                    data: {
+                        loadedCount: galleryItem.length
+                    },
+                    dataType: 'json',
+                    timeout: 20000,
+                    type: "GET",
+                    success: function ( msg ) {
+                        console.log( msg );
+                    },
+                    error: function ( XMLHttpRequest ) {
+                        if( XMLHttpRequest.statusText != "abort" ) {
+                            alert( "Error!" );
+                        }
+                    }
+                });
 
             },
             _destroyGallery = function(){
