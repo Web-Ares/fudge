@@ -524,24 +524,6 @@
 }
 /* --------------- /hero --------------- */
 
-/* --------------- news --------------- */
-.news{
-    padding-top: 75px;
-    background-color: #faf5e0;
-}
-.news__item{
-    display: inline-block;
-    width: 260px;
-    background-color: #fff;
-}
-.news__picture{
-    width: inherit;
-    height: 110px;
-    background-position: center;
-    background-size: cover;
-}
-/* --------------- /news --------------- */
-
 /* --------------- time-schedule --------------- */
 .time-schedule__pic{
     width: 94px;
@@ -737,6 +719,65 @@
     margin: 0 -15px;
 }
 /* ------------ /contact-us ------------ */
+
+/* --------------- news --------------- */
+.news {
+    padding: 75px 0 1px;
+    background-color: #faf5e0;
+    text-align: center;
+}
+.news .site__title {
+    padding: 0 0 24px;
+}
+.news .site__centered > .btn {
+    display: block;
+    width: 231px;
+    height: 54px;
+    margin: 46px auto 56px;
+    font-size: 18px;
+}
+.news p {
+    margin-bottom: 41px;
+    line-height: 22px;
+    letter-spacing: .5px;
+}
+.news__item {
+    display: block;
+    width: 260px;
+    margin: 0 auto 27px;
+    background-color: #fff;
+}
+.news__picture {
+    width: inherit;
+    height: 110px;
+    margin-bottom: 12px;
+    background-position: center;
+    background-size: cover;
+}
+.news__content {
+    padding: 0 24px 19px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+}
+.news__content .btn {
+    height: 30px;
+    margin-left: 3px;
+    padding: 4px 25px 2px;
+}
+.news__date {
+    display: block;
+    margin-bottom: 10px;
+    color: #ffdc1a;
+    font-size: 16px;
+    letter-spacing: .3px;
+}
+.news__title {
+    margin: 0 3px 33px;
+    font-size: 20px;
+    font-family: 'Roboto Slab', sans-serif;
+}
+/* --------------- /news --------------- */
 
 /* ------------ connect ------------ */
 .connect {
@@ -1059,6 +1100,29 @@
         margin-bottom: 65px;
     }
     /* ------------ /connect ------------ */
+
+    /* --------------- news --------------- */
+    .news {
+        padding: 83px 0 1px;
+    }
+    .news .site__title {
+        margin-bottom: 19px;
+        padding: 0 0 16px;
+        font-size: 50px;
+    }
+    .news p {
+        margin-bottom: 50px;
+        font-size: 20px;
+    }
+    .news__item {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 18px 31px;
+    }
+    .news .site__centered > .btn {
+        margin: 11px auto 87px;
+    }
+    /* --------------- /news --------------- */
 
     /* ------------ features ------------ */
     .features__item {
@@ -1396,6 +1460,22 @@
         padding: 89px 0 62px;
     }
     /* ------------ /connect ------------ */
+
+    /* --------------- news --------------- */
+    .news__layout {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+    }
+    .news__item {
+        margin: 0 0 31px;
+    }
+    /* --------------- /news --------------- */
+
 
     /* ------------ features ------------ */
     .features {
