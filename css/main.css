@@ -531,6 +531,24 @@
 }
 /* --------------- /hero --------------- */
 
+/* --------------- news --------------- */
+.news{
+    padding-top: 75px;
+    background-color: #faf5e0;
+}
+.news__item{
+    display: inline-block;
+    width: 260px;
+    background-color: #fff;
+}
+.news__picture{
+    width: inherit;
+    height: 110px;
+    background-position: center;
+    background-size: cover;
+}
+/* --------------- /news --------------- */
+
 /* --------------- time-schedule --------------- */
 .time-schedule__pic{
     width: 94px;
