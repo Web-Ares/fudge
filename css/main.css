@@ -287,6 +287,25 @@
     align-items: center;
     height: 100%;
 }
+.btn_fading{
+    border: none;
+    background: #ffee8d;
+    -webkit-transition: background 0.3s ease;
+    transition: background 0.3s ease;
+}
+.btn_fading:hover{
+    background: #fffadd;
+}
+.btn_dark {
+    color: #fff;
+    background: #000;
+    border: none;
+    -webkit-transition: background 0.3s ease;
+    transition: background 0.3s ease;
+}
+.btn_dark:hover {
+    background: #333;
+}
 .btn_dark-grey {
     width: 230px;
     height: 54px;
@@ -718,6 +737,66 @@
 }
 /* --------------- /description --------------- */
 
+/* --------------- speakers --------------- */
+.speakers{
+    padding: 77px 0 39px;
+    background-color: #ffdc1a;
+    text-align: center;
+    overflow: hidden;
+}
+.speakers .site__title{
+    margin-bottom: 14px;
+    padding-bottom: 25px;
+}
+.speakers .site__title:after{
+    background: #fff;
+}
+.speakers .btn {
+    display: block;
+    width: 230px;
+    height: 54px;
+    margin: 0 auto 14px;
+    padding: 21px 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.speakers p {
+    margin-bottom: 43px;
+    line-height: 32px;
+    letter-spacing: .5px;
+}
+.speakers__person{
+    display: block;
+    width: 260px;
+    height: 290px;
+    margin: 0 auto 33px;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 20px;
+}
+.speakers__photo {
+    width: inherit;
+    height: 162px;
+    margin-bottom: 19px;
+    background-position: center;
+    background-size: cover;
+}
+.speakers__name {
+    display: block;
+    margin: 0 15px 12px;
+    font-size: 20px;
+    font-family: 'Roboto Slab', sans-serif;
+    text-transform: uppercase;
+}
+.speakers__post {
+    display: block;
+    overflow: hidden;
+    max-height: 60px;
+    margin: 0 15px;
+    color: #b5b5b5;
+}
+/* --------------- /speakers --------------- */
+
 /* --------------- get-touch --------------- */
 .get-touch{
     padding: 50px 0 47px;
@@ -954,6 +1033,32 @@
     background: #ffcf10;
 }
 /* ------------ /features ------------ */
+
+/* ------------ subscribe ------------ */
+.subscribe{
+    padding-top: 41px;
+    background-color: #ffdc1a;
+    text-align: center;
+}
+.subscribe__title{
+    width: 292px;
+    margin: 0 auto 22px;
+    font: 600 20px/28px 'Roboto Slab', serif;
+    text-transform: uppercase;
+}
+.subscribe .site__form{
+    background: none;
+}
+.subscribe__email{
+    display: block;
+    width: 292px;
+    height: 60px;
+    margin: 0 auto 23px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    font: 18px 'Roboto', sans-serif;
+}
+/* ------------ /subscribe ------------ */
 
 /* ------------ gallery ------------ */
 .gallery {
@@ -1225,6 +1330,30 @@
         padding: 0 52px 0 0;
     }
     /* ------------ /description ------------ */
+
+    /* --------------- speakers --------------- */
+    .speakers {
+        padding: 85px 0 1px;
+    }
+    .speakers .site__title {
+        margin-bottom: 13px;
+        padding: 0 0 23px;
+        font-size: 50px;
+    }
+    .speakers p {
+        margin-bottom: 50px;
+        font-size: 20px;
+    }
+    .speakers__person {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 18px 31px;
+    }
+    .speakers .btn{
+        display: inline-block;
+        margin: 11px 15px 87px;
+    }
+    /* --------------- /speakers --------------- */
 
     /* --------------- get-touch --------------- */
     .get-touch{
@@ -1656,6 +1785,26 @@
         margin: 0 0 14px;
     }
     /* --------------- /description --------------- */
+
+    /* --------------- speakers --------------- */
+    .speakers__layout {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+    }
+    .speakers__person {
+        margin: 0 0 31px;
+        transition: box-shadow .3s ease;
+        -webkit-transition: box-shadow .3s ease;
+    }
+    .speakers__person:hover {
+        box-shadow: 0 0 30px rgba(0,0,0,.1);
+    }
+    /* --------------- /speakers --------------- */
 
     /* --------------- get-touch --------------- */
     .get-touch{
