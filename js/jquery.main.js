@@ -24,6 +24,10 @@ $(function(){
             new CountDown ( $( this ) );
         } );
 
+        $.each( $( '.gallery' ), function(){
+            new Gallery ( $( this ) )
+        } );
+
     });
 
     var Page = function( obj ) {
@@ -339,6 +343,96 @@ $(function(){
             };
 
         _init();
+    };
+
+    var Gallery = function ( obj ) {
+
+        var _self = this,
+            _obj = obj,
+            _wrapper = _obj.find( '.gallery__wrap' ),
+            _galleryItem = '.gallery__item',
+            _window = $( window ),
+            _fancyBoxGroup = _obj.find( '.fancybox-group' ),
+            _isGallery = false;
+
+        var _addEvents = function () {
+
+                _window.on({
+
+                    resize: function(){
+
+                        if( _window.width() + _getScrollWidth() >= 1000 ) {
+
+                            if ( !_isGallery ){
+
+                                _initGallery();
+
+                            }
+
+                        } else {
+
+                            if ( _isGallery ){
+
+                                _destroyGallery();
+
+                            }
+
+                        }
+
+                    }
+
+                })
+
+            },
+            _destroyGallery = function(){
+
+                _wrapper.isotope( 'destroy' );
+                _isGallery = false;
+
+            },
+            _getScrollWidth = function(){
+                var div = document.createElement('div');
+                div.style.overflowY = 'scroll';
+                div.style.width = '50px';
+                div.style.height = '50px';
+                div.style.visibility = 'hidden';
+                document.body.appendChild(div);
+                var scrollWidth = div.offsetWidth - div.clientWidth;
+                document.body.removeChild(div);
+                return scrollWidth ;
+            },
+            _initGallery = function() {
+
+                _wrapper.isotope({
+                    itemSelector: _galleryItem,
+                    masonry: {
+                        columnWidth: 0
+                    }
+                });
+                _isGallery = true;
+
+            },
+            _initFancyBox = function(){
+                _fancyBoxGroup.fancybox({
+                    closeBtn: false,
+                    padding: [0,75,0,75]
+                });
+            },
+            _init = function () {
+
+                if( _window.width() + _getScrollWidth() >= 1000 ) {
+
+                    _initGallery();
+
+                }
+
+                _initFancyBox();
+                _addEvents();
+                _obj[0].obj = _self;
+            };
+
+        _init();
+
     };
 
 } );
