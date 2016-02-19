@@ -31,11 +31,11 @@
     -webkit-transition: color 300ms ease-in-out;
     transition: color 300ms ease-in-out;
 }
-:focus::-webkit-input-placeholder {color: transparent}
-:focus::-moz-placeholder          {color: transparent}
-:focus:-moz-placeholder           {color: transparent}
-:focus:-ms-input-placeholder      {color: transparent}
-:focus.placeholder     {color: transparent}
+:focus::-webkit-input-placeholder {color: transparent!important;}
+:focus::-moz-placeholder          {color: transparent!important;}
+:focus:-moz-placeholder           {color: transparent!important;}
+:focus:-ms-input-placeholder      {color: transparent!important;}
+:focus.placeholder     {color: transparent!important;}
 /* --------------- /placeholder --------------- */
 
 /* ------------ social ------------ */
@@ -319,6 +319,7 @@
     background: #3c3c3c;
 }
 .btn_4{
+    width: 132px;
     height: 30px;
     margin-left: 3px;
     padding: 4px 25px 2px;
@@ -360,10 +361,25 @@
 }
 .btn_9 {
     display: block;
+    width: auto;
     height: 45px;
     padding: 14px 10px;
     font-size: 16px;
     line-height: 16px;
+}
+.btn_10 {
+    display: block;
+    width: 180px;
+    height: 61px;
+    margin: 0 auto;
+    padding-top: 16px;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-size: 18px;
+}
+.btn_10:hover {
+    background: #333;
 }
 /* --------------- /btn --------------- */
 
@@ -1068,19 +1084,21 @@
 
 /* --------------- tickets --------------- */
 .tickets{
-    padding-top: 82px;
+    padding: 82px 0 30px;
     background-color: #ffdc1a;
     font-size: 16px;
     line-height: 25px;
     text-align: center;
+    overflow: hidden;
 }
 .tickets p{
     margin: 0 25px 37px;
 }
 .tickets__item{
+    position: relative;
     width: 297px;
-    margin: 0 auto;
-    padding: 53px 40px 0;
+    margin: 0 auto 23px;
+    padding: 53px 40px 30px;
     background-color: #fff;
     text-align: left;
 }
@@ -1114,6 +1132,23 @@
     left: -4px;
     color: #ffdc1a;
     content: '•';
+}
+.tickets__item_disabled{
+    opacity: .4;
+}
+.tickets__item_best:before{
+    position: absolute;
+    top: 50px;
+    right: 28px;
+    width: 60px;
+    height: 38px;
+    padding-top: 19px;
+    border-radius: 100px;
+    background-color: #ffdc1a;
+    color: #000;
+    font: italic 600 16px "Roboto", sans-serif;
+    text-align: center;
+    content: 'Best!';
 }
 /* --------------- /tickets --------------- */
 
@@ -1258,6 +1293,7 @@
 
 /* ------------ subscribe ------------ */
 .subscribe{
+    height: 339px;
     padding-top: 41px;
     background-color: #ffdc1a;
     text-align: center;
@@ -1271,14 +1307,30 @@
 .subscribe .site__form{
     background: none;
 }
-.subscribe__email{
+input.subscribe__email{
     display: block;
     width: 292px;
     height: 60px;
     margin: 0 auto 23px;
-    border: 1px solid #fff;
+    padding: 0 17px;
+    border: 1px solid transparent;
     background-color: #fff;
     font: 18px 'Roboto', sans-serif;
+    box-shadow: 0 0 5px rgba(0,0,0,0);
+    -webkit-transition: box-shadow 0.3s ease, border 0.3s ease;
+    transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+.subscribe__email.form-validation__error {
+    border-color: #ff0000;
+}
+.subscribe__email::-webkit-input-placeholder {
+    color: #b5b5b5;
+}
+.subscribe__email:-moz-placeholder {
+    color: #b5b5b5;
+}
+.subscribe__email.placeholder {
+    color: #b5b5b5;
 }
 /* ------------ /subscribe ------------ */
 
@@ -1367,6 +1419,28 @@
     font-size: 33px;
 }
 /* ------------ /gallery ------------ */
+
+/* ------------ follow-us ------------ */
+.follow-us{
+    padding: 37px 0 30px;
+    background-color: #ffdc1a;
+    text-align: center;
+}
+.follow-us__title{
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Roboto Slab', sans-serif;
+}
+.follow-us__item{
+    display: inline-block;
+    width: 210px;
+    height: 55px;
+    margin: 0 5px 10px;
+    padding-top: 17px;
+    background-color: #ffe348;
+}
+/* ------------ /follow-us ------------ */
 
 @media (min-width: 768px) {
 
@@ -1480,6 +1554,13 @@
         font-size: 18px;
         line-height: 1;
     }
+    .btn_4{
+        width: 132px;
+        height: 30px;
+        padding: 7px 25px 2px;
+        font-size: 14px;
+        line-height: 1;
+    }
     .btn_5 {
         display: inline-block;
         width: 228px;
@@ -1502,6 +1583,20 @@
         padding: 14px 10px;
         font-size: 16px;
         line-height: 16px;
+    }
+    .btn_9 {
+        width: auto;
+        height: 57px;
+        padding: 8px 10px;
+        font-size: 18px;
+    }
+    .btn_10 {
+        display: inline-block;
+        width: 180px;
+        height: 60px;
+        margin: 0 -3px;
+        padding-top: 12px;
+        font-size: 18px;
     }
     /* ------------ /btn ------------ */
 
@@ -1647,6 +1742,61 @@
         margin: 0 0 8px;
     }
     /* --------------- /get-touch --------------- */
+
+    /* --------------- tickets --------------- */
+    .tickets{
+        padding: 76px 0 39px;
+    }
+    .tickets p{
+        margin: -16px 0 37px;
+        font-size: 21px;
+    }
+    .tickets__layout{
+        width: 750px;
+        margin: 0 auto;
+        text-align: justify;
+    }
+    .tickets__layout:after{
+        display: inline-block;
+        width: 100%;
+        content: '';
+    }
+    .tickets__item{
+        display: inline-block;
+        vertical-align: top;
+        width: 360px;
+        min-height: 457px;
+        padding: 64px 38px 30px 46px;
+    }
+    .tickets__price{
+        margin-bottom: 17px;
+        font-size: 50px;
+    }
+    .tickets__status{
+        margin-bottom: 41px;
+        font-size: 24px;
+    }
+    .tickets__list{
+        margin-bottom: 26px;
+        padding-top: 15px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .tickets__list li{
+        padding-left: 11px;
+    }
+    .tickets__list li:before {
+        top: 3px;
+        left: -1px;
+    }
+    .tickets__item_best:before{
+        top: 60px;
+        width: 70px;
+        height: 46px;
+        padding-top: 25px;
+        font-size: 19px;
+    }
+    /* --------------- /tickets --------------- */
 
     /* --------------- schedule --------------- */
     .schedule__date-btns{
@@ -1801,6 +1951,20 @@
     }
     /* --------------- /news --------------- */
 
+    /* ------------ subscribe ------------ */
+    .subscribe {
+        height: 182px;
+    }
+    .subscribe__title{
+        width: auto;
+    }
+    input.subscribe__email{
+        display: inline-block;
+        width: 415px;
+        padding: 0 20px;
+    }
+    /* ------------ /subscribe ------------ */
+
     /* ------------ features ------------ */
     .features__item {
         padding-top: 33px;
@@ -1896,6 +2060,14 @@
     .site__title_white span{
         display: block;
     }
+    .btn_10 {
+        display: inline-block;
+        width: 180px;
+        height: 60px;
+        margin: 0 -3px;
+        padding-top: 12px;
+        font-size: 18px;
+    }
     /* --------------- /site --------------- */
 
     /* ------------ footer-menu ------------ */
@@ -1974,6 +2146,20 @@
         padding: 20px 10px;
         font-size: 18px;
         margin: 0 16px;
+    }
+    .btn_9 {
+        width: auto;
+        height: 52px;
+        padding: 16px 10px;
+        font-size: 18px;
+    }
+    .btn_10 {
+        display: inline-block;
+        width: 180px;
+        height: 60px;
+        margin: 0 -3px;
+        padding-top: 12px;
+        font-size: 18px;
     }
     /* --------------- /btn --------------- */
 
@@ -2233,6 +2419,22 @@
         padding: 53px 0 49px;
     }
     /* --------------- /get-touch --------------- */
+
+    /* --------------- tickets --------------- */
+    .tickets{
+        padding: 86px 0 39px;
+    }
+    .tickets__layout{
+        width: auto;
+    }
+    .tickets__item{
+        transition: box-shadow .3s ease;
+        -webkit-transition: box-shadow .3s ease;
+    }
+    .tickets__item:hover{
+        box-shadow: 0 0 30px rgba(0,0,0,.1);
+    }
+    /* --------------- tickets --------------- */
 
     /* ------------ contact-us ------------ */
     .contact-us {
