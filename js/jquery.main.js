@@ -389,6 +389,7 @@ $(function(){
         var _self = this,
             _obj = obj,
             _wrapper = _obj.find( '.gallery__wrap' ),
+            _cover = _obj.find( '.gallery__cover' ),
             _galleryItem = '.gallery__item',
             _window = $( window ),
             _fancyBoxGroup = _obj.find( '.fancybox-group' ),
@@ -400,9 +401,12 @@ $(function(){
 
         var _addGalleryContent = function( msg ){
 
+                var hasItems = null;
+
                 $.each( msg.items, function( i ){
 
                     var path;
+                    hasItems = msg.has_items;
 
                     if ( this.video == undefined ){
                         path = this.href;
@@ -424,17 +428,15 @@ $(function(){
                         newBlock.addClass( 'gallery__item_video fancybox.iframe' );
                     }
 
-                    if ( msg.has_items == 0 ){
-                        _removeBtnMore();
-                    }
-
                     _wrapper.append( newBlock );
 
                 } );
 
-                var newItems = _wrapper.find( $( '.gallery__item.hidden' ) );
+                var newItems = _wrapper.find( '.hidden' );
 
-                console.log(newItems);
+                setTimeout( function(){
+                    _heightAnimation( hasItems, newItems );
+                }, 50 );
 
             },
             _addEvents = function () {
@@ -488,6 +490,7 @@ $(function(){
                         if( _window.width() + _getScrollWidth() < 1000 ) {
                             _addGalleryContent( msg );
                         } else {
+                            _cover.height( _cover.height() );
                             _destroyGallery();
                             _addGalleryContent( msg );
                             setTimeout( function(){
@@ -521,11 +524,51 @@ $(function(){
                 document.body.removeChild(div);
                 return scrollWidth ;
             },
+            _heightAnimation = function( hasItems, newItems ){
+
+                _cover.animate( {
+                    height: _wrapper.height()
+                }, {
+                    duration: 500,
+                    complete: function(){
+
+                        _cover.css( 'height', '' );
+
+                        newItems.each( function( i ){
+                            _showNewItems( $( this ),i );
+                        } );
+
+                        if ( hasItems == 0 ){
+                            _removeBtnMore();
+                        }
+
+                    }
+                } )
+
+            },
             _removeBtnMore = function(){
 
-                _btnMore.fadeOut( 300, function(){
-                    _btnMore.remove();
-                } )
+                _btnMore.css( 'opacity', 0 );
+
+                setTimeout( function(){
+
+                    _btnMore.animate({
+                        height: 0
+                    }, {
+                        duration: 500,
+                        complete: function(){
+                            _btnMore.remove();
+                        }
+                    } );
+
+                }, 300 );
+
+            },
+            _showNewItems = function( item, index ){
+
+                setTimeout( function(){
+                    item.removeClass( 'hidden' );
+                }, index * 100 );
 
             },
             _initGallery = function() {
@@ -546,7 +589,7 @@ $(function(){
             _initFancyBox = function(){
 
                 _fancyBoxGroup.fancybox({
-                    closeBtn: false,
+                    //closeBtn: false,
                     padding: [0,75,0,75]
                 });
 
