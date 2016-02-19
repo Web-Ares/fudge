@@ -1,37 +1,34 @@
 /* ------------ registration ------------ */
 .registration {
-    margin-top: 200px;
-    background-color: #ffdc1a;
     padding: 39px 0 51px 0;
+    margin-top: 200px;
+    background: #ffdc1a;
 }
 
-.registration .site__title {
+.registration__title {
     font: 700 26px/42px 'Roboto Slab', sans-serif;
-}
-
-.registration .site__title > span {
-    font: 400 16px/38px 'Roboto', sans-serif;
     text-align: center;
+}
+
+.registration__title > span {
     display: block;
-    text-transform: none;
-    letter-spacing: 0.4px;
     margin-top: -5px;
+    font: 400 16px/38px 'Roboto', sans-serif;
+    letter-spacing: 0.4px;
+    text-align: center;
+    text-transform: none;
 }
 
-.registration .site__title {
-    letter-spacing: -0.7px;
+.registration__title {
     padding-bottom: 16px;
-}
-
-.registration .registration__wrap img {
-    width: 100%;
+    letter-spacing: -0.7px;
 }
 
 /* ------------ /registration ------------ */
 
 @media (min-width: 768px) {
     /* ------------ registration ------------ */
-    .registration .site__title > span {
+    .registration__title > span {
         font-size: 20px;
     }
 
@@ -41,16 +38,16 @@
 @media (min-width: 1000px) {
     /* ------------ registration ------------ */
     .registration {
-        padding-button: 63px;
+        padding-bottom: 63px;
     }
 
-    .registration .site__title > span {
+    .registration__title > span {
         font-size: 20px;
     }
 
-    .registration .site__title {
+    .registration__title {
+        padding-bottom: 0;
         margin-bottom: 26px;
-        padding-bottom: 0px;
     }
 
     /* ------------ /registration ------------ */
