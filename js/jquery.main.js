@@ -28,6 +28,10 @@ $(function(){
             new Gallery ( $( this ) )
         } );
 
+        $.each( $( '.schedule__items' ), function(){
+            new ScheduleOpen ( $( this ) )
+        } );
+
     });
 
     var Page = function( obj ) {
@@ -408,7 +412,7 @@ $(function(){
                         newBlock.addClass( 'gallery__item_height2x' );
                     }
 
-                    if ( i == 2 || i == 4 ){
+                    if ( i == 2 || i == 4 || i == 5 ){
                         newBlock.addClass( 'gallery__item_width2x' );
                     }
 
@@ -478,7 +482,15 @@ $(function(){
                     type: "GET",
                     success: function ( msg ) {
 
+                        _destroyGallery();
+
                         _addGalleryContent( msg );
+
+                        setTimeout( function(){
+
+                            _initGallery();
+
+                        }, 10 );
 
                     },
                     error: function ( XMLHttpRequest ) {
@@ -542,6 +554,59 @@ $(function(){
 
         _init();
 
+    };
+
+    var ScheduleOpen = function( obj ) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _items = _obj.find( '.schedule__item-drop-down' ),
+            _btnOpen = _items.find( '.schedule__event' ),
+            _window = $( window );
+
+        //private methods
+        var _addEvents = function() {
+
+                _btnOpen.on( {
+                    'click': function() {
+
+                        _openScheduleDetails( $( this ) );
+
+                    }
+                } );
+
+            },
+            _openScheduleDetails = function( elem )  {
+
+                var curItem = elem,
+                    curItemParent = curItem.parent( _items),
+                    details = curItem.next();
+
+                if( curItemParent.hasClass( 'opened' ) ) {
+
+                    curItemParent.removeClass( 'opened' );
+                    details.slideUp( 300 );
+
+                } else {
+
+                    _items.removeClass( 'opened' );
+                    _btnOpen.next().slideUp( 300 );
+
+                    curItemParent.addClass( 'opened' );
+                    details.slideDown( 300 );
+                    
+                }
+
+            },
+            _init = function() {
+
+                _addEvents();
+                _obj[ 0 ].obj = _self;
+
+            };
+
+        _init();
     };
 
 } );
