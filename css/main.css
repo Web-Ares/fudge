@@ -339,8 +339,8 @@
     width: 190px;
     height: 45px;
     padding: 14px 10px;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 16px;
+    line-height: 16px;
 }
 /* --------------- /btn --------------- */
 
@@ -349,6 +349,7 @@
     display: inline-block;
     vertical-align: top;
     padding: 3px 13px;
+    margin: 0 0 10px;
     min-width: 88px;
     color: #fff;
     text-transform: uppercase;
@@ -880,6 +881,7 @@
     background: #ffdc1a;
 }
 .schedule__filters{
+    margin: 0 0 26px;
     text-align: center;
 }
 .schedule__filters-main-venue{
@@ -916,6 +918,8 @@
     font-weight: 700;
 }
 .schedule__concurrent{
+    position: relative;
+    z-index: 1;
     padding: 20px 0 0;
     border-top: 2px solid #f3f3f3;
 }
@@ -946,24 +950,29 @@
 .schedule__concurrent .schedule__item:first-of-type{
     border-top: none;
 }
+.schedule__details{
+    padding: 13px 0 36px;
+}
 .schedule__main-place{
     display: block;
-    margin: 0 0 10px;
+    margin: 0 0 42px;
     color: #b5b5b5;
     font-size: 16px;
     line-height: 19px;
 }
 .schedule__speakers-group{
-
+    margin: 0 0 25px;
 }
 .schedule__speaker{
     display: inline-block;
     vertical-align: top;
-    width: 39%;
+    width: 40.6%;
+    margin: 0 6px 16px;
+    text-align: center;
 }
 .schedule__speaker-pic{
     padding-bottom: 62%;
-    margin: 0 0 10px;
+    margin: 0 0 9px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -974,6 +983,17 @@
     font-weight: 700;
     text-transform: uppercase;
     color: #000;
+}
+.schedule__text{
+    padding: 0 30px;
+    margin: 0 0 21px;
+    font-size: 16px;
+    line-height: 22px;
+}
+.schedule__labels{
+    height: 50px;
+    overflow: hidden;
+    margin: 0 0 9px;
 }
 /* --------------- /schedule --------------- */
 
@@ -1544,14 +1564,88 @@
     /* --------------- /get-touch --------------- */
 
     /* --------------- schedule --------------- */
+    .schedule__date-btns{
+        max-width: 100%;
+        margin-bottom: 19px;
+    }
+    .schedule__date-btn{
+        display: inline-block;
+        vertical-align: top;
+        width: 190px;
+    }
     .schedule__filters-main-venue{
         width: 186px;
     }
     .schedule__filters-technology{
         width: 195px;
+        margin: 0 0 0 -4px;
     }
     .schedule__concurrent-title{
         display: none;
+    }
+    .schedule__filters {
+        margin: 0 0 35px;
+    }
+    .schedule__items{
+        text-align: left;
+    }
+    .schedule__item{
+        text-align: left;
+        padding: 24px 17px 17px;
+    }
+    .schedule__item:first-child {
+        padding-top: 24px;
+    }
+    .schedule__time{
+        display: inline-block;
+        vertical-align: top;
+        margin: 3px 0 0;
+        padding: 0 10px 0 0;
+        width: 13.9%;
+    }
+    .schedule__event{
+        display: inline-block;
+        vertical-align: top;
+        width: 85%;
+        padding: 0 0 0 27px;
+    }
+    .schedule__details {
+        padding: 8px 0 36px 18.5%;
+    }
+    .schedule__main-place {
+        margin: 0 0 23px;
+    }
+    .schedule__speakers-group {
+        margin: 0 0 19px;
+    }
+    .schedule__speaker{
+        width: 20.8%;
+        margin: 0 5px 10px 0;
+    }
+    .schedule__speaker-pic {
+        margin: 0 0 10px;
+    }
+    .schedule__text {
+        padding: 0 27% 0 0;
+        margin: 0 0 23px;
+    }
+    .schedule__labels {
+        margin: 0 0 6px;
+    }
+    .schedule__concurrent{
+        padding: 0 0 6px;
+    }
+    .schedule__concurrent:after{
+        position: absolute;
+        top: 22%;
+        left: 15%;
+        bottom: 22%;
+        width: 3px;
+        background: #ffdc1a;
+        content: '';
+    }
+    .schedule__concurrent .schedule__item{
+        border: none;
     }
     /* --------------- /schedule --------------- */
 
@@ -1736,13 +1830,6 @@
         font-size: 18px;
         line-height: 18px;
     }
-    .btn_7 {
-        width: 190px;
-        height: 45px;
-        padding: 14px 10px;
-        font-size: 16px;
-        line-height: 16px;
-    }
     .btn_2 {
         height: 100%;
         width: 100%;
@@ -1755,6 +1842,13 @@
         padding: 18px 10px;
         font-size: 18px;
         line-height: 1;
+    }
+    .btn_7 {
+        width: 190px;
+        height: 45px;
+        padding: 14px 10px;
+        font-size: 16px;
+        line-height: 16px;
     }
     /* --------------- /btn --------------- */
 
