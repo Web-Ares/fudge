@@ -372,7 +372,6 @@ $(function(){
             _cover = _obj.find( '.gallery__cover' ),
             _galleryItem = '.gallery__item',
             _window = $( window ),
-            _fancyBoxGroup = _obj.find( '.fancybox-group' ),
             _btnMore = _obj.find( '.gallery__more' ),
             _btnAction = _btnMore.data( 'action' ),
             _isGallery = false,
@@ -393,7 +392,7 @@ $(function(){
                         path = this.video;
                     }
 
-                    var newBlock = $( '<a href="' + path + '" title="' + this.title + '" class="gallery__item fancybox-group hidden" data-fancybox-group="gallery" style="background-image: url(' + this.dummy + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
+                    var newBlock = $( '<a href="' + path + '" title="' + this.title + '" class="gallery__item hidden" style="background-image: url(' + this.dummy + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
 
                     if ( i == 0 || i == 4 ){
                         newBlock.addClass( 'gallery__item_height2x' );
@@ -404,7 +403,7 @@ $(function(){
                     }
 
                     if ( this.video ){
-                        newBlock.addClass( 'gallery__item_video fancybox.iframe' );
+                        newBlock.addClass( 'gallery__item_video' );
                     }
 
                     _wrapper.append( newBlock );
@@ -567,20 +566,12 @@ $(function(){
                 _isGallery = true;
 
             },
-            _initFancyBox = function(){
-
-                _fancyBoxGroup.fancybox({
-                    padding: [0,75,0,75]
-                });
-
-            },
             _init = function () {
 
                 if( _window.width() + _getScrollWidth() >= 1000 ) {
                     _initGallery();
                 }
 
-                _initFancyBox();
                 _addEvents();
                 _obj[0].obj = _self;
             };
