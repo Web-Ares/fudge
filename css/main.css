@@ -184,7 +184,7 @@
     height: 60px;
 }
 .site__form-sent,
-.site__form-submit button.btn {
+.site__form-submit button.btn  {
     position: absolute;
     top: 0;
     left: 0;
