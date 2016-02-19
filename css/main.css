@@ -300,13 +300,13 @@
     margin-left: 3px;
     padding: 4px 25px 2px;
 }
-.btn_fading{
+.btn_5{
     border: none;
     background: #ffee8d;
     -webkit-transition: background 0.3s ease;
     transition: background 0.3s ease;
 }
-.btn_fading:hover{
+.btn_5:hover{
     background: #fffadd;
 }
 .btn_dark {
