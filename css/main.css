@@ -819,6 +819,7 @@
 }
 .speakers__person{
     display: block;
+    position: relative;
     width: 260px;
     height: 290px;
     margin: 0 auto 33px;
@@ -827,8 +828,27 @@
     font-size: 16px;
     line-height: 20px;
 }
+.speakers__person_favorite:before{
+    right: 0;
+    top: 0;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(235, 33, 46, 0);
+    border-right-color: #eb212e;
+    border-width: 0 44px 44px 0;
+}
 .speakers__person_favorite:after{
     content: '';
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    font-size: 18px;
+    font-family: 'FontAwesome', sans-serif;
+    color: #fff;
 }
 .speakers__photo {
     width: inherit;
