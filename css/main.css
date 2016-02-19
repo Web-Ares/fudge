@@ -271,7 +271,8 @@
     padding: 13px 10px;
     text-align: center;
     text-transform: uppercase;
-    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
     color: #000;
     font-size: 20px;
     line-height: 20px;
@@ -299,8 +300,6 @@
     width: 100%;
     padding: 0;
     z-index: 1;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
     font-size: 18px;
 }
 .btn_3 {
@@ -312,8 +311,6 @@
     font-weight: 500;
     font-size: 18px;
     padding: 18px 10px;
-    -webkit-transition: background 0.3s ease;
-    transition: background 0.3s ease;
 }
 .btn_3:hover {
     background: #3c3c3c;
@@ -326,8 +323,6 @@
 .btn_5{
     border: none;
     background: #ffee8d;
-    -webkit-transition: background 0.3s ease;
-    transition: background 0.3s ease;
 }
 .btn_5:hover{
     background: #fffadd;
@@ -336,11 +331,16 @@
     color: #fff;
     background: #000;
     border: none;
-    -webkit-transition: background 0.3s ease;
-    transition: background 0.3s ease;
 }
 .btn_6:hover {
     background: #333;
+}
+.btn_7 {
+    width: 190px;
+    height: 45px;
+    padding: 14px 10px;
+    font-size: 14px;
+    line-height: 14px;
 }
 /* --------------- /btn --------------- */
 
@@ -1386,6 +1386,13 @@
         font-size: 18px;
         line-height: 1;
     }
+    .btn_7 {
+        width: 190px;
+        height: 45px;
+        padding: 14px 10px;
+        font-size: 16px;
+        line-height: 16px;
+    }
     /* ------------ /btn ------------ */
 
     /* ------------ menu-btn ------------ */
@@ -1728,6 +1735,13 @@
         padding: 17px 10px;
         font-size: 18px;
         line-height: 18px;
+    }
+    .btn_7 {
+        width: 190px;
+        height: 45px;
+        padding: 14px 10px;
+        font-size: 16px;
+        line-height: 16px;
     }
     .btn_2 {
         height: 100%;
