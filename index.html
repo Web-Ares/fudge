@@ -1212,11 +1212,51 @@
                     <div class="tickets__layout">
 
                         <!-- tickets__item -->
-                        <div class="tickets__item">
+                        <div class="tickets__item tickets__item_disabled">
 
                             <span class="tickets__price">$198</span>
 
                             <span class="tickets__status">Sold Out!</span>
+
+                            <ul class="tickets__list">
+                                <li>Feature List item one</li>
+                                <li>Another feature item</li>
+                                <li>The third list item is even more</li>
+                                <li>The 4th list item is awesome</li>
+                                <li>And the list goes on</li>
+                            </ul>
+
+                            <span href="#" class="btn btn_9">BUY</span>
+
+                        </div>
+                        <!-- /tickets__item -->
+
+                        <!-- tickets__item -->
+                        <div class="tickets__item tickets__item_best">
+
+                            <span class="tickets__price">$265</span>
+
+                            <span class="tickets__status">Featured Ticket</span>
+
+                            <ul class="tickets__list">
+                                <li>Feature List item one</li>
+                                <li>Another feature item</li>
+                                <li>The third list item is even more</li>
+                                <li>The 4th list item is awesome</li>
+                                <li>And the list goes on</li>
+                            </ul>
+
+                            <a href="#" class="btn btn_9">BUY</a>
+
+                        </div>
+                        <!-- /tickets__item -->
+
+                        <!-- tickets__item -->
+                        <div class="tickets__item">
+
+                            <span class="tickets__price">$398</span>
+
+                            <span class="tickets__status">Business Ticket</span>
 
                             <ul class="tickets__list">
                                 <li>Feature List item one</li>
@@ -1447,14 +1487,14 @@
 
                     <h2 class="subscribe__title">Subscribe to our newsletter now and stay informed!</h2>
 
-                    <form action="php/form.php" class="site__form form-validation" novalidate>
+                    <form action="php/form.php" class="form-validation" novalidate>
 
                         <!-- subscribe__email -->
-                        <input type="email" name="subscribe__email" class="subscribe__email" placeholder="enter your email" />
+                        <input type="email" name="subscribe__email" class="subscribe__email" placeholder="enter your email" required/>
                         <!-- /subscribe__email -->
 
                         <!-- subscribe__email -->
-                        <button type="submit" name="subscribe__btn" class="btn btn_6">SUBSCRIBE</button>
+                        <button type="submit" name="subscribe__btn" class="btn btn_10">SUBSCRIBE</button>
                         <!-- /subscribe__email -->
 
                     </form>
@@ -1464,6 +1504,34 @@
 
             </div>
             <!-- /subscribe -->
+
+            <!-- follow-us -->
+            <div class="follow-us">
+
+                <!-- site__centered -->
+                <div class="site__centered">
+
+                    <!-- follow-us__title -->
+                    <div class="follow-us__title">FOLLOW US!</div>
+                    <!-- /follow-us__title -->
+
+                    <!-- follow-us__item -->
+                    <div class="follow-us__item">
+                        <img src="pic/img-twitter.jpg" alt="img"/>
+                    </div>
+                    <!-- /follow-us__item -->
+
+                    <!-- follow-us__item -->
+                    <div class="follow-us__item">
+                        <img src="pic/img-facebook.png" alt="img"/>
+                    </div>
+                    <!-- /follow-us__item -->
+
+                </div>
+                <!-- /site__centered -->
+
+            </div>
+            <!-- /follow-us -->
 
             <!-- gallery -->
             <section class="gallery">
