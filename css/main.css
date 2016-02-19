@@ -161,6 +161,14 @@
 .site__title_1:after{
     background: #fff;
 }
+.site__title_small{
+    padding: 0 0 14px;
+    margin: 0 0 11px;
+}
+.site__title_small:after{
+    width: 54px;
+    height: 5px;
+}
 .site__form {
     padding: 49px 20px 46px;
     background: #f3f3f3;
@@ -409,8 +417,14 @@
 }
 .label_big{
     display: block;
-    padding: 6px 13px;
-    margin: 0 0 3px;
+    padding: 8px 13px;
+    margin: 0 0 4px;
+    cursor: pointer;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+.label_big:hover{
+    opacity: 0.6;
 }
 .label_1{
     background: #345cc2;
@@ -1248,6 +1262,14 @@
     font-size: 16px;
     line-height: 20px;
 }
+.where__layout{
+    height: 250px;
+    padding: 0 10px 0 0;
+    margin: 0 0 3px;
+}
+.where__text{
+    margin: 0 0 28px;
+}
 .where__map{
     position: absolute;
     top: 0;
@@ -1261,13 +1283,24 @@
 }
 .where__popup{
     position: absolute;
-    top: 15px;
-    bottom: 20px;
-    left: 15px;
+    right: 13px;
+    bottom: 31px;
+    left: 13px;
     height: 400px;
     background: #fff;
-    padding: 10px 10px;
+    padding: 43px 36px 10px;
     text-align: center;
+    box-shadow: 0 0 15px 2px rgba(0,0,0,0.3);
+}
+.where__links{
+    color: #b6b6b6;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.where_back{
+    display: none;
 }
 /* --------------- /where --------------- */
 
@@ -1572,6 +1605,14 @@ input.subscribe__email{
         font-size: 50px;
         line-height: 52px;
     }
+    .site__title_small{
+        padding: 0 0 22px;
+        margin: 0 0 16px;
+    }
+    .site__title_small:after {
+        width: 80px;
+        height: 6px;
+    }
     .site__title_big{
         padding: 0 0 33px;
         margin: 0 0 32px;
@@ -1727,6 +1768,15 @@ input.subscribe__email{
         color: #000;
     }
     /* ------------ /header-menu ------------ */
+
+    /* ------------ label ------------ */
+    .label_big {
+        padding: 13px 13px;
+        margin: 0 0 5px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+    /* ------------ /label ------------ */
 
     /* ------------ hero ------------ */
     .hero {
@@ -2057,6 +2107,32 @@ input.subscribe__email{
     }
     /* --------------- /news --------------- */
 
+    /* --------------- where --------------- */
+    .where{
+        height: 699px;
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .where__popup{
+        width: 460px;
+        height: 541px;
+        left: 17px;
+        bottom: 80px;
+        padding: 70px 58px 10px;
+    }
+    .where__text {
+        margin: 0 0 26px;
+    }
+    .where__layout{
+        height: 320px;
+        margin: 0 0 8px;
+    }
+    .where__links {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    /* --------------- /where --------------- */
+
     /* ------------ subscribe ------------ */
     .subscribe {
         height: 182px;
@@ -2120,12 +2196,6 @@ input.subscribe__email{
 @media (min-width: 1000px) {
 
     /* --------------- site --------------- */
-    .site__title_big{
-        padding: 0 0 30px;
-        margin: 0 0 33px;
-        font-size: 64px;
-        line-height: 62px;
-    }
     .site__footer {
         padding: 80px 71px 50px;
     }
@@ -2150,6 +2220,16 @@ input.subscribe__email{
     .site__title{
         padding: 0 0 30px;
         margin: 0 0 33px;
+    }
+    .site__title_big{
+        padding: 0 0 30px;
+        margin: 0 0 33px;
+        font-size: 64px;
+        line-height: 62px;
+    }
+    .site__title_small{
+        padding: 0 0 22px;
+        margin: 0 0 16px;
     }
     .site__title_to-left {
         text-align: left;
@@ -2653,6 +2733,12 @@ input.subscribe__email{
         box-shadow: 0 0 30px rgba(0,0,0,.1);
     }
     /* --------------- /news --------------- */
+
+    /* --------------- where --------------- */
+    .where__popup{
+        left: 10.5%;
+    }
+    /* --------------- /where --------------- */
 
     /* ------------ features ------------ */
     .features {

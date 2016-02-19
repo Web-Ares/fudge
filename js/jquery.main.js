@@ -32,6 +32,15 @@ $(function(){
             new ScheduleOpen ( $( this ) )
         } );
 
+        $('.where__layout').niceScroll({
+            cursorcolor:"#f3f3f3",
+            cursoropacitymin: "1",
+            cursorborderradius: "3px",
+            cursorborder: "none",
+            cursorwidth: "5",
+            enablemousewheel: true
+        });
+
     });
 
     var Page = function( obj ) {
@@ -677,3 +686,24 @@ $(function(){
     };
 
 } );
+
+var initMap = function(){
+    var _map = $('#map'),
+        lat = _map.attr('data-lat'),
+        lng = _map.attr('data-lng'),
+        myLatLng = {lat: parseFloat(lat), lng: parseFloat(lng)},
+
+        map = new google.maps.Map(_map[0], {
+            zoom: 10,
+            center: myLatLng,
+            scrollwheel: false,
+            draggable: false
+        }),
+
+        marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map
+        });
+};
+
+
