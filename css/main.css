@@ -1641,11 +1641,6 @@
         -webkit-flex-flow: row wrap;
         justify-content: space-around;
     }
-    .gallery__wrap:after {
-        display: inline-block;
-        width: 100%;
-        content: '';
-    }
     .gallery__item {
         display: inline-block;
         vertical-align: top;
@@ -1653,7 +1648,6 @@
         margin-bottom: 16px;
         width: 48.5%;
     }
-    .gallery__item {}
     /* ------------ /gallery ------------ */
 
 }
@@ -2136,14 +2130,10 @@
         box-sizing: border-box;
     }
     .gallery__item_height2x {
-        padding-bottom: 0;
         height: 573px;
     }
     .gallery__item_width2x {
         width: 40%;
-    }
-    .gallery__item:not(.gallery__item_video) {
-        position: relative;
     }
     .gallery__item:not(.gallery__item_video):before {
         opacity: 0;

@@ -404,11 +404,11 @@ $(function(){
 
                     var newBlock = $( '<a href="' + this.href + '" title="' + this.title + '" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url(' + this.imageBG + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
 
-                    if ( i == 0 || i == 4 ){
+                        if ( i == 0 || i == 4 ){
                         newBlock.addClass( 'gallery__item_height2x' );
                     }
 
-                    if ( i == 2 || i == 4 || i == 5 ){
+                    if ( i == 2 || i == 4 || i == 7 ){
                         newBlock.addClass( 'gallery__item_width2x' );
                     }
 
@@ -430,17 +430,13 @@ $(function(){
                         if( _window.width() + _getScrollWidth() >= 1000 ) {
 
                             if ( !_isGallery ){
-
                                 _initGallery();
-
                             }
 
                         } else {
 
                             if ( _isGallery ){
-
                                 _destroyGallery();
-
                             }
 
                         }
@@ -452,11 +448,8 @@ $(function(){
                 _btnMore.on({
 
                     click: function(){
-
                         _ajaxRequest();
-
                         return false;
-
                     }
 
                 })
@@ -465,9 +458,7 @@ $(function(){
             _ajaxRequest = function(){
 
                 var galleryItem = _wrapper.find( '.gallery__item' );
-
                 _request.abort();
-
                 _request = $.ajax({
                     url: _btnAction,
                     data: {
@@ -478,15 +469,19 @@ $(function(){
                     type: "GET",
                     success: function ( msg ) {
 
-                        _destroyGallery();
+                        if( _window.width() + _getScrollWidth() < 1000 ) {
 
-                        _addGalleryContent( msg );
+                            _addGalleryContent( msg );
 
-                        setTimeout( function(){
+                        } else {
 
-                            _initGallery();
+                            _destroyGallery();
+                            _addGalleryContent( msg );
+                            setTimeout( function(){
+                                _initGallery();
+                            }, 10 );
 
-                        }, 10 );
+                        }
 
                     },
                     error: function ( XMLHttpRequest ) {
@@ -500,7 +495,6 @@ $(function(){
             _destroyGallery = function(){
 
                 _wrapper.isotope( 'destroy' );
-
                 _isGallery = false;
 
             },
@@ -516,6 +510,9 @@ $(function(){
                 return scrollWidth ;
             },
             _initGallery = function() {
+
+                _wrapper = _obj.find( '.gallery__wrap' );
+                _galleryItem = '.gallery__item';
 
                 _wrapper.isotope({
                     itemSelector: _galleryItem,
@@ -538,9 +535,7 @@ $(function(){
             _init = function () {
 
                 if( _window.width() + _getScrollWidth() >= 1000 ) {
-
                     _initGallery();
-
                 }
 
                 _initFancyBox();
