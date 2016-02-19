@@ -311,7 +311,7 @@
     border: none;
     font-weight: 500;
     font-size: 18px;
-    padding: 21px 10px;
+    padding: 18px 10px;
     -webkit-transition: background 0.3s ease;
     transition: background 0.3s ease;
 }
@@ -1373,6 +1373,19 @@
         font-size: 18px;
         line-height: 18px;
     }
+    .btn_2 {
+        height: 100%;
+        width: 100%;
+        font-size: 18px;
+        padding: 0;
+    }
+    .btn_3 {
+        width: 230px;
+        height: 54px;
+        padding: 18px 10px;
+        font-size: 18px;
+        line-height: 1;
+    }
     /* ------------ /btn ------------ */
 
     /* ------------ menu-btn ------------ */
@@ -1716,6 +1729,19 @@
         font-size: 18px;
         line-height: 18px;
     }
+    .btn_2 {
+        height: 100%;
+        width: 100%;
+        font-size: 18px;
+        padding: 0;
+    }
+    .btn_3 {
+        width: 230px;
+        height: 54px;
+        padding: 18px 10px;
+        font-size: 18px;
+        line-height: 1;
+    }
     /* --------------- /btn --------------- */
 
     /* --------------- header-menu --------------- */
@@ -1993,7 +2019,7 @@
     .contact-us__form {
         display: inline-block;
         vertical-align: top;
-        margin-top: 8px;
+        margin-top: 3px;
         width: 51.5%;
     }
     .contact-us__content-double {
