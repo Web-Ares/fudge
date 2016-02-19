@@ -2738,7 +2738,13 @@ input.subscribe__email{
 
     /* --------------- news --------------- */
     .news__layout {
-        text-align: justify;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
     }
     .news__layout:after {
         display: inline-block;
