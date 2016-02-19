@@ -385,7 +385,30 @@ $(function(){
             _isGallery = false,
             _request = new XMLHttpRequest();
 
-        var _addEvents = function () {
+        var _addGalleryContent = function( msg ){
+
+                $.each( msg, function( i ){
+
+                    var newBlock = $( '<a href="' + this.href + '" title="' + this.title + '" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url(' + this.imageBG + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
+
+                    if ( i == 0 || i == 4 ){
+                        newBlock.addClass( 'gallery__item_height2x' );
+                    }
+
+                    if ( i == 2 || i == 4 ){
+                        newBlock.addClass( 'gallery__item_width2x' );
+                    }
+
+                    if ( this.video ){
+                        newBlock.addClass( 'gallery__item_video fancybox.iframe' );
+                    }
+
+                    _wrapper.append( newBlock );
+
+                } );
+
+            },
+            _addEvents = function () {
 
                 _window.on({
 
@@ -431,6 +454,7 @@ $(function(){
                 var galleryItem = _wrapper.find( '.gallery__item' );
 
                 _request.abort();
+
                 _request = $.ajax({
                     url: _btnAction,
                     data: {
@@ -440,7 +464,9 @@ $(function(){
                     timeout: 20000,
                     type: "GET",
                     success: function ( msg ) {
-                        console.log( msg );
+
+                        _addGalleryContent( msg );
+
                     },
                     error: function ( XMLHttpRequest ) {
                         if( XMLHttpRequest.statusText != "abort" ) {
@@ -453,6 +479,7 @@ $(function(){
             _destroyGallery = function(){
 
                 _wrapper.isotope( 'destroy' );
+
                 _isGallery = false;
 
             },
@@ -475,14 +502,17 @@ $(function(){
                         columnWidth: 0
                     }
                 });
+
                 _isGallery = true;
 
             },
             _initFancyBox = function(){
+
                 _fancyBoxGroup.fancybox({
                     closeBtn: false,
                     padding: [0,75,0,75]
                 });
+
             },
             _init = function () {
 
