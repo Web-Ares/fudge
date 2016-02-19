@@ -827,6 +827,9 @@
     font-size: 16px;
     line-height: 20px;
 }
+.speakers__person_favorite:after{
+    content: '';
+}
 .speakers__photo {
     width: inherit;
     height: 162px;
