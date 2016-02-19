@@ -10,6 +10,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/fancybox.css" />
+    <link rel="stylesheet" href="css/select.css" />
     <link rel="stylesheet" href="css/main.css" />
 
 </head>
@@ -213,13 +214,160 @@
                     <h2 class="site__title site__title_black">SCHEDULE</h2>
                     <!-- /site__title -->
 
-                    <!-- schedule__filter-btns -->
-                    <div class="schedule__filter-btns">
-                        <a href="#">26 Tuesday</a>
-                        <a href="#">27 WEDNESDAY</a>
-                        <a href="#">28 Thursday</a>
+                    <!-- schedule__date-btns -->
+                    <div class="schedule__date-btns">
+                        <a class="schedule__date-btn active" href="#">26 Tuesday</a>
+                        <a class="schedule__date-btn" href="#">27 WEDNESDAY</a>
+                        <a class="schedule__date-btn" href="#">28 Thursday</a>
                     </div>
-                    <!-- /schedule__filter-btns -->
+                    <!-- /schedule__date-btns -->
+
+                    <!-- schedule__filters -->
+                    <div class="schedule__filters">
+                        <select name="main-venue" id="main-venue" class="schedule__filters-main-venue">
+                            <option value="0">Main venue </option>
+                            <option value="1">Main venue 1</option>
+                            <option value="2">Main venue 2</option>
+                            <option value="3">Main venue 3</option>
+                        </select>
+                        <select name="Technology" id="technology" class="schedule__filters-technology">
+                            <option value="0">#Technology</option>
+                            <option value="1">#LABEL ONE</option>
+                            <option value="2">#LABEL TWO</option>
+                            <option value="3">#LABEL THREE</option>
+                        </select>
+                    </div>
+                    <!-- /schedule__filters -->
+
+                    <!-- schedule__items -->
+                    <div class="schedule__items">
+
+                        <!-- schedule__item -->
+                        <div class="schedule__item">
+                            <time class="schedule__time" datetime="09:00">9:00-11:00</time>
+                            <h2 class="schedule__event">User Experience and Radical Users</h2>
+
+                            <!-- schedule__details -->
+                            <div class="schedule__details">
+
+                                <!-- schedule__main-place -->
+                                <span class="schedule__main-place">
+                                    <i class="fa fa-location-arrow"></i>
+                                    MAIN VENUE
+                                </span>
+                                <!-- /schedule__main-place -->
+
+                                <!-- schedule__speakers-group -->
+                                <div class="schedule__speakers-group">
+
+                                    <!-- schedule__speaker -->
+                                    <div class="schedule__speaker">
+
+                                        <!-- schedule__speaker-pic -->
+                                        <div class="schedule__speaker-pic" style="background-image: url('pic/speaker1.jpg')">
+                                        </div>
+                                        <!-- /schedule__speaker-pic -->
+
+                                        <h3 class="schedule__speaker-name">Jane
+                                            ROTENBERG</h3>
+
+                                    </div>
+                                    <!-- /schedule__speaker -->
+
+                                    <!-- schedule__speaker -->
+                                    <div class="schedule__speaker">
+
+                                        <!-- schedule__speaker-pic -->
+                                        <div class="schedule__speaker-pic" style="background-image: url('pic/speaker1.jpg')">
+                                        </div>
+                                        <!-- /schedule__speaker-pic -->
+
+                                        <h3 class="schedule__speaker-name">Jane
+                                            ROTENBERG</h3>
+
+                                    </div>
+                                    <!-- /schedule__speaker -->
+
+                                    <!-- schedule__speaker -->
+                                    <div class="schedule__speaker">
+
+                                        <!-- schedule__speaker-pic -->
+                                        <div class="schedule__speaker-pic" style="background-image: url('pic/speaker1.jpg')">
+                                        </div>
+                                        <!-- /schedule__speaker-pic -->
+
+                                        <h3 class="schedule__speaker-name">Jane
+                                            ROTENBERG</h3>
+
+                                    </div>
+                                    <!-- /schedule__speaker -->
+
+                                    <!-- schedule__speaker -->
+                                    <div class="schedule__speaker">
+
+                                        <!-- schedule__speaker-pic -->
+                                        <div class="schedule__speaker-pic" style="background-image: url('pic/speaker1.jpg')">
+                                        </div>
+                                        <!-- /schedule__speaker-pic -->
+
+                                        <h3 class="schedule__speaker-name">Jane
+                                            ROTENBERG</h3>
+
+                                    </div>
+                                    <!-- /schedule__speaker -->
+
+                                </div>
+                                <!-- /schedule__speakers-group -->
+
+                            </div>
+                            <!-- /schedule__details -->
+
+                        </div>
+                        <!-- /schedule__item -->
+
+                        <!-- schedule__item -->
+                        <div class="schedule__item">
+                            <time class="schedule__time" datetime="09:00">9:00-11:00</time>
+                            <h2 class="schedule__event">User Experience and Radical Users</h2>
+                        </div>
+                        <!-- /schedule__item -->
+
+                        <!-- schedule__concurrent -->
+                        <div class="schedule__concurrent">
+
+                            <!-- schedule__concurrent-title -->
+                            <span class="schedule__concurrent-title">
+                                Concurrent sessions
+                            </span>
+                            <!-- /schedule__concurrent-title -->
+
+                            <!-- schedule__item -->
+                            <div class="schedule__item">
+                                <time class="schedule__time" datetime="09:00">9:00-11:00</time>
+                                <h2 class="schedule__event">User Experience and Radical Users</h2>
+                            </div>
+                            <!-- /schedule__item -->
+
+                            <!-- schedule__item -->
+                            <div class="schedule__item">
+                                <time class="schedule__time" datetime="09:00">9:00-11:00</time>
+                                <h2 class="schedule__event">User Experience and Radical Users</h2>
+                            </div>
+                            <!-- /schedule__item -->
+
+                        </div>
+                        <!-- /schedule__concurrent -->
+
+                        <!-- schedule__item -->
+                        <div class="schedule__item">
+                            <time class="schedule__time" datetime="09:00">9:00-11:00</time>
+                            <h2 class="schedule__event">User Experience and Radical Users</h2>
+                        </div>
+                        <!-- /schedule__item -->
+
+
+                    </div>
+                    <!-- /schedule__items -->
                     
                 </div>
                 <!-- /site__centered -->
@@ -773,6 +921,8 @@
     <script src="js/jquery.countdown.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.select.js"></script>
     <script src="js/jquery.main.js"></script>
 
 </body>

@@ -747,6 +747,131 @@
 }
 /* --------------- /get-touch --------------- */
 
+/* --------------- schedule --------------- */
+.schedule {
+    padding: 78px 0 30px;
+    font-size: 16px;
+    line-height: 19px;
+}
+.schedule .site__title{
+    margin: 0 0 34px;
+}
+.schedule__date-btns {
+    max-width: 190px;
+    margin: 0 auto 25px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.schedule__date-btn{
+    display: block;
+    padding: 8px 10px;
+    margin: 0 0 15px;
+    color: #000;
+}
+.schedule__date-btn.active{
+    background: #ffdc1a;
+}
+.schedule__filters{
+    text-align: center;
+}
+.schedule__filters-main-venue{
+    width: 136px;
+}
+.schedule__filters-technology{
+    width: 147px;
+}
+.schedule__items{
+    text-align: center;
+}
+.schedule__item{
+    position: relative;
+    padding: 23px 0;
+    border-top: 2px solid #f3f3f3;
+    text-align: center;
+}
+.schedule__item:first-child{
+    padding-top: 18px;
+    border-top: none;
+}
+.schedule__time{
+    display: block;
+    margin: 0 0 13px;
+    font-size: 16px;
+    line-height: 19px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+}
+.schedule__event{
+    display: block;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 700;
+}
+.schedule__concurrent{
+    padding: 20px 0 0;
+    border-top: 2px solid #f3f3f3;
+}
+.schedule__concurrent-title{
+    display: block;
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px;
+    font-size: 16px;
+    line-height: 19px;
+}
+.schedule__concurrent-title:before,
+.schedule__concurrent-title:after{
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 17px;
+    top: 0;
+    background: #ffdc1a;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    content: '';
+}
+.schedule__concurrent-title:after{
+    top: auto;
+    bottom: 0;
+}
+.schedule__concurrent .schedule__item:first-of-type{
+    border-top: none;
+}
+.schedule__main-place{
+    display: block;
+    margin: 0 0 10px;
+    color: #b5b5b5;
+    font-size: 16px;
+    line-height: 19px;
+}
+.schedule__speakers-group{
+
+}
+.schedule__speaker{
+    display: inline-block;
+    vertical-align: top;
+    width: 39%;
+}
+.schedule__speaker-pic{
+    padding-bottom: 62%;
+    margin: 0 0 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.schedule__speaker-name{
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+/* --------------- /schedule --------------- */
+
 /* ------------ contact-us ------------ */
 .contact-us {
     text-align: center;
@@ -1201,6 +1326,18 @@
         margin: 0 0 8px;
     }
     /* --------------- /get-touch --------------- */
+
+    /* --------------- schedule --------------- */
+    .schedule__filters-main-venue{
+        width: 186px;
+    }
+    .schedule__filters-technology{
+        width: 195px;
+    }
+    .schedule__concurrent-title{
+        display: none;
+    }
+    /* --------------- /schedule --------------- */
 
     /* ------------ contact-us ------------ */
     .contact-us {

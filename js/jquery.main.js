@@ -44,7 +44,10 @@ $(function(){
                 _window.on({
 
                     load: function(){
+
                         _calculateFooterHeight();
+                        _fixedHeader();
+
                     },
 
                     resize: function(){
