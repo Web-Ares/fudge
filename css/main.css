@@ -85,6 +85,8 @@
 }
 .site__header {
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 3;
     width: 100%;
 }
@@ -883,9 +885,16 @@
     padding: 8px 10px;
     margin: 0 0 15px;
     color: #000;
+    -webkit-transition: color .3s;
+    transition: color .3s;
+}
+.schedule__date-btn:hover{
+    color: rgba(0, 0, 0, 0.5);
 }
 .schedule__date-btn.active{
     background: #ffdc1a;
+    color: #000;
+    cursor: default;
 }
 .schedule__filters{
     margin: 0 0 26px;
