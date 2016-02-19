@@ -400,11 +400,19 @@ $(function(){
 
         var _addGalleryContent = function( msg ){
 
-                $.each( msg, function( i ){
+                $.each( msg.items, function( i ){
 
-                    var newBlock = $( '<a href="' + this.href + '" title="' + this.title + '" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url(' + this.imageBG + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
+                    var path;
 
-                        if ( i == 0 || i == 4 ){
+                    if ( this.video == undefined ){
+                        path = this.href;
+                    } else {
+                        path = this.video;
+                    }
+
+                    var newBlock = $( '<a href="' + path + '" title="' + this.title + '" class="gallery__item fancybox-group hidden" data-fancybox-group="gallery" style="background-image: url(' + this.dummy + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
+
+                    if ( i == 0 || i == 4 ){
                         newBlock.addClass( 'gallery__item_height2x' );
                     }
 
@@ -416,9 +424,17 @@ $(function(){
                         newBlock.addClass( 'gallery__item_video fancybox.iframe' );
                     }
 
+                    if ( msg.has_items == 0 ){
+                        _removeBtnMore();
+                    }
+
                     _wrapper.append( newBlock );
 
                 } );
+
+                var newItems = _wrapper.find( $( '.gallery__item.hidden' ) );
+
+                console.log(newItems);
 
             },
             _addEvents = function () {
@@ -470,17 +486,13 @@ $(function(){
                     success: function ( msg ) {
 
                         if( _window.width() + _getScrollWidth() < 1000 ) {
-
                             _addGalleryContent( msg );
-
                         } else {
-
                             _destroyGallery();
                             _addGalleryContent( msg );
                             setTimeout( function(){
                                 _initGallery();
                             }, 10 );
-
                         }
 
                     },
@@ -508,6 +520,13 @@ $(function(){
                 var scrollWidth = div.offsetWidth - div.clientWidth;
                 document.body.removeChild(div);
                 return scrollWidth ;
+            },
+            _removeBtnMore = function(){
+
+                _btnMore.fadeOut( 300, function(){
+                    _btnMore.remove();
+                } )
+
             },
             _initGallery = function() {
 
