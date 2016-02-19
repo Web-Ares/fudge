@@ -475,11 +475,12 @@ $(function(){
 
                 });
 
-                Hammer( _obj ).on("swipeleft", function(event) {
+                Hammer( 'body' ).on("swipeleft", function(event) {
+
                     $( '.fancybox-next').trigger( 'click' );
                 } );
 
-                Hammer( _obj ).on("swiperight", function(event) {
+                Hammer( 'body' ).on("swiperight", function(event) {
                     $( '.fancybox-prev').trigger( 'click' );
                 } );
 
