@@ -291,31 +291,6 @@
     font-size: 18px;
     line-height: 18px;
 }
-.btn_4{
-    height: 30px;
-    margin-left: 3px;
-    padding: 4px 25px 2px;
-}
-.btn_5{
-    border: none;
-    background: #ffee8d;
-    -webkit-transition: background 0.3s ease;
-    transition: background 0.3s ease;
-}
-.btn_5:hover{
-    background: #fffadd;
-}
-.btn_dark {
-    color: #fff;
-    background: #000;
-    border: none;
-    -webkit-transition: background 0.3s ease;
-    transition: background 0.3s ease;
-}
-.btn_dark:hover {
-    background: #333;
-}
-
 .btn_2 {
     position: absolute;
     top: 0;
@@ -328,7 +303,6 @@
     font-weight: 500;
     font-size: 18px;
 }
-
 .btn_3 {
     width: 230px;
     height: 54px;
@@ -343,6 +317,30 @@
 }
 .btn_3:hover {
     background: #3c3c3c;
+}
+.btn_4{
+    height: 30px;
+    margin-left: 3px;
+    padding: 4px 25px 2px;
+}
+.btn_5{
+    border: none;
+    background: #ffee8d;
+    -webkit-transition: background 0.3s ease;
+    transition: background 0.3s ease;
+}
+.btn_5:hover{
+    background: #fffadd;
+}
+.btn_6 {
+    color: #fff;
+    background: #000;
+    border: none;
+    -webkit-transition: background 0.3s ease;
+    transition: background 0.3s ease;
+}
+.btn_6:hover {
+    background: #333;
 }
 /* --------------- /btn --------------- */
 
