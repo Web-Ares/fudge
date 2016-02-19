@@ -1212,11 +1212,51 @@
                     <div class="tickets__layout">
 
                         <!-- tickets__item -->
-                        <div class="tickets__item">
+                        <div class="tickets__item tickets__item_disabled">
 
                             <span class="tickets__price">$198</span>
 
                             <span class="tickets__status">Sold Out!</span>
+
+                            <ul class="tickets__list">
+                                <li>Feature List item one</li>
+                                <li>Another feature item</li>
+                                <li>The third list item is even more</li>
+                                <li>The 4th list item is awesome</li>
+                                <li>And the list goes on</li>
+                            </ul>
+
+                            <span href="#" class="btn btn_9">BUY</span>
+
+                        </div>
+                        <!-- /tickets__item -->
+
+                        <!-- tickets__item -->
+                        <div class="tickets__item tickets__item_best">
+
+                            <span class="tickets__price">$265</span>
+
+                            <span class="tickets__status">Featured Ticket</span>
+
+                            <ul class="tickets__list">
+                                <li>Feature List item one</li>
+                                <li>Another feature item</li>
+                                <li>The third list item is even more</li>
+                                <li>The 4th list item is awesome</li>
+                                <li>And the list goes on</li>
+                            </ul>
+
+                            <a href="#" class="btn btn_9">BUY</a>
+
+                        </div>
+                        <!-- /tickets__item -->
+
+                        <!-- tickets__item -->
+                        <div class="tickets__item">
+
+                            <span class="tickets__price">$398</span>
+
+                            <span class="tickets__status">Business Ticket</span>
 
                             <ul class="tickets__list">
                                 <li>Feature List item one</li>
@@ -1245,21 +1285,21 @@
 
                 <!-- where -->
                 <div class="where__map">
-                    <div id="map"></div>
+                    <div id="map" data-lat="50.45955979" data-lng="30.43816450"></div>
                 </div>
                 <!-- where -->
 
-                <!-- site__centered -->
-                <div class="site__centered">
+                <!-- where__popup -->
+                <div class="where__popup">
 
-                    <!-- where__popup -->
-                    <div class="where__popup">
+                    <!-- site__title -->
+                    <h2 class="site__title site__title_small">
+                        WHERE
+                    </h2>
+                    <!-- /site__title -->
 
-                        <!-- site__title -->
-                        <h2 class="site__title">
-                            WHERE
-                        </h2>
-                        <!-- /site__title -->
+                    <!-- where__layout -->
+                    <div class="where__layout">
 
                         <!-- where__text -->
                         <div class="where__text">
@@ -1272,27 +1312,28 @@
                             <span class="label label_big label_5">LOCATION 1</span>
                             <span class="label label_big label_6">LOCATION 2</span>
                             <span class="label label_big label_7">LOCATION 3</span>
-                            <span class="label label_big label_8">LOCATION 1</span>
-                            <span class="label label_big label_9">LOCATION 2</span>
-                            <span class="label label_big label_10">LOCATION 3</span>
+                            <!--<span class="label label_big label_8">LOCATION 1</span>-->
+                            <!--<span class="label label_big label_9">LOCATION 2</span>-->
+                            <!--<span class="label label_big label_10">LOCATION 3</span>-->
+                            <!--<span class="label label_big label_8">LOCATION 1</span>-->
+                            <!--<span class="label label_big label_9">LOCATION 2</span>-->
+                            <!--<span class="label label_big label_10">LOCATION 3</span>-->
                         </div>
                         <!-- /where__labels -->
 
                     </div>
-                    <!-- /where__popup -->
+                    <!-- /where__layout -->
+
+                    <!-- where__links -->
+                    <a class="where__links where_view-all" href="#">VIEW ALL <i class="fa fa-long-arrow-right"></i></i></a>
+                    <!-- /where__links -->
+
+                    <!-- where__links -->
+                    <a class="where__links where_back" href="#"><i class="fa fa-long-arrow-left"></i> BACK</a>
+                    <!-- /where__links -->
 
                 </div>
-                <!-- /site__centered -->
-
-                <script>
-                    var map;
-                    function initMap() {
-                        map = new google.maps.Map(document.getElementById('map'), {
-                            center: {lat: -34.397, lng: 150.644},
-                            zoom: 8
-                        });
-                    }
-                </script>
+                <!-- /where__popup -->
 
             </section>
             <!-- /where -->
@@ -1447,14 +1488,14 @@
 
                     <h2 class="subscribe__title">Subscribe to our newsletter now and stay informed!</h2>
 
-                    <form action="php/form.php" class="site__form form-validation" novalidate>
+                    <form action="php/form.php" class="form-validation" novalidate>
 
                         <!-- subscribe__email -->
-                        <input type="email" name="subscribe__email" class="subscribe__email" placeholder="enter your email" />
+                        <input type="email" name="subscribe__email" class="subscribe__email" placeholder="enter your email" required/>
                         <!-- /subscribe__email -->
 
                         <!-- subscribe__email -->
-                        <button type="submit" name="subscribe__btn" class="btn btn_6">SUBSCRIBE</button>
+                        <button type="submit" name="subscribe__btn" class="btn btn_10">SUBSCRIBE</button>
                         <!-- /subscribe__email -->
 
                     </form>
@@ -1465,6 +1506,34 @@
             </div>
             <!-- /subscribe -->
 
+            <!-- follow-us -->
+            <div class="follow-us">
+
+                <!-- site__centered -->
+                <div class="site__centered">
+
+                    <!-- follow-us__title -->
+                    <div class="follow-us__title">FOLLOW US!</div>
+                    <!-- /follow-us__title -->
+
+                    <!-- follow-us__item -->
+                    <div class="follow-us__item">
+                        <img src="pic/img-twitter.jpg" alt="img"/>
+                    </div>
+                    <!-- /follow-us__item -->
+
+                    <!-- follow-us__item -->
+                    <div class="follow-us__item">
+                        <img src="pic/img-facebook.png" alt="img"/>
+                    </div>
+                    <!-- /follow-us__item -->
+
+                </div>
+                <!-- /site__centered -->
+
+            </div>
+            <!-- /follow-us -->
+
             <!-- gallery -->
             <section class="gallery">
 
@@ -1474,110 +1543,107 @@
 
                 <p>Nullam in dui mauris. Vivamus hendrerit arcu sed erat.</p>
 
-                <!-- gallery__wrap -->
-                <div class="gallery__wrap">
+                <!-- gallery__cover -->
+                <div class="gallery__cover">
 
-                    <!-- folder "big" made special for big pictures (in popup) -->
+                    <!-- gallery__wrap -->
+                    <div class="gallery__wrap">
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-1.jpg" title="image name" class="gallery__item gallery__item_height2x fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-1.jpg');">
+                        <!-- folder "big" made special for big pictures (in popup) -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- gallery__item -->
+                        <a href="pic/big/gallery__pic-1.jpg" title="image name" class="gallery__item gallery__item_height2x fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-1.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- gallery__item-title -->
+                            <span class="gallery__item-title">Mouse hover</span>
+                            <!-- /gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-3.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-3.jpg');">
+                        </a>
+                        <!-- /gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- gallery__item -->
+                        <a href="pic/big/gallery__pic-3.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-3.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- gallery__item-title -->
+                            <span class="gallery__item-title">Mouse hover</span>
+                            <!-- /gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-5.jpg" title="image name" class="gallery__item gallery__item_width2x fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-5.jpg');">
+                        </a>
+                        <!-- /gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- gallery__item -->
+                        <a href="pic/big/gallery__pic-5.jpg" title="image name" class="gallery__item gallery__item_width2x fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-5.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- gallery__item-title -->
+                            <span class="gallery__item-title">Mouse hover</span>
+                            <!-- /gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-6.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-6.jpg');">
+                        </a>
+                        <!-- /gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- gallery__item -->
+                        <a href="pic/big/gallery__pic-6.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-6.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- gallery__item-title -->
+                            <span class="gallery__item-title">Mouse hover</span>
+                            <!-- /gallery__item-title -->
 
-                    <!-- for iframe with video need add class ".iframe" like here-->
-                    <!-- gallery__item -->
-                    <a href="https://www.youtube.com/embed/ymNFyxvIdaM" title="image name" class="gallery__item gallery__item_video gallery__item_height2x gallery__item_width2x fancybox-group fancybox.iframe" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-4.jpg');"></a>
-                    <!-- /gallery__item -->
+                        </a>
+                        <!-- /gallery__item -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-7.jpg" title="image name" class="gallery__item gallery__item_width2x fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-7.jpg');">
+                        <!-- for iframe with video need add class ".iframe" like here-->
+                        <!-- gallery__item -->
+                        <a href="https://www.youtube.com/embed/ymNFyxvIdaM" title="image name" class="gallery__item gallery__item_video gallery__item_height2x gallery__item_width2x fancybox-group fancybox.iframe" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-4.jpg');"></a>
+                        <!-- /gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- gallery__item -->
+                        <a href="pic/big/gallery__pic-7.jpg" title="image name" class="gallery__item gallery__item_width2x fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-7.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- gallery__item-title -->
+                            <span class="gallery__item-title">Mouse hover</span>
+                            <!-- /gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-2.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-2.jpg');">
+                        </a>
+                        <!-- /gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- gallery__item -->
+                        <a href="pic/big/gallery__pic-2.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-2.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- gallery__item-title -->
+                            <span class="gallery__item-title">Mouse hover</span>
+                            <!-- /gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-8.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-8.jpg');">
+                        </a>
+                        <!-- /gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- gallery__item -->
+                        <a href="pic/big/gallery__pic-8.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-8.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- gallery__item-title -->
+                            <span class="gallery__item-title">Mouse hover</span>
+                            <!-- /gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-9.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-9.jpg');">
+                        </a>
+                        <!-- /gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- gallery__item -->
+                        <a href="pic/big/gallery__pic-9.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-9.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- gallery__item-title -->
+                            <span class="gallery__item-title">Mouse hover</span>
+                            <!-- /gallery__item-title -->
+
+                        </a>
+                        <!-- /gallery__item -->
+
+                    </div>
+                    <!-- /gallery__wrap -->
 
                 </div>
-                <!-- /gallery__wrap -->
+                <!-- /gallery__cover -->
 
                 <!-- btn -->
-                <a href="#" data-action="php/gallery-content.php" class="btn btn_3 gallery__more">
-                    LOAD MORE
-
-                    <!-- gallery__preloader -->
-                    <span class="gallery__preloader">
-                        <i class="fa fa-refresh fa-spin"></i>
-                    </span>
-                    <!-- /gallery__preloader -->
-
-                </a>
+                <a href="#" data-action="php/gallery-content.php" class="btn btn_3 gallery__more">LOAD MORE</a>
                 <!-- /btn -->
 
             </section>
@@ -1928,7 +1994,7 @@
     <script src="js/jquery.countdown.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/jquery.fancybox.pack.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&callback=initMap"
             async defer></script>
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/jquery.select.js"></script>
