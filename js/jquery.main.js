@@ -570,7 +570,6 @@ $(function(){
             _initFancyBox = function(){
 
                 _fancyBoxGroup.fancybox({
-                    //closeBtn: false,
                     padding: [0,75,0,75]
                 });
 
