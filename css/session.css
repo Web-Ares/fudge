@@ -27,20 +27,20 @@
 
 /* ------------ session-inner ------------ */
 .session-inner {
-    padding: 70px 0 54px 0;
-    margin-top: 250px;
-    border-top:1px solid red;
+    padding: 62px 0 50px 0;
     text-align: center;
 }
 
 .session-inner__title {
-    font: 700 26px/42px 'Roboto Slab', sans-serif;
     position: relative;
+    padding-bottom: 43px;
+    font: 700 26px/42px 'Roboto Slab', sans-serif;
+    text-transform: uppercase;
 }
 
-.session-inner__title:after{
+.session-inner__title:after {
     position: absolute;
-    bottom: 0;
+    bottom: 24px;
     left: 50%;
     width: 80px;
     height: 6px;
@@ -50,12 +50,22 @@
     transform: translateX(-50%);
 }
 
-.session-inner__text p{
+.session-inner__text p {
+    margin-bottom: 25px;
     font: 400 16px/25px 'Roboto', sans-serif;
-    margin-bottom: 15px;
 }
-.session-inner__labels{
+
+.session-inner__labels {
+    padding-left: 20px;
+    padding-top: 11px;
     text-align: left;
+}
+
+.session-inner__labels .label {
+    padding: 3px 8px;
+    min-width: 71px;
+    font: 500 11px/1 'Robobo', sans-serif;
+    white-space: nowrap;
 }
 
 /* ------------ /session-inner ------------ */
@@ -67,6 +77,32 @@
     }
 
     /* ------------ /registration ------------ */
+    /* ------------ session-inner ------------ */
+    .session-inner {
+        padding: 43px 0 96px 0;
+    }
+
+    .session-inner__title:after {
+        bottom: 19px;
+    }
+
+    .session-inner__title {
+        padding-bottom: 38px;
+    }
+
+    .session-inner__text p {
+        margin-bottom: 38px;
+        font-size: 20px;
+        line-height: 38px;
+    }
+
+    .session-inner__labels {
+        padding-left: 0;
+        padding-top: 13px;
+        text-align: center;
+    }
+
+    /* ------------ /session-inner ------------ */
 }
 
 @media (min-width: 1000px) {
@@ -85,5 +121,24 @@
     }
 
     /* ------------ /registration ------------ */
+    /* ------------ session-inner ------------ */
+    .session-inner {
+        padding: 59px 0 73px 0;
+    }
 
+    .session-inner__text {
+        max-width: 775px;
+        margin: auto;
+    }
+
+    .session-inner__title:after {
+        bottom: 19px;
+    }
+
+    .session-inner__title {
+        padding-bottom: 37px;
+    }
+
+
+    /* ------------ /session-inner ------------ */
 }
