@@ -302,6 +302,11 @@ $(function(){
 
                         _setHeight();
 
+                    },
+                    'resize': function() {
+
+                        _setHeight();
+
                     }
 
                 } );

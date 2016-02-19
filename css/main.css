@@ -150,6 +150,12 @@
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 }
+.site__title_big{
+    padding: 0 0 21px;
+    margin: 0 0 19px;
+    font-size: 37px;
+    line-height: 38px;
+}
 .site__form {
     padding: 49px 20px 46px;
     background: #f3f3f3;
@@ -260,14 +266,15 @@
     vertical-align: top;
     position: relative;
     overflow: hidden;
-    height: 38px;
-    padding: 10px 10px;
+    width: 170px;
+    height: 47px;
+    padding: 13px 10px;
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
     color: #000;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 20px;
+    line-height: 20px;
     border: 2px solid #ffdc1a;
     background: #ffdc1a;
     -webkit-transition: border 0.3s, height 0.3s, opacity 0.3s, color 0.3s, background 0.3s;
@@ -277,14 +284,12 @@
     background: #ffe348;
     border-color: #ffe348;
 }
-.btn span{
-    display: flex;
-    position: relative;
-    z-index: 2;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+.btn_1{
+    width: 231px;
+    height: 54px;
+    padding: 17px 10px;
+    font-size: 18px;
+    line-height: 18px;
 }
 .btn_1{
     display: block;
@@ -348,6 +353,23 @@
     background: #3c3c3c;
 }
 /* --------------- /btn --------------- */
+
+/* --------------- label --------------- */
+.label{
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
+    background: #41c5f6;
+}
+.label_blue{
+    background: #345cc2;
+}
+/* --------------- /label --------------- */
 
 /* --------------- logo --------------- */
 .logo {
@@ -426,11 +448,7 @@
     color: #000;
 }
 .header-menu .btn{
-    width: 170px;
-    height: 47px;
     margin: 20px 0 0;
-    font-size: 20px;
-    line-height: 20px;
 }
 .header-menu .header-menu__sub-items{
     display: none;
@@ -544,9 +562,6 @@
     z-index: 1;
     padding: 114px 0 26px;
 }
-.hero .site__title{
-    color: #fff;
-}
 .hero_slider .hero__layout{
     padding: 114px 0 13px;
 }
@@ -569,12 +584,6 @@
 /* --------------- time-schedule --------------- */
 .time-schedule{
     padding: 0 0 28px;
-}
-.time-schedule .site__title{
-    padding: 0 0 21px;
-    margin: 0 0 19px;
-    font-size: 37px;
-    line-height: 38px;
 }
 .time-schedule__pic{
     width: 94px;
@@ -642,10 +651,6 @@
 }
 .time-schedule .btn{
     margin: 0 0 57px;
-    width: 231px;
-    height: 54px;
-    font-size: 18px;
-    line-height: 18px;
 }
 /* --------------- /time-schedule --------------- */
 
@@ -974,6 +979,7 @@
     font-family: 'Roboto Slab', serif;
     font-weight: 700;
     text-transform: uppercase;
+    color: #000;
 }
 /* --------------- /schedule --------------- */
 
@@ -1305,6 +1311,12 @@
         font-size: 50px;
         line-height: 52px;
     }
+    .site__title_big{
+        padding: 0 0 33px;
+        margin: 0 0 32px;
+        font-size: 54px;
+        line-height: 62px;
+    }
     .site__form {
         padding: 60px 50px 52px;
         margin: 0 auto;
@@ -1352,6 +1364,23 @@
     }
     /* ------------ /logo ------------ */
 
+    /* ------------ btn ------------ */
+    .btn{
+        width: 282px;
+        height: 73px;
+        padding: 19px 10px;
+        font-size: 36px;
+        line-height: 36px;
+    }
+    .btn_1 {
+        width: 231px;
+        height: 54px;
+        padding: 17px 10px;
+        font-size: 18px;
+        line-height: 18px;
+    }
+    /* ------------ /btn ------------ */
+
     /* ------------ menu-btn ------------ */
     .menu-btn {
         top: 38px;
@@ -1379,12 +1408,6 @@
         padding: 46px 10px;
         color: #000;
     }
-    .header-menu .btn{
-        width: 282px;
-        height: 73px;
-        font-size: 36px;
-        line-height: 36px;
-    }
     /* ------------ /header-menu ------------ */
 
     /* ------------ hero ------------ */
@@ -1407,12 +1430,6 @@
     /* ------------ time-schedule ------------ */
     .time-schedule{
         margin: -12px 0 0;
-    }
-    .time-schedule .site__title{
-        padding: 0 0 33px;
-        margin: 0 0 32px;
-        font-size: 54px;
-        line-height: 62px;
     }
     .time-schedule__pic {
         width: 124px;
@@ -1626,6 +1643,12 @@
 @media (min-width: 1000px) {
 
     /* --------------- site --------------- */
+    .site__title_big{
+        padding: 0 0 30px;
+        margin: 0 0 33px;
+        font-size: 64px;
+        line-height: 62px;
+    }
     .site__footer {
         padding: 80px 71px 50px;
     }
@@ -1686,6 +1709,23 @@
         margin-bottom: 36px;
     }
     /* --------------- /logo --------------- */
+
+    /* --------------- btn --------------- */
+    .btn{
+        width: 132px;
+        height: 38px;
+        padding: 11px 10px;
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .btn_1 {
+        width: 231px;
+        height: 54px;
+        padding: 17px 10px;
+        font-size: 18px;
+        line-height: 18px;
+    }
+    /* --------------- /btn --------------- */
 
     /* --------------- header-menu --------------- */
     .header-menu{
@@ -1758,10 +1798,6 @@
     }
     .header-menu .btn{
         margin: auto;
-        width: 132px;
-        height: 38px;
-        font-size: 14px;
-        line-height: 14px;
     }
     .header-menu .header-menu__sub-items{
         display: block;
@@ -1841,12 +1877,6 @@
     /* --------------- time-schedule --------------- */
     .time-schedule{
         padding: 44px 0 24px;
-    }
-    .time-schedule .site__title{
-        padding: 0 0 30px;
-        margin: 0 0 33px;
-        font-size: 64px;
-        line-height: 62px;
     }
     .time-schedule__pic {
         width: 139px;
