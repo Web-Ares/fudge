@@ -287,6 +287,13 @@
     align-items: center;
     height: 100%;
 }
+.btn_1{
+    display: block;
+    width: 231px;
+    height: 54px;
+    margin: 46px auto 56px;
+    font-size: 18px;
+}
 .btn_fading{
     border: none;
     background: #ffee8d;
@@ -1007,16 +1014,6 @@
     padding: 75px 0 1px;
     background-color: #faf5e0;
     text-align: center;
-}
-.news .site__title {
-    padding: 0 0 24px;
-}
-.news .site__centered > .btn {
-    display: block;
-    width: 231px;
-    height: 54px;
-    margin: 46px auto 56px;
-    font-size: 18px;
 }
 .news p {
     margin-bottom: 41px;
