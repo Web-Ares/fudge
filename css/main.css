@@ -156,6 +156,9 @@
     font-size: 37px;
     line-height: 38px;
 }
+.site__title_1:after{
+    background: #fff;
+}
 .site__form {
     padding: 49px 20px 46px;
     background: #f3f3f3;
@@ -322,16 +325,28 @@
     font-size: 14px;
 }
 .btn_5{
+    display: block;
+    width: 227px;
+    height: 52px;
+    margin: 0 auto 16px;
+    padding-top: 16px;
     border: none;
     background: #ffee8d;
+    font-size: 18px;
 }
 .btn_5:hover{
     background: #fffadd;
 }
 .btn_6 {
-    color: #fff;
-    background: #000;
+    display: block;
+    width: 227px;
+    height: 52px;
+    margin: 0 auto;
+    padding-top: 16px;
     border: none;
+    background: #000;
+    color: #fff;
+    font-size: 18px;
 }
 .btn_6:hover {
     background: #333;
@@ -768,15 +783,15 @@
 
 /* --------------- speakers --------------- */
 .speakers{
-    padding: 77px 0 39px;
+    padding: 77px 0 54px;
     background-color: #ffdc1a;
     text-align: center;
     overflow: hidden;
 }
 .speakers p {
-    margin-bottom: 43px;
+    width: 250px;
+    margin: 0 auto 43px;
     line-height: 32px;
-    letter-spacing: .5px;
 }
 .speakers__person{
     display: block;
@@ -1007,6 +1022,21 @@
     margin: 0 -15px;
 }
 /* ------------ /contact-us ------------ */
+
+/* ------------ register-now ------------ */
+.register-now{
+    height: 488px;
+    padding-top: 91px;
+    background: url("../img/bg-description-big.jpg") no-repeat 50% 0;
+    color: #fff;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+}
+.register-now p {
+    margin: 0 10px 55px;
+}
+/* ------------ /register-now ------------ */
 
 /* --------------- news --------------- */
 .news {
@@ -1296,9 +1326,6 @@
         font-size: 54px;
         line-height: 62px;
     }
-    .site__title_1:after{
-        background: #fff;
-    }
     .site__form {
         padding: 60px 50px 52px;
         margin: 0 auto;
@@ -1373,6 +1400,22 @@
         padding: 18px 10px;
         font-size: 18px;
         line-height: 1;
+    }
+    .btn_5 {
+        display: inline-block;
+        width: 228px;
+        height: 54px;
+        padding: 10px;
+        font-size: 18px;
+        margin: 0 16px;
+    }
+    .btn_6 {
+        display: inline-block;
+        width: 228px;
+        height: 54px;
+        padding: 10px;
+        font-size: 18px;
+        margin: 0 16px;
     }
     .btn_7 {
         width: 190px;
@@ -1500,20 +1543,20 @@
 
     /* --------------- speakers --------------- */
     .speakers {
-        padding: 85px 0 1px;
+        padding: 85px 0 80px;
     }
     .speakers p {
-        margin-bottom: 50px;
+        width: auto;
+        margin-bottom: 46px;
         font-size: 20px;
+    }
+    .speakers__layout{
+        margin-bottom: 17px;
     }
     .speakers__person {
         display: inline-block;
         vertical-align: top;
         margin: 0 18px 31px;
-    }
-    .speakers .btn{
-        display: inline-block;
-        margin: 11px 15px 87px;
     }
     /* --------------- /speakers --------------- */
 
@@ -1575,6 +1618,20 @@
         margin-bottom: 65px;
     }
     /* ------------ /connect ------------ */
+
+    /* ------------ register-now ------------ */
+    .register-now {
+        height: 500px;
+        padding-top: 123px;
+        font-size: 20px;
+        line-height: 42px;
+        background-size: cover;
+    }
+    .register-now p {
+        margin: -21px 0 36px;
+        letter-spacing: 0.5px;
+    }
+    /* ------------ /register-now ------------ */
 
     /* --------------- news --------------- */
     .news {
@@ -1676,6 +1733,9 @@
         -webkit-transform: translateX(0);
         transform: translateX(0);
     }
+    .site__title_white span{
+        display: block;
+    }
     /* --------------- /site --------------- */
 
     /* ------------ footer-menu ------------ */
@@ -1738,6 +1798,22 @@
         padding: 18px 10px;
         font-size: 18px;
         line-height: 1;
+    }
+    .btn_5 {
+        display: inline-block;
+        width: 228px;
+        height: 54px;
+        padding: 20px 10px;
+        font-size: 18px;
+        margin: 0 16px;
+    }
+    .btn_6 {
+        display: inline-block;
+        width: 228px;
+        height: 54px;
+        padding: 20px 10px;
+        font-size: 18px;
+        margin: 0 16px;
     }
     /* --------------- /btn --------------- */
 
@@ -1972,13 +2048,12 @@
 
     /* --------------- speakers --------------- */
     .speakers__layout {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: row wrap;
-        justify-content: space-around;
+        text-align: justify;
+    }
+    .speakers__layout:after {
+        display: inline-block;
+        width: 100%;
+        content: '';
     }
     .speakers__person {
         margin: 0 0 31px;
@@ -1987,6 +2062,9 @@
     }
     .speakers__person:hover {
         box-shadow: 0 0 30px rgba(0,0,0,.1);
+    }
+    .speakers__post {
+        text-align: left;
     }
     /* --------------- /speakers --------------- */
 
@@ -2036,13 +2114,12 @@
 
     /* --------------- news --------------- */
     .news__layout {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: row wrap;
-        justify-content: space-around;
+        text-align: justify;
+    }
+    .news__layout:after {
+        display: inline-block;
+        width: 100%;
+        content: '';
     }
     .news__item {
         margin: 0 0 31px;
@@ -2053,7 +2130,6 @@
         box-shadow: 0 0 30px rgba(0,0,0,.1);
     }
     /* --------------- /news --------------- */
-
 
     /* ------------ features ------------ */
     .features {
