@@ -264,8 +264,13 @@ $(function(){
                     timeout: 20000,
                     type: "GET",
                     success: function () {
+
                         _obj.trigger( 'reset' );
-                        _sentMessageMark.removeClass( 'site__form-sent_hidden' );
+
+                        if ( _sentMessageMark.length ){
+                            _sentMessageMark.removeClass( 'site__form-sent_hidden' );
+                        }
+
                     },
                     error: function ( XMLHttpRequest ) {
                         if( XMLHttpRequest.statusText != "abort" ) {
