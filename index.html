@@ -1240,6 +1240,63 @@
             </section>
             <!-- /tickets -->
 
+            <!-- where -->
+            <section class="where">
+
+                <!-- where -->
+                <div class="where__map">
+                    <div id="map"></div>
+                </div>
+                <!-- where -->
+
+                <!-- site__centered -->
+                <div class="site__centered">
+
+                    <!-- where__popup -->
+                    <div class="where__popup">
+
+                        <!-- site__title -->
+                        <h2 class="site__title">
+                            WHERE
+                        </h2>
+                        <!-- /site__title -->
+
+                        <!-- where__text -->
+                        <div class="where__text">
+                            <p>Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim </p>
+                        </div>
+                        <!-- /where__text -->
+
+                        <!-- where__labels -->
+                        <div class="where__labels">
+                            <span class="label label_big label_5">LOCATION 1</span>
+                            <span class="label label_big label_6">LOCATION 2</span>
+                            <span class="label label_big label_7">LOCATION 3</span>
+                            <span class="label label_big label_8">LOCATION 1</span>
+                            <span class="label label_big label_9">LOCATION 2</span>
+                            <span class="label label_big label_10">LOCATION 3</span>
+                        </div>
+                        <!-- /where__labels -->
+
+                    </div>
+                    <!-- /where__popup -->
+
+                </div>
+                <!-- /site__centered -->
+
+                <script>
+                    var map;
+                    function initMap() {
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            center: {lat: -34.397, lng: 150.644},
+                            zoom: 8
+                        });
+                    }
+                </script>
+
+            </section>
+            <!-- /where -->
+
             <!-- news -->
             <section class="news">
 
@@ -1871,6 +1928,8 @@
     <script src="js/jquery.countdown.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+            async defer></script>
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/jquery.select.js"></script>
     <script src="js/jquery.main.js"></script>
