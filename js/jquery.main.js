@@ -24,9 +24,9 @@ $(function(){
             new News ( $( this ) );
         } );
 
-        $.each( $('.countdown-timer>div' ), function() {
+        /*$.each( $('.countdown-timer>div' ), function() {
             new CountDown ( $( this ) );
-        } );
+        } );*/
 
         $.each( $( '.gallery' ), function(){
             new Gallery ( $( this ) )
@@ -674,7 +674,13 @@ $(function(){
                     var path;
                     hasItems = msg.has_items;
 
-                    var newBlock = $( '<article class="news__item"><div class="news__picture" style="background-image:url(" ' + this.picture + ' ")"></div><div class="news__content"><time datetime="' + this.date + '" class="news__date">' + this.date + '</time><h2 class="news__title">' + this.title + '</h2><a href="' + this.href + '" class="btn btn_4">READ MORE</a></div></article>' );
+                    var newBlock = $( '<article class="news__item">' +
+                        '<div class="news__picture" style="background-image:url(" ' + this.picture + ' ")"></div>' +
+                        '<div class="news__content">' +
+                        '<time datetime="' + this.date + '" class="news__date">' + this.date + '</time>' +
+                        '<h2 class="news__title">' + this.title + '</h2>' +
+                        '<a href="' + this.href + '" class="btn btn_4">READ MORE</a>' +
+                        '</div></article>' );
 
                     _wrapper.append( newBlock );
 
@@ -689,24 +695,13 @@ $(function(){
             },
             _heightAnimation = function( hasItems, newItems ){
 
-                _cover.animate( {
-                    height: _wrapper.height()
-                }, {
-                    duration: 500,
-                    complete: function(){
+                newItems.each( function( i ){
+                    _showNewItems( $( this ),i );
+                } );
 
-                        _cover.css( 'height', '' );
-
-                        newItems.each( function( i ){
-                            _showNewItems( $( this ),i );
-                        } );
-
-                        if ( hasItems == 0 ){
-                            _removeBtnMore();
-                        }
-
-                    }
-                } )
+                if ( hasItems == 0 ){
+                    _removeBtnMore();
+                }
 
             },
             _showNewItems = function( item, index ){
