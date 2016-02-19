@@ -2111,6 +2111,7 @@
         padding: 74px 4px 58px;
     }
     .gallery__wrap {
+        display: block;
         margin-bottom: 47px;
     }
     .gallery p {
