@@ -28,6 +28,10 @@ $(function(){
             new Gallery ( $( this ) )
         } );
 
+        $.each( $( '.schedule__items' ), function(){
+            new ScheduleOpen ( $( this ) )
+        } );
+
     });
 
     var Page = function( obj ) {
@@ -400,23 +404,15 @@ $(function(){
 
         var _addGalleryContent = function( msg ){
 
-                $.each( msg.items, function( i ){
+                $.each( msg, function( i ){
 
-                    var path;
-
-                    if ( this.video == undefined ){
-                        path = this.href;
-                    } else {
-                        path = this.video;
-                    }
-
-                    var newBlock = $( '<a href="' + path + '" title="' + this.title + '" class="gallery__item fancybox-group hidden" data-fancybox-group="gallery" style="background-image: url(' + this.dummy + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
+                    var newBlock = $( '<a href="' + this.href + '" title="' + this.title + '" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url(' + this.imageBG + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
 
                     if ( i == 0 || i == 4 ){
                         newBlock.addClass( 'gallery__item_height2x' );
                     }
 
-                    if ( i == 2 || i == 4 || i == 7 ){
+                    if ( i == 2 || i == 4 || i == 5 ){
                         newBlock.addClass( 'gallery__item_width2x' );
                     }
 
@@ -424,17 +420,9 @@ $(function(){
                         newBlock.addClass( 'gallery__item_video fancybox.iframe' );
                     }
 
-                    if ( msg.has_items == 0 ){
-                        _removeBtnMore();
-                    }
-
                     _wrapper.append( newBlock );
 
                 } );
-
-                var newItems = _wrapper.find( $( '.gallery__item.hidden' ) );
-
-                console.log(newItems);
 
             },
             _addEvents = function () {
@@ -446,13 +434,17 @@ $(function(){
                         if( _window.width() + _getScrollWidth() >= 1000 ) {
 
                             if ( !_isGallery ){
+
                                 _initGallery();
+
                             }
 
                         } else {
 
                             if ( _isGallery ){
+
                                 _destroyGallery();
+
                             }
 
                         }
@@ -464,8 +456,11 @@ $(function(){
                 _btnMore.on({
 
                     click: function(){
+
                         _ajaxRequest();
+
                         return false;
+
                     }
 
                 })
@@ -474,7 +469,9 @@ $(function(){
             _ajaxRequest = function(){
 
                 var galleryItem = _wrapper.find( '.gallery__item' );
+
                 _request.abort();
+
                 _request = $.ajax({
                     url: _btnAction,
                     data: {
@@ -485,15 +482,15 @@ $(function(){
                     type: "GET",
                     success: function ( msg ) {
 
-                        if( _window.width() + _getScrollWidth() < 1000 ) {
-                            _addGalleryContent( msg );
-                        } else {
-                            _destroyGallery();
-                            _addGalleryContent( msg );
-                            setTimeout( function(){
-                                _initGallery();
-                            }, 10 );
-                        }
+                        _destroyGallery();
+
+                        _addGalleryContent( msg );
+
+                        setTimeout( function(){
+
+                            _initGallery();
+
+                        }, 10 );
 
                     },
                     error: function ( XMLHttpRequest ) {
@@ -507,6 +504,7 @@ $(function(){
             _destroyGallery = function(){
 
                 _wrapper.isotope( 'destroy' );
+
                 _isGallery = false;
 
             },
@@ -521,17 +519,7 @@ $(function(){
                 document.body.removeChild(div);
                 return scrollWidth ;
             },
-            _removeBtnMore = function(){
-
-                _btnMore.fadeOut( 300, function(){
-                    _btnMore.remove();
-                } )
-
-            },
             _initGallery = function() {
-
-                _wrapper = _obj.find( '.gallery__wrap' );
-                _galleryItem = '.gallery__item';
 
                 _wrapper.isotope({
                     itemSelector: _galleryItem,
@@ -554,7 +542,9 @@ $(function(){
             _init = function () {
 
                 if( _window.width() + _getScrollWidth() >= 1000 ) {
+
                     _initGallery();
+
                 }
 
                 _initFancyBox();
@@ -564,6 +554,59 @@ $(function(){
 
         _init();
 
+    };
+
+    var ScheduleOpen = function( obj ) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _items = _obj.find( '.schedule__item-drop-down' ),
+            _btnOpen = _items.find( '.schedule__event' ),
+            _window = $( window );
+
+        //private methods
+        var _addEvents = function() {
+
+                _btnOpen.on( {
+                    'click': function() {
+
+                        _openScheduleDetails( $( this ) );
+
+                    }
+                } );
+
+            },
+            _openScheduleDetails = function( elem )  {
+
+                var curItem = elem,
+                    curItemParent = curItem.parent( _items),
+                    details = curItem.next();
+
+                if( curItemParent.hasClass( 'opened' ) ) {
+
+                    curItemParent.removeClass( 'opened' );
+                    details.slideUp( 300 );
+
+                } else {
+
+                    _items.removeClass( 'opened' );
+                    _btnOpen.next().slideUp( 300 );
+
+                    curItemParent.addClass( 'opened' );
+                    details.slideDown( 300 );
+                    
+                }
+
+            },
+            _init = function() {
+
+                _addEvents();
+                _obj[ 0 ].obj = _self;
+
+            };
+
+        _init();
     };
 
 } );
