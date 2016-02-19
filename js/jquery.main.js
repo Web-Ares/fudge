@@ -757,7 +757,6 @@ $(function(){
         _init();
     };
 
-
 } );
 
 var initMap = function(){
