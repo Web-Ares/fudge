@@ -399,7 +399,6 @@ $(function(){
             _fancyBoxGroup = _obj.find( '.fancybox-group' ),
             _btnMore = _obj.find( '.gallery__more' ),
             _btnAction = _btnMore.data( 'action' ),
-            _btnPreloader = _btnMore.find( '.gallery__preloader' ),
             _isGallery = false,
             _request = new XMLHttpRequest();
 
@@ -474,7 +473,15 @@ $(function(){
                         return false;
                     }
 
-                })
+                });
+
+                Hammer( _obj ).on("swipeleft", function(event) {
+                    $( '.fancybox-next').trigger( 'click' );
+                } );
+
+                Hammer( _obj ).on("swiperight", function(event) {
+                    $( '.fancybox-prev').trigger( 'click' );
+                } );
 
             },
             _ajaxRequest = function(){
@@ -555,6 +562,8 @@ $(function(){
                 _btnMore.css( 'opacity', 0 );
 
                 setTimeout( function(){
+
+                    _btnMore.css( 'padding', 0 );
 
                     _btnMore.animate({
                         height: 0
