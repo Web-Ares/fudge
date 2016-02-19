@@ -484,15 +484,6 @@ $(function(){
 
                 });
 
-                Hammer( 'body' ).on("swipeleft", function(event) {
-
-                    $( '.fancybox-next').trigger( 'click' );
-                } );
-
-                Hammer( 'body' ).on("swiperight", function(event) {
-                    $( '.fancybox-prev').trigger( 'click' );
-                } );
-
             },
             _ajaxRequest = function(){
 
