@@ -136,6 +136,9 @@
     text-transform: uppercase;
     text-align: center;
 }
+.site__title_white {
+    color: #fff;
+}
 .site__title:after{
     position: absolute;
     bottom: 0;
@@ -183,20 +186,16 @@
     position: relative;
     height: 60px;
 }
-.site__form-sent,
-.site__form-submit button.btn  {
+.site__form-sent {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 18px;
-}
-.site__form button.btn {
-    padding: 0;
 }
 .site__form-sent {
     padding: 21px 10px;
@@ -306,7 +305,21 @@
 .btn_dark:hover {
     background: #333;
 }
-.btn_dark-grey {
+
+.btn_2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    z-index: 1;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.btn_3 {
     width: 230px;
     height: 54px;
     color: #fff;
@@ -318,7 +331,7 @@
     -webkit-transition: background 0.3s ease;
     transition: background 0.3s ease;
 }
-.btn_dark-grey:hover {
+.btn_3:hover {
     background: #3c3c3c;
 }
 /* --------------- /btn --------------- */
@@ -956,11 +969,6 @@
     text-align: center;
     padding: 70px 0 0;
 }
-.contact-us .site__title {
-    font-size: 35px;
-    padding: 0 0 25px;
-    margin-bottom: 14px;
-}
 .contact-us__content {
     margin-bottom: 46px;
 }
@@ -1068,12 +1076,6 @@
     color: #fff;
     font-size: 20px;
     text-align: center;
-}
-.connect .site__title {
-    color: #fff;
-    text-align: center;
-    padding: 0 0 23px;
-    margin: 0 0 15px;
 }
 .connect p {
     line-height: 1.5;
@@ -1192,11 +1194,6 @@
     color: #fff;
     font-size: 16px;
     text-align: center;
-}
-.gallery .site__title {
-    color: #fff;
-    padding: 0 0 24px;
-    margin: 0 0 15px;
 }
 .gallery p {
     line-height: 1.563;
@@ -1531,11 +1528,7 @@
 
     /* ------------ contact-us ------------ */
     .contact-us {
-        padding: 114px 0 102px;
-    }
-    .contact-us .site__title {
-        font-size: 50px;
-        padding: 0 0 18px;
+        padding: 119px 0 102px;
     }
     .contact-us__content {
         margin-bottom: 54px;
@@ -1565,10 +1558,6 @@
     /* ------------ connect ------------ */
     .connect {
         padding: 87px 0 63px;
-    }
-    .connect .site__title {
-        padding: 0 0 17px;
-        font-size: 50px;
     }
     .connect p {
         margin-bottom: 65px;
@@ -1611,21 +1600,12 @@
     .gallery {
         padding: 87px 0 63px;
     }
-    .gallery .site__title {
-        padding: 0 0 17px;
-        font-size: 50px;
-    }
     /* ------------ /gallery ------------ */
 
     /* ------------ gallery ------------ */
     .gallery {
         padding: 69px 47px 79px;
         font-size: 20px;
-    }
-    .gallery .site__title {
-        padding: 0 0 17px;
-        margin-bottom: 15px;
-        font-size: 50px;
     }
     .gallery p {
         margin-bottom: 58px;
@@ -1677,6 +1657,14 @@
     .site__title{
         padding: 0 0 30px;
         margin: 0 0 33px;
+    }
+    .site__title_to-left {
+        text-align: left;
+    }
+    .site__title_to-left:after {
+        left: 0;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
     }
     /* --------------- /site --------------- */
 
@@ -1984,11 +1972,6 @@
     .contact-us .site__centered {
         text-align: justify;
     }
-    .contact-us .site__title:after {
-        left: 0;
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
     .contact-us .site__centered:after {
         display: inline-block;
         width: 100%;
@@ -2078,9 +2061,6 @@
     .gallery p {
         margin-bottom: 32px;
     }
-    .gallery .site__title {
-        padding: 0 0 22px;
-    }
     .gallery__wrap:after {
         display: block;
         clear: both;
@@ -2120,16 +2100,6 @@
         -webkit-transition: opacity 0.3s ease;
         transition: opacity 0.3s ease;
         content:'';
-    }
-    .Rectangle_29 {
-        background-color: rgb( 0, 0, 0 );
-        opacity: 0.702;
-        position: absolute;
-        left: 1176px;
-        top: 9148px;
-        width: 230px;
-        height: 230px;
-        z-index: 116;
     }
     .gallery__item-title {
         display: block;
