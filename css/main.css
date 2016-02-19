@@ -773,22 +773,6 @@
     text-align: center;
     overflow: hidden;
 }
-.speakers .site__title{
-    margin-bottom: 14px;
-    padding-bottom: 25px;
-}
-.speakers .site__title:after{
-    background: #fff;
-}
-.speakers .btn {
-    display: block;
-    width: 230px;
-    height: 54px;
-    margin: 0 auto 14px;
-    padding: 21px 10px;
-    font-size: 18px;
-    font-weight: 500;
-}
 .speakers p {
     margin-bottom: 43px;
     line-height: 32px;
@@ -1312,6 +1296,9 @@
         font-size: 54px;
         line-height: 62px;
     }
+    .site__title_1:after{
+        background: #fff;
+    }
     .site__form {
         padding: 60px 50px 52px;
         margin: 0 auto;
@@ -1514,11 +1501,6 @@
     /* --------------- speakers --------------- */
     .speakers {
         padding: 85px 0 1px;
-    }
-    .speakers .site__title {
-        margin-bottom: 13px;
-        padding: 0 0 23px;
-        font-size: 50px;
     }
     .speakers p {
         margin-bottom: 50px;
