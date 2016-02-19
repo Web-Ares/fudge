@@ -1,0 +1,58 @@
+/* ------------ registration ------------ */
+.registration {
+    margin-top: 200px;
+    background-color: #ffdc1a;
+    padding: 39px 0 51px 0;
+}
+
+.registration .site__title {
+    font: 700 26px/42px 'Roboto Slab', sans-serif;
+}
+
+.registration .site__title > span {
+    font: 400 16px/38px 'Roboto', sans-serif;
+    text-align: center;
+    display: block;
+    text-transform: none;
+    letter-spacing: 0.4px;
+    margin-top: -5px;
+}
+
+.registration .site__title {
+    letter-spacing: -0.7px;
+    padding-bottom: 16px;
+}
+
+.registration .registration__wrap img {
+    width: 100%;
+}
+
+/* ------------ /registration ------------ */
+
+@media (min-width: 768px) {
+    /* ------------ registration ------------ */
+    .registration .site__title > span {
+        font-size: 20px;
+    }
+
+    /* ------------ /registration ------------ */
+}
+
+@media (min-width: 1000px) {
+    /* ------------ registration ------------ */
+    .registration {
+        padding-button: 63px;
+    }
+
+    .registration .site__title > span {
+        font-size: 20px;
+    }
+
+    .registration .site__title {
+        margin-bottom: 26px;
+        padding-bottom: 0px;
+    }
+
+    /* ------------ /registration ------------ */
+
+}
