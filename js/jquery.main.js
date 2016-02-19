@@ -20,10 +20,6 @@ $(function(){
             new SliderMain ( $( this ) );
         } );
 
-        $.each( $('.countdown-timer>div' ), function() {
-            new CountDown ( $( this ) );
-        } );
-
         $.each( $( '.gallery' ), function(){
             new Gallery ( $( this ) )
         } );
@@ -354,43 +350,6 @@ $(function(){
             _init = function() {
                 _initSlider();
                 _addEvents();
-
-            };
-
-        _init();
-    };
-
-    var CountDown = function(obj) {
-
-        //private properties
-        var _self = this,
-            _obj = obj;
-
-        //private methods
-        var _addTimer = function() {
-
-                _obj.countdown( {
-
-                    date: _obj.attr( 'data-time' ),
-                    render: function( data ) {
-                        $( this.el ).html( "" +
-                            "<div>" +
-                            this.leadingZeros( data.days, 2 )
-                            +" <span>days</span></div><div>"
-                            + this.leadingZeros( data.hours, 2 )
-                            + " <span>hours</span></div><div>"
-                            + this.leadingZeros( data.min, 2 )
-                            + " <span>min</span></div><div>"
-                            + this.leadingZeros( data.sec, 2 )
-                            + " <span>sec</span></div>" +
-                            "");
-                    }
-
-                } );
-            },
-            _init = function () {
-
-                _addTimer();
 
             };
 

@@ -771,11 +771,10 @@
 /* --------------- countdown-timer --------------- */
 .countdown-timer{
     color: #000;
-    font-size: 32px;
-    line-height: 32px;
+    font-size: 11px;
+    line-height: 11px;
     text-align: center;
-    font-family: 'Roboto Slab', serif;
-    font-weight: 700;
+    text-transform: uppercase;
     background: #ffee8d;
     background: -moz-linear-gradient(left,  #ffee8d 50%, #ffdc1a 50%);
     background: -webkit-linear-gradient(left,  #ffee8d 50%,#ffdc1a 50%);
@@ -803,12 +802,11 @@
 }
 .countdown-timer span{
     display: block;
-    margin: 3px 0 0;
-    font-size: 11px;
-    line-height: 11px;
-    text-transform: uppercase;
-    font-family: 'Roboto', serif;
-    font-weight: 400;
+    margin: 0 0 3px;
+    font-size: 32px;
+    line-height: 32px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
 }
 /* --------------- /countdown-timer --------------- */
 
@@ -1831,8 +1829,8 @@ input.subscribe__email{
 
     /* ------------ countdown-timer ------------ */
     .countdown-timer{
-        font-size: 50px;
-        line-height: 50px;
+        font-size: 16px;
+        line-height: 16px;
     }
     .countdown-timer>div {
         max-width: 480px;
@@ -1843,9 +1841,9 @@ input.subscribe__email{
         padding: 17px 0;
     }
     .countdown-timer span {
-        margin: 8px 0 0;
-        font-size: 16px;
-        line-height: 16px;
+        margin: 0 0 8px;
+        font-size: 50px;
+        line-height: 50px;
     }
     /* ------------ /countdown-timer ------------ */
 
