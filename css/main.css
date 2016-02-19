@@ -348,7 +348,8 @@
 .label{
     display: inline-block;
     vertical-align: top;
-    padding: 5px 5px;
+    padding: 3px 13px;
+    min-width: 88px;
     color: #fff;
     text-transform: uppercase;
     font-size: 14px;
@@ -356,8 +357,17 @@
     font-weight: 500;
     background: #41c5f6;
 }
-.label_blue{
+.label_1{
     background: #345cc2;
+}
+.label_2{
+    background: #9b54d1;
+}
+.label_3{
+    background: #ff8e42;
+}
+.label_4{
+    background: #ff4242;
 }
 /* --------------- /label --------------- */
 
@@ -723,9 +733,6 @@
     line-height: 32px;
     text-align: center;
 }
-.description .site__title{
-    margin: 0 0 26px;
-}
 .description p{
     margin: 0 0 43px;
 }
@@ -852,9 +859,6 @@
     padding: 78px 0 30px;
     font-size: 16px;
     line-height: 19px;
-}
-.schedule .site__title{
-    margin: 0 0 34px;
 }
 .schedule__date-btns {
     max-width: 190px;
@@ -1478,9 +1482,6 @@
         font-size: 20px;
         line-height: 38px;
     }
-    .description .site__title {
-        margin: 0 0 16px;
-    }
     .description p {
         margin: 0 0 33px;
     }
@@ -1945,12 +1946,6 @@
         transform: translateX(-50%) translateX(-50%) rotate(45deg);
     }
     /* --------------- /main-slider --------------- */
-
-    /* --------------- description --------------- */
-    .description .site__title {
-        margin: 0 0 14px;
-    }
-    /* --------------- /description --------------- */
 
     /* --------------- speakers --------------- */
     .speakers__layout {
