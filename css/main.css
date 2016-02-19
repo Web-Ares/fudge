@@ -2888,9 +2888,6 @@ input.subscribe__email{
         visibility: visible;
         opacity: 1;
     }
-    .gallery .fancybox-close {
-        display: none;
-    }
     /* ------------ /gallery ------------ */
 
 }
