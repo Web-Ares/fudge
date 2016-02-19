@@ -1413,7 +1413,8 @@
     line-height: 1.563;
     margin-bottom: 34px;
 }
-.gallery__wrap {
+.gallery__cover {
+    overflow: hidden;
     margin-bottom: 36px;
 }
 .gallery__item {
@@ -1423,12 +1424,6 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-}
-.gallery__item.hidden {
-    opacity: 0;
-    -ms-transform: scale(0.8);
-    -webkit-transform: scale(0.8);
-    transform: scale(0.8);
 }
 .gallery__item_video {
     position: relative;
@@ -1490,6 +1485,10 @@
     margin: -16px 0 0 -11px;
     color: #ffdc1a;
     font-size: 33px;
+}
+.gallery__more {
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 /* ------------ /gallery ------------ */
 
@@ -1957,7 +1956,6 @@
         margin-bottom: 58px;
     }
     .gallery__wrap {
-        margin-bottom: 29px;
         display: -webkit-box;
         display: -moz-box;
         display: -ms-flexbox;
@@ -1972,6 +1970,9 @@
         padding-bottom: 31%;
         margin-bottom: 16px;
         width: 48.5%;
+    }
+    .gallery__cover {
+        margin-bottom: 29px;
     }
     /* ------------ /gallery ------------ */
 
@@ -2507,9 +2508,11 @@
     .gallery {
         padding: 74px 4px 58px;
     }
+    .gallery__cover {
+        margin-bottom: 47px;
+    }
     .gallery__wrap {
         display: block;
-        margin-bottom: 47px;
     }
     .gallery p {
         margin-bottom: 32px;
@@ -2531,6 +2534,15 @@
         border: 8px solid #000;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+        -webkit-transition: opacity 0.3s ease, transform 0.3s ease;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .gallery__item.hidden {
+        opacity: 0;
+        position: absolute;
+        -ms-transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
     }
     .gallery__item_height2x {
         height: 573px;
@@ -2591,6 +2603,9 @@
     .gallery__item:not(.gallery__item_video):hover .gallery__item-title {
         visibility: visible;
         opacity: 1;
+    }
+    .gallery .fancybox-close {
+        display: none;
     }
     /* ------------ /gallery ------------ */
 

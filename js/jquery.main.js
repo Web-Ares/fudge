@@ -393,6 +393,7 @@ $(function(){
         var _self = this,
             _obj = obj,
             _wrapper = _obj.find( '.gallery__wrap' ),
+            _cover = _obj.find( '.gallery__cover' ),
             _galleryItem = '.gallery__item',
             _window = $( window ),
             _fancyBoxGroup = _obj.find( '.fancybox-group' ),
@@ -404,15 +405,26 @@ $(function(){
 
         var _addGalleryContent = function( msg ){
 
-                $.each( msg, function( i ){
+                var hasItems = null;
 
-                    var newBlock = $( '<a href="' + this.href + '" title="' + this.title + '" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url(' + this.imageBG + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
+                $.each( msg.items, function( i ){
+
+                    var path;
+                    hasItems = msg.has_items;
+
+                    if ( this.video == undefined ){
+                        path = this.href;
+                    } else {
+                        path = this.video;
+                    }
+
+                    var newBlock = $( '<a href="' + path + '" title="' + this.title + '" class="gallery__item fancybox-group hidden" data-fancybox-group="gallery" style="background-image: url(' + this.dummy + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
 
                     if ( i == 0 || i == 4 ){
                         newBlock.addClass( 'gallery__item_height2x' );
                     }
 
-                    if ( i == 2 || i == 4 || i == 5 ){
+                    if ( i == 2 || i == 4 || i == 7 ){
                         newBlock.addClass( 'gallery__item_width2x' );
                     }
 
@@ -424,6 +436,12 @@ $(function(){
 
                 } );
 
+                var newItems = _wrapper.find( '.hidden' );
+
+                setTimeout( function(){
+                    _heightAnimation( hasItems, newItems );
+                }, 50 );
+
             },
             _addEvents = function () {
 
@@ -434,17 +452,13 @@ $(function(){
                         if( _window.width() + _getScrollWidth() >= 1000 ) {
 
                             if ( !_isGallery ){
-
                                 _initGallery();
-
                             }
 
                         } else {
 
                             if ( _isGallery ){
-
                                 _destroyGallery();
-
                             }
 
                         }
@@ -456,11 +470,8 @@ $(function(){
                 _btnMore.on({
 
                     click: function(){
-
                         _ajaxRequest();
-
                         return false;
-
                     }
 
                 })
@@ -469,9 +480,7 @@ $(function(){
             _ajaxRequest = function(){
 
                 var galleryItem = _wrapper.find( '.gallery__item' );
-
                 _request.abort();
-
                 _request = $.ajax({
                     url: _btnAction,
                     data: {
@@ -482,15 +491,16 @@ $(function(){
                     type: "GET",
                     success: function ( msg ) {
 
-                        _destroyGallery();
-
-                        _addGalleryContent( msg );
-
-                        setTimeout( function(){
-
-                            _initGallery();
-
-                        }, 10 );
+                        if( _window.width() + _getScrollWidth() < 1000 ) {
+                            _addGalleryContent( msg );
+                        } else {
+                            _cover.height( _cover.height() );
+                            _destroyGallery();
+                            _addGalleryContent( msg );
+                            setTimeout( function(){
+                                _initGallery();
+                            }, 10 );
+                        }
 
                     },
                     error: function ( XMLHttpRequest ) {
@@ -504,7 +514,6 @@ $(function(){
             _destroyGallery = function(){
 
                 _wrapper.isotope( 'destroy' );
-
                 _isGallery = false;
 
             },
@@ -519,7 +528,57 @@ $(function(){
                 document.body.removeChild(div);
                 return scrollWidth ;
             },
+            _heightAnimation = function( hasItems, newItems ){
+
+                _cover.animate( {
+                    height: _wrapper.height()
+                }, {
+                    duration: 500,
+                    complete: function(){
+
+                        _cover.css( 'height', '' );
+
+                        newItems.each( function( i ){
+                            _showNewItems( $( this ),i );
+                        } );
+
+                        if ( hasItems == 0 ){
+                            _removeBtnMore();
+                        }
+
+                    }
+                } )
+
+            },
+            _removeBtnMore = function(){
+
+                _btnMore.css( 'opacity', 0 );
+
+                setTimeout( function(){
+
+                    _btnMore.animate({
+                        height: 0
+                    }, {
+                        duration: 500,
+                        complete: function(){
+                            _btnMore.remove();
+                        }
+                    } );
+
+                }, 300 );
+
+            },
+            _showNewItems = function( item, index ){
+
+                setTimeout( function(){
+                    item.removeClass( 'hidden' );
+                }, index * 100 );
+
+            },
             _initGallery = function() {
+
+                _wrapper = _obj.find( '.gallery__wrap' );
+                _galleryItem = '.gallery__item';
 
                 _wrapper.isotope({
                     itemSelector: _galleryItem,
@@ -534,7 +593,7 @@ $(function(){
             _initFancyBox = function(){
 
                 _fancyBoxGroup.fancybox({
-                    closeBtn: false,
+                    //closeBtn: false,
                     padding: [0,75,0,75]
                 });
 
@@ -542,9 +601,7 @@ $(function(){
             _init = function () {
 
                 if( _window.width() + _getScrollWidth() >= 1000 ) {
-
                     _initGallery();
-
                 }
 
                 _initFancyBox();
@@ -595,7 +652,7 @@ $(function(){
 
                     curItemParent.addClass( 'opened' );
                     details.slideDown( 300 );
-                    
+
                 }
 
             },
