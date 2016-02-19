@@ -264,8 +264,13 @@ $(function(){
                     timeout: 20000,
                     type: "GET",
                     success: function () {
+
                         _obj.trigger( 'reset' );
-                        _sentMessageMark.removeClass( 'site__form-sent_hidden' );
+
+                        if ( _sentMessageMark.length ){
+                            _sentMessageMark.removeClass( 'site__form-sent_hidden' );
+                        }
+
                     },
                     error: function ( XMLHttpRequest ) {
                         if( XMLHttpRequest.statusText != "abort" ) {
@@ -403,7 +408,7 @@ $(function(){
                         newBlock.addClass( 'gallery__item_height2x' );
                     }
 
-                    if ( i == 2 || i == 4 ){
+                    if ( i == 2 || i == 4 || i == 5 ){
                         newBlock.addClass( 'gallery__item_width2x' );
                     }
 
@@ -473,7 +478,15 @@ $(function(){
                     type: "GET",
                     success: function ( msg ) {
 
+                        _destroyGallery();
+
                         _addGalleryContent( msg );
+
+                        setTimeout( function(){
+
+                            _initGallery();
+
+                        }, 10 );
 
                     },
                     error: function ( XMLHttpRequest ) {
