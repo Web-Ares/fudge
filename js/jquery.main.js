@@ -694,13 +694,24 @@ $(function(){
             },
             _heightAnimation = function( hasItems, newItems ){
 
-                newItems.each( function( i ){
-                    _showNewItems( $( this ),i );
-                } );
+                _wrapper.animate( {
+                    height: _wrapper.height() + 349
+                }, {
+                    duration: 500,
+                    complete: function(){
 
-                if ( hasItems == 0 ){
-                    _removeBtnMore();
-                }
+                        _wrapper.css( 'height', '' );
+
+                        newItems.each( function( i ){
+                            _showNewItems( $( this ),i );
+                        } );
+
+                        if ( hasItems == 0 ){
+                            _removeBtnMore();
+                        }
+
+                    }
+                } )
 
             },
             _showNewItems = function( item, index ){
