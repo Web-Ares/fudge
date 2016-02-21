@@ -801,7 +801,8 @@ $(function(){
                     var path;
                     hasItems = msg.has_items;
 
-                    var newBlock = $( '<a href="' + this.href + '" class="speakers__person hidden">' +
+                    var newBlock = $( '<a href="' + this.href + '" class="speakers__person hidden' +
+                        'if (' + this.href + ' == 1) {speakers__person_favorite}">' +
                         '<div class="speakers__photo" style="background-image:url( ' + this.picture +  ' )"></div>' +
                         '<h2 class="speakers__name">' + this.name + '</h2>' +
                         '<span class="speakers__post">' + this.post + '" </span>' +

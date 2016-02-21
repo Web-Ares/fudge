@@ -25,7 +25,8 @@ if ( $loadedCount == 4 ){
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
-                            "href": "#"
+                            "href": "#",
+                            "favorite": "1"
                             },
                         {
                             "id":3,
