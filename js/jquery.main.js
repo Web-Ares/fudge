@@ -450,6 +450,14 @@ $(function(){
 
                 });
 
+                _obj.on( 'click', '.gallery__item', function(){
+
+                    SwiperPopup( $( this ), $(this).index() );
+
+                    return false;
+
+                } );
+
             },
             _ajaxRequest = function(){
 
@@ -757,6 +765,225 @@ $(function(){
         _init();
     };
 
+    var SwiperPopup = function ( obj, index ) {
+
+        var _self = this,
+            _obj = obj,
+            _body = $( 'body' ),
+            _wrapper = _obj.parent(),
+            _links = _wrapper.find( '.gallery__item'),
+            _html = $( 'html'),
+            _window = $( window ),
+            _popup = null,
+            _swiperWrapper = null,
+            _swiperContainer = null,
+            _swiperPagination = null,
+            _swiperBtnNext = null,
+            _swiperBtnPrev = null,
+            _swiper = null;
+
+        var _addEvents = function(){
+
+                _window.on({
+
+                    resize: function (){
+
+                        _setPictureSizeWhenResize();
+
+                    }
+
+                });
+
+                $( '.swiper-popup__inner').parent().on({
+
+                    click: function(){
+
+                        _popup.removeClass( 'active' );
+                        setTimeout( function(){
+                            _deleteStyles();
+                            _popup.remove();
+                        }, 300 );
+
+                    }
+
+                });
+
+                $( '.swiper-popup__inner').on({
+
+                    click: function( event ){
+                        event.stopPropagation();
+                    }
+
+                });
+
+            },
+            _addVideo = function () {
+
+                var activeSlide = _popup.find( '.swiper-slide-active' ),
+                    src = activeSlide.find( '[data-src]' ).data( 'src'),
+                    innerContent = $( '<iframe src="' + src + '"> frameborder="0" allowfullscreen></iframe>' );
+
+                $( '.swiper-slide-active').find( '.swiper-popup__video').prepend( innerContent );
+
+            },
+            _buildPopup = function(){
+
+                _popup = $( '<div class="swiper-popup">\
+                                    <div class="swiper-container">\
+                                        <div class="swiper-wrapper"></div>\
+                                        <div class="swiper-pagination"></div>\
+                                        <div class="swiper-button-next"></div>\
+                                        <div class="swiper-button-prev"></div>\
+                                    </div>\
+                                </div>' );
+
+                _swiperWrapper = _popup.find( '.swiper-wrapper' );
+                _swiperContainer = _popup.find( '.swiper-container' );
+                _swiperPagination = _popup.find( '.swiper-pagination' );
+                _swiperBtnNext = _popup.find( '.swiper-button-next' );
+                _swiperBtnPrev = _popup.find( '.swiper-button-prev' );
+                _contentFilling();
+                _initSwiper();
+                _swiper.slideTo( index, 0);
+                _popup.addClass( 'active' );
+                _setStyles();
+                _swiper.onResize();
+            },
+            _contentFilling = function(){
+
+                $.each( _links, function(){
+
+                    var innerContent = null,
+                        dataSRC = null,
+                        preloader = null;
+
+                    if ( $( this ).hasClass( 'gallery__item_video' ) ){
+
+                        preloader = '<i class="fa fa-spinner fa-spin"></i>';
+                        innerContent = '<div class="swiper-popup__video"/>';
+                        dataSRC = 'data-src="' + $(this).attr( "href" ) + '"';
+
+                    } else {
+
+                        preloader = '';
+                        innerContent = '<img src="' + $(this).attr( "href" ) + '">';
+                        dataSRC = '';
+
+                    }
+
+                    var newItem = $( '<div class="swiper-slide">\
+                                        <div class="swiper-popup__inner" ' + dataSRC + '>\
+                                            ' + preloader + '\
+                                            ' + innerContent + '\
+                                            <span class="swiper-slide__title">' + $(this).attr( "title" ) + '</span>\
+                                        </div>\
+                                    </div>' );
+
+                    _swiperWrapper.append( newItem );
+                    newItem.find( 'img' ).on({
+                        load: function(){
+                            $( this ).attr( 'data-width', this.width );
+                            $( this ).attr( 'data-height', this.height );
+                            _setPictureSize( this.width, this.height, $(this) );
+                        }
+                    });
+
+                } );
+
+                _body.append( _popup );
+
+            },
+            _deleteStyles = function(){
+
+                _html.css({
+                    overflow: '',
+                    paddingRight: ''
+                });
+
+            },
+            _getScrollWidth = function (){
+                var scrollDiv = document.createElement( 'div' );
+                document.body.appendChild( scrollDiv );
+                var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+                document.body.removeChild( scrollDiv );
+                return scrollbarWidth;
+            },
+            _removeVideo = function(){
+
+                var items = _popup.find( '.swiper-slide'),
+                    videoFrame = items.find( '.swiper-popup__video iframe' );
+                videoFrame.remove();
+
+            },
+            _setPictureSize = function( picWidth, picHeight, pic ){
+
+                var k = 0;
+
+                if ( ( _popup.width()/picWidth ) > ( _popup.height()/picHeight ) ) {
+                    k = _popup.height()/picHeight ;
+                } else {
+                    k = _popup.width()/picWidth;
+                }
+
+                if ( k >= 1 ){
+
+                    pic.css({
+                        "width": picWidth*0.9,
+                        "height": picHeight*0.9
+                    });
+
+                } else {
+
+                    pic.css({
+                        "width": k*picWidth*0.9,
+                        "height": k*picHeight*0.9
+                    });
+
+                }
+
+            },
+            _setPictureSizeWhenResize = function(){
+
+                $.each( _swiperWrapper.find( 'img' ), function () {
+                    _setPictureSize( $( this ).data( 'width' ), $( this ).data( 'height' ), $(this) );
+                } );
+
+            },
+            _setStyles = function(){
+
+                _html.css({
+                    overflow: 'hidden',
+                    paddingRight: _getScrollWidth()
+                });
+
+            },
+            _initSwiper = function(){
+
+                _swiper = new Swiper( _swiperContainer, {
+                    pagination: _swiperPagination,
+                    nextButton: _swiperBtnNext,
+                    prevButton: _swiperBtnPrev,
+                    slidesPerView: 1,
+                    paginationClickable: true,
+                    onSlideChangeEnd: function(){
+                        _removeVideo();
+                        if ( $( '.swiper-slide-active').find( '[data-src]').length ){
+                            _addVideo();
+                        }
+                    }
+                });
+
+            },
+            _init = function () {
+                _buildPopup();
+                _addEvents();
+                _obj[ 0 ].obj = _self;
+            };
+
+        _init();
+
+    };
+
 } );
 
 var initMap = function(){
@@ -777,5 +1004,3 @@ var initMap = function(){
             map: map
         });
 };
-
-
