@@ -811,7 +811,9 @@ $(function(){
                 $( '.swiper-popup__inner').on({
 
                     click: function( event ){
+
                         event.stopPropagation();
+
                     }
 
                 });
@@ -836,7 +838,6 @@ $(function(){
                                         <div class="swiper-button-prev"></div>\
                                     </div>\
                                 </div>' );
-
                 _swiperWrapper = _popup.find( '.swiper-wrapper' );
                 _swiperContainer = _popup.find( '.swiper-container' );
                 _swiperPagination = _popup.find( '.swiper-pagination' );
@@ -880,6 +881,7 @@ $(function(){
                                     </div>' );
 
                     _swiperWrapper.append( newItem );
+
                     newItem.find( 'img' ).on({
                         load: function(){
                             $( this ).attr( 'data-width', this.width );
@@ -907,6 +909,28 @@ $(function(){
                 var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
                 document.body.removeChild( scrollDiv );
                 return scrollbarWidth;
+            },
+            _initSwiper = function(){
+
+                _swiper = new Swiper( _swiperContainer, {
+                    pagination: _swiperPagination,
+                    nextButton: _swiperBtnNext,
+                    prevButton: _swiperBtnPrev,
+                    slidesPerView: 1,
+                    paginationClickable: true,
+                    onSlideChangeEnd: function(){
+                        _removeVideo();
+                        if ( $( '.swiper-slide-active').find( '[data-src]').length ){
+                            _addVideo();
+                        }
+                    }
+                });
+
+            },
+            _init = function () {
+                _buildPopup();
+                _addEvents();
+                _obj[ 0 ].obj = _self;
             },
             _removeVideo = function(){
 
@@ -945,7 +969,9 @@ $(function(){
             _setPictureSizeWhenResize = function(){
 
                 $.each( _swiperWrapper.find( 'img' ), function () {
-                    _setPictureSize( $( this ).data( 'width' ), $( this ).data( 'height' ), $(this) );
+
+                    _setPictureSize( $( this ).data( 'width' ), $( this ).data( 'height' ), $( this ) );
+
                 } );
 
             },
@@ -956,28 +982,6 @@ $(function(){
                     paddingRight: _getScrollWidth()
                 });
 
-            },
-            _initSwiper = function(){
-
-                _swiper = new Swiper( _swiperContainer, {
-                    pagination: _swiperPagination,
-                    nextButton: _swiperBtnNext,
-                    prevButton: _swiperBtnPrev,
-                    slidesPerView: 1,
-                    paginationClickable: true,
-                    onSlideChangeEnd: function(){
-                        _removeVideo();
-                        if ( $( '.swiper-slide-active').find( '[data-src]').length ){
-                            _addVideo();
-                        }
-                    }
-                });
-
-            },
-            _init = function () {
-                _buildPopup();
-                _addEvents();
-                _obj[ 0 ].obj = _self;
             };
 
         _init();
