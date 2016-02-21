@@ -653,7 +653,6 @@ $(function(){
             _btnMore = _obj.find($('.news__more')),
             _btnAction = _btnMore.data( 'action'),
             _wrapper = _obj.find($('.news__layout')),
-            _newsItem = _obj.find( '.news__item'),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -717,11 +716,12 @@ $(function(){
             },
             _ajaxRequest = function(){
 
+                var newsItem = _obj.find( '.news__item' );
                 _request.abort();
                 _request = $.ajax({
                     url: _btnAction,
                     data: {
-                        loadedCount: _newsItem.length
+                        loadedCount: newsItem.length
                     },
                     dataType: 'json',
                     timeout: 20000,
@@ -777,7 +777,6 @@ $(function(){
             _btnMore = _obj.find($('.speakers__more')),
             _btnAction = _btnMore.data( 'action'),
             _wrapper = _obj.find($('.speakers__layout')),
-            _newsItem = _obj.find( '.speakers__person'),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -839,11 +838,12 @@ $(function(){
             },
             _ajaxRequest = function(){
 
+                var newsItem = _obj.find( '.speakers__person' );
                 _request.abort();
                 _request = $.ajax({
                     url: _btnAction,
                     data: {
-                        loadedCount: _newsItem.length
+                        loadedCount: newsItem.length
                     },
                     dataType: 'json',
                     timeout: 20000,
