@@ -2971,11 +2971,18 @@ input.subscribe__email{
     }
     .news__item {
         margin: 0 0 31px;
-        transition: box-shadow .3s ease;
-        -webkit-transition: box-shadow .3s ease;
+        transition: box-shadow .3s ease, opacity 0.3s ease, transform 0.3s ease;
+        -webkit-transition: box-shadow .3s ease, opacity 0.3s ease, transform 0.3s ease;
     }
     .news__item:hover {
         box-shadow: 0 0 30px rgba(0,0,0,.1);
+    }
+    .news__item.hidden {
+        opacity: 0;
+        position: absolute;
+        -ms-transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
     }
     /* --------------- /news --------------- */
 
