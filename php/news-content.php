@@ -2,6 +2,8 @@
 
 $loadedCount = $_GET['loadedCount'];
 
+if ( $loadedCount == 9 ){
+
 //  "has_items" - the number of not downloaded images
 //  "title" - text which shows at hover on element
 //  "dummy" - path to preview picture
@@ -39,7 +41,17 @@ $loadedCount = $_GET['loadedCount'];
                             "picture": "pic/news-01.jpg",
                             "date": "17 Feb. 2016",
                             "href": "#"
-                            },
+                            }
+
+                    ]
+    }';
+
+} else {
+    $json_data = '{
+
+        "has_items": 0,
+            "items":[
+
                         {
                             "id":5,
                             "title": "A New Conference. Be Inspired, Get Creative.",
@@ -53,32 +65,11 @@ $loadedCount = $_GET['loadedCount'];
                             "picture": "pic/news-01.jpg",
                             "date": "17 Feb. 2016",
                             "href": "#"
-                            },
-                        {
-                            "id":7,
-                            "title": "A New Conference. Be Inspired, Get Creative.",
-                            "picture": "pic/news-01.jpg",
-                            "date": "17 Feb. 2016",
-                            "href": "#"
-                            },
-                        {
-                            "id":8,
-                            "title": "A New Conference. Be Inspired, Get Creative.",
-                            "picture": "pic/news-01.jpg",
-                            "date": "17 Feb. 2016",
-                            "href": "#"
-                            },
-                        {
-                            "id":9,
-                            "title": "A New Conference. Be Inspired, Get Creative.",
-                            "picture": "pic/news-01.jpg",
-                            "date": "17 Feb. 2016",
-                            "href": "#"
                             }
+            ]
+        }';
 
-                    ]
-    }';
-
+};
 echo $json_data;
 exit;
 ?>
