@@ -673,7 +673,7 @@ $(function(){
                     var path;
                     hasItems = msg.has_items;
 
-                    var newBlock = $( '<article class="news__item">' +
+                    var newBlock = $( '<article class="news__item hidden">' +
                         '<div class="news__picture" style="background-image:url( ' + this.picture +  ' )"></div>' +
                         '<div class="news__content">' +
                         '<time datetime="' + this.date + '" class="news__date">' + this.date + '</time>' +

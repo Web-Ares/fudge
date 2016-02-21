@@ -2,7 +2,7 @@
 
 $loadedCount = $_GET['loadedCount'];
 
-if ( $loadedCount == 9 ){
+if ( $loadedCount == 4 ){
 
 //  "has_items" - the number of not downloaded images
 //  "title" - text which shows at hover on element
