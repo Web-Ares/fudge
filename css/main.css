@@ -2979,10 +2979,6 @@ input.subscribe__email{
     }
     .news__item.hidden {
         opacity: 0;
-        position: absolute;
-        -ms-transform: scale(0.8);
-        -webkit-transform: scale(0.8);
-        transform: scale(0.8);
     }
     /* --------------- /news --------------- */
 
