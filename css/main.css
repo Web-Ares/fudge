@@ -2815,23 +2815,27 @@ input.subscribe__email{
 
     /* --------------- speakers --------------- */
     .speakers__layout {
-        text-align: justify;
-    }
-    .speakers__layout:after {
-        display: inline-block;
-        width: 100%;
-        content: '';
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
     }
     .speakers__person {
         margin: 0 0 31px;
-        transition: box-shadow .3s ease;
-        -webkit-transition: box-shadow .3s ease;
+        transition: box-shadow .3s ease, opacity 0.3s ease, transform 0.3s ease;
+        -webkit-transition: box-shadow .3s ease, opacity 0.3s ease, transform 0.3s ease;
     }
     .speakers__person:hover {
         box-shadow: 0 0 30px rgba(0,0,0,.2);
     }
     .speakers__post {
         text-align: left;
+    }
+    .speakers__person.hidden {
+        opacity: 0;
     }
     /* --------------- /speakers --------------- */
 
@@ -2963,11 +2967,6 @@ input.subscribe__email{
         display: flex;
         -webkit-flex-flow: row wrap;
         justify-content: space-around;
-    }
-    .news__layout:after {
-        display: inline-block;
-        width: 100%;
-        content: '';
     }
     .news__item {
         margin: 0 0 31px;

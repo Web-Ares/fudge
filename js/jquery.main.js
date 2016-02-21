@@ -24,6 +24,10 @@ $(function(){
             new News ( $( this ) );
         } );
 
+        $.each( $('.speakers' ), function() {
+            new Speakers ( $( this ) );
+        } );
+
         /*$.each( $('.countdown-timer>div' ), function() {
             new CountDown ( $( this ) );
         } );*/
@@ -694,24 +698,135 @@ $(function(){
             },
             _heightAnimation = function( hasItems, newItems ){
 
-                _wrapper.animate( {
-                    height: _wrapper.height() + 349
-                }, {
-                    duration: 500,
-                    complete: function(){
+                newItems.each( function( i ){
+                    _showNewItems( $( this ),i );
+                } );
 
-                        _wrapper.css( 'height', '' );
+                if ( hasItems == 0 ){
+                    _removeBtnMore();
+                }
 
-                        newItems.each( function( i ){
-                            _showNewItems( $( this ),i );
-                        } );
+            },
+            _showNewItems = function( item, index ){
 
-                        if ( hasItems == 0 ){
-                            _removeBtnMore();
+                setTimeout( function(){
+                    item.removeClass( 'hidden' );
+                }, index * 100 );
+
+            },
+            _ajaxRequest = function(){
+
+                var newsItem = _obj.find( '.news__item' );
+                _request.abort();
+                _request = $.ajax({
+                    url: _btnAction,
+                    data: {
+                        loadedCount: newsItem.length
+                    },
+                    dataType: 'json',
+                    timeout: 20000,
+                    type: "GET",
+                    success: function ( msg ) {
+
+                        _addNewsContent( msg );
+
+                    },
+                    error: function ( XMLHttpRequest ) {
+                        if( XMLHttpRequest.statusText != "abort" ) {
+                            alert( "Error!" );
                         }
-
                     }
-                } )
+                });
+
+            },
+            _removeBtnMore = function(){
+
+                _btnMore.css( 'opacity', 0 );
+
+                setTimeout( function(){
+
+                    _btnMore.css( 'padding', 0 );
+
+                    _btnMore.animate({
+                        height: 0
+                    }, {
+                        duration: 500,
+                        complete: function(){
+                            _btnMore.remove();
+                        }
+                    } );
+
+                }, 300 );
+
+            },
+            _init = function() {
+
+                _addEvents();
+                _obj[ 0 ].obj = _self;
+
+            };
+
+        _init();
+    };
+
+    var Speakers = function( obj ) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _btnMore = _obj.find($('.speakers__more')),
+            _btnAction = _btnMore.data( 'action'),
+            _wrapper = _obj.find($('.speakers__layout')),
+            _request = new XMLHttpRequest();
+
+        //private methods
+        var _addEvents = function() {
+
+                _btnMore.on({
+
+                    click: function(){
+                        _ajaxRequest();
+                        return false;
+                    }
+
+                });
+
+            },
+            _addNewsContent = function( msg ){
+
+                var hasItems = null;
+
+                $.each( msg.items, function( i ){
+
+                    var path;
+                    hasItems = msg.has_items;
+
+                    var newBlock = $( '<a href="' + this.href + '" class="speakers__person hidden">' +
+                        '<div class="speakers__photo" style="background-image:url( ' + this.picture +  ' )"></div>' +
+                        '<h2 class="speakers__name">' + this.name + '</h2>' +
+                        '<span class="speakers__post">' + this.post + '" </span>' +
+                        '</a>' );
+
+                    _wrapper.append( newBlock );
+
+                } );
+
+                var newItems = _wrapper.find( '.hidden' );
+
+                setTimeout( function(){
+                    _heightAnimation( hasItems, newItems );
+                }, 50 );
+
+            },
+            _heightAnimation = function( hasItems, newItems ){
+
+                newItems.each( function( i ){
+                    _showNewItems( $( this ),i );
+                } );
+
+                if ( hasItems == 0 ){
+                    _removeBtnMore();
+                }
 
             },
             _showNewItems = function( item, index ){

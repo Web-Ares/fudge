@@ -5,10 +5,10 @@ $loadedCount = $_GET['loadedCount'];
 if ( $loadedCount == 4 ){
 
 //  "has_items" - the number of not downloaded images
-//  "title" - text which shows at hover on element
-//  "dummy" - path to preview picture
-//  "href" - path to main picture, which shows in popup, or a link to the video
-//  "video" - if it is a block with a link to video frame
+//  "title" - title of news
+//  "picture" - preview picture
+//  "date" - date of news
+//  "href" - link to main news
 
     $json_data = '{
         "has_items": 1,
@@ -47,6 +47,13 @@ if ( $loadedCount == 4 ){
     }';
 
 } else {
+
+//  "has_items" - the number of not downloaded news
+//  "title" - title of news
+//  "picture" - preview picture
+//  "date" - date of news
+//  "href" - link to main news
+
     $json_data = '{
 
         "has_items": 0,
