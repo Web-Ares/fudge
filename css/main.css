@@ -398,6 +398,23 @@
 .btn_10:hover {
     background: #333;
 }
+.btn_11 {
+    width: 204px;
+    height: 59px;
+    padding: 19px 0 0;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    -webkit-transition: color 0.3s ease, background 0.3s ease, border 0.3s ease;
+    transition: color 0.3s ease, background 0.3s ease, border 0.3s ease;
+}
+.btn_11:hover {
+    background: rgba(255, 255, 255, 1);
+    border: 2px solid rgba(255,255,255,1);
+    color: #1566a4;
+}
 /* --------------- /btn --------------- */
 
 /* --------------- label --------------- */
@@ -1678,6 +1695,81 @@ input.subscribe__email{
 }
 /* ------------ /swiper-popup ------------ */
 
+/* ------------ social-feed ------------ */
+.social-feed {
+    padding: 40px 0 45px;
+    text-align: center;
+}
+.social-feed__wrap {
+    margin-bottom: 36px;
+}
+.social-feed__item {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    margin: 0 auto 20px;
+    padding: 38px 20px 20px;
+    width: 260px;
+    height: 290px;
+    background: #30a2eb;
+    text-align: center;
+}
+.social-feed__item:last-child {
+    margin-bottom: 0;
+}
+.social-feed__head {
+    margin-bottom: 33px;
+    color: rgba( 255, 255, 255, 0.4 );
+    font-size: 20px;
+}
+.social-feed__logo {
+    margin-bottom: 11px;
+}
+.social-feed__logo .fa {
+    display: inline-block;
+    color: #6fbef1;
+    font-size: 36px;
+}
+.social-feed__name {
+    margin-bottom: 9px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+.social-feed__txt {
+    color: rgb( 255, 255, 255 );
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.222;
+}
+.social-feed__hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba( 20, 99, 160, 0.949 );
+    -ms-transform: translate(-100%, 0);
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+    -webkit-transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
+}
+.social-feed__item:hover .social-feed__hover {
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+.social-feed__hover .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+/* ------------ /social-feed ------------ */
+
 @media (min-width: 768px) {
 
     /* ------------ social ------------ */
@@ -1688,6 +1780,87 @@ input.subscribe__email{
         font-size: 36px;
     }
     /* ------------ /social ------------ */
+
+    /* ------------ btn ------------ */
+    .btn{
+        width: 282px;
+        height: 73px;
+        padding: 19px 10px;
+        font-size: 36px;
+        line-height: 36px;
+    }
+    .btn_1 {
+        width: 231px;
+        height: 54px;
+        padding: 17px 10px;
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .btn_2 {
+        height: 100%;
+        width: 100%;
+        font-size: 18px;
+        padding: 0;
+    }
+    .btn_3 {
+        width: 230px;
+        height: 54px;
+        padding: 18px 10px;
+        font-size: 18px;
+        line-height: 1;
+    }
+    .btn_4{
+        width: 132px;
+        height: 30px;
+        padding: 7px 25px 2px;
+        font-size: 14px;
+        line-height: 1;
+    }
+    .btn_5 {
+        display: inline-block;
+        width: 228px;
+        height: 54px;
+        padding: 10px;
+        font-size: 18px;
+        margin: 0 16px;
+    }
+    .btn_6 {
+        display: inline-block;
+        width: 228px;
+        height: 54px;
+        padding: 10px;
+        font-size: 18px;
+        margin: 0 16px;
+    }
+    .btn_7 {
+        width: 190px;
+        height: 45px;
+        padding: 14px 10px;
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .btn_9 {
+        width: auto;
+        height: 57px;
+        padding: 8px 10px;
+        font-size: 18px;
+    }
+    .btn_10 {
+        display: inline-block;
+        width: 180px;
+        height: 60px;
+        margin: 0 -3px;
+        padding-top: 12px;
+        font-size: 18px;
+    }
+    .btn_11 {
+        padding: 21px 0 0;
+        width: 204px;
+        height: 59px;
+        font-size: 16px;
+        line-height: 1;
+    }
+    /* ------------ /btn ------------ */
 
     /* --------------- site --------------- */
     .site__header-top{
@@ -1769,80 +1942,6 @@ input.subscribe__email{
         margin-bottom: 48px;
     }
     /* ------------ /logo ------------ */
-
-    /* ------------ btn ------------ */
-    .btn{
-        width: 282px;
-        height: 73px;
-        padding: 19px 10px;
-        font-size: 36px;
-        line-height: 36px;
-    }
-    .btn_1 {
-        width: 231px;
-        height: 54px;
-        padding: 17px 10px;
-        font-size: 18px;
-        line-height: 18px;
-    }
-    .btn_2 {
-        height: 100%;
-        width: 100%;
-        font-size: 18px;
-        padding: 0;
-    }
-    .btn_3 {
-        width: 230px;
-        height: 54px;
-        padding: 18px 10px;
-        font-size: 18px;
-        line-height: 1;
-    }
-    .btn_4{
-        width: 132px;
-        height: 30px;
-        padding: 7px 25px 2px;
-        font-size: 14px;
-        line-height: 1;
-    }
-    .btn_5 {
-        display: inline-block;
-        width: 228px;
-        height: 54px;
-        padding: 10px;
-        font-size: 18px;
-        margin: 0 16px;
-    }
-    .btn_6 {
-        display: inline-block;
-        width: 228px;
-        height: 54px;
-        padding: 10px;
-        font-size: 18px;
-        margin: 0 16px;
-    }
-    .btn_7 {
-        width: 190px;
-        height: 45px;
-        padding: 14px 10px;
-        font-size: 16px;
-        line-height: 16px;
-    }
-    .btn_9 {
-        width: auto;
-        height: 57px;
-        padding: 8px 10px;
-        font-size: 18px;
-    }
-    .btn_10 {
-        display: inline-block;
-        width: 180px;
-        height: 60px;
-        margin: 0 -3px;
-        padding-top: 12px;
-        font-size: 18px;
-    }
-    /* ------------ /btn ------------ */
 
     /* ------------ menu-btn ------------ */
     .menu-btn {
@@ -2302,9 +2401,105 @@ input.subscribe__email{
     }
     /* ------------ /swiper-popup ------------ */
 
+    /* ------------ social-feed ------------ */
+    .social-feed {
+        padding: 80px 0 60px;
+    }
+    .social-feed__wrap {
+        margin-bottom: 18px;
+    }
+    .social-feed__item {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 14px 32px;
+    }
+    .social-feed__head {}
+    .social-feed__logo {}
+    .social-feed__logo .fa {}
+    .social-feed__name {}
+    .social-feed__txt {}
+    .social-feed__hover {}
+    .social-feed__item:hover .social-feed__hover {}
+    .social-feed__hover .btn {}
+    /* ------------ /social-feed ------------ */
+
 }
 
 @media (min-width: 1000px) {
+
+    /* --------------- btn --------------- */
+    .btn{
+        width: 132px;
+        height: 38px;
+        padding: 11px 10px;
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .btn_1 {
+        width: 231px;
+        height: 54px;
+        padding: 17px 10px;
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .btn_2 {
+        height: 100%;
+        width: 100%;
+        font-size: 18px;
+        padding: 0;
+    }
+    .btn_3 {
+        width: 230px;
+        height: 54px;
+        padding: 18px 10px;
+        font-size: 18px;
+        line-height: 1;
+    }
+    .btn_7 {
+        width: 190px;
+        height: 45px;
+        padding: 14px 10px;
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .btn_5 {
+        display: inline-block;
+        width: 228px;
+        height: 54px;
+        padding: 20px 10px;
+        font-size: 18px;
+        margin: 0 16px;
+    }
+    .btn_6 {
+        display: inline-block;
+        width: 228px;
+        height: 54px;
+        padding: 20px 10px;
+        font-size: 18px;
+        margin: 0 16px;
+    }
+    .btn_9 {
+        width: auto;
+        height: 52px;
+        padding: 16px 10px;
+        font-size: 18px;
+    }
+    .btn_10 {
+        display: inline-block;
+        width: 180px;
+        height: 60px;
+        margin: 0 -3px;
+        padding-top: 12px;
+        font-size: 18px;
+    }
+    .btn_11 {
+        padding: 21px 0 0;
+        width: 204px;
+        height: 59px;
+        font-size: 16px;
+        line-height: 1;
+    }
+    /* --------------- /btn --------------- */
 
     /* --------------- site --------------- */
     .site__footer {
@@ -2388,73 +2583,6 @@ input.subscribe__email{
         margin-bottom: 36px;
     }
     /* --------------- /logo --------------- */
-
-    /* --------------- btn --------------- */
-    .btn{
-        width: 132px;
-        height: 38px;
-        padding: 11px 10px;
-        font-size: 14px;
-        line-height: 14px;
-    }
-    .btn_1 {
-        width: 231px;
-        height: 54px;
-        padding: 17px 10px;
-        font-size: 18px;
-        line-height: 18px;
-    }
-    .btn_2 {
-        height: 100%;
-        width: 100%;
-        font-size: 18px;
-        padding: 0;
-    }
-    .btn_3 {
-        width: 230px;
-        height: 54px;
-        padding: 18px 10px;
-        font-size: 18px;
-        line-height: 1;
-    }
-    .btn_7 {
-        width: 190px;
-        height: 45px;
-        padding: 14px 10px;
-        font-size: 16px;
-        line-height: 16px;
-    }
-    .btn_5 {
-        display: inline-block;
-        width: 228px;
-        height: 54px;
-        padding: 20px 10px;
-        font-size: 18px;
-        margin: 0 16px;
-    }
-    .btn_6 {
-        display: inline-block;
-        width: 228px;
-        height: 54px;
-        padding: 20px 10px;
-        font-size: 18px;
-        margin: 0 16px;
-    }
-    .btn_9 {
-        width: auto;
-        height: 52px;
-        padding: 16px 10px;
-        font-size: 18px;
-    }
-    .btn_10 {
-        display: inline-block;
-        width: 180px;
-        height: 60px;
-        margin: 0 -3px;
-        padding-top: 12px;
-        font-size: 18px;
-    }
-    /* --------------- /btn --------------- */
 
     /* --------------- header-menu --------------- */
     .header-menu{
@@ -2985,5 +3113,32 @@ input.subscribe__email{
         opacity: 1;
     }
     /* ------------ /gallery ------------ */
+
+    /* ------------ social-feed ------------ */
+    .social-feed {
+        padding: 93px 0 60px;
+    }
+    .social-feed__wrap {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+        margin: 0 -15px 19px;
+    }
+    .social-feed__item {
+        margin: 0 0 31px;
+    }
+    .social-feed__head {}
+    .social-feed__logo {}
+    .social-feed__logo .fa {}
+    .social-feed__name {}
+    .social-feed__txt {}
+    .social-feed__hover {}
+    .social-feed__item:hover .social-feed__hover {}
+    .social-feed__hover .btn {}
+    /* ------------ /social-feed ------------ */
 
 }

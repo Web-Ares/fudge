@@ -15,55 +15,46 @@ if ( $loadedCount == 9 ){
                     "items":[
 
                         {
-                            "id":1,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-1.jpg",
                             "href": "pic/big/gallery__pic-1.jpg"
                             },
                         {
-                            "id":2,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-3.jpg",
                             "href": "pic/big/gallery__pic-3.jpg"
                             },
                         {
-                            "id":3,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-5.jpg",
                             "href": "pic/big/gallery__pic-5.jpg"
                             },
                         {
-                            "id":4,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-6.jpg",
                             "href": "pic/big/gallery__pic-6.jpg"
                             },
                         {
-                            "id":5,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-4.jpg",
                             "video": "https://www.youtube.com/embed/3PYLnSrP3eE"
                             },
                         {
-                            "id":6,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-7.jpg",
                             "href": "pic/big/gallery__pic-7.jpg"
                             },
                         {
-                            "id":7,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-2.jpg",
                             "href": "pic/big/gallery__pic-2.jpg"
                             },
                         {
-                            "id":8,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-8.jpg",
                             "href": "pic/big/gallery__pic-8.jpg"
                             },
                         {
-                            "id":9,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-9.jpg",
                             "href": "pic/big/gallery__pic-9.jpg"
@@ -85,13 +76,11 @@ if ( $loadedCount == 9 ){
                     "items":[
 
                         {
-                            "id":1,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-1.jpg",
                             "href": "pic/big/gallery__pic-1.jpg"
                             },
                         {
-                            "id":2,
                             "title": "Mouse hover",
                             "dummy": "pic/gallery__pic-3.jpg",
                             "video": "https://www.youtube.com/embed/YykjpeuMNEk"
