@@ -952,15 +952,15 @@ $(function(){
                 if ( k >= 1 ){
 
                     pic.css({
-                        "width": picWidth*0.9,
-                        "height": picHeight*0.9
+                        "width": picWidth*0.85,
+                        "height": picHeight*0.85
                     });
 
                 } else {
 
                     pic.css({
-                        "width": k*picWidth*0.9,
-                        "height": k*picHeight*0.9
+                        "width": k*picWidth*0.85,
+                        "height": k*picHeight*0.85
                     });
 
                 }
