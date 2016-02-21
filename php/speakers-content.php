@@ -18,7 +18,8 @@ if ( $loadedCount == 4 ){
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
-                            "href": "#"
+                            "href": "#",
+                            "favorite": " "
                             },
                         {
                             "id":2,
@@ -26,21 +27,23 @@ if ( $loadedCount == 4 ){
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
                             "href": "#",
-                            "favorite": "1"
+                            "favorite": "speakers__person_favorite"
                             },
                         {
                             "id":3,
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
-                            "href": "#"
+                            "href": "#",
+                            "favorite": " "
                             },
                         {
                             "id":4,
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
-                            "href": "#"
+                            "href": "#",
+                            "favorite": " "
                             }
 
                     ]
