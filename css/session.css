@@ -9,8 +9,8 @@
 }
 
 .presented .speakers__layout {
-    justify-content: space-between;
     margin: auto;
+    justify-content: space-between;
 }
 /* ------------ /presented ------------ */
 
@@ -83,28 +83,28 @@
 }
 
 .time-schedule__session {
+    padding: 10px 0;
+    margin: auto;
     border-left: 2px solid rgba(255, 255, 255, 0.3);
     border-right: 2px solid rgba(255, 255, 255, 0.3);
-    margin: auto;
     font: 400 16px/20px "Roboto", sans-serif;
     text-transform: uppercase;
-    padding: 10px 0;
 }
 
 .time-schedule__session__place {
-    width: 100%;
     display: block;
+    width: 100%;
     padding-bottom: 7px;
 }
 
 .time-schedule__session time {
-    width: 100%;
     display: block;
+    width: 100%;
 }
 
 .time-schedule__session__place i {
-    color: #b5b5b5;
     padding-right: 10px;
+    color: #b5b5b5;
 }
 /* ------------ /hero ------------ */
 
@@ -136,9 +136,9 @@
 
     /* ------------ presented ------------ */
     .presented .speakers__layout {
-        justify-content: space-between;
-        margin: auto;
         max-width: 600px;
+        margin: auto;
+        justify-content: space-between;
     }
     /* ------------ /presented ------------ */
 
@@ -149,15 +149,15 @@
     }
 
     .time-schedule__session {
-        padding: 0;
-        overflow: hidden;
         display: inline-block;
+        overflow: hidden;
         width: auto;
+        padding: 0;
     }
 
     .time-schedule__session__place {
-        border-right: 2px solid rgba(255, 255, 255, 0.3);
         width: auto;
+        border-right: 2px solid rgba(255, 255, 255, 0.3);
     }
 
     .time-schedule__session time {
@@ -166,8 +166,8 @@
 
     .time-schedule__session__place, .time-schedule__session time {
         float: left;
-        text-align: center;
         padding: 13px 30px;
+        text-align: center;
     }
 
     /* ------------ hero ------------ */
@@ -203,9 +203,9 @@
 
     /* ------------ presented ------------ */
     .presented .speakers__layout {
-        justify-content: space-between;
-        margin: auto;
         max-width: 850px;
+        margin: auto;
+        justify-content: space-between;
     }
     /* ------------ /presented ------------ */
 
