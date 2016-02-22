@@ -1082,6 +1082,13 @@
     font-family: 'Roboto Slab', serif;
     font-weight: 700;
 }
+.schedule__time span {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 16px;
+    color: #000;
+    background: #ffdc1a;
+}
 .schedule__event{
     display: block;
     font-size: 20px;
@@ -2030,11 +2037,11 @@ input.subscribe__email{
         line-height: 24px;
     }
     .site__title_subtitle {
-        padding-bottom: 38px;
+        padding-bottom: 18px;
         font: 700 26px/42px 'Roboto Slab', sans-serif;
     }
     .site__title_subtitle:after {
-        bottom: 19px;
+        bottom: 0;
     }
     .site__form {
         padding: 60px 50px 52px;
@@ -2756,7 +2763,7 @@ input.subscribe__email{
         line-height: 24px;
     }
     .site__title_subtitle {
-        padding-bottom: 37px;
+        padding-bottom: 19px;
     }
     .btn_10 {
         display: inline-block;
