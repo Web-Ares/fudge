@@ -57,6 +57,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
+    background: #fff;
 }
 .ares-select_mobile select {
     position: absolute;
@@ -106,12 +107,30 @@
 .ares-select__popup li.active {
     cursor: default;
 }
-
 .ares-select_1{
+    margin: 0 0 18px;
+    height: 53px;
     background: #ffdc1a;
     color: #000;
-    height: 53px;
-
+    text-align: center;
+}
+.ares-select_1:after{
+    right: 44px;
+    border-color: #000;
+}
+.ares-select_1 .ares-select__item{
+    text-align: center;
+    padding: 20px 51px 20px 37px;
+    background: #ffdc1a;
+}
+.ares-select_1 .ares-select__popup {
+    top: 0 !important;
+    padding: 59px 0 8px;
+    background: #ffdc1a;
+}
+.ares-select_1 .ares-select__popup li{
+    text-align: center;
+    text-transform: none;
 }
 /* --------------- /ares-select --------------- */
 
@@ -137,6 +156,15 @@
     .ares-select__popup li{
         padding: 11px 40px 11px 18px;
         text-align: center;
+    }
+    .ares-select_1{
+        width: 231px;
+    }
+    .ares-select_1 .ares-select__item {
+        padding: 20px 31px 20px 37px;
+    }
+    .ares-select:after {
+        right: 41px;
     }
     /* --------------- /ares-select --------------- */
 

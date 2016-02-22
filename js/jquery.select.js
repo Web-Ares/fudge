@@ -122,14 +122,15 @@ AresSelect.prototype = {
                 } );
 
                 maxHeight = self.popup.outerHeight();
+
                 if( maxHeight > self.popup.find( 'li' ).eq( 0 ).outerHeight() * self.visible ){
-                    self.popup.height(self.popup.find( 'li' ).eq( 0 ).outerHeight() * self.visible);
+                    self.popup.outerHeight(self.popup.find( 'li' ).eq( 0 ).outerHeight() * self.visible);
                     $('#ares-select__popup' + id).niceScroll({
-                        cursorcolor:"#ebebeb",
+                        cursorcolor:"#ffd100",
                         cursoropacitymin: "1",
                         cursorborderradius: "5px",
                         cursorborder: "none",
-                        cursorwidth: "10px",
+                        cursorwidth: "6px",
                         enablemousewheel: true
                     });
                 }
