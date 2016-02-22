@@ -945,7 +945,7 @@
     font-size: 16px;
     line-height: 20px;
 }
-.speakers__person_favorite:before{
+.speakers-favorite:before{
     right: 0;
     top: 0;
     border: solid transparent;
@@ -958,7 +958,7 @@
     border-right-color: #eb212e;
     border-width: 0 44px 44px 0;
 }
-.speakers__person_favorite:after{
+.speakers-favorite:after{
     content: '';
     position: absolute;
     top: 3px;

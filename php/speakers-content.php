@@ -26,7 +26,7 @@ $json_data = '{
                             "name": "James Smith",
                             "post": "Founder of Smart Tech Co.",
                             "href": "#",
-                            "favorite": "speakers__person_favorite"
+                            "favorite": "speakers-favorite"
                             },
                         {
                             "id":3,
