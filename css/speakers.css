@@ -1,3 +1,11 @@
+
+/* --------------- hero --------------- */
+.hero_speakers{
+    height: 373px;
+    padding: 0 20px;
+}
+/* --------------- /hero --------------- */
+
 /* ------------ speakers ------------ */
 .speakers_page {
     background: #f3f3f3;
@@ -6,8 +14,26 @@
 
 @media (min-width: 768px) {
 
+    /* --------------- hero --------------- */
+    .hero_speakers{
+        height: 599px;
+        padding-top: 82px;
+    }
+    .hero_speakers p{
+        font-size: 20px;
+        line-height: 38px;
+    }
+    /* --------------- /hero --------------- */
+
 }
 
 @media (min-width: 1000px) {
+
+    /* --------------- hero --------------- */
+    .hero_speakers p{
+        width: 860px;
+        margin: 0 auto;
+    }
+    /* --------------- /hero --------------- */
 
 }

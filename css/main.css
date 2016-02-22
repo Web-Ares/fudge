@@ -329,6 +329,9 @@
     z-index: 0;
     opacity: 0;
 }
+.site__desktop{
+    display: none;
+}
 /* --------------- /site --------------- */
 
 /* ------------ footer-menu ------------ */
@@ -2187,6 +2190,12 @@ input.subscribe__email{
         margin-bottom: 29px;
         height: 141px;
     }
+    .site__mobile{
+        display: none;
+    }
+    .site__desktop{
+        display: block;
+    }
     /* --------------- /site --------------- */
 
     /* ------------ footer-menu ------------ */
@@ -2365,14 +2374,17 @@ input.subscribe__email{
     }
     .speakers__layout{
         margin-bottom: 17px;
+        text-align: left;
         overflow: hidden;
     }
     .speakers__item{
         display: inline-block;
-        margin: 0 18px 31px;
+        width: 33%;
+        text-align: center;
     }
     .speakers__person {
         display: inline-block;
+        margin: 0 0 31px;
         vertical-align: top;
     }
     /* --------------- /speakers --------------- */
