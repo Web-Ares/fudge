@@ -426,9 +426,9 @@ $(function(){
 
         var _self = this,
             _obj = obj,
-            _wrapper = _obj.find( '.media-gallery__wrap' ),
+            _wrapper = null,
             _cover = _obj.find( '.media-gallery__cover' ),
-            _galleryItem = '.media-gallery__item',
+            _galleryItemClass = null,
             _window = $( window ),
             _btnMore = _obj.find( '.media-gallery__more' ),
             _btnAction = _btnMore.data( 'action' ),
@@ -512,7 +512,7 @@ $(function(){
 
                 _obj.on( 'click', '.media-gallery__item', function(){
 
-                    SwiperPopup( $( this ), $(this).index() );
+                    SwiperPopup( $( this ), $( this ).index() );
 
                     return false;
 
@@ -526,13 +526,18 @@ $(function(){
 
             },
             _getScrollWidth = function(){
-                var div = document.createElement( 'div' );
+                var div = document.createElement( 'div'),
+                    scrollWidth = null;
+
                 div.style.overflowY = 'scroll';
                 div.style.width = '50px';
                 div.style.height = '50px';
                 div.style.visibility = 'hidden';
+
                 document.body.appendChild( div );
-                var scrollWidth = div.offsetWidth - div.clientWidth;
+
+                scrollWidth = div.offsetWidth - div.clientWidth;
+
                 document.body.removeChild( div );
                 return scrollWidth ;
             },
@@ -561,10 +566,10 @@ $(function(){
             _initGallery = function() {
 
                 _wrapper = _obj.find( '.media-gallery__wrap' );
-                _galleryItem = '.media-gallery__item';
+                _galleryItemClass = '.media-gallery__item';
 
                 _wrapper.isotope({
-                    itemSelector: _galleryItem,
+                    itemSelector: _galleryItemClass,
                     masonry: {
                         columnWidth: 0
                     }
@@ -1096,7 +1101,7 @@ $(function(){
             _obj = obj,
             _body = $( 'body' ),
             _wrapper = _obj.parent(),
-            _links = _wrapper.find( '.media-gallery__item'),
+            _links = _wrapper.find( '.media-gallery__item' ),
             _html = $( 'html'),
             _window = $( window ),
             _popup = null,
@@ -1125,7 +1130,7 @@ $(function(){
 
                         _popup.removeClass( 'active' );
                         setTimeout( function(){
-                            _deleteStyles();
+                            _html.css({overflow: '', paddingRight: ''});
                             _popup.remove();
                         }, 300 );
 
@@ -1225,14 +1230,6 @@ $(function(){
                 _body.append( _popup );
 
             },
-            _deleteStyles = function(){
-
-                _html.css({
-                    overflow: '',
-                    paddingRight: ''
-                });
-
-            },
             _getScrollWidth = function (){
                 var scrollDiv = document.createElement( 'div' );
                 document.body.appendChild( scrollDiv );
@@ -1250,7 +1247,7 @@ $(function(){
                     paginationClickable: true,
                     onSlideChangeEnd: function(){
                         _removeVideo();
-                        if ( $( '.swiper-slide-active').find( '[data-src]').length ){
+                        if ( $( '.swiper-slide-active').find( '[data-src]' ).length ){
                             _addVideo();
                         }
                     }
@@ -1264,7 +1261,7 @@ $(function(){
             },
             _removeVideo = function(){
 
-                var items = _popup.find( '.swiper-slide'),
+                var items = _popup.find( '.swiper-slide' ),
                     videoFrame = items.find( '.swiper-popup__video iframe' );
                 videoFrame.remove();
 
