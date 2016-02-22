@@ -24,21 +24,30 @@ $(function(){
             new News ( $( this ) );
         } );
 
-        $.each( $('.speakers' ), function() {
+        $.each( $('.speakers_load' ), function() {
             new Speakers ( $( this ) );
         } );
 
-        /*$.each( $('.countdown-timer>div' ), function() {
-            new CountDown ( $( this ) );
-        } );*/
-
-        $.each( $( '.gallery' ), function(){
+        $.each( $( '.media-gallery' ), function(){
             new Gallery ( $( this ) )
         } );
 
         $.each( $( '.schedule__items' ), function(){
             new ScheduleOpen ( $( this ) )
         } );
+
+        $.each( $('.more-content' ), function() {
+            new AddMoreContent ( $( this ) );
+        } );
+
+        $('.where__layout').niceScroll({
+            cursorcolor:"#f3f3f3",
+            cursoropacitymin: "1",
+            cursorborderradius: "3px",
+            cursorborder: "none",
+            cursorwidth: "5",
+            enablemousewheel: true
+        });
 
     });
 
@@ -116,6 +125,8 @@ $(function(){
             _menuItemsLink = _menu.find( '.header-menu__item' ),
             _subMenu = _menu.find( '.header-menu__sub-items' ),
             _window = $( window ),
+            _headerHammer = null,
+            _header = $( '.site__header' ),
             _showBtn = $( '.menu-btn' );
 
         //private methods
@@ -140,8 +151,66 @@ $(function(){
 
                         _resetStyle();
 
+                    },
+                    'DOMMouseScroll': function( e ) {
+                        var delta = e.originalEvent.detail;
+
+                        if( delta ) {
+                            var direction = ( delta > 0 ) ? 1 : -1;
+
+                            _checkScroll( direction );
+
+                        }
+
+                    },
+                    'mousewheel': function( e ) {
+                        var delta = e.originalEvent.wheelDelta;
+
+                        if( delta ) {
+                            var direction = ( delta > 0 ) ? -1 : 1;
+
+                            _checkScroll( direction );
+
+                        }
+
                     }
                 } );
+
+                if ( device.mobile() ) {
+                    _headerHammer.on( "panup", function( e ) {
+                        if( e.pointerType == 'touch' ) {
+
+                            _checkScroll( 1 );
+
+                        }
+                    });
+                    _headerHammer.on( "pandown", function( e ) {
+                        if( e.pointerType == 'touch' ) {
+
+                            _checkScroll( -1 );
+
+                        }
+                    });
+                }
+
+            },
+            _checkScroll = function(direction){
+
+
+                if(direction > 0 && !_header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened') ){
+                    _header.addClass('site__header_hidden');
+                }
+
+                if(direction < 0 && _header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened') ){
+                    _header.removeClass('site__header_hidden');
+                }
+            },
+            _initHammer = function(){
+
+                if (device.mobile()) {
+                    _headerHammer = new Hammer.Manager($('body')[0]);
+                    _headerHammer.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 }) );
+                }
 
             },
             _openMenu = function( elem )  {
@@ -197,10 +266,9 @@ $(function(){
 
             },
             _init = function() {
-
-                _addEvents();
                 _menu[ 0 ].obj = _self;
-
+                _initHammer();
+                _addEvents();
             };
 
         _init();
@@ -363,11 +431,11 @@ $(function(){
 
         var _self = this,
             _obj = obj,
-            _wrapper = _obj.find( '.gallery__wrap' ),
-            _cover = _obj.find( '.gallery__cover' ),
-            _galleryItem = '.gallery__item',
+            _wrapper = _obj.find( '.media-gallery__wrap' ),
+            _cover = _obj.find( '.media-gallery__cover' ),
+            _galleryItem = '.media-gallery__item',
             _window = $( window ),
-            _btnMore = _obj.find( '.gallery__more' ),
+            _btnMore = _obj.find( '.media-gallery__more' ),
             _btnAction = _btnMore.data( 'action' ),
             _isGallery = false,
             _request = new XMLHttpRequest();
@@ -378,7 +446,9 @@ $(function(){
 
                 $.each( msg.items, function( i ){
 
-                    var path;
+                    var path = null,
+                        newBlock = null;
+
                     hasItems = msg.has_items;
 
                     if ( this.video == undefined ){
@@ -387,18 +457,18 @@ $(function(){
                         path = this.video;
                     }
 
-                    var newBlock = $( '<a href="' + path + '" title="' + this.title + '" class="gallery__item hidden" style="background-image: url(' + this.dummy + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
+                    newBlock = $( '<a href="' + path + '" title="' + this.title + '" class="media-gallery__item hidden" style="background-image: url(' + this.dummy + ');"><span class="media-gallery__item-title">' + this.title + '</span></a>' );
 
                     if ( i == 0 || i == 4 ){
-                        newBlock.addClass( 'gallery__item_height2x' );
+                        newBlock.addClass( 'media-gallery__item_height2x' );
                     }
 
                     if ( i == 2 || i == 4 || i == 7 ){
-                        newBlock.addClass( 'gallery__item_width2x' );
+                        newBlock.addClass( 'media-gallery__item_width2x' );
                     }
 
                     if ( this.video ){
-                        newBlock.addClass( 'gallery__item_video' );
+                        newBlock.addClass( 'media-gallery__item_video' );
                     }
 
                     _wrapper.append( newBlock );
@@ -439,13 +509,13 @@ $(function(){
                 _btnMore.on({
 
                     click: function(){
-                        _ajaxRequest();
+                        _loadNewItems();
                         return false;
                     }
 
                 });
 
-                _obj.on( 'click', '.gallery__item', function(){
+                _obj.on( 'click', '.media-gallery__item', function(){
 
                     SwiperPopup( $( this ), $(this).index() );
 
@@ -454,9 +524,72 @@ $(function(){
                 } );
 
             },
-            _ajaxRequest = function(){
+            _destroyGallery = function(){
 
-                var galleryItem = _wrapper.find( '.gallery__item' );
+                _wrapper.isotope( 'destroy' );
+                _isGallery = false;
+
+            },
+            _getScrollWidth = function(){
+                var div = document.createElement( 'div' );
+                div.style.overflowY = 'scroll';
+                div.style.width = '50px';
+                div.style.height = '50px';
+                div.style.visibility = 'hidden';
+                document.body.appendChild( div );
+                var scrollWidth = div.offsetWidth - div.clientWidth;
+                document.body.removeChild( div );
+                return scrollWidth ;
+            },
+            _heightAnimation = function( hasItems, newItems ){
+
+                _cover.animate( {
+                    height: _wrapper.height()
+                }, {
+                    duration: 500,
+                    complete: function(){
+
+                        _cover.css( 'height', '' );
+
+                        newItems.each( function( i ){
+                            _showNewItems( $( this ),i );
+                        } );
+
+                        if ( hasItems == 0 ){
+                            _removeBtnMore();
+                        }
+
+                    }
+                } )
+
+            },
+            _initGallery = function() {
+
+                _wrapper = _obj.find( '.media-gallery__wrap' );
+                _galleryItem = '.media-gallery__item';
+
+                _wrapper.isotope({
+                    itemSelector: _galleryItem,
+                    masonry: {
+                        columnWidth: 0
+                    }
+                });
+
+                _isGallery = true;
+
+            },
+            _init = function () {
+
+                if( _window.width() + _getScrollWidth() >= 1000 ) {
+                    _initGallery();
+                }
+
+                _addEvents();
+                _obj[0].obj = _self;
+            },
+            _loadNewItems = function(){
+
+                var galleryItem = _wrapper.find( '.media-gallery__item' );
                 _request.abort();
                 _request = $.ajax({
                     url: _btnAction,
@@ -488,45 +621,6 @@ $(function(){
                 });
 
             },
-            _destroyGallery = function(){
-
-                _wrapper.isotope( 'destroy' );
-                _isGallery = false;
-
-            },
-            _getScrollWidth = function(){
-                var div = document.createElement('div');
-                div.style.overflowY = 'scroll';
-                div.style.width = '50px';
-                div.style.height = '50px';
-                div.style.visibility = 'hidden';
-                document.body.appendChild(div);
-                var scrollWidth = div.offsetWidth - div.clientWidth;
-                document.body.removeChild(div);
-                return scrollWidth ;
-            },
-            _heightAnimation = function( hasItems, newItems ){
-
-                _cover.animate( {
-                    height: _wrapper.height()
-                }, {
-                    duration: 500,
-                    complete: function(){
-
-                        _cover.css( 'height', '' );
-
-                        newItems.each( function( i ){
-                            _showNewItems( $( this ),i );
-                        } );
-
-                        if ( hasItems == 0 ){
-                            _removeBtnMore();
-                        }
-
-                    }
-                } )
-
-            },
             _removeBtnMore = function(){
 
                 _btnMore.css( 'opacity', 0 );
@@ -553,31 +647,8 @@ $(function(){
                     item.removeClass( 'hidden' );
                 }, index * 100 );
 
-            },
-            _initGallery = function() {
-
-                _wrapper = _obj.find( '.gallery__wrap' );
-                _galleryItem = '.gallery__item';
-
-                _wrapper.isotope({
-                    itemSelector: _galleryItem,
-                    masonry: {
-                        columnWidth: 0
-                    }
-                });
-
-                _isGallery = true;
-
-            },
-            _init = function () {
-
-                if( _window.width() + _getScrollWidth() >= 1000 ) {
-                    _initGallery();
-                }
-
-                _addEvents();
-                _obj[0].obj = _self;
             };
+
 
         _init();
 
@@ -589,8 +660,7 @@ $(function(){
         var _self = this,
             _obj = obj,
             _items = _obj.find( '.schedule__item-drop-down' ),
-            _btnOpen = _items.find( '.schedule__event' ),
-            _window = $( window );
+            _btnOpen = _items.find( '.schedule__event' );
 
         //private methods
         var _addEvents = function() {
@@ -627,6 +697,8 @@ $(function(){
 
             },
             _init = function() {
+
+                _btnOpen.off();
 
                 _addEvents();
                 _obj[ 0 ].obj = _self;
@@ -760,20 +832,18 @@ $(function(){
         _init();
     };
 
-    var Speakers = function( obj ) {
+    var AddMoreContent = function( obj ) {
 
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find($('.speakers__more')),
+            _btnMore = _obj.find($('.more-content__btn')),
             _btnAction = _btnMore.data( 'action'),
-            _wrapper = _obj.find($('.speakers__layout')),
+            _wrapper = _obj.find($('.more-content__wrapper')),
             _request = new XMLHttpRequest();
 
         //private methods
         var _addEvents = function() {
-
-                _ajaxRequest();
 
                 _btnMore.on({
 
@@ -789,26 +859,25 @@ $(function(){
 
                 var hasItems = null;
 
-                $.each( msg.items, function( i ){
+                hasItems = msg.has_items;
 
-                    var path;
-                    hasItems = msg.has_items;
+                var newBlock = msg;
 
-                    var newBlock = $( '<a href="' + this.href + '" class="speakers__person hidden ' + this.favorite + ' ">' +
-                        '<div class="speakers__photo" style="background-image:url( ' + this.picture +  ' )"></div>' +
-                        '<h3 class="speakers__name">' + this.name + '</h3>' +
-                        '<span class="speakers__post">' + this.post + '" </span>' +
-                        '</a>' );
-
-                    _wrapper.append( newBlock );
-
-                } );
+                _wrapper.append( newBlock );
 
                 var newItems = _wrapper.find( '.hidden' );
+
+                setTimeout( function() {
+                    $.each( $( '.schedule__items' ), function(){
+                        new ScheduleOpen ( $( this ) )
+                    } );
+                }, 10  );
+
 
                 setTimeout( function(){
                     _heightAnimation( hasItems, newItems );
                 }, 50 );
+
 
             },
             _heightAnimation = function( hasItems, newItems ){
@@ -831,12 +900,148 @@ $(function(){
             },
             _ajaxRequest = function(){
 
-                var newsItem = 4;
+                var newsItem = _obj.find( '.more-content__item' );
+                console.log(newsItem.length)
                 _request.abort();
                 _request = $.ajax({
                     url: _btnAction,
                     data: {
-                        loadedCount: newsItem
+                        loadedCount: newsItem.length
+                    },
+                    dataType: 'html',
+                    timeout: 20000,
+                    type: "GET",
+                    success: function ( msg ) {
+
+                        _addNewsContent( msg );
+
+                    },
+                    error: function ( XMLHttpRequest ) {
+                        if( XMLHttpRequest.statusText != "abort" ) {
+                            alert( "Error!" );
+                        }
+                    }
+                });
+
+            },
+            _removeBtnMore = function(){
+
+                _btnMore.css( 'opacity', 0 );
+
+                setTimeout( function(){
+
+                    _btnMore.css( 'padding', 0 );
+
+                    _btnMore.animate({
+                        height: 0
+                    }, {
+                        duration: 500,
+                        complete: function(){
+                            _btnMore.remove();
+                        }
+                    } );
+
+                }, 300 );
+
+            },
+            _init = function() {
+
+                _addEvents();
+                _obj[ 0 ].obj = _self;
+
+            };
+
+        _init();
+    };
+
+    var Speakers = function( obj ) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _btnMore = _obj.find($('.speakers__more')),
+            _btnAction = _btnMore.data( 'action'),
+            _wrapper = _obj.find($('.speakers__layout')),
+            _cover = _obj.find($('.speakers__cover')),
+            _request = new XMLHttpRequest();
+
+        //private methods
+        var _addEvents = function() {
+
+                _btnMore.on({
+
+                    click: function(){
+                        _ajaxRequest();
+                        return false;
+                    }
+
+                });
+
+            },
+            _addNewsContent = function( msg ){
+
+                var hasItems = null;
+
+                $.each( msg.items, function( i ){
+
+                    var path;
+                    hasItems = msg.has_items;
+
+                    var newBlock = $( '<div class="speakers__item"><a href="' + this.href + '" class="speakers__person hidden ' + this.favorite + ' ">' +
+                        '<div class="speakers__photo" style="background-image:url( ' + this.picture +  ' )"></div>' +
+                        '<h3 class="speakers__name">' + this.name + '</h3>' +
+                        '<span class="speakers__post">' + this.post + '" </span>' +
+                        '</a></div>' );
+
+                    _cover.append( newBlock );
+
+                } );
+
+                var newItems = _wrapper.find( '.hidden' );
+
+                setTimeout( function(){
+                    _heightAnimation( hasItems, newItems );
+                }, 50 );
+
+            },
+            _heightAnimation = function( hasItems, newItems ){
+
+                _wrapper.animate( {
+                    height: _cover.height()
+                }, {
+                    duration: 500,
+                    complete: function(){
+
+                        _cover.css( 'height', '' );
+
+                        newItems.each( function( i ){
+                            _showNewItems( $( this ),i );
+                        } );
+
+                        if ( hasItems == 0 ){
+                            _removeBtnMore();
+                        }
+
+                    }
+                } )
+
+
+            },
+            _showNewItems = function( item, index ){
+
+                setTimeout( function(){
+                    item.removeClass( 'hidden' );
+                }, index * 100 );
+
+            },
+            _ajaxRequest = function(){
+
+                var newsItem = _obj.find( '.speakers__person' );
+                _request.abort();
+                _request = $.ajax({
+                    url: _btnAction,
+                    data: {
+                        loadedCount: newsItem.length
                     },
                     dataType: 'json',
                     timeout: 20000,
@@ -890,7 +1095,7 @@ $(function(){
             _obj = obj,
             _body = $( 'body' ),
             _wrapper = _obj.parent(),
-            _links = _wrapper.find( '.gallery__item'),
+            _links = _wrapper.find( '.media-gallery__item'),
             _html = $( 'html'),
             _window = $( window ),
             _popup = null,
@@ -938,16 +1143,7 @@ $(function(){
                 });
 
             },
-            _addVideo = function () {
-
-                var activeSlide = _popup.find( '.swiper-slide-active' ),
-                    src = activeSlide.find( '[data-src]' ).data( 'src'),
-                    innerContent = $( '<iframe src="' + src + '"> frameborder="0" allowfullscreen></iframe>' );
-
-                $( '.swiper-slide-active').find( '.swiper-popup__video').prepend( innerContent );
-
-            },
-            _buildPopup = function(){
+            _addingVariables = function(){
 
                 _popup = $( '<div class="swiper-popup">\
                                     <div class="swiper-container">\
@@ -962,6 +1158,20 @@ $(function(){
                 _swiperPagination = _popup.find( '.swiper-pagination' );
                 _swiperBtnNext = _popup.find( '.swiper-button-next' );
                 _swiperBtnPrev = _popup.find( '.swiper-button-prev' );
+
+            },
+            _addVideo = function () {
+
+                var activeSlide = _popup.find( '.swiper-slide-active' ),
+                    src = activeSlide.find( '[data-src]' ).data( 'src'),
+                    innerContent = $( '<iframe src="' + src + '"> frameborder="0" allowfullscreen></iframe>' );
+
+                $( '.swiper-slide-active').find( '.swiper-popup__video').prepend( innerContent );
+
+            },
+            _buildPopup = function(){
+
+                _addingVariables();
                 _contentFilling();
                 _initSwiper();
                 _swiper.slideTo( index, 0);
@@ -977,7 +1187,7 @@ $(function(){
                         dataSRC = null,
                         preloader = null;
 
-                    if ( $( this ).hasClass( 'gallery__item_video' ) ){
+                    if ( $( this ).hasClass( 'media-gallery__item_video' ) ){
 
                         preloader = '<i class="fa fa-spinner fa-spin"></i>';
                         innerContent = '<div class="swiper-popup__video"/>';

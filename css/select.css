@@ -51,8 +51,8 @@
     top: 0;
     left: 0;
     bottom: 0;
-    right: 4px;
-    padding: 8px 12px 8px 13px;
+    right: 0;
+    padding: 8px 16px 8px 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -63,8 +63,9 @@
     position: absolute;
     top: 0;
     left: 1px;
-    width: 100%;
     bottom: -1px;
+    z-index: 13;
+    width: 100%;
 }
 .ares-select_custom select{
     position: absolute;
@@ -120,12 +121,12 @@
 }
 .ares-select_1 .ares-select__item{
     text-align: center;
-    padding: 20px 51px 20px 37px;
+    padding: 20px 55px 20px 37px;
     background: #ffdc1a;
 }
 .ares-select_1 .ares-select__popup {
     top: 0 !important;
-    padding: 59px 0 8px;
+    padding: 59px 13px 8px;
     background: #ffdc1a;
 }
 .ares-select_1 .ares-select__popup li{
@@ -143,8 +144,8 @@
         border-right: 1px solid #f3f3f3;
     }
     .ares-select__item {
-        right: 20px;
-        padding: 8px 21px 8px 21px;
+        right: 0;
+        padding: 8px 41px 8px 21px;
         text-align: center;
     }
     .ares-select:after{
@@ -161,10 +162,17 @@
         width: 231px;
     }
     .ares-select_1 .ares-select__item {
-        padding: 20px 31px 20px 37px;
+        padding: 20px 51px 20px 37px;
     }
-    .ares-select:after {
+    .ares-select_1 .ares-select:after {
         right: 41px;
+    }
+    .ares-select_1 .ares-select__popup{
+        padding: 59px 17px 8px;
+    }
+    .ares-select_1 .ares-select__popup li:hover,
+    .ares-select_1 .ares-select__popup li.active{
+        background: #ffee8d;
     }
     /* --------------- /ares-select --------------- */
 
