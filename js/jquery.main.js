@@ -120,6 +120,7 @@ $(function(){
             _menuItemsLink = _menu.find( '.header-menu__item' ),
             _subMenu = _menu.find( '.header-menu__sub-items' ),
             _window = $( window ),
+            _action = false,
             _headerHammer = null,
             _header = $( '.site__header' ),
             _showBtn = $( '.menu-btn' );
@@ -145,6 +146,19 @@ $(function(){
                     'resize': function() {
 
                         _resetStyle();
+
+                    },
+                    'scroll': function() {
+
+                        if( _window.scrollTop() >= _header.innerHeight() ) {
+
+                            _action = true;
+
+                        } else {
+
+                            _action = false;
+
+                        }
 
                     },
                     'DOMMouseScroll': function( e ) {
@@ -191,14 +205,14 @@ $(function(){
             },
             _checkScroll = function(direction){
 
-
-                if(direction > 0 && !_header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened') ){
+                if(direction > 0 && !_header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened') && _action){
                     _header.addClass('site__header_hidden');
                 }
 
-                if(direction < 0 && _header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened') ){
+                if(direction < 0 && _header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened')  && _action){
                     _header.removeClass('site__header_hidden');
                 }
+
             },
             _initHammer = function(){
 
@@ -852,31 +866,29 @@ $(function(){
                 });
 
             },
-            _addNewsContent = function( msg ) {
+            _addNewContent = function( msg ) {
 
-                if ( !( msg.has_items == "0" ) ) {
+                var contentMsg = msg.html;
 
-                    var contentMsg = msg.html;
+                _wrapper.append(contentMsg);
 
-                    _wrapper.append(contentMsg);
+                var newItems = _wrapper.find( '.hidden' );
 
-                    var newItems = _wrapper.find( '.hidden' );
+                setTimeout( function() {
 
-                    setTimeout( function() {
+                    $.each( $( '.schedule__items' ), function(){
+                        new ScheduleOpen ( $( this ) )
+                    } );
 
-                        $.each( $( '.schedule__items' ), function(){
-                            new ScheduleOpen ( $( this ) )
-                        } );
+                }, 10  );
 
-                    }, 10  );
+                setTimeout( function() {
 
-                    setTimeout( function() {
+                    _heightAnimation( newItems );
 
-                        _heightAnimation( newItems );
+                }, 50 );
 
-                    }, 50 );
-
-                } else {
+                if ( msg.has_items == "0" ) {
 
                     _removeBtnMore();
 
@@ -885,8 +897,10 @@ $(function(){
             },
             _heightAnimation = function( newItems ){
 
-                newItems.each( function( i ){
-                    _showNewItems( $( this ),i );
+                newItems.each( function( i ) {
+
+                    _showNewItems( $( this ), i );
+
                 } );
 
             },
@@ -899,27 +913,12 @@ $(function(){
             },
             _removeBtnMore = function(){
 
-                _btnMore.css( 'opacity', 0 );
-
-                setTimeout( function(){
-
-                    _btnMore.css( 'padding', 0 );
-
-                    _btnMore.animate({
-                        height: 0
-                    }, {
-                        duration: 500,
-                        complete: function(){
-                            _btnMore.remove();
-                        }
-                    } );
-
-                }, 300 );
+                _btnMore.addClass( 'hidden' );
 
             },
             _addNewBlocks = function() {
 
-                var items = $(document).find( '.more-content__item' );
+                var items = _obj.find( '.more-content__item' );
 
                 _request.abort();
                 _request = $.ajax( {
@@ -932,7 +931,7 @@ $(function(){
                     type: "GET",
                     success: function ( msg ) {
 
-                        _addNewsContent( msg )
+                        _addNewContent( msg )
 
                     },
                     error: function ( XMLHttpRequest ) {
