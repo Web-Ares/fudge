@@ -2448,7 +2448,6 @@ input.subscribe__email{
     .speakers__layout{
         margin-bottom: 17px;
         text-align: left;
-        overflow: hidden;
     }
     .speakers__item{
         display: inline-block;
@@ -3388,15 +3387,6 @@ input.subscribe__email{
     /* --------------- /main-slider --------------- */
 
     /* --------------- speakers --------------- */
-    .speakers__layout {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: row wrap;
-        justify-content: space-between;
-    }
     .speakers__item{
         margin: 0 0 31px;
     }
@@ -3881,7 +3871,7 @@ input.subscribe__email{
 
     /* --------------- speakers --------------- */
     .speakers__item{
-        width: 24%;
+        width: 24.5%;
     }
     /* --------------- /speakers --------------- */
 
