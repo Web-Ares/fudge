@@ -3047,7 +3047,7 @@ input.subscribe__email{
         display: -webkit-flex;
         display: flex;
         -webkit-flex-flow: row wrap;
-        justify-content: space-around;
+        justify-content: space-between;
     }
     .speakers__person {
         margin: 0 0 31px;

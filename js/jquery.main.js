@@ -24,7 +24,7 @@ $(function(){
             new News ( $( this ) );
         } );
 
-        $.each( $('.speakers' ), function() {
+        $.each( $('.speakers_load' ), function() {
             new Speakers ( $( this ) );
         } );
 
