@@ -737,9 +737,9 @@ $(function(){
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find( $( '.news__more' ) ),
+            _btnMore = _obj.find( '.news__more' ),
             _btnAction = _btnMore.data( 'action' ),
-            _wrapper = _obj.find( $( '.news__layout' ) ),
+            _wrapper = _obj.find( '.news__layout' ),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -757,12 +757,9 @@ $(function(){
             },
             _addNewsContent = function( msg ){
 
-                var hasItems = null;
+                var hasItems = msg.has_items;
 
-                $.each( msg.items, function( i ){
-
-                    var path;
-                    hasItems = msg.has_items;
+                $.each( msg.items, function(){
 
                     var newBlock = $( '<div class="news__item"><article class="news__article hidden">' +
                         '<div class="news__picture" style="background-image:url( ' + this.picture +  ' )"></div>' +
@@ -798,7 +795,7 @@ $(function(){
 
                 setTimeout( function(){
                     item.removeClass( 'hidden' );
-                }, index * 300 );
+                }, index * 100 );
 
             },
             _ajaxRequest = function(){
@@ -972,9 +969,9 @@ $(function(){
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find( $( '.speakers__more' ) ),
+            _btnMore = _obj.find( '.speakers__more' ),
             _btnAction = _btnMore.data( 'action' ),
-            _wrapper = _obj.find( $( '.speakers__layout' ) ),
+            _wrapper = _obj.find( '.speakers__layout' ),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -992,12 +989,9 @@ $(function(){
             },
             _addNewsContent = function( msg ){
 
-                var hasItems = null;
+                var hasItems = msg.has_items;
 
-                $.each( msg.items, function( i ){
-
-                    var path;
-                    hasItems = msg.has_items;
+                $.each( msg.items, function(){
 
                     var newBlock = $( '<div class="speakers__item"><a href="' + this.href + '" class="speakers__person hidden ' + this.favorite + ' ">' +
                         '<div class="speakers__photo" style="background-image:url( ' + this.picture +  ' )"></div>' +
