@@ -773,6 +773,8 @@ $(function(){
         //private methods
         var _addEvents = function() {
 
+                _ajaxRequest();
+
                 _btnMore.on({
 
                     click: function(){
@@ -794,7 +796,7 @@ $(function(){
 
                     var newBlock = $( '<a href="' + this.href + '" class="speakers__person hidden ' + this.favorite + ' ">' +
                         '<div class="speakers__photo" style="background-image:url( ' + this.picture +  ' )"></div>' +
-                        '<h2 class="speakers__name">' + this.name + '</h2>' +
+                        '<h3 class="speakers__name">' + this.name + '</h3>' +
                         '<span class="speakers__post">' + this.post + '" </span>' +
                         '</a>' );
 
