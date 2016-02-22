@@ -28,10 +28,6 @@ $(function(){
             new Speakers ( $( this ) );
         } );
 
-        /*$.each( $('.countdown-timer>div' ), function() {
-            new CountDown ( $( this ) );
-        } );*/
-
         $.each( $( '.gallery' ), function(){
             new Gallery ( $( this ) )
         } );
@@ -39,6 +35,19 @@ $(function(){
         $.each( $( '.schedule__items' ), function(){
             new ScheduleOpen ( $( this ) )
         } );
+
+        $.each( $('.more-content' ), function() {
+            new AddMoreContent ( $( this ) );
+        } );
+
+        $('.where__layout').niceScroll({
+            cursorcolor:"#f3f3f3",
+            cursoropacitymin: "1",
+            cursorborderradius: "3px",
+            cursorborder: "none",
+            cursorwidth: "5",
+            enablemousewheel: true
+        });
 
     });
 
@@ -116,6 +125,8 @@ $(function(){
             _menuItemsLink = _menu.find( '.header-menu__item' ),
             _subMenu = _menu.find( '.header-menu__sub-items' ),
             _window = $( window ),
+            _headerHammer = null,
+            _header = $( '.site__header' ),
             _showBtn = $( '.menu-btn' );
 
         //private methods
@@ -140,8 +151,66 @@ $(function(){
 
                         _resetStyle();
 
+                    },
+                    'DOMMouseScroll': function( e ) {
+                        var delta = e.originalEvent.detail;
+
+                        if( delta ) {
+                            var direction = ( delta > 0 ) ? 1 : -1;
+
+                            _checkScroll( direction );
+
+                        }
+
+                    },
+                    'mousewheel': function( e ) {
+                        var delta = e.originalEvent.wheelDelta;
+
+                        if( delta ) {
+                            var direction = ( delta > 0 ) ? -1 : 1;
+
+                            _checkScroll( direction );
+
+                        }
+
                     }
                 } );
+
+                if ( device.mobile() ) {
+                    _headerHammer.on( "panup", function( e ) {
+                        if( e.pointerType == 'touch' ) {
+
+                            _checkScroll( 1 );
+
+                        }
+                    });
+                    _headerHammer.on( "pandown", function( e ) {
+                        if( e.pointerType == 'touch' ) {
+
+                            _checkScroll( -1 );
+
+                        }
+                    });
+                }
+
+            },
+            _checkScroll = function(direction){
+
+
+                if(direction > 0 && !_header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened') ){
+                    _header.addClass('site__header_hidden');
+                }
+
+                if(direction < 0 && _header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened') ){
+                    _header.removeClass('site__header_hidden');
+                }
+            },
+            _initHammer = function(){
+
+                if (device.mobile()) {
+                    _headerHammer = new Hammer.Manager($('body')[0]);
+                    _headerHammer.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 }) );
+                }
 
             },
             _openMenu = function( elem )  {
@@ -197,10 +266,9 @@ $(function(){
 
             },
             _init = function() {
-
-                _addEvents();
                 _menu[ 0 ].obj = _self;
-
+                _initHammer();
+                _addEvents();
             };
 
         _init();
@@ -589,8 +657,7 @@ $(function(){
         var _self = this,
             _obj = obj,
             _items = _obj.find( '.schedule__item-drop-down' ),
-            _btnOpen = _items.find( '.schedule__event' ),
-            _window = $( window );
+            _btnOpen = _items.find( '.schedule__event' );
 
         //private methods
         var _addEvents = function() {
@@ -627,6 +694,8 @@ $(function(){
 
             },
             _init = function() {
+
+                _btnOpen.off();
 
                 _addEvents();
                 _obj[ 0 ].obj = _self;
@@ -715,6 +784,128 @@ $(function(){
                         loadedCount: newsItem.length
                     },
                     dataType: 'json',
+                    timeout: 20000,
+                    type: "GET",
+                    success: function ( msg ) {
+
+                        _addNewsContent( msg );
+
+                    },
+                    error: function ( XMLHttpRequest ) {
+                        if( XMLHttpRequest.statusText != "abort" ) {
+                            alert( "Error!" );
+                        }
+                    }
+                });
+
+            },
+            _removeBtnMore = function(){
+
+                _btnMore.css( 'opacity', 0 );
+
+                setTimeout( function(){
+
+                    _btnMore.css( 'padding', 0 );
+
+                    _btnMore.animate({
+                        height: 0
+                    }, {
+                        duration: 500,
+                        complete: function(){
+                            _btnMore.remove();
+                        }
+                    } );
+
+                }, 300 );
+
+            },
+            _init = function() {
+
+                _addEvents();
+                _obj[ 0 ].obj = _self;
+
+            };
+
+        _init();
+    };
+
+    var AddMoreContent = function( obj ) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _btnMore = _obj.find($('.more-content__btn')),
+            _btnAction = _btnMore.data( 'action'),
+            _wrapper = _obj.find($('.more-content__wrapper')),
+            _request = new XMLHttpRequest();
+
+        //private methods
+        var _addEvents = function() {
+
+                _btnMore.on({
+
+                    click: function(){
+                        _ajaxRequest();
+                        return false;
+                    }
+
+                });
+
+            },
+            _addNewsContent = function( msg ){
+
+                var hasItems = null;
+
+                hasItems = msg.has_items;
+
+                var newBlock = msg;
+
+                _wrapper.append( newBlock );
+
+                var newItems = _wrapper.find( '.hidden' );
+
+                setTimeout( function() {
+                    $.each( $( '.schedule__items' ), function(){
+                        new ScheduleOpen ( $( this ) )
+                    } );
+                }, 10  );
+
+
+                setTimeout( function(){
+                    _heightAnimation( hasItems, newItems );
+                }, 50 );
+
+
+            },
+            _heightAnimation = function( hasItems, newItems ){
+
+                newItems.each( function( i ){
+                    _showNewItems( $( this ),i );
+                } );
+
+                if ( hasItems == 0 ){
+                    _removeBtnMore();
+                }
+
+            },
+            _showNewItems = function( item, index ){
+
+                setTimeout( function(){
+                    item.removeClass( 'hidden' );
+                }, index * 100 );
+
+            },
+            _ajaxRequest = function(){
+
+                var newsItem = _obj.find( '.more-content__item' );
+                console.log(newsItem.length)
+                _request.abort();
+                _request = $.ajax({
+                    url: _btnAction,
+                    data: {
+                        loadedCount: newsItem.length
+                    },
+                    dataType: 'html',
                     timeout: 20000,
                     type: "GET",
                     success: function ( msg ) {
