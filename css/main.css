@@ -2948,12 +2948,12 @@ input.subscribe__email{
     }
     .social-feed__wrap {
         margin-bottom: 18px;
-        text-align: left;
+        text-align: center;
     }
     .social-feed__item {
         display: inline-block;
         vertical-align: top;
-        width: 49%;
+        margin: 0 15px 0;
         text-align: center;
     }
     .social-feed__inner {
@@ -2992,6 +2992,14 @@ input.subscribe__email{
     /* --------------- /news --------------- */
 
     /* ------------ social-feed ------------ */
+    .social-feed__wrap {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+    }
     .social-feed__item {
         width: 33%;
     }
@@ -3862,6 +3870,9 @@ input.subscribe__email{
     .social-feed__inner {
         margin-bottom: 0;
     }
+    .social-feed__wrap {
+        margin: 0 -15px 18px;
+    }
     /* ------------ /social-feed ------------ */
 
     /*--------------media------------*/
@@ -3911,7 +3922,7 @@ input.subscribe__email{
 
     /* ------------ social-feed ------------ */
     .social-feed__item {
-        width: 24.5%;
+        width: 25%;
     }
     /* ------------ /social-feed ------------ */
 
