@@ -2009,6 +2009,11 @@ input.subscribe__email{
     height: 290px;
     background: #30a2eb;
     text-align: center;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+.social-feed__item.hidden {
+    opacity: 0;
 }
 .social-feed__item:last-child {
     margin-bottom: 0;
