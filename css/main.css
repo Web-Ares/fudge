@@ -2612,13 +2612,9 @@ input.subscribe__email{
 
     /*--------------media------------*/
     .media {
-        /* background: #f3f3f3; */
-        /* text-align: center; */
-        padding: 65px 0px 40px 0;
-        /* background: #f3f3f3; */
+        padding: 65px 0 40px 0;
     }
     .media iframe {
-        /* display: inline-block; */
         width: 326px;
         height: 273px;
         margin: 0 16px 22px;
