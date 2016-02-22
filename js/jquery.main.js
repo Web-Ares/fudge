@@ -184,23 +184,9 @@ $(function(){
 
                     }
                 } );
-
-                if ( device.mobile() ) {
-                    _headerHammer.on( "panup", function( e ) {
-                        if( e.pointerType == 'touch' ) {
-
-                            _checkScroll( 1 );
-
-                        }
-                    });
-                    _headerHammer.on( "pandown", function( e ) {
-                        if( e.pointerType == 'touch' ) {
-
-                            _checkScroll( -1 );
-
-                        }
-                    });
-                }
+                document.body.addEventListener('touchstart', function(e){
+                    alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
+                }, false);
 
             },
             _checkScroll = function(direction){
@@ -211,14 +197,6 @@ $(function(){
 
                 if(direction < 0 && _header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened')  && _action){
                     _header.removeClass('site__header_hidden');
-                }
-
-            },
-            _initHammer = function(){
-
-                if (device.mobile()) {
-                    _headerHammer = new Hammer.Manager($('body')[0]);
-                    _headerHammer.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 }) );
                 }
 
             },
@@ -276,7 +254,6 @@ $(function(){
             },
             _init = function() {
                 _menu[ 0 ].obj = _self;
-                _initHammer();
                 _addEvents();
             };
 
@@ -677,8 +654,11 @@ $(function(){
                 _btnOpen.on( {
                     'click': function() {
 
-                        _openScheduleDetails( $( this ) );
-
+                        if ($('.schedule__items_profile').length) {
+                            _openProfileDetails( $( this ) )
+                        }else{
+                            _openScheduleDetails( $( this ) );
+                        }
                     }
                 } );
 
@@ -689,6 +669,10 @@ $(function(){
                     curItemParent = curItem.parent( _items),
                     details = curItem.next();
 
+                if ($('.schedule__items_profile').length) {
+                    details = curItem.parent().next()
+                }
+
                 if( curItemParent.hasClass( 'opened' ) ) {
 
                     curItemParent.removeClass( 'opened' );
@@ -698,6 +682,28 @@ $(function(){
 
                     _items.removeClass( 'opened' );
                     _btnOpen.next().slideUp( 300 );
+
+                    curItemParent.addClass( 'opened' );
+                    details.slideDown( 300 );
+
+                }
+
+            },
+
+            _openProfileDetails = function( elem )  {
+
+                var curItem = elem,
+                    curItemParent = curItem.parent().parent( _items),
+                    details = curItem.parent().next();
+
+                if( curItemParent.hasClass( 'opened' ) ) {
+
+                    curItemParent.removeClass( 'opened' );
+                    details.slideUp( 300 );
+
+                } else {
+                    _items.removeClass( 'opened' );
+                    _btnOpen.parent().next().slideUp( 300 );
 
                     curItemParent.addClass( 'opened' );
                     details.slideDown( 300 );

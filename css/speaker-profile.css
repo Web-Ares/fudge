@@ -5,17 +5,12 @@
 
     speaker-info
 
+    speaker-profile
+
 
 */
 
-.hero__layout_profile {
-    padding: 90px 0 23px !important;
-}
-
 /*-----------speaker-info----------*/
-.speaker-info {
-
-}
 .speaker-info .site__title {
     margin: 0 0 23px;
 }
@@ -50,18 +45,25 @@
 
 /*-----------speaker-profile-----------*/
 .speaker-profile .description {
-    padding: 34px 15px 70px;
+    padding: 34px 15px 17px;
+}
+.speaker-profile .description .site__title {
+    margin: 0 0 25px;
 }
 .speaker-profile .schedule {
-
+    padding: 55px 0 70px;
+}
+.speaker-profile .schedule__text {
+    text-align: center;
+    font-size: 17px;
+    line-height: 32px;
+}
+.speaker-profile .schedule .site__title {
+    margin: 0 0 25px;
 }
 /*-----------/speaker-profile-----------*/
 
 @media (min-width: 768px) {
-
-    .hero__layout_profile {
-        padding: 58px 0 13px !important;
-    }
 
     /*-----------speaker-info----------*/
     .speaker-info {
@@ -84,24 +86,28 @@
     /*-----------/speaker-info----------*/
 
     /*-----------speaker-profile-----------*/
-    .speaker-profile {
-
-    }
     .speaker-profile .description {
-        padding: 80px 15px 70px;
+        padding: 80px 15px 57px;
+    }
+    .speaker-profile .description .site__title {
+        margin: 0 0 15px;
     }
     .speaker-profile .schedule {
-
+        padding: 84px 0 57px;
+    }
+    .speaker-profile .schedule__text {
+        font-size: 20px;
+        line-height: 38px;
+        padding: 0;
+    }
+    .speaker-profile .schedule .site__title {
+        margin: 0 0 15px;
     }
     /*-----------/speaker-profile-----------*/
 
 }
 
 @media (min-width: 1000px) {
-
-    .hero__layout_profile {
-        padding: 140px 0 14px !important;
-    }
 
     /*-----------speaker-info----------*/
     .speaker-info {
@@ -125,9 +131,6 @@
         display: inline-block;
         margin-right: 63px;
     }
-    .speaker-info__pic img {
-
-    }
     .speaker-info__inner {
         vertical-align: top;
         border-left: 2px;
@@ -139,8 +142,14 @@
     /*-----------/speaker-info----------*/
 
     /*-----------speaker-profile-----------*/
+    .speaker-profile .description {
+        padding: 80px 15px 90px;
+    }
+    .speaker-profile .description .site__title {
+        margin: 0 0 14px;
+    }
     .speaker-profile .schedule {
-
+        padding: 84px 0 47px;
     }
     /*-----------/speaker-profile-----------*/
 
