@@ -10,7 +10,8 @@ if ( $loadedCount == 4 ){
 //  "href" - link to speaker profile
 
     $json_data = '{
-        "has_items": 2,
+
+        "has_items": 1,
                     "items":[
 
                         {
@@ -46,44 +47,6 @@ if ( $loadedCount == 4 ){
                             "favorite": " "
                             }
 
-                    ],
-
-        "has_items": 1,
-                    "items":[
-
-                        {
-                            "id":5,
-                            "picture": "pic/speaker-001.jpg",
-                            "name": "Jane ROTENBERG",
-                            "post": "Design Director and Co-founder of Stellar Artworks",
-                            "href": "#",
-                            "favorite": " "
-                            },
-                        {
-                            "id":6,
-                            "picture": "pic/speaker-001.jpg",
-                            "name": "Jane ROTENBERG",
-                            "post": "Design Director and Co-founder of Stellar Artworks",
-                            "href": "#",
-                            "favorite": "speakers__person_favorite"
-                            },
-                        {
-                            "id":7,
-                            "picture": "pic/speaker-001.jpg",
-                            "name": "Jane ROTENBERG",
-                            "post": "Design Director and Co-founder of Stellar Artworks",
-                            "href": "#",
-                            "favorite": " "
-                            },
-                        {
-                            "id":8,
-                            "picture": "pic/speaker-001.jpg",
-                            "name": "Jane ROTENBERG",
-                            "post": "Design Director and Co-founder of Stellar Artworks",
-                            "href": "#",
-                            "favorite": " "
-                            }
-
                     ]
     }';
 
@@ -100,14 +63,14 @@ if ( $loadedCount == 4 ){
             "items":[
 
                         {
-                            "id":9,
+                            "id":5,
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
                             "href": "#"
                             },
                         {
-                            "id":10,
+                            "id":6,
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
