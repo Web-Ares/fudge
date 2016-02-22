@@ -55,6 +55,15 @@
     font: 400 16px/25px 'Roboto', sans-serif;
 }
 
+.session__text p a {
+    border-bottom: 1px solid transparent;
+    color: #ffdc1a;
+    -webkit-transition: border .3s ease-in-out;
+    transition: border .3s ease-in-out;
+}
+.session__text p a:hover {
+    border-bottom: 1px solid #ffdc1a;
+}
 .session__labels {
     padding-left: 20px;
     padding-top: 11px;
