@@ -1341,9 +1341,9 @@ $(function(){
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find($('.social-feed__more')),
+            _btnMore = _obj.find( $('.social-feed__more') ),
             _btnAction = _btnMore.data( 'action'),
-            _wrapper = _obj.find($('.social-feed__wrap')),
+            _wrapper = _obj.find( $('.social-feed__wrap') ),
             _request = new XMLHttpRequest();
 
         //private methods
