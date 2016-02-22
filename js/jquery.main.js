@@ -847,48 +847,52 @@ $(function(){
 
                 _btnMore.on({
 
-                    click: function(){
-                        _ajaxRequest();
+                    click: function() {
+
+                        _addNewBlocks();
+
                         return false;
                     }
 
                 });
 
             },
-            _addNewsContent = function( msg ){
+            _addNewsContent = function( msg ) {
 
-                var hasItems = null;
+                if ( !( msg.has_items == "0" ) ) {
 
-                hasItems = msg.has_items;
+                    var contentMsg = msg.html;
 
-                var newBlock = msg;
+                    _wrapper.append(contentMsg);
 
-                _wrapper.append( newBlock );
+                    var newItems = _wrapper.find( '.hidden' );
 
-                var newItems = _wrapper.find( '.hidden' );
+                    setTimeout( function() {
 
-                setTimeout( function() {
-                    $.each( $( '.schedule__items' ), function(){
-                        new ScheduleOpen ( $( this ) )
-                    } );
-                }, 10  );
+                        $.each( $( '.schedule__items' ), function(){
+                            new ScheduleOpen ( $( this ) )
+                        } );
 
+                    }, 10  );
 
-                setTimeout( function(){
-                    _heightAnimation( hasItems, newItems );
-                }, 50 );
+                    setTimeout( function() {
 
+                        _heightAnimation( newItems );
+
+                    }, 50 );
+
+                } else {
+
+                    _removeBtnMore();
+
+                }
 
             },
-            _heightAnimation = function( hasItems, newItems ){
+            _heightAnimation = function( newItems ){
 
                 newItems.each( function( i ){
                     _showNewItems( $( this ),i );
                 } );
-
-                if ( hasItems == 0 ){
-                    _removeBtnMore();
-                }
 
             },
             _showNewItems = function( item, index ){
@@ -896,32 +900,6 @@ $(function(){
                 setTimeout( function(){
                     item.removeClass( 'hidden' );
                 }, index * 100 );
-
-            },
-            _ajaxRequest = function(){
-
-                var newsItem = _obj.find( '.more-content__item' );
-                console.log(newsItem.length)
-                _request.abort();
-                _request = $.ajax({
-                    url: _btnAction,
-                    data: {
-                        loadedCount: newsItem.length
-                    },
-                    dataType: 'html',
-                    timeout: 20000,
-                    type: "GET",
-                    success: function ( msg ) {
-
-                        _addNewsContent( msg );
-
-                    },
-                    error: function ( XMLHttpRequest ) {
-                        if( XMLHttpRequest.statusText != "abort" ) {
-                            alert( "Error!" );
-                        }
-                    }
-                });
 
             },
             _removeBtnMore = function(){
@@ -942,6 +920,32 @@ $(function(){
                     } );
 
                 }, 300 );
+
+            },
+            _addNewBlocks = function() {
+
+                var items = $(document).find( '.more-content__item' );
+
+                _request.abort();
+                _request = $.ajax( {
+                    url: _btnAction,
+                    data: {
+                        loadedCount: items.length
+                    },
+                    dataType: 'json',
+                    timeout: 20000,
+                    type: "GET",
+                    success: function ( msg ) {
+
+                        _addNewsContent( msg )
+
+                    },
+                    error: function ( XMLHttpRequest ) {
+                        if( XMLHttpRequest.statusText != "abort" ) {
+                            alert( "Error!" );
+                        }
+                    }
+                } );
 
             },
             _init = function() {
