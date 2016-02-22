@@ -1376,7 +1376,7 @@ $(function(){
                     '</div>'+
                     '<div class="social-feed__txt">'+this.feed_txt+'</div>'+
                     '<div class="social-feed__hover">'+
-                        '<a href="#" class="btn btn_11">VIEW ON TWITTER <i class="fa fa-long-arrow-right"></i></a>'+
+                        '<a href="'+this.href+'" class="btn btn_11">VIEW ON TWITTER <i class="fa fa-long-arrow-right"></i></a>'+
                         '</div></div>' );
 
                     _wrapper.append( newBlock );
