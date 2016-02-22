@@ -7,13 +7,67 @@
 
 /*
     main styles
-    version: 15.01.2013
+    version: 15.02.2016
 
     placeholder
 
+    social
+
     site
 
+    footer-menu
+
+    btn
+
+    label
+
     logo
+
+    header-menu
+
+    menu-btn
+
+    hero
+
+    time-schedule
+
+    main-slider
+
+    countdown-timer
+
+    description
+
+    speakers
+
+    get-touch
+
+    schedule
+
+    contact-us
+
+    register-now
+
+    sponsors
+
+    tickets
+
+    where
+
+    news
+
+    connect
+
+    features
+
+    subscribe
+
+    gallery
+
+    follow-us
+
+    swiper-popup
+
+    social-feed
 
     media
 */
@@ -211,7 +265,6 @@
     padding-bottom: 22px;
     font: 700 26px/42px 'Roboto Slab', sans-serif;
 }
-
 .site__form {
     padding: 49px 20px 46px;
     background: #f3f3f3;
@@ -516,6 +569,18 @@
 .label_10{
     background: #8643ea;
 }
+.label_11{
+    background: #82cb2b;
+}
+.label_12{
+    background: #eb212e;
+}
+.label_13{
+    background: #00b295;
+}
+.label_14{
+    background: #f6b300;
+}
 /* --------------- /label --------------- */
 
 /* --------------- logo --------------- */
@@ -621,7 +686,6 @@
     padding: 20px 10px;
     color: #000;
 }
-
 /* --------------- /header-menu --------------- */
 
 /* --------------- menu-btn --------------- */
@@ -728,6 +792,12 @@
     z-index: 2;
     width: 100%;
     height: 100%;
+}
+.hero__text{
+    margin: 0 0 35px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 20px;
 }
 /* --------------- /hero --------------- */
 
@@ -1138,8 +1208,10 @@
     border-top: none;
 }
 .schedule__details{
-    display: none;
     padding: 13px 0 36px;
+}
+.schedule__item-drop-down .schedule__details{
+    display: none;
 }
 .schedule__main-place{
     display: block;
@@ -1220,6 +1292,25 @@
 }
 .schedule__coffee-break i{
     margin: 0 3px 0 0;
+}
+.schedule_inner{
+    padding: 41px 0 70px;
+}
+.schedule_inner .schedule__item:first-child{
+    border-top: 2px solid #f3f3f3;
+}
+.schedule_inner .schedule__filters {
+    margin: 0 0 37px;
+}
+.schedule_inner .schedule__item{
+    padding: 34px 0;
+}
+.schedule_inner .schedule__details {
+    padding: 13px 0 21px;
+}
+.schedule__concurrent{
+    padding: 0;
+    border-top: none;
 }
 /* --------------- /schedule --------------- */
 
@@ -2126,6 +2217,12 @@ input.subscribe__email{
     /* ------------ /header-menu ------------ */
 
     /* ------------ label ------------ */
+    .label {
+        padding: 3px 8px;
+        min-width: 71px;
+        font-size: 12px;
+        line-height: 12px;
+    }
     .label_big {
         padding: 13px 13px;
         margin: 0 0 5px;
@@ -2148,6 +2245,11 @@ input.subscribe__email{
     .hero__video{
         padding-bottom: 46%;
         margin: 15px auto 38px;
+    }
+    .hero__text{
+        margin: 0 0 76px;
+        font-size: 20px;
+        line-height: 24px;
     }
     /* ------------ /hero ------------ */
 
@@ -2393,6 +2495,60 @@ input.subscribe__email{
     }
     .schedule__btns{
         text-align: center;
+    }
+    .schedule_inner{
+        padding: 53px 0 70px;
+    }
+    .schedule_inner .schedule__items{
+        text-align: center;
+    }
+    .schedule_inner .schedule__item{
+        padding: 28px 0;
+        text-align: center;
+    }
+    .schedule_inner .schedule__item:first-child {
+        padding: 28px 0;
+    }
+    .schedule_inner .schedule__date-btns a{
+        margin-left: 4px;
+    }
+    .schedule_inner .schedule__date-btns a:first-child{
+        margin-left: 0;
+    }
+    .schedule_inner .schedule__filters {
+        margin: 0 0 46px;
+    }
+    .schedule_inner .schedule__time{
+        display: block;
+        margin: 0 0 5px;
+        width: 100%;
+    }
+    .schedule_inner .schedule__event {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+    .schedule_inner .schedule__text {
+        padding: 0;
+        margin: 0 0 32px;
+    }
+    .schedule_inner .schedule__details {
+        padding: 7px 0 9px;
+    }
+    .schedule_inner .schedule__main-place {
+        margin: 0 0 24px;
+    }
+    .schedule_inner .schedule__speaker {
+        width: 16.3%;
+    }
+    .schedule_inner .schedule__labels {
+        margin: 0 0 16px;
+    }
+    .schedule_inner .schedule__concurrent-title {
+        display: block;
+    }
+    .schedule_inner .schedule__concurrent:after{
+        display: none;
     }
     /* --------------- /schedule --------------- */
 
@@ -2934,6 +3090,15 @@ input.subscribe__email{
     }
     /* --------------- /menu-btn --------------- */
 
+    /* --------------- label --------------- */
+    .label {
+        padding: 3px 13px;
+        min-width: 88px;
+        font-size: 14px;
+        line-height: 14px;
+    }
+    /* --------------- /label --------------- */
+
     /* --------------- hero --------------- */
     .hero__layout {
         padding: 140px 0 14px;
@@ -2954,6 +3119,9 @@ input.subscribe__email{
     }
     .hero_small .hero__layout {
         padding: 168px 0 81px;
+    }
+    .hero__text {
+        margin: 0 0 78px;
     }
     /* --------------- /hero --------------- */
 
@@ -3149,6 +3317,68 @@ input.subscribe__email{
         opacity: 0;
         -webkit-transform: scale(0);
         transform: scale(0);
+    }
+    .schedule_inner .schedule__item:first-child,
+    .schedule_inner .schedule__item{
+        padding: 23px 0;
+    }
+    .schedule_inner .schedule__date-btns {
+        margin: 0 0 33px 0;
+    }
+    .schedule_inner .schedule__date-btns a,
+    .schedule_inner .schedule__date-btns a:first-child{
+        margin-left: 2px;
+    }
+    .schedule_inner .schedule__filters {
+        margin: 0 0 36px;
+    }
+    .schedule_inner .schedule__items {
+        padding: 0 30px;
+        text-align: left;
+    }
+    .schedule_inner .schedule__item{
+        text-align: left;
+    }
+    .schedule_inner .schedule__time {
+        display: inline-block;
+        width: 12.9%;
+        margin: 3px 0 0;
+    }
+    .schedule_inner .schedule__event {
+        display: inline-block;
+        width: 85%;
+        padding: 0 0 0 5px;
+    }
+    .schedule_inner .schedule__details{
+        padding: 8px 0 10px 14%;
+    }
+    .schedule_inner .schedule__main-place {
+        margin: 0 0 22px;
+    }
+    .schedule_inner .schedule__text {
+        margin: 0 0 22px;
+    }
+    .schedule_inner .label {
+        padding: 2px 7px;
+        min-width: 71px;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .schedule_inner .schedule__labels {
+        margin: 0 0 23px;
+    }
+    .schedule_inner .schedule__speaker {
+        width: 31.8%;
+    }
+    .schedule_inner .schedule__concurrent-title {
+        display: none;
+    }
+    .schedule_inner .schedule__concurrent:after{
+        display: block;
+        left: 10.2%;
+    }
+    .schedule_inner .schedule__concurrent{
+        border-top: 2px solid #f3f3f3;
     }
     /* --------------- /schedule --------------- */
 
