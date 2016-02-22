@@ -993,7 +993,7 @@ $(function(){
                         '<span class="speakers__post">' + this.post + '" </span>' +
                         '</a></div>' );
 
-                    _wrapper.append( newBlock );
+                    _cover.append( newBlock );
 
                 } );
 
