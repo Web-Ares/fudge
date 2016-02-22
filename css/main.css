@@ -2002,6 +2002,10 @@ input.subscribe__email{
     margin-bottom: 36px;
 }
 .social-feed__item {
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+.social-feed__inner {
     overflow: hidden;
     display: block;
     position: relative;
@@ -2944,11 +2948,16 @@ input.subscribe__email{
     }
     .social-feed__wrap {
         margin-bottom: 18px;
+        text-align: left;
     }
     .social-feed__item {
         display: inline-block;
         vertical-align: top;
-        margin: 0 14px 32px;
+        width: 49%;
+        text-align: center;
+    }
+    .social-feed__inner {
+        margin: 0 auto 32px;
     }
     /* ------------ /social-feed ------------ */
 
@@ -2981,6 +2990,12 @@ input.subscribe__email{
         width: 33%;
     }
     /* --------------- /news --------------- */
+
+    /* ------------ social-feed ------------ */
+    .social-feed__item {
+        width: 33%;
+    }
+    /* ------------ /social-feed ------------ */
 
 }
 
@@ -3841,18 +3856,11 @@ input.subscribe__email{
     .social-feed {
         padding: 93px 0 60px;
     }
-    .social-feed__wrap {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: row wrap;
-        justify-content: space-around;
-        margin: 0 -15px 19px;
-    }
     .social-feed__item {
         margin: 0 0 31px;
+    }
+    .social-feed__inner {
+        margin-bottom: 0;
     }
     /* ------------ /social-feed ------------ */
 
@@ -3900,4 +3908,11 @@ input.subscribe__email{
         width: 24.5%;
     }
     /* --------------- /news --------------- */
+
+    /* ------------ social-feed ------------ */
+    .social-feed__item {
+        width: 24.5%;
+    }
+    /* ------------ /social-feed ------------ */
+
 }

@@ -426,7 +426,7 @@ $(function(){
 
         var _self = this,
             _obj = obj,
-            _wrapper = null,
+            _wrapper = _obj.find( '.gallery__wrap' ),
             _cover = _obj.find( '.media-gallery__cover' ),
             _galleryItemClass = null,
             _window = $( window ),
@@ -437,14 +437,11 @@ $(function(){
 
         var _addGalleryContent = function( msg ){
 
-                var hasItems = null;
+                var hasItems = msg.has_items,
+                    path = null,
+                    newBlock = null;
 
                 $.each( msg.items, function( i ){
-
-                    var path = null,
-                        newBlock = null;
-
-                    hasItems = msg.has_items;
 
                     if ( this.video == undefined ){
                         path = this.href;
@@ -1098,6 +1095,7 @@ $(function(){
             _html = $( 'html'),
             _window = $( window ),
             _popup = null,
+            _popupInner = null,
             _swiperWrapper = null,
             _swiperContainer = null,
             _swiperPagination = null,
@@ -1117,7 +1115,7 @@ $(function(){
 
                 });
 
-                $( '.swiper-popup__inner').parent().on({
+                _popupInner.parent().on({
 
                     click: function(){
 
@@ -1131,7 +1129,7 @@ $(function(){
 
                 });
 
-                $( '.swiper-popup__inner').on({
+                _popupInner.on({
 
                     click: function( event ){
 
@@ -1162,7 +1160,7 @@ $(function(){
             _addVideo = function () {
 
                 var activeSlide = _popup.find( '.swiper-slide-active' ),
-                    src = activeSlide.find( '[data-src]' ).data( 'src'),
+                    src = activeSlide.find( '[data-src]' ).data( 'src' ),
                     innerContent = $( '<iframe src="' + src + '"> frameborder="0" allowfullscreen></iframe>' );
 
                 $( '.swiper-slide-active').find( '.swiper-popup__video').prepend( innerContent );
@@ -1222,11 +1220,14 @@ $(function(){
 
                 _body.append( _popup );
 
+                _popupInner = _popup.find( '.swiper-popup__inner' );
+
             },
             _getScrollWidth = function (){
-                var scrollDiv = document.createElement( 'div' );
+                var scrollDiv = document.createElement( 'div'),
+                    scrollbarWidth = null;
                 document.body.appendChild( scrollDiv );
-                var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+                scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
                 document.body.removeChild( scrollDiv );
                 return scrollbarWidth;
             },
@@ -1240,7 +1241,7 @@ $(function(){
                     paginationClickable: true,
                     onSlideChangeEnd: function(){
                         _removeVideo();
-                        if ( $( '.swiper-slide-active').find( '[data-src]' ).length ){
+                        if ( $( '.swiper-slide-active' ).find( '[data-src]' ).length ){
                             _addVideo();
                         }
                     }
@@ -1340,16 +1341,19 @@ $(function(){
                     hasItems = msg.has_items;
 
                     var newBlock = $( '<div class="social-feed__item hidden">'+
-                        '<div class="social-feed__head">'+
-                        '<div class="social-feed__logo">'+
-                        '<i class="fa fa-twitter"></i>'+
-                        '</div>'+
-                        '<div class="social-feed__name">'+this.name+'</div>'+ this.login +
-                    '</div>'+
-                    '<div class="social-feed__txt">'+this.feed_txt+'</div>'+
-                    '<div class="social-feed__hover">'+
-                        '<a href="'+this.href+'" class="btn btn_11">VIEW ON TWITTER <i class="fa fa-long-arrow-right"></i></a>'+
-                        '</div></div>' );
+                                        '<div class="social-feed__inner">' +
+                                            '<div class="social-feed__head">'+
+                                            '<div class="social-feed__logo">'+
+                                            '<i class="fa fa-twitter"></i>'+
+                                            '</div>'+
+                                            '<div class="social-feed__name">'+this.name+'</div>'+ this.login +
+                                            '</div>'+
+                                            '<div class="social-feed__txt">'+this.feed_txt+'</div>'+
+                                            '<div class="social-feed__hover">'+
+                                            '<a href="'+this.href+'" class="btn btn_11">VIEW ON TWITTER <i class="fa fa-long-arrow-right"></i></a>'+
+                                            '</div>' +
+                                        '</div>'+
+                                    '</div>' );
 
                     _wrapper.append( newBlock );
 
