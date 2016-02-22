@@ -106,6 +106,13 @@
 .ares-select__popup li.active {
     cursor: default;
 }
+
+.ares-select_1{
+    background: #ffdc1a;
+    color: #000;
+    height: 53px;
+
+}
 /* --------------- /ares-select --------------- */
 
 @media (min-width: 768px) {
@@ -128,7 +135,7 @@
         padding: 56px 17px 8px;
     }
     .ares-select__popup li{
-        padding: 11px 18px 11px;
+        padding: 11px 40px 11px 18px;
         text-align: center;
     }
     /* --------------- /ares-select --------------- */
