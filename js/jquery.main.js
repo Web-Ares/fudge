@@ -40,6 +40,10 @@ $(function(){
             new AddMoreContent ( $( this ) );
         } );
 
+        $.each( $('.social-feed' ), function() {
+            new AddMoreSocial ( $( this ) );
+        } );
+
     });
 
     var Page = function( obj ) {
@@ -397,7 +401,7 @@ $(function(){
                     prevButton: '.swiper-button-prev',
                     spaceBetween: 30
 
-            });
+                });
 
             },
             _setHeight = function() {
@@ -1310,6 +1314,103 @@ $(function(){
 
         _init();
 
+    };
+
+    var AddMoreSocial = function( obj ) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _btnMore = _obj.find($('.social-feed__more')),
+            _btnAction = _btnMore.data( 'action'),
+            _wrapper = _obj.find($('.social-feed__wrap')),
+            _request = new XMLHttpRequest();
+
+        //private methods
+        var _addEvents = function() {
+
+                _btnMore.on({
+
+                    click: function() {
+
+                        _addSocialBlocks();
+
+                        return false;
+                    }
+
+                });
+
+            },
+            _addSocialContent = function( msg ) {
+
+                if ( msg.has_items !== "0" ) {
+
+                    var contentMsg = msg.html;
+                    console.log(contentMsg);
+                    $('.social-feed__wrap').html(contentMsg);
+
+                } else {
+
+                    _removeBtnMore();
+
+                }
+
+            },
+
+            _removeBtnMore = function(){
+
+                _btnMore.css( 'opacity', 0 );
+
+                setTimeout( function(){
+
+                    _btnMore.css( 'padding', 0 );
+
+                    _btnMore.animate({
+                        height: 0
+                    }, {
+                        duration: 500,
+                        complete: function(){
+                            _btnMore.remove();
+                        }
+                    } );
+
+                }, 300 );
+
+            },
+            _addSocialBlocks = function() {
+
+                var items = $(document).find( '.social-feed__item' );
+
+                _request.abort();
+                _request = $.ajax( {
+                    url: _btnAction,
+                    data: {
+                        loadedCount: items.length
+                    },
+                    dataType: 'html',
+                    timeout: 20000,
+                    type: "GET",
+                    success: function ( msg ) {
+
+                        _addSocialContent( msg )
+
+                    },
+                    error: function ( XMLHttpRequest ) {
+                        if( XMLHttpRequest.statusText != "abort" ) {
+                            alert( "Error!" );
+                        }
+                    }
+                } );
+
+            },
+            _init = function() {
+
+                _addEvents();
+                _obj[ 0 ].obj = _self;
+
+            };
+
+        _init();
     };
 
 } );
