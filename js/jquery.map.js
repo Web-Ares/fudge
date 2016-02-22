@@ -92,7 +92,7 @@ $(function () {
                         _map.panTo({lat: place.getPosition().lat()-delta/markerZoom, lng: place.getPosition().lng()});
                     }
                     _map.setZoom(markerZoom);
-                    place.info.open(_map, place);
+                    //place.info.open(_map, place);
                 }
             },
             _findPlacemark = function (id) {
@@ -131,11 +131,12 @@ $(function () {
 
                     place.id = this.id;
                     place.color = this.color;
+                    place.desc = this.description;
                     if (data !== null) {
                         place._new = true;
                     }
                     place.info = new google.maps.InfoWindow({
-                        content: this.info
+                        content: this.description
                     });
 
                     _showAllLocations(this);
@@ -186,6 +187,7 @@ $(function () {
             },
             _setInfoWindow = function (index, place) {
                 google.maps.event.addListener(place, 'click', function (e) {
+                    _checkPlacemerk(place.id);
                     place.info.open(_map, place);
                     return false;
                 });
