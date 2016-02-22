@@ -117,7 +117,7 @@ $(function(){
             _subMenu = _menu.find( '.header-menu__sub-items' ),
             _window = $( window ),
             _action = false,
-            _headerHammer = null,
+            _lastPos,
             _header = $( '.site__header' ),
             _showBtn = $( '.menu-btn' );
 
@@ -180,9 +180,24 @@ $(function(){
 
                     }
                 } );
-                document.body.addEventListener('touchstart', function(e){
-                    alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
-                }, false);
+                $(document).on( 'touchmove', function (e) {
+
+                    var currentPos = e.originalEvent.touches[0].clientY;
+
+                    if( currentPos > _lastPos ) {
+
+                        _checkScroll(-1);
+
+
+                    } else if( currentPos < _lastPos ) {
+
+                        _checkScroll(1);
+
+                    }
+
+                    _lastPos = currentPos;
+
+                });
 
             },
             _checkScroll = function(direction){
