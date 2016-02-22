@@ -89,6 +89,12 @@
     left: 0;
     z-index: 3;
     width: 100%;
+    -webkit-transition:  -webkit-transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out;
+}
+.site__header_hidden{
+    -webkit-transform: translateY( -90px );
+    transform: translateY( -90px );
 }
 .site__header-top{
     height: 60px;
@@ -3036,6 +3042,8 @@ input.subscribe__email{
     }
     .schedule__item{
         padding: 24px 30px 17px;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        -webkit-transition: opacity 0.3s ease, transform 0.3s ease;
     }
     .schedule__concurrent:after {
         left: 12.5%;
@@ -3079,7 +3087,11 @@ input.subscribe__email{
         padding: 0;
         margin: 0 0 22px;
     }
-
+    .schedule__item.hidden {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
     /* --------------- /schedule --------------- */
 
     /* ------------ contact-us ------------ */
