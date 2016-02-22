@@ -534,7 +534,6 @@
     text-align: center;
 }
 .label_big{
-    display: block;
     padding: 8px 13px;
     margin: 0 0 4px;
     cursor: pointer;
@@ -1605,6 +1604,9 @@
     padding: 43px 36px 10px;
     text-align: center;
     box-shadow: 0 0 15px 2px rgba(0,0,0,0.3);
+}
+.where__popup .label_big{
+    display: block;
 }
 .where__links{
     color: #b6b6b6;
