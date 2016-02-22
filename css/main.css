@@ -796,6 +796,9 @@
     width: 100%;
     height: 100%;
 }
+.hero__layout_profile {
+    padding: 90px 0 23px !important;
+}
 .hero__text{
     margin: 0 0 35px;
     color: #fff;
@@ -1173,11 +1176,48 @@
     font-weight: 700;
 }
 .schedule__time span {
+    position: relative;
+    top: -5px;
     display: inline-block;
-    padding: 3px 5px;
+    padding: 4px 0 3px;
+    width: 115px;
+    margin-bottom: 3px;
+    margin-right: 17px;
     font-size: 16px;
     color: #000;
     background: #ffdc1a;
+    text-transform: uppercase;
+}
+.schedule__items_profile .schedule__time {
+    text-align: center;
+    margin: 0 0 9px;
+}
+.schedule__items_profile .schedule__item {
+    padding: 29px 17px 17px;
+}
+.schedule__items_profile .schedule__event{
+    width: auto;
+    padding: 0;
+    margin-bottom: 15px;
+}
+.schedule__items_profile .schedule__main-place {
+    margin: 0 0 1px;
+}
+.schedule__item_today {
+    border: none !important;
+}
+.schedule__item_today:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 40px;
+    height: 2px;
+    border-top: 2px dotted #f3f3f3;
+    content: '';
+}
+.schedule__inner {
+    display: inline-block;
+    padding: 0 0 0 33px;
 }
 .schedule__event{
     display: block;
@@ -2025,6 +2065,10 @@ input.subscribe__email{
     background: #f3f3f3;
     text-align: center;
 }
+.media .site__title {
+
+    margin: 0 0 51px;
+}
 .media iframe {
     display: inline-block;
     width: 288px;
@@ -2301,6 +2345,10 @@ input.subscribe__email{
         font-size: 20px;
         line-height: 24px;
     }
+
+    .hero__layout_profile {
+        padding: 58px 0 13px !important;
+    }
     /* ------------ /hero ------------ */
 
     /* ------------ time-schedule ------------ */
@@ -2505,6 +2553,25 @@ input.subscribe__email{
         margin: 3px 0 0;
         padding: 0 10px 0 0;
         width: 13.9%;
+    }
+    .schedule__time span {
+        display: block;
+    }
+    .schedule__items_profile .schedule__item {
+        padding: 19px 17px 12px;
+    }
+    .schedule__items_profile .schedule__event{
+        width: auto;
+        padding: 0;
+        margin-bottom: 8px;
+    }
+    .schedule__items_profile .schedule__main-place {
+        margin: 0 0 1px;
+    }
+    .schedule__inner {
+        width: 80%;
+        display: inline-block;
+        padding: 0 0 0 33px;
     }
     .schedule__event{
         display: inline-block;
@@ -2858,6 +2925,11 @@ input.subscribe__email{
     .media {
         padding: 65px 0 40px 0;
     }
+    .media .site__title {
+
+        margin: 0 0 44px;
+
+    }
     .media iframe {
         width: 326px;
         height: 273px;
@@ -3201,6 +3273,10 @@ input.subscribe__email{
     .hero__text {
         margin: 0 0 78px;
     }
+
+    .hero__layout_profile {
+        padding: 140px 0 14px !important;
+    }
     /* --------------- /hero --------------- */
 
     /* --------------- time-schedule --------------- */
@@ -3356,6 +3432,39 @@ input.subscribe__email{
     }
     .schedule__time {
         width: 12.9%;
+    }
+    .schedule__items_profile .schedule__time {
+        width: 24.7%;
+        padding: 0 0 0 11px;
+        text-align: left;
+    }
+    .schedule__items_profile .schedule__item {
+        padding: 19px 17px 17px;
+    }
+    .schedule__items_profile .schedule__event{
+        width: auto;
+        padding: 0;
+        margin-bottom: 8px;
+    }
+    .schedule__items_profile .schedule__main-place {
+        margin: 0 0 1px;
+    }
+    .schedule__item_today:after {
+        left: 160px;
+    }
+    .schedule__item_today .schedule__time {
+        padding: 0 0 0 143px;
+    }
+    .schedule__inner {
+        width: 74.7%;
+        padding: 0 0 0 9px;
+    }
+    .schedule__time span {
+        position: relative;
+        top: -1px;
+        display: inline-block;
+        margin-right: 13px;
+        text-align: center;
     }
     .schedule__event {
         padding: 0 0 0 4px;
@@ -3720,6 +3829,9 @@ input.subscribe__email{
     /*--------------media------------*/
     .media {
         padding: 66px 0 51px 0;
+    }
+    .media .site__title {
+
     }
     .media iframe {
         width: 425px;

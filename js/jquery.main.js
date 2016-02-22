@@ -659,8 +659,11 @@ $(function(){
                 _btnOpen.on( {
                     'click': function() {
 
-                        _openScheduleDetails( $( this ) );
-
+                        if ($('.schedule__items_profile').length) {
+                            _openProfileDetails( $( this ) )
+                        }else{
+                            _openScheduleDetails( $( this ) );
+                        }
                     }
                 } );
 
@@ -671,6 +674,10 @@ $(function(){
                     curItemParent = curItem.parent( _items),
                     details = curItem.next();
 
+                if ($('.schedule__items_profile').length) {
+                    details = curItem.parent().next()
+                }
+
                 if( curItemParent.hasClass( 'opened' ) ) {
 
                     curItemParent.removeClass( 'opened' );
@@ -680,6 +687,28 @@ $(function(){
 
                     _items.removeClass( 'opened' );
                     _btnOpen.next().slideUp( 300 );
+
+                    curItemParent.addClass( 'opened' );
+                    details.slideDown( 300 );
+
+                }
+
+            },
+
+            _openProfileDetails = function( elem )  {
+
+                var curItem = elem,
+                    curItemParent = curItem.parent().parent( _items),
+                    details = curItem.parent().next();
+
+                if( curItemParent.hasClass( 'opened' ) ) {
+
+                    curItemParent.removeClass( 'opened' );
+                    details.slideUp( 300 );
+
+                } else {
+                    _items.removeClass( 'opened' );
+                    _btnOpen.parent().next().slideUp( 300 );
 
                     curItemParent.addClass( 'opened' );
                     details.slideDown( 300 );
