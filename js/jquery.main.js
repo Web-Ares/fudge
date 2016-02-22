@@ -1022,12 +1022,12 @@ $(function(){
             },
             _ajaxRequest = function(){
 
-                var newsItem = 4;
+                var newsItem = _obj.find( '.speakers__person' );
                 _request.abort();
                 _request = $.ajax({
                     url: _btnAction,
                     data: {
-                        loadedCount: newsItem
+                        loadedCount: newsItem.length
                     },
                     dataType: 'json',
                     timeout: 20000,
