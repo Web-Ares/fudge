@@ -737,9 +737,9 @@ $(function(){
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find($('.news__more')),
-            _btnAction = _btnMore.data( 'action'),
-            _wrapper = _obj.find($('.news__layout')),
+            _btnMore = _obj.find( $( '.news__more' ) ),
+            _btnAction = _btnMore.data( 'action' ),
+            _wrapper = _obj.find( $( '.news__layout' ) ),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -972,9 +972,9 @@ $(function(){
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find($('.speakers__more')),
-            _btnAction = _btnMore.data( 'action'),
-            _wrapper = _obj.find($('.speakers__layout')),
+            _btnMore = _obj.find( $( '.speakers__more' ) ),
+            _btnAction = _btnMore.data( 'action' ),
+            _wrapper = _obj.find( $( '.speakers__layout' ) ),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -1025,7 +1025,6 @@ $(function(){
                 if ( hasItems == 0 ){
                     _removeBtnMore();
                 }
-
 
             },
             _showNewItems = function( item, index ){
