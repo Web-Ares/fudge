@@ -32,7 +32,7 @@ $(function(){
             new CountDown ( $( this ) );
         } );*/
 
-        $.each( $( '.gallery' ), function(){
+        $.each( $( '.media-gallery' ), function(){
             new Gallery ( $( this ) )
         } );
 
@@ -363,11 +363,11 @@ $(function(){
 
         var _self = this,
             _obj = obj,
-            _wrapper = _obj.find( '.gallery__wrap' ),
-            _cover = _obj.find( '.gallery__cover' ),
-            _galleryItem = '.gallery__item',
+            _wrapper = _obj.find( '.media-gallery__wrap' ),
+            _cover = _obj.find( '.media-gallery__cover' ),
+            _galleryItem = '.media-gallery__item',
             _window = $( window ),
-            _btnMore = _obj.find( '.gallery__more' ),
+            _btnMore = _obj.find( '.media-gallery__more' ),
             _btnAction = _btnMore.data( 'action' ),
             _isGallery = false,
             _request = new XMLHttpRequest();
@@ -378,7 +378,9 @@ $(function(){
 
                 $.each( msg.items, function( i ){
 
-                    var path;
+                    var path = null,
+                        newBlock = null;
+
                     hasItems = msg.has_items;
 
                     if ( this.video == undefined ){
@@ -387,18 +389,18 @@ $(function(){
                         path = this.video;
                     }
 
-                    var newBlock = $( '<a href="' + path + '" title="' + this.title + '" class="gallery__item hidden" style="background-image: url(' + this.dummy + ');"><span class="gallery__item-title">' + this.title + '</span></a>' );
+                    newBlock = $( '<a href="' + path + '" title="' + this.title + '" class="media-gallery__item hidden" style="background-image: url(' + this.dummy + ');"><span class="media-gallery__item-title">' + this.title + '</span></a>' );
 
                     if ( i == 0 || i == 4 ){
-                        newBlock.addClass( 'gallery__item_height2x' );
+                        newBlock.addClass( 'media-gallery__item_height2x' );
                     }
 
                     if ( i == 2 || i == 4 || i == 7 ){
-                        newBlock.addClass( 'gallery__item_width2x' );
+                        newBlock.addClass( 'media-gallery__item_width2x' );
                     }
 
                     if ( this.video ){
-                        newBlock.addClass( 'gallery__item_video' );
+                        newBlock.addClass( 'media-gallery__item_video' );
                     }
 
                     _wrapper.append( newBlock );
@@ -439,13 +441,13 @@ $(function(){
                 _btnMore.on({
 
                     click: function(){
-                        _ajaxRequest();
+                        _loadNewItems();
                         return false;
                     }
 
                 });
 
-                _obj.on( 'click', '.gallery__item', function(){
+                _obj.on( 'click', '.media-gallery__item', function(){
 
                     SwiperPopup( $( this ), $(this).index() );
 
@@ -454,9 +456,72 @@ $(function(){
                 } );
 
             },
-            _ajaxRequest = function(){
+            _destroyGallery = function(){
 
-                var galleryItem = _wrapper.find( '.gallery__item' );
+                _wrapper.isotope( 'destroy' );
+                _isGallery = false;
+
+            },
+            _getScrollWidth = function(){
+                var div = document.createElement( 'div' );
+                div.style.overflowY = 'scroll';
+                div.style.width = '50px';
+                div.style.height = '50px';
+                div.style.visibility = 'hidden';
+                document.body.appendChild( div );
+                var scrollWidth = div.offsetWidth - div.clientWidth;
+                document.body.removeChild( div );
+                return scrollWidth ;
+            },
+            _heightAnimation = function( hasItems, newItems ){
+
+                _cover.animate( {
+                    height: _wrapper.height()
+                }, {
+                    duration: 500,
+                    complete: function(){
+
+                        _cover.css( 'height', '' );
+
+                        newItems.each( function( i ){
+                            _showNewItems( $( this ),i );
+                        } );
+
+                        if ( hasItems == 0 ){
+                            _removeBtnMore();
+                        }
+
+                    }
+                } )
+
+            },
+            _initGallery = function() {
+
+                _wrapper = _obj.find( '.media-gallery__wrap' );
+                _galleryItem = '.media-gallery__item';
+
+                _wrapper.isotope({
+                    itemSelector: _galleryItem,
+                    masonry: {
+                        columnWidth: 0
+                    }
+                });
+
+                _isGallery = true;
+
+            },
+            _init = function () {
+
+                if( _window.width() + _getScrollWidth() >= 1000 ) {
+                    _initGallery();
+                }
+
+                _addEvents();
+                _obj[0].obj = _self;
+            },
+            _loadNewItems = function(){
+
+                var galleryItem = _wrapper.find( '.media-gallery__item' );
                 _request.abort();
                 _request = $.ajax({
                     url: _btnAction,
@@ -488,45 +553,6 @@ $(function(){
                 });
 
             },
-            _destroyGallery = function(){
-
-                _wrapper.isotope( 'destroy' );
-                _isGallery = false;
-
-            },
-            _getScrollWidth = function(){
-                var div = document.createElement('div');
-                div.style.overflowY = 'scroll';
-                div.style.width = '50px';
-                div.style.height = '50px';
-                div.style.visibility = 'hidden';
-                document.body.appendChild(div);
-                var scrollWidth = div.offsetWidth - div.clientWidth;
-                document.body.removeChild(div);
-                return scrollWidth ;
-            },
-            _heightAnimation = function( hasItems, newItems ){
-
-                _cover.animate( {
-                    height: _wrapper.height()
-                }, {
-                    duration: 500,
-                    complete: function(){
-
-                        _cover.css( 'height', '' );
-
-                        newItems.each( function( i ){
-                            _showNewItems( $( this ),i );
-                        } );
-
-                        if ( hasItems == 0 ){
-                            _removeBtnMore();
-                        }
-
-                    }
-                } )
-
-            },
             _removeBtnMore = function(){
 
                 _btnMore.css( 'opacity', 0 );
@@ -553,31 +579,8 @@ $(function(){
                     item.removeClass( 'hidden' );
                 }, index * 100 );
 
-            },
-            _initGallery = function() {
-
-                _wrapper = _obj.find( '.gallery__wrap' );
-                _galleryItem = '.gallery__item';
-
-                _wrapper.isotope({
-                    itemSelector: _galleryItem,
-                    masonry: {
-                        columnWidth: 0
-                    }
-                });
-
-                _isGallery = true;
-
-            },
-            _init = function () {
-
-                if( _window.width() + _getScrollWidth() >= 1000 ) {
-                    _initGallery();
-                }
-
-                _addEvents();
-                _obj[0].obj = _self;
             };
+
 
         _init();
 
@@ -888,7 +891,7 @@ $(function(){
             _obj = obj,
             _body = $( 'body' ),
             _wrapper = _obj.parent(),
-            _links = _wrapper.find( '.gallery__item'),
+            _links = _wrapper.find( '.media-gallery__item'),
             _html = $( 'html'),
             _window = $( window ),
             _popup = null,
@@ -936,16 +939,7 @@ $(function(){
                 });
 
             },
-            _addVideo = function () {
-
-                var activeSlide = _popup.find( '.swiper-slide-active' ),
-                    src = activeSlide.find( '[data-src]' ).data( 'src'),
-                    innerContent = $( '<iframe src="' + src + '"> frameborder="0" allowfullscreen></iframe>' );
-
-                $( '.swiper-slide-active').find( '.swiper-popup__video').prepend( innerContent );
-
-            },
-            _buildPopup = function(){
+            _addingVariables = function(){
 
                 _popup = $( '<div class="swiper-popup">\
                                     <div class="swiper-container">\
@@ -960,6 +954,20 @@ $(function(){
                 _swiperPagination = _popup.find( '.swiper-pagination' );
                 _swiperBtnNext = _popup.find( '.swiper-button-next' );
                 _swiperBtnPrev = _popup.find( '.swiper-button-prev' );
+
+            },
+            _addVideo = function () {
+
+                var activeSlide = _popup.find( '.swiper-slide-active' ),
+                    src = activeSlide.find( '[data-src]' ).data( 'src'),
+                    innerContent = $( '<iframe src="' + src + '"> frameborder="0" allowfullscreen></iframe>' );
+
+                $( '.swiper-slide-active').find( '.swiper-popup__video').prepend( innerContent );
+
+            },
+            _buildPopup = function(){
+
+                _addingVariables();
                 _contentFilling();
                 _initSwiper();
                 _swiper.slideTo( index, 0);
@@ -975,7 +983,7 @@ $(function(){
                         dataSRC = null,
                         preloader = null;
 
-                    if ( $( this ).hasClass( 'gallery__item_video' ) ){
+                    if ( $( this ).hasClass( 'media-gallery__item_video' ) ){
 
                         preloader = '<i class="fa fa-spinner fa-spin"></i>';
                         innerContent = '<div class="swiper-popup__video"/>';
