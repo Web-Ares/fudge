@@ -180,23 +180,9 @@ $(function(){
 
                     }
                 } );
-
-                if ( device.mobile() ) {
-                    _headerHammer.on( "panup", function( e ) {
-                        if( e.pointerType == 'touch' ) {
-
-                            _checkScroll( 1 );
-
-                        }
-                    });
-                    _headerHammer.on( "pandown", function( e ) {
-                        if( e.pointerType == 'touch' ) {
-
-                            _checkScroll( -1 );
-
-                        }
-                    });
-                }
+                document.body.addEventListener('touchstart', function(e){
+                    alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
+                }, false);
 
             },
             _checkScroll = function(direction){
@@ -207,14 +193,6 @@ $(function(){
 
                 if(direction < 0 && _header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened')  && _action){
                     _header.removeClass('site__header_hidden');
-                }
-
-            },
-            _initHammer = function(){
-
-                if (device.mobile()) {
-                    _headerHammer = new Hammer.Manager($('body')[0]);
-                    _headerHammer.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 }) );
                 }
 
             },
@@ -272,7 +250,6 @@ $(function(){
             },
             _init = function() {
                 _menu[ 0 ].obj = _self;
-                _initHammer();
                 _addEvents();
             };
 
