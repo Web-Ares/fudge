@@ -70,6 +70,8 @@
     social-feed
 
     media
+
+    more-content
 */
 
 /* --------------- placeholder --------------- */
@@ -2032,6 +2034,17 @@ input.subscribe__email{
     margin: 0 4px 22px;
 }
 /*--------------/media------------*/
+
+/*--------------more-content------------*/
+.more-content__btn{
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.more-content__btn.hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+/*--------------/more-content------------*/
 
 @media (min-width: 460px) {
 
