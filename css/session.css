@@ -1,17 +1,19 @@
 /* ------------ presented ------------ */
-.presented{
+.presented {
     padding: 40px 0 23px;
     background: #f3f3f3;
 }
-.presented .speakers__person,.presented .speakers__post{
+
+.presented .speakers__person, .presented .speakers__post {
     text-align: center;
 }
+
 .presented .speakers__layout {
     justify-content: space-between;
     margin: auto;
 }
-
 /* ------------ /presented ------------ */
+
 /* ------------ registration ------------ */
 .registration {
     padding: 39px 0 51px 0;
@@ -36,7 +38,6 @@
     padding-bottom: 16px;
     letter-spacing: -0.7px;
 }
-
 /* ------------ /registration ------------ */
 
 /* ------------ session ------------ */
@@ -56,9 +57,11 @@
     -webkit-transition: border .3s ease-in-out;
     transition: border .3s ease-in-out;
 }
+
 .session__text p a:hover {
     border-bottom: 1px solid #ffdc1a;
 }
+
 .session__labels {
     padding-left: 20px;
     padding-top: 11px;
@@ -71,44 +74,47 @@
     font: 500 10px/1 'Robobo', sans-serif;
     white-space: nowrap;
 }
-
 /* ------------ /session ------------ */
 
-.site__title_session{
+/* ------------ hero ------------ */
+.site__title_session {
     font-size: 36px;
     line-height: 38px;
 }
-.time-schedule__session{
-    border-left: 2px solid rgba(255,255,255,0.3);
-    border-right: 2px solid rgba(255,255,255,0.3);
+
+.time-schedule__session {
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+    border-right: 2px solid rgba(255, 255, 255, 0.3);
     margin: auto;
-    font: 400 16px/20px "Roboto",sans-serif;
+    font: 400 16px/20px "Roboto", sans-serif;
     text-transform: uppercase;
     padding: 10px 0;
 }
 
-.time-schedule__session__place{
+.time-schedule__session__place {
     width: 100%;
     display: block;
     padding-bottom: 7px;
 }
-.time-schedule__session time{
+
+.time-schedule__session time {
     width: 100%;
     display: block;
 }
 
-.time-schedule__session__place i{
-    color:#b5b5b5;
+.time-schedule__session__place i {
+    color: #b5b5b5;
     padding-right: 10px;
 }
+/* ------------ /hero ------------ */
 
 @media (min-width: 768px) {
     /* ------------ registration ------------ */
     .registration__title > span {
         font-size: 20px;
     }
-
     /* ------------ /registration ------------ */
+
     /* ------------ session ------------ */
     .session {
         padding: 43px 0 96px 0;
@@ -125,6 +131,7 @@
         padding-top: 13px;
         text-align: center;
     }
+
     /* ------------ /session ------------ */
 
     /* ------------ presented ------------ */
@@ -133,34 +140,41 @@
         margin: auto;
         max-width: 600px;
     }
-
     /* ------------ /presented ------------ */
-    .site__title_session{
+
+    /* ------------ hero ------------ */
+    .site__title_session {
         font-size: 40px;
         line-height: 42px;
     }
+
     .time-schedule__session {
         padding: 0;
         overflow: hidden;
         display: inline-block;
         width: auto;
     }
-    .time-schedule__session__place{
-        border-right: 2px solid rgba(255,255,255,0.3);
-        width: auto;
-    }
-    .time-schedule__session time{
+
+    .time-schedule__session__place {
+        border-right: 2px solid rgba(255, 255, 255, 0.3);
         width: auto;
     }
 
-    .time-schedule__session__place, .time-schedule__session time{
+    .time-schedule__session time {
+        width: auto;
+    }
+
+    .time-schedule__session__place, .time-schedule__session time {
         float: left;
         text-align: center;
         padding: 13px 30px;
     }
+
+    /* ------------ hero ------------ */
 }
 
 @media (min-width: 1000px) {
+
     /* ------------ registration ------------ */
     .registration {
         padding-bottom: 63px;
@@ -174,8 +188,8 @@
         padding-bottom: 0;
         margin-bottom: 26px;
     }
-
     /* ------------ /registration ------------ */
+
     /* ------------ session ------------ */
     .session-inner {
         padding: 59px 0 73px 0;
@@ -194,6 +208,5 @@
         max-width: 850px;
     }
     /* ------------ /presented ------------ */
-
 
 }
