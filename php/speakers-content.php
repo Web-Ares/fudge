@@ -49,12 +49,14 @@ if ( $loadedCount == 4 ){
                     ]
     }';
 
+} elseif ( $loadedCount == 4 ){
+
     $json_data = '{
         "has_items": 1,
                     "items":[
 
                         {
-                            "id":1,
+                            "id":5,
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
@@ -62,7 +64,7 @@ if ( $loadedCount == 4 ){
                             "favorite": " "
                             },
                         {
-                            "id":2,
+                            "id":6,
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
@@ -70,7 +72,7 @@ if ( $loadedCount == 4 ){
                             "favorite": "speakers__person_favorite"
                             },
                         {
-                            "id":3,
+                            "id":7,
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
@@ -78,7 +80,7 @@ if ( $loadedCount == 4 ){
                             "favorite": " "
                             },
                         {
-                            "id":4,
+                            "id":8,
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
@@ -102,14 +104,14 @@ if ( $loadedCount == 4 ){
             "items":[
 
                         {
-                            "id":5,
+                            "id":9,
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
                             "href": "#"
                             },
                         {
-                            "id":6,
+                            "id":10,
                             "picture": "pic/speaker-001.jpg",
                             "name": "Jane ROTENBERG",
                             "post": "Design Director and Co-founder of Stellar Artworks",
