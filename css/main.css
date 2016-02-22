@@ -14,6 +14,8 @@
     site
 
     logo
+
+    media
 */
 
 /* --------------- placeholder --------------- */
@@ -198,6 +200,23 @@
     z-index: 1;
     padding: 0 14px;
     background: #fff;
+}
+.site__subtitle {
+    position: relative;
+    padding-bottom: 43px;
+    font: 700 26px/42px 'Roboto Slab', sans-serif;
+    text-transform: uppercase;
+}
+.site__subtitle:after {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    width: 80px;
+    height: 6px;
+    background: #ffdc1a;
+    content: '';
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
 .site__form {
@@ -869,8 +888,17 @@
     line-height: 32px;
     text-align: center;
 }
-.description p{
+.description p {
     margin: 0 0 43px;
+}
+.description p a {
+    border-bottom: 1px solid transparent;
+    color: #ffdc1a;
+    -webkit-transition: border .3s ease-in-out;
+    transition: border .3s ease-in-out;
+}
+.description p a:hover {
+    border-bottom: 1px solid #ffdc1a;
 }
 .description__watch-video{
     padding: 0 60px 0 0;
@@ -1867,7 +1895,22 @@ input.subscribe__email{
 }
 /* ------------ /social-feed ------------ */
 
+/*--------------media------------*/
+.media {
+    padding: 60px 0 40px;
+    background: #f3f3f3;
+    text-align: center;
+}
+.media iframe {
+    display: inline-block;
+    width: 288px;
+    height: 239px;
+    margin: 0 4px 22px;
+}
+/*--------------/media------------*/
+
 @media (min-width: 768px) {
+
 
     /* ------------ social ------------ */
     .social a {
@@ -1998,6 +2041,12 @@ input.subscribe__email{
         padding: 0;
         font-size: 20px;
         line-height: 24px;
+    }
+    .site__subtitle {
+        padding-bottom: 38px;
+    }
+    .site__subtitle:after {
+        bottom: 19px;
     }
     .site__form {
         padding: 60px 50px 52px;
@@ -2576,6 +2625,17 @@ input.subscribe__email{
     .social-feed__hover .btn {}
     /* ------------ /social-feed ------------ */
 
+    /*--------------media------------*/
+    .media {
+        padding: 65px 0 40px 0;
+    }
+    .media iframe {
+        width: 326px;
+        height: 273px;
+        margin: 0 16px 22px;
+    }
+    /*--------------/media------------*/
+
 }
 
 @media (min-width: 1000px) {
@@ -2706,6 +2766,9 @@ input.subscribe__email{
         padding: 0;
         font-size: 20px;
         line-height: 24px;
+    }
+    .site__subtitle {
+        padding-bottom: 37px;
     }
     .btn_10 {
         display: inline-block;
@@ -3344,5 +3407,16 @@ input.subscribe__email{
     .social-feed__item:hover .social-feed__hover {}
     .social-feed__hover .btn {}
     /* ------------ /social-feed ------------ */
+
+    /*--------------media------------*/
+    .media {
+        padding: 66px 0 51px 0;
+    }
+    .media iframe {
+        width: 425px;
+        height: 353px;
+        margin: 0 25px 22px;
+    }
+    /*--------------/media------------*/
 
 }
