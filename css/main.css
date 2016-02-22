@@ -1004,6 +1004,9 @@
     margin: 0 auto 43px;
     line-height: 32px;
 }
+.speakers__item{
+    display: block;
+}
 .speakers__person{
     display: block;
     position: relative;
@@ -2359,6 +2362,9 @@ input.subscribe__email{
         width: auto;
         margin-bottom: 46px;
         font-size: 20px;
+    }
+    .speakers__item{
+        display: inline-block;
     }
     .speakers__layout{
         margin-bottom: 17px;
