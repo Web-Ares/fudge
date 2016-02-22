@@ -2071,8 +2071,13 @@ input.subscribe__email{
     text-align: center;
 }
 .media .site__title {
-
     margin: 0 0 51px;
+}
+.media__text {
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
 }
 .media iframe {
     display: inline-block;
@@ -2942,8 +2947,13 @@ input.subscribe__email{
         padding: 65px 0 40px 0;
     }
     .media .site__title {
-
         margin: 0 0 44px;
+    }
+    .media__text {
+
+        font-size: 20px;
+
+        margin-bottom: 58px;
 
     }
     .media iframe {
@@ -3846,9 +3856,6 @@ input.subscribe__email{
     .media {
         padding: 66px 0 51px 0;
     }
-    .media .site__title {
-
-    }
     .media iframe {
         width: 425px;
         height: 353px;
@@ -3866,3 +3873,5 @@ input.subscribe__email{
     /* ------------ /swiper-popup ------------ */
 
 }
+
+
