@@ -2379,7 +2379,7 @@ input.subscribe__email{
     }
     .speakers__item{
         display: inline-block;
-        width: 33%;
+        width: 49%;
         text-align: center;
     }
     .speakers__person {
@@ -2855,6 +2855,16 @@ input.subscribe__email{
         margin: 0 16px 22px;
     }
     /*--------------/media------------*/
+
+}
+
+@media (min-width: 840px) {
+
+    /* --------------- speakers --------------- */
+    .speakers__item{
+        width: 33%;
+    }
+    /* --------------- /speakers --------------- */
 
 }
 
@@ -3721,5 +3731,15 @@ input.subscribe__email{
         right: 50px;
     }
     /* ------------ /swiper-popup ------------ */
+
+}
+
+@media (min-width: 1100px) {
+
+    /* --------------- speakers --------------- */
+    .speakers__item{
+        width: 24%;
+    }
+    /* --------------- /speakers --------------- */
 
 }
