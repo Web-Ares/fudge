@@ -103,7 +103,7 @@
 }
 
 .time-schedule__session__place i {
-    padding-right: 10px;
+    padding-right: 4px;
     color: #b5b5b5;
 }
 /* ------------ /hero ------------ */
@@ -157,16 +157,17 @@
 
     .time-schedule__session__place {
         width: auto;
+        padding: 15px 28px 12px;
         border-right: 2px solid rgba(255, 255, 255, 0.3);
     }
 
     .time-schedule__session time {
         width: auto;
+        padding: 15px 30px 12px;
     }
 
     .time-schedule__session__place, .time-schedule__session time {
         float: left;
-        padding: 13px 30px;
         text-align: center;
     }
 

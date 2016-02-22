@@ -40,15 +40,6 @@ $(function(){
             new AddMoreContent ( $( this ) );
         } );
 
-        $('.where__layout').niceScroll({
-            cursorcolor:"#f3f3f3",
-            cursoropacitymin: "1",
-            cursorborderradius: "3px",
-            cursorborder: "none",
-            cursorwidth: "5",
-            enablemousewheel: true
-        });
-
     });
 
     var Page = function( obj ) {
