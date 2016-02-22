@@ -143,6 +143,10 @@
     /* ------------ /presented ------------ */
 
     /* ------------ hero ------------ */
+
+    .hero_session .hero__layout {
+        padding: 175px 0 31px;
+    }
     .site__title_session {
         font-size: 40px;
         line-height: 42px;
@@ -212,5 +216,8 @@
         justify-content: space-between;
     }
     /* ------------ /presented ------------ */
+    .hero_session .hero__layout {
+        padding: 132px 0 31px;
+    }
 
 }
