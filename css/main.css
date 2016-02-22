@@ -1043,6 +1043,14 @@
     font-family: 'FontAwesome', sans-serif;
     color: #fff;
 }
+.speakers-favorite_small:before{
+    border-width: 0 30px 30px 0;
+}
+.speakers-favorite_small:after {
+    top: 1px;
+    right: 4px;
+    font-size: 12px;
+}
 .speakers__photo {
     width: inherit;
     height: 162px;
@@ -1235,6 +1243,7 @@
 .schedule__speaker{
     display: inline-block;
     vertical-align: top;
+    position: relative;
     width: 40.6%;
     margin: 0 6px 16px;
     text-align: center;
@@ -3159,6 +3168,12 @@ input.subscribe__email{
         min-width: 88px;
         font-size: 14px;
         line-height: 14px;
+    }
+    .label_big{
+        padding: 13px 13px;
+        margin: 0 0 5px;
+        font-size: 20px;
+        line-height: 20px;
     }
     /* --------------- /label --------------- */
 
