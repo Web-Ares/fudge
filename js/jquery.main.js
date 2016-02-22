@@ -1367,7 +1367,7 @@ $(function(){
 
                     hasItems = msg.has_items;
 
-                    var newBlock = $( '<div class="social-feed__item">'+
+                    var newBlock = $( '<div class="social-feed__item hidden">'+
                         '<div class="social-feed__head">'+
                         '<div class="social-feed__logo">'+
                         '<i class="fa fa-twitter"></i>'+
