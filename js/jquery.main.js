@@ -665,7 +665,7 @@ $(function(){
                 _btnOpen.on( {
                     'click': function() {
 
-                        if ($('.schedule__items_profile').length) {
+                        if ($( '.schedule__items_profile' ).length ) {
                             _openProfileDetails( $( this ) )
                         }else{
                             _openScheduleDetails( $( this ) );
@@ -677,11 +677,11 @@ $(function(){
             _openScheduleDetails = function( elem )  {
 
                 var curItem = elem,
-                    curItemParent = curItem.parent( _items),
+                    curItemParent = curItem.parent( _items ),
                     details = curItem.next();
 
-                if ($('.schedule__items_profile').length) {
-                    details = curItem.parent().next()
+                if ($( '.schedule__items_profile' ).length ) {
+                    details = curItem.parent().next();
                 }
 
                 if( curItemParent.hasClass( 'opened' ) ) {
@@ -700,7 +700,6 @@ $(function(){
                 }
 
             },
-
             _openProfileDetails = function( elem )  {
 
                 var curItem = elem,
