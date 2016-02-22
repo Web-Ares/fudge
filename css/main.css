@@ -169,6 +169,37 @@
     width: 54px;
     height: 5px;
 }
+.site__title_2{
+    margin: 0 0 37px;
+    padding: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+.site__title_2:after{
+    display: none;
+}
+.site__title_2:before{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    margin: -1px 0 0;
+    background: #f3f3f3;
+    content: '';
+}
+.site__title_2 span{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    z-index: 1;
+    padding: 0 14px;
+    background: #fff;
+}
+
 .site__form {
     padding: 49px 20px 46px;
     background: #f3f3f3;
@@ -494,17 +525,20 @@
     bottom: 0;
     background: rgba(0,0,0,0.9);
     text-align: center;
-}
-.header-menu__wrap{
-    display: flex;
-    height: 100%;
-    padding: 0 0 11px 0;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     overflow-y: auto;
 }
-.header-menu__wrap ul{
+.header-menu__wrap{
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding: 0 0 11px 0;
+}
+.header-menu__layout{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px 0;
+}
+.header-menu__layout ul{
     position: relative;
     margin: 0 5px 0 0;
     width: 100%;
@@ -1205,6 +1239,65 @@
 }
 /* ------------ /register-now ------------ */
 
+/* ------------ sponsors ------------ */
+.sponsors{
+    padding: 77px 0 20px;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+}
+.sponsors p{
+    margin: 0 0 10px;
+}
+.sponsors__items{
+    text-align: left;
+}
+.sponsors__item{
+    padding: 0 0 23px;
+}
+.sponsors__logo{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 88%;
+    padding-bottom: 40%;
+    margin: 0 auto 32px;
+    overflow: hidden;
+}
+.sponsors__item_gold .sponsors__logo{
+    display: block;
+}
+.sponsors__item_gold .sponsors__logo div{
+    right: 0;
+    left: 0;
+}
+.sponsors__item_silver .sponsors__logo{
+    width: 49.3%;
+    padding-bottom: 21%;
+}
+.sponsors__item_silver .sponsors__logo div{
+    right: 5px;
+    left: 5px;
+}
+.sponsors__item_bronze .sponsors__logo{
+    width: 32.4%;
+    padding-bottom: 13%;
+}
+.sponsors__item_bronze .sponsors__logo div{
+    right: 6px;
+    left: 6px;
+}
+.sponsors__logo div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* ------------ /sponsors ------------ */
+
 /* --------------- tickets --------------- */
 .tickets{
     padding: 82px 0 30px;
@@ -1639,6 +1732,12 @@ input.subscribe__email{
         margin: 0 0 32px;
         font-size: 54px;
         line-height: 62px;
+    }
+    .site__title_2{
+        margin: 0 0 63px;
+        padding: 0;
+        font-size: 20px;
+        line-height: 24px;
     }
     .site__form {
         padding: 60px 50px 52px;
@@ -2113,6 +2212,45 @@ input.subscribe__email{
     }
     /* ------------ /register-now ------------ */
 
+    /* ------------ sponsors ------------ */
+    .sponsors{
+        padding: 82px 0 0;
+        font-size: 20px;
+        line-height: 42px;
+    }
+    .sponsors p{
+        margin: 0 0 10px;
+    }
+    .sponsors__item{
+        padding: 0 0 33px;
+    }
+    .sponsors__logo{
+        width: 53%;
+        padding-bottom: 24.1%;
+        margin: 0 auto 40px;
+    }
+    .sponsors__item_gold .sponsors__logo div{
+        right: 0;
+        left: 0;
+    }
+    .sponsors__item_silver .sponsors__logo{
+        width: 32.4%;
+        padding-bottom: 12.5%;
+    }
+    .sponsors__item_silver .sponsors__logo div{
+        right: 18px;
+        left: 18px;
+    }
+    .sponsors__item_bronze .sponsors__logo{
+        width: 19.4%;
+        padding-bottom: 6.9%;
+    }
+    .sponsors__item_bronze .sponsors__logo div{
+        right: 16px;
+        left: 16px;
+    }
+    /* ------------ /sponsors ------------ */
+
     /* --------------- news --------------- */
     .news {
         padding: 83px 0 87px;
@@ -2263,6 +2401,12 @@ input.subscribe__email{
     .site__title_white span{
         display: block;
     }
+    .site__title_2{
+        margin: 0 0 63px;
+        padding: 0;
+        font-size: 20px;
+        line-height: 24px;
+    }
     .btn_10 {
         display: inline-block;
         width: 180px;
@@ -2378,16 +2522,19 @@ input.subscribe__email{
         padding: 28px 2px 0 0;
         text-align: right;
         background: transparent;
+        overflow-y: inherit;
     }
     .header-menu__wrap{
         display: inline-block;
         padding: 0;
-        justify-content: inherit;
-        align-items: inherit;
-        flex-direction: inherit;
-        overflow-y: inherit;
+        width: auto;
+        height: auto;
     }
-    .header-menu__wrap>ul{
+    .header-menu__layout{
+        display: block;
+        padding: 0;
+    }
+    .header-menu__layout>ul{
         display: inline-block;
         vertical-align: top;
         margin: 0 5px 0 0;
@@ -2760,6 +2907,43 @@ input.subscribe__email{
         box-shadow: 0 0 30px rgba(0,0,0,.1);
     }
     /* --------------- /news --------------- */
+
+    /* ------------ sponsors ------------ */
+    .sponsors{
+        padding: 77px 0 0;
+    }
+    .sponsors p{
+        margin: 0 0 10px;
+    }
+    .sponsors__item{
+        padding: 0 0 72px;
+    }
+    .sponsors__logo{
+        width: 53%;
+        padding-bottom: 24.1%;
+        margin: 0 auto 40px;
+    }
+    .sponsors__item_gold .sponsors__logo div{
+        right: 0;
+        left: 0;
+    }
+    .sponsors__item_silver .sponsors__logo{
+        width: 32.4%;
+        padding-bottom: 12.5%;
+    }
+    .sponsors__item_silver .sponsors__logo div{
+        right: 18px;
+        left: 18px;
+    }
+    .sponsors__item_bronze .sponsors__logo{
+        width: 19.4%;
+        padding-bottom: 6.9%;
+    }
+    .sponsors__item_bronze .sponsors__logo div{
+        right: 16px;
+        left: 16px;
+    }
+    /* ------------ /sponsors ------------ */
 
     /* --------------- where --------------- */
     .where__popup{
