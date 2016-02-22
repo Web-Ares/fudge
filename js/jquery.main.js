@@ -962,12 +962,11 @@ $(function(){
             _btnMore = _obj.find($('.speakers__more')),
             _btnAction = _btnMore.data( 'action'),
             _wrapper = _obj.find($('.speakers__layout')),
+            _cover = _obj.find($('.speakers__cover')),
             _request = new XMLHttpRequest();
 
         //private methods
         var _addEvents = function() {
-
-                _ajaxRequest();
 
                 _btnMore.on({
 
@@ -1007,13 +1006,25 @@ $(function(){
             },
             _heightAnimation = function( hasItems, newItems ){
 
-                newItems.each( function( i ){
-                    _showNewItems( $( this ),i );
-                } );
+                _cover.animate( {
+                    height: _wrapper.height()
+                }, {
+                    duration: 500,
+                    complete: function(){
 
-                if ( hasItems == 0 ){
-                    _removeBtnMore();
-                }
+                        _cover.css( 'height', '' );
+
+                        newItems.each( function( i ){
+                            _showNewItems( $( this ),i );
+                        } );
+
+                        if ( hasItems == 0 ){
+                            _removeBtnMore();
+                        }
+
+                    }
+                } )
+
 
             },
             _showNewItems = function( item, index ){
