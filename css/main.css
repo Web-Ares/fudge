@@ -3422,6 +3422,8 @@ input.subscribe__email{
     }
     .speakers__person.hidden {
         opacity: 0;
+        transform: scale(.8);
+        -webkit-transform: scale(.8);
     }
     /* --------------- /speakers --------------- */
 
@@ -3653,7 +3655,7 @@ input.subscribe__email{
     .news__article:hover {
         box-shadow: 0 0 30px rgba(0,0,0,.1);
     }
-    .news__item.hidden {
+    .news__article.hidden {
         opacity: 0;
         transform: scale(.8);
         -webkit-transform: scale(.8);
