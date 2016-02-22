@@ -1,6 +1,6 @@
 /* ------------ presented ------------ */
 .presented {
-    padding: 40px 0 23px;
+    padding: 40px 0 22px;
     background: #f3f3f3;
 }
 
@@ -192,8 +192,11 @@
     /* ------------ /registration ------------ */
 
     /* ------------ session ------------ */
-    .session-inner {
+    .session {
         padding: 59px 0 73px 0;
+    }
+    .session .site__title_subtitle{
+        padding-bottom: 12px;
     }
 
     .session__text {
