@@ -764,13 +764,13 @@ $(function(){
                     var path;
                     hasItems = msg.has_items;
 
-                    var newBlock = $( '<article class="news__item hidden">' +
+                    var newBlock = $( '<div class="news__item"><article class="news__article hidden">' +
                         '<div class="news__picture" style="background-image:url( ' + this.picture +  ' )"></div>' +
                         '<div class="news__content">' +
                         '<time datetime="' + this.date + '" class="news__date">' + this.date + '</time>' +
                         '<h2 class="news__title">' + this.title + '</h2>' +
                         '<a href="' + this.href + '" class="btn btn_4">READ MORE</a>' +
-                        '</div></article>' );
+                        '</div></article></div>' );
 
                     _wrapper.append( newBlock );
 
@@ -798,7 +798,7 @@ $(function(){
 
                 setTimeout( function(){
                     item.removeClass( 'hidden' );
-                }, index * 100 );
+                }, index * 300 );
 
             },
             _ajaxRequest = function(){
