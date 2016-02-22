@@ -46,12 +46,8 @@ if ( $loadedCount == 4 ){
                             "favorite": " "
                             }
 
-                    ]
-    }';
+                    ],
 
-} elseif ( $loadedCount == 4 ){
-
-    $json_data = '{
         "has_items": 1,
                     "items":[
 
