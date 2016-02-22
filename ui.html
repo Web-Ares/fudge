@@ -302,7 +302,7 @@
             <p>Need to connect main.css and jquery.main.js</p>
 
             <!-- speakers -->
-            <section class="speakers">
+            <section class="speakers speakers_load">
 
                 <!-- site__centered -->
                 <div class="site__centered">
@@ -316,88 +316,91 @@
                     <!-- speakers__layout -->
                     <div class="speakers__layout">
 
-                        <!-- speakers__person -->
-                        <a href="#" class="speakers__person">
+                        <div class="speakers__item">
+                            <!-- speakers__person -->
+                            <a href="#" class="speakers__person">
 
-                            <!-- speakers__photo -->
-                            <div class="speakers__photo" style="background-image:url('pic/speaker-001.jpg')"></div>
-                            <!-- /speakers__photo -->
+                                <!-- speakers__photo -->
+                                <div class="speakers__photo" style="background-image:url('pic/speaker-001.jpg')"></div>
+                                <!-- /speakers__photo -->
 
-                            <!-- speakers__name -->
-                            <h2 class="speakers__name">Jane ROTENBERG</h2>
-                            <!-- /speakers__name -->
+                                <!-- speakers__name -->
+                                <h2 class="speakers__name">Jane ROTENBERG</h2>
+                                <!-- /speakers__name -->
 
-                            <!-- speakers__post -->
-                            <span class="speakers__post">Design Director and Co-founder of Stellar Artworks</span>
-                            <!-- /speakers__post -->
+                                <!-- speakers__post -->
+                                <span class="speakers__post">Design Director and Co-founder of Stellar Artworks</span>
+                                <!-- /speakers__post -->
 
-                        </a>
-                        <!-- /speakers__person -->
+                            </a>
+                            <!-- /speakers__person -->
+                        </div>
 
-                        <!-- speakers__person -->
-                        <a href="#" class="speakers__person">
+                        <div class="speakers__item">
+                            <!-- speakers__person -->
+                            <a href="#" class="speakers__person">
 
-                            <!-- speakers__photo -->
-                            <div class="speakers__photo" style="background-image:url('pic/speaker-002.jpg')"></div>
-                            <!-- /speakers__photo -->
+                                <!-- speakers__photo -->
+                                <div class="speakers__photo" style="background-image:url('pic/speaker-002.jpg')"></div>
+                                <!-- /speakers__photo -->
 
-                            <!-- speakers__name -->
-                            <h2 class="speakers__name">James Smith</h2>
-                            <!-- /speakers__name -->
+                                <!-- speakers__name -->
+                                <h2 class="speakers__name">James Smith</h2>
+                                <!-- /speakers__name -->
 
-                            <!-- speakers__post -->
-                            <span class="speakers__post">Founder of Smart Tech Co.</span>
-                            <!-- /speakers__post -->
+                                <!-- speakers__post -->
+                                <span class="speakers__post">Founder of Smart Tech Co.</span>
+                                <!-- /speakers__post -->
 
-                        </a>
-                        <!-- /speakers__person -->
+                            </a>
+                            <!-- /speakers__person -->
+                        </div>
 
-                        <!-- speakers__person -->
-                        <a href="#" class="speakers__person">
+                        <div class="speakers__item">
+                            <!-- speakers__person -->
+                            <a href="#" class="speakers__person">
 
-                            <!-- speakers__photo -->
-                            <div class="speakers__photo" style="background-image:url('pic/speaker-003.jpg')"></div>
-                            <!-- /speakers__photo -->
+                                <!-- speakers__photo -->
+                                <div class="speakers__photo" style="background-image:url('pic/speaker-003.jpg')"></div>
+                                <!-- /speakers__photo -->
 
-                            <!-- speakers__name -->
-                            <h2 class="speakers__name">DanielA Lewis</h2>
-                            <!-- /speakers__name -->
+                                <!-- speakers__name -->
+                                <h2 class="speakers__name">DanielA Lewis</h2>
+                                <!-- /speakers__name -->
 
-                            <!-- speakers__post -->
-                            <span class="speakers__post">Founder of Something Eventualy</span>
-                            <!-- /speakers__post -->
+                                <!-- speakers__post -->
+                                <span class="speakers__post">Founder of Something Eventualy</span>
+                                <!-- /speakers__post -->
 
-                        </a>
-                        <!-- /speakers__person -->
+                            </a>
+                            <!-- /speakers__person -->
+                        </div>
 
-                        <!-- speakers__person -->
-                        <a href="#" class="speakers__person">
+                        <div class="speakers__item">
+                            <!-- speakers__person -->
+                            <a href="#" class="speakers__person">
 
-                            <!-- speakers__photo -->
-                            <div class="speakers__photo" style="background-image:url('pic/speaker-004.jpg')"></div>
-                            <!-- /speakers__photo -->
+                                <!-- speakers__photo -->
+                                <div class="speakers__photo" style="background-image:url('pic/speaker-004.jpg')"></div>
+                                <!-- /speakers__photo -->
 
-                            <!-- speakers__name -->
-                            <h2 class="speakers__name">Robert J.</h2>
-                            <!-- /speakers__name -->
+                                <!-- speakers__name -->
+                                <h2 class="speakers__name">Robert J.</h2>
+                                <!-- /speakers__name -->
 
-                            <!-- speakers__post -->
-                            <span class="speakers__post">Founder of Something Eventualy</span>
-                            <!-- /speakers__post -->
+                                <!-- speakers__post -->
+                                <span class="speakers__post">Founder of Something Eventualy</span>
+                                <!-- /speakers__post -->
 
-                        </a>
-                        <!-- /speakers__person -->
-
+                            </a>
+                            <!-- /speakers__person -->
+                        </div>
                     </div>
                     <!-- /speakers__layout -->
 
-                    <!-- btn -->
-                    <a href="#" class="btn btn_5">LOAD MORE</a>
-                    <!-- /btn -->
+                    <a href="#" class="btn btn_5 speakers__more" data-action="php/speakers-content.php">LOAD MORE</a>
 
-                    <!-- btn -->
                     <a href="#" class="btn btn_6">VIEW ALL</a>
-                    <!-- /btn -->
 
                 </div>
                 <!-- /site__centered -->
@@ -1550,122 +1553,146 @@
                     <div class="news__layout">
 
                         <!-- news__item -->
-                        <article class="news__item">
+                        <div class="news__item">
 
-                            <!-- news__picture -->
-                            <div class="news__picture" style="background-image:url('pic/news-01.jpg')"></div>
-                            <!-- /news__picture -->
+                            <!-- news__article -->
+                            <article class="news__article">
 
-                            <!-- news__content -->
-                            <div class="news__content">
+                                <!-- news__picture -->
+                                <div class="news__picture" style="background-image:url('pic/news-01.jpg')"></div>
+                                <!-- /news__picture -->
 
-                                <!-- news__date -->
-                                <time datetime="2016-02-17" class="news__date">17 Feb. 2016</time>
-                                <!-- /news__date -->
+                                <!-- news__content -->
+                                <div class="news__content">
 
-                                <!-- news__title -->
-                                <h2 class="news__title">A New Conference. Be Inspired, Get Creative.</h2>
-                                <!-- /news__title -->
+                                    <!-- news__date -->
+                                    <time datetime="2016-02-17" class="news__date">17 Feb. 2016</time>
+                                    <!-- /news__date -->
 
-                                <!-- btn -->
-                                <a href="#" class="btn btn_4"><span>READ MORE</span></a>
-                                <!-- /btn -->
+                                    <!-- news__title -->
+                                    <h2 class="news__title">A New Conference. Be Inspired, Get Creative.</h2>
+                                    <!-- /news__title -->
 
-                            </div>
-                            <!-- /news__content -->
+                                    <!-- btn -->
+                                    <a href="#" class="btn btn_4"><span>READ MORE</span></a>
+                                    <!-- /btn -->
 
-                        </article>
-                        <!-- /news__item -->
+                                </div>
+                                <!-- /news__content -->
+
+                            </article>
+                            <!-- /news__article -->
+
+                        </div>
+                        <!-- news__item -->
 
                         <!-- news__item -->
-                        <article class="news__item">
+                        <div class="news__item">
 
-                            <!-- news__picture -->
-                            <div class="news__picture" style="background-image:url('pic/news-02.jpg')"></div>
-                            <!-- /news__picture -->
+                            <!-- news__item -->
+                            <article class="news__article">
 
-                            <!-- news__content -->
-                            <div class="news__content">
+                                <!-- news__picture -->
+                                <div class="news__picture" style="background-image:url('pic/news-02.jpg')"></div>
+                                <!-- /news__picture -->
 
-                                <!-- news__date -->
-                                <time datetime="2016-02-17" class="news__date">17 Feb. 2016</time>
-                                <!-- /news__date -->
+                                <!-- news__content -->
+                                <div class="news__content">
 
-                                <!-- news__title -->
-                                <h2 class="news__title">The amazing city of  Barcelona and how to have fun there.</h2>
-                                <!-- /news__title -->
+                                    <!-- news__date -->
+                                    <time datetime="2016-02-17" class="news__date">17 Feb. 2016</time>
+                                    <!-- /news__date -->
 
-                                <!-- btn -->
-                                <a href="#" class="btn btn_4"><span>READ MORE</span></a>
-                                <!-- /btn -->
+                                    <!-- news__title -->
+                                    <h2 class="news__title">The amazing city of  Barcelona and how to have fun there.</h2>
+                                    <!-- /news__title -->
 
-                            </div>
-                            <!-- /news__content -->
+                                    <!-- btn -->
+                                    <a href="#" class="btn btn_4"><span>READ MORE</span></a>
+                                    <!-- /btn -->
 
-                        </article>
-                        <!-- /news__item -->
+                                </div>
+                                <!-- /news__content -->
+
+                            </article>
+                            <!-- /news__item -->
+
+                        </div>
+                        <!-- news__item -->
 
                         <!-- news__item -->
-                        <article class="news__item">
+                        <div class="news__item">
 
-                            <!-- news__picture -->
-                            <div class="news__picture" style="background-image:url('pic/news-03.jpg')"></div>
-                            <!-- /news__picture -->
+                            <!-- news__item -->
+                            <article class="news__article">
 
-                            <!-- news__content -->
-                            <div class="news__content">
+                                <!-- news__picture -->
+                                <div class="news__picture" style="background-image:url('pic/news-03.jpg')"></div>
+                                <!-- /news__picture -->
 
-                                <!-- news__date -->
-                                <time datetime="2016-02-17" class="news__date">17 Feb. 2016</time>
-                                <!-- /news__date -->
+                                <!-- news__content -->
+                                <div class="news__content">
 
-                                <!-- news__title -->
-                                <h2 class="news__title">Connect with top agencies and  developers in Spain</h2>
-                                <!-- /news__title -->
+                                    <!-- news__date -->
+                                    <time datetime="2016-02-17" class="news__date">17 Feb. 2016</time>
+                                    <!-- /news__date -->
 
-                                <!-- btn -->
-                                <a href="#" class="btn btn_4"><span>READ MORE</span></a>
-                                <!-- /btn -->
+                                    <!-- news__title -->
+                                    <h2 class="news__title">Connect with top agencies and  developers in Spain</h2>
+                                    <!-- /news__title -->
 
-                            </div>
-                            <!-- /news__content -->
+                                    <!-- btn -->
+                                    <a href="#" class="btn btn_4"><span>READ MORE</span></a>
+                                    <!-- /btn -->
 
-                        </article>
-                        <!-- /news__item -->
+                                </div>
+                                <!-- /news__content -->
+
+                            </article>
+                            <!-- /news__item -->
+
+                        </div>
+                        <!-- news__item -->
 
                         <!-- news__item -->
-                        <article class="news__item">
+                        <div class="news__item">
 
-                            <!-- news__picture -->
-                            <div class="news__picture" style="background-image:url('pic/news-04.jpg')"></div>
-                            <!-- /news__picture -->
+                            <!-- news__item -->
+                            <article class="news__article">
 
-                            <!-- news__content -->
-                            <div class="news__content">
+                                <!-- news__picture -->
+                                <div class="news__picture" style="background-image:url('pic/news-04.jpg')"></div>
+                                <!-- /news__picture -->
 
-                                <!-- news__date -->
-                                <time datetime="2016-02-17" class="news__date">17 Feb. 2016</time>
-                                <!-- /news__date -->
+                                <!-- news__content -->
+                                <div class="news__content">
 
-                                <!-- news__title -->
-                                <h2 class="news__title">Enjoy a cocktail on the largest outdoor Rooftop Garden.</h2>
-                                <!-- /news__title -->
+                                    <!-- news__date -->
+                                    <time datetime="2016-02-17" class="news__date">17 Feb. 2016</time>
+                                    <!-- /news__date -->
 
-                                <!-- btn -->
-                                <a href="#" class="btn btn_4"><span>READ MORE</span></a>
-                                <!-- /btn -->
+                                    <!-- news__title -->
+                                    <h2 class="news__title">Enjoy a cocktail on the largest outdoor Rooftop Garden.</h2>
+                                    <!-- /news__title -->
 
-                            </div>
-                            <!-- /news__content -->
+                                    <!-- btn -->
+                                    <a href="#" class="btn btn_4"><span>READ MORE</span></a>
+                                    <!-- /btn -->
 
-                        </article>
-                        <!-- /news__item -->
+                                </div>
+                                <!-- /news__content -->
+
+                            </article>
+                            <!-- /news__item -->
+
+                        </div>
+                        <!-- news__item -->
 
                     </div>
                     <!-- /news__layout -->
 
                     <!-- btn -->
-                    <a href="#" class="btn btn_1">
+                    <a href="#" class="btn btn_1 news__more" data-action="php/news-content.php">
                         LOAD MORE
                     </a>
                     <!-- /btn -->
