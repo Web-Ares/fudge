@@ -3648,6 +3648,8 @@ input.subscribe__email{
     }
     .news__item.hidden {
         opacity: 0;
+        transform: scale(.8);
+        -webkit-transform: scale(.8);
     }
     /* --------------- /news --------------- */
 
