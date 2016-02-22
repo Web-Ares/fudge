@@ -2363,16 +2363,17 @@ input.subscribe__email{
         margin-bottom: 46px;
         font-size: 20px;
     }
-    .speakers__item{
-        display: inline-block;
-    }
     .speakers__layout{
         margin-bottom: 17px;
+        overflow: hidden;
+    }
+    .speakers__item{
+        display: inline-block;
+        margin: 0 18px 31px;
     }
     .speakers__person {
         display: inline-block;
         vertical-align: top;
-        margin: 0 18px 31px;
     }
     /* --------------- /speakers --------------- */
 
@@ -3267,8 +3268,10 @@ input.subscribe__email{
         -webkit-flex-flow: row wrap;
         justify-content: space-between;
     }
-    .speakers__person {
+    .speakers__item{
         margin: 0 0 31px;
+    }
+    .speakers__person {
         transition: box-shadow .3s ease, opacity 0.3s ease, transform 0.3s ease;
         -webkit-transition: box-shadow .3s ease, opacity 0.3s ease, transform 0.3s ease;
     }
