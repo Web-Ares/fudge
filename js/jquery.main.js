@@ -910,7 +910,7 @@ $(function(){
 
                 setTimeout( function(){
                     item.removeClass( 'hidden' );
-                }, index * 100 );
+                }, index * 300 );
 
             },
             _removeBtnMore = function(){
