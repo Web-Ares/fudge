@@ -1230,11 +1230,14 @@
     display: none;
 }
 .schedule__main-place{
-    display: block;
+    display: inline-block;
+    vertical-align: top;
     margin: 0 0 42px;
     color: #b5b5b5;
     font-size: 16px;
     line-height: 19px;
+    -webkit-transition: color .3s;
+    transition: color .3s;
 }
 .schedule__main-place:hover{
     color: #000;

@@ -181,7 +181,7 @@ $(function(){
                     }
                 } );
 
-                //if ( device.mobile() ) {
+                if ( device.mobile() ) {
                     _headerHammer.on( "panup", function( e ) {
                         if( e.pointerType == 'touch' ) {
 
@@ -196,7 +196,7 @@ $(function(){
 
                         }
                     });
-                //}
+                }
 
             },
             _checkScroll = function(direction){
@@ -212,10 +212,10 @@ $(function(){
             },
             _initHammer = function(){
 
-                //if (device.mobile()) {
+                if (device.mobile()) {
                     _headerHammer = new Hammer.Manager($('body')[0]);
                     _headerHammer.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 }) );
-                //}
+                }
 
             },
             _openMenu = function( elem )  {
