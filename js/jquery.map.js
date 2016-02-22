@@ -116,7 +116,7 @@ $(function () {
                 $.each(_self.data, function (i) {
 
                     var curLatLng = new google.maps.LatLng(this.coordinates[0], this.coordinates[1]);
-
+                    _self.bounds.extend(curLatLng);
                     var place = new google.maps.Marker({
                         position: curLatLng,
                         map: map,
@@ -145,7 +145,7 @@ $(function () {
                     _setInfoWindow(i, place);
 
                 });
-
+                map.fitBounds(_self.bounds);
             },
             _hideAllInfo = function () {
                 for (var i = 0; i < _self.markers.length; i++) {
