@@ -171,7 +171,24 @@
 
             <!-- countdown-timer -->
             <div class="countdown-timer">
-                <div data-time="March 15, 2016"></div>
+                <div data-finish="March 15, 2016">
+                    <div class="countdown-timer__days">
+                        <span>Days</span>
+                        Days
+                    </div>
+                    <div class="countdown-timer__hours">
+                        <span>hours</span>
+                        hours
+                    </div>
+                    <div class="countdown-timer__minutes">
+                        <span>min</span>
+                        min
+                    </div>
+                    <div class="countdown-timer__seconds">
+                        <span>sec</span>
+                        sec
+                    </div>
+                </div>
             </div>
             <!-- /countdown-timer -->
 
@@ -190,7 +207,7 @@
             <!-- description -->
 
             <!-- speakers -->
-            <section class="speakers">
+            <section class="speakers speakers_load">
 
                 <!-- site__centered -->
                 <div class="site__centered">
@@ -204,82 +221,89 @@
                     <!-- speakers__layout -->
                     <div class="speakers__layout">
 
-                        <!-- speakers__person -->
-                        <div class="speakers__person">
+                        <div class="speakers__item">
+                            <!-- speakers__person -->
+                            <a href="#" class="speakers__person">
 
-                            <!-- speakers__photo -->
-                            <div class="speakers__photo" style="background-image:url('pic/speaker-001.jpg')"></div>
-                            <!-- /speakers__photo -->
+                                <!-- speakers__photo -->
+                                <div class="speakers__photo" style="background-image:url('pic/speaker-001.jpg')"></div>
+                                <!-- /speakers__photo -->
 
-                            <!-- speakers__name -->
-                            <h2 class="speakers__name">Jane ROTENBERG</h2>
-                            <!-- /speakers__name -->
+                                <!-- speakers__name -->
+                                <h2 class="speakers__name">Jane ROTENBERG</h2>
+                                <!-- /speakers__name -->
 
-                            <!-- speakers__post -->
-                            <span class="speakers__post">Design Director and Co-founder of Stellar Artworks</span>
-                            <!-- /speakers__post -->
+                                <!-- speakers__post -->
+                                <span class="speakers__post">Design Director and Co-founder of Stellar Artworks</span>
+                                <!-- /speakers__post -->
 
+                            </a>
+                            <!-- /speakers__person -->
                         </div>
-                        <!-- /speakers__person -->
 
-                        <!-- speakers__person -->
-                        <div class="speakers__person">
+                        <div class="speakers__item">
+                            <!-- speakers__person -->
+                            <a href="#" class="speakers__person">
 
-                            <!-- speakers__photo -->
-                            <div class="speakers__photo" style="background-image:url('pic/speaker-002.jpg')"></div>
-                            <!-- /speakers__photo -->
+                                <!-- speakers__photo -->
+                                <div class="speakers__photo" style="background-image:url('pic/speaker-002.jpg')"></div>
+                                <!-- /speakers__photo -->
 
-                            <!-- speakers__name -->
-                            <h2 class="speakers__name">James Smith</h2>
-                            <!-- /speakers__name -->
+                                <!-- speakers__name -->
+                                <h2 class="speakers__name">James Smith</h2>
+                                <!-- /speakers__name -->
 
-                            <!-- speakers__post -->
-                            <span class="speakers__post">Founder of Smart Tech Co.</span>
-                            <!-- /speakers__post -->
+                                <!-- speakers__post -->
+                                <span class="speakers__post">Founder of Smart Tech Co.</span>
+                                <!-- /speakers__post -->
 
+                            </a>
+                            <!-- /speakers__person -->
                         </div>
-                        <!-- /speakers__person -->
 
-                        <!-- speakers__person -->
-                        <div class="speakers__person">
+                        <div class="speakers__item">
+                            <!-- speakers__person -->
+                            <a href="#" class="speakers__person">
 
-                            <!-- speakers__photo -->
-                            <div class="speakers__photo" style="background-image:url('pic/speaker-003.jpg')"></div>
-                            <!-- /speakers__photo -->
+                                <!-- speakers__photo -->
+                                <div class="speakers__photo" style="background-image:url('pic/speaker-003.jpg')"></div>
+                                <!-- /speakers__photo -->
 
-                            <!-- speakers__name -->
-                            <h2 class="speakers__name">DanielA Lewis</h2>
-                            <!-- /speakers__name -->
+                                <!-- speakers__name -->
+                                <h2 class="speakers__name">DanielA Lewis</h2>
+                                <!-- /speakers__name -->
 
-                            <!-- speakers__post -->
-                            <span class="speakers__post">Founder of Something Eventualy</span>
-                            <!-- /speakers__post -->
+                                <!-- speakers__post -->
+                                <span class="speakers__post">Founder of Something Eventualy</span>
+                                <!-- /speakers__post -->
 
+                            </a>
+                            <!-- /speakers__person -->
                         </div>
-                        <!-- /speakers__person -->
 
-                        <!-- speakers__person -->
-                        <div class="speakers__person">
+                        <div class="speakers__item">
+                            <!-- speakers__person -->
+                            <a href="#" class="speakers__person">
 
-                            <!-- speakers__photo -->
-                            <div class="speakers__photo" style="background-image:url('pic/speaker-004.jpg')"></div>
-                            <!-- /speakers__photo -->
+                                <!-- speakers__photo -->
+                                <div class="speakers__photo" style="background-image:url('pic/speaker-004.jpg')"></div>
+                                <!-- /speakers__photo -->
 
-                            <!-- speakers__name -->
-                            <h2 class="speakers__name">Robert J.</h2>
-                            <!-- /speakers__name -->
+                                <!-- speakers__name -->
+                                <h2 class="speakers__name">Robert J.</h2>
+                                <!-- /speakers__name -->
 
-                            <!-- speakers__post -->
-                            <span class="speakers__post">Founder of Something Eventualy</span>
-                            <!-- /speakers__post -->
+                                <!-- speakers__post -->
+                                <span class="speakers__post">Founder of Something Eventualy</span>
+                                <!-- /speakers__post -->
 
+                            </a>
+                            <!-- /speakers__person -->
                         </div>
-                        <!-- /speakers__person -->
-
                     </div>
                     <!-- /speakers__layout -->
 
-                    <a href="#" class="btn btn_5">LOAD MORE</a>
+                    <a href="#" class="btn btn_5 speakers__more" data-action="php/speakers-content.php">LOAD MORE</a>
 
                     <a href="#" class="btn btn_6">VIEW ALL</a>
 
@@ -308,7 +332,7 @@
             <!-- /get-touch -->
 
             <!-- schedule -->
-            <section class="schedule">
+            <section class="schedule more-content">
 
                 <!-- site__centered -->
                 <div class="site__centered">
@@ -343,10 +367,10 @@
                     <!-- /schedule__filters -->
 
                     <!-- schedule__items -->
-                    <div class="schedule__items">
+                    <div class="schedule__items more-content__wrapper">
 
                         <!-- schedule__item -->
-                        <div class="schedule__item schedule__item-drop-down">
+                        <div class="schedule__item schedule__item-drop-down more-content__item">
                             <time class="schedule__time" datetime="09:00">9:00-11:00</time>
                             <h2 class="schedule__event">User Experience and Radical Users</h2>
 
@@ -479,7 +503,7 @@
                         <!-- /schedule__item -->
 
                         <!-- schedule__item -->
-                        <div class="schedule__item schedule__item-drop-down">
+                        <div class="schedule__item schedule__item-drop-down more-content__item">
                             <time class="schedule__time" datetime="09:00">9:00-11:00</time>
                             <h2 class="schedule__event">Crowdfunding your Start-up</h2>
 
@@ -612,7 +636,7 @@
                         <!-- /schedule__item -->
 
                         <!-- schedule__item -->
-                        <div class="schedule__item schedule__item-drop-down">
+                        <div class="schedule__item schedule__item-drop-down more-content__item">
                             <time class="schedule__time" datetime="09:00">9:00-11:00</time>
                             <h2 class="schedule__event">Brand Simple and Marketing Principles</h2>
 
@@ -745,7 +769,7 @@
                         <!-- /schedule__item -->
 
                         <!-- schedule__item -->
-                        <div class="schedule__item">
+                        <div class="schedule__item more-content__item">
                             <time class="schedule__time" datetime="09:00">9:00-11:00</time>
                             <h2 class="schedule__event">Coffee Break <span class="schedule__coffee-break"><i class="fa fa-coffee"></i>  in the lobby</span></h2>
 
@@ -762,7 +786,7 @@
                             <!-- /schedule__concurrent-title -->
 
                             <!-- schedule__item -->
-                            <div class="schedule__item schedule__item-drop-down">
+                            <div class="schedule__item schedule__item-drop-down more-content__item">
                                 <time class="schedule__time" datetime="09:00">9:00-11:00</time>
                                 <h2 class="schedule__event">If people say it’s crazy and stupid, you are on the right path</h2>
 
@@ -895,7 +919,7 @@
                             <!-- /schedule__item -->
 
                             <!-- schedule__item -->
-                            <div class="schedule__item schedule__item-drop-down">
+                            <div class="schedule__item schedule__item-drop-down more-content__item">
                                 <time class="schedule__time" datetime="09:00">9:00-11:00</time>
                                 <h2 class="schedule__event">Two concurrent sessions</h2>
 
@@ -1031,7 +1055,7 @@
                         <!-- /schedule__concurrent -->
 
                         <!-- schedule__item -->
-                        <div class="schedule__item schedule__item-drop-down">
+                        <div class="schedule__item schedule__item-drop-down more-content__item">
                             <time class="schedule__time" datetime="09:00">9:00-11:00</time>
                             <h2 class="schedule__event">Brand Simple and Marketing Principles</h2>
 
@@ -1168,7 +1192,7 @@
 
                     <!-- schedule__btns -->
                     <div class="schedule__btns">
-                        <a href="#" class="btn btn_5 btn_8"><span>Load More</span></a>
+                        <a href="#" class="btn btn_5 btn_8 more-content__btn" data-action="php/schedule-content.php"><span>Load More</span></a>
                         <a href="#" class="btn btn_6"><span>VIEW ALL</span></a>
                     </div>
                     <!-- /schedule__btns -->
@@ -1196,6 +1220,296 @@
 
             </section>
             <!-- /register-now -->
+
+            <!-- sponsors -->
+            <section class="sponsors">
+
+                <!-- site__centered -->
+                <div class="site__centered">
+
+                    <h2 class="site__title">
+                        SPONSORS
+                    </h2>
+                    <p>Here you can display your amazing sponsors</p>
+
+                    <!-- sponsors__filters -->
+                    <div class="sponsors__filters">
+                        <select name="selector-filter1" id="selector-filter1" class="ares-select_1">
+                            <option value="0">SELECTOR FILTER</option>
+                            <option value="1">Menu item one</option>
+                            <option value="2">Menu item two</option>
+                            <option value="3">Menu item three</option>
+                            <option value="4">Menu item four</option>
+                        </select>
+                        <select name="selector-filter2" id="selector-filter2" class="ares-select_1">
+                            <option value="0">SELECTOR FILTER</option>
+                            <option value="1">Menu item one</option>
+                            <option value="2">Menu item two</option>
+                            <option value="3">Menu item three</option>
+                            <option value="4">Menu item four</option>
+                        </select>
+                        <select name="selector-filter3" id="selector-filter3" class="ares-select_1">
+                            <option value="0">SELECTOR FILTER</option>
+                            <option value="1">Menu item one</option>
+                            <option value="2">Menu item two</option>
+                            <option value="3">Menu item three</option>
+                            <option value="4">Menu item four</option>
+                        </select>
+                    </div>
+                    <!-- /sponsors__filters -->
+
+                    <!-- sponsors__items -->
+                    <div class="sponsors__items">
+
+                        <h3 class="site__title site__title_2"><span>GOLD</span></h3>
+
+                        <!-- sponsors__item -->
+                        <div class="sponsors__item sponsors__item_gold">
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                        </div>
+                        <!-- /sponsors__item -->
+
+                        <h3 class="site__title site__title_2"><span>Silver</span></h3>
+
+                        <!-- sponsors__item -->
+                        <div class="sponsors__item sponsors__item_silver">
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                        </div>
+                        <!-- /sponsors__item -->
+
+                        <h3 class="site__title site__title_2"><span>Bronze</span></h3>
+
+                        <!-- sponsors__item -->
+                        <div class="sponsors__item sponsors__item_bronze">
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <a href="#" class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </a>
+                            <div class="sponsors__logo">
+                                <div style="background-image: url('pic/sponsor.png')">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /sponsors__item -->
+
+                    </div>
+                    <!-- /sponsors__items -->
+
+                </div>
+                <!-- /site__centered -->
+
+            </section>
+            <!-- /sponsors -->
+
+            <!-- tickets -->
+            <section class="tickets">
+
+                <!-- site__centered -->
+                <div class="site__centered">
+
+                    <!-- site__title -->
+                    <h2 class="site__title site__title_1">
+                        REGISTER NOW!
+                    </h2>
+                    <!-- /site__title -->
+
+                    <p>Nullam in dui mauris. Vivamus hendrerit arcu sed erat.</p>
+
+                    <!-- tickets__layout -->
+                    <div class="tickets__layout">
+
+                        <!-- tickets__item -->
+                        <div class="tickets__item tickets__item_disabled">
+
+                            <span class="tickets__price">$198</span>
+
+                            <span class="tickets__status">Sold Out!</span>
+
+                            <ul class="tickets__list">
+                                <li>Feature List item one</li>
+                                <li>Another feature item</li>
+                                <li>The third list item is even more</li>
+                                <li>The 4th list item is awesome</li>
+                                <li>And the list goes on</li>
+                            </ul>
+
+                            <span class="btn btn_9">BUY</span>
+
+                        </div>
+                        <!-- /tickets__item -->
+
+                        <!-- tickets__item -->
+                        <div class="tickets__item tickets__item_best">
+
+                            <span class="tickets__price">$265</span>
+
+                            <span class="tickets__status">Featured Ticket</span>
+
+                            <ul class="tickets__list">
+                                <li>Feature List item one</li>
+                                <li>Another feature item</li>
+                                <li>The third list item is even more</li>
+                                <li>The 4th list item is awesome</li>
+                                <li>And the list goes on</li>
+                            </ul>
+
+                            <a href="#" class="btn btn_9">BUY</a>
+
+                        </div>
+                        <!-- /tickets__item -->
+
+                        <!-- tickets__item -->
+                        <div class="tickets__item">
+
+                            <span class="tickets__price">$398</span>
+
+                            <span class="tickets__status">Business Ticket</span>
+
+                            <ul class="tickets__list">
+                                <li>Feature List item one</li>
+                                <li>Another feature item</li>
+                                <li>The third list item is even more</li>
+                                <li>The 4th list item is awesome</li>
+                                <li>And the list goes on</li>
+                            </ul>
+
+                            <a href="#" class="btn btn_9">BUY</a>
+
+                        </div>
+                        <!-- /tickets__item -->
+
+                    </div>
+                    <!-- /tickets__layout -->
+
+                </div>
+                <!-- /site__centered -->
+
+            </section>
+            <!-- /tickets -->
+
+            <!-- where -->
+            <section class="where">
+
+                <!-- where -->
+                <div class="where__map">
+                    <div id="map" data-action="php/location.php" data-lat="50.45955979" data-lng="30.43816450" data-map='{
+                    "locations": [
+                    {
+                    "id":1,
+                    "icon": "img/marker1.png",
+                    "color":"#9b54d1",
+                    "coordinates": [50.45955979, 30.43816450],
+                    "title": "Tower Bridge",
+                    "description": "some text11"
+                    },
+                    {
+                    "id":2,
+                    "icon": "img/marker1.png",
+                    "color":"#ff8e42",
+                    "coordinates": [52.539027, -0.192581],
+                    "title": "Brick Lane",
+                    "description": "some text22"
+                    },
+                    {
+                    "id":3,
+                    "icon": "img/marker1.png",
+                    "color":"#345cc2",
+                    "coordinates": [51.539027, -0.142581],
+                    "title": "Camden Town",
+                    "description": "some text33"
+                    }
+
+                    ]
+                    }'></div>
+                </div>
+                <!-- where -->
+
+                <!-- where__popup -->
+                <div class="where__popup">
+
+                    <!-- site__title -->
+                    <h2 class="site__title site__title_small">
+                        WHERE
+                    </h2>
+                    <!-- /site__title -->
+
+                    <!-- where__layout -->
+                    <div class="where__layout">
+
+                        <!-- where__text -->
+                        <div class="where__text">
+                            <p>Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim </p>
+                        </div>
+                        <!-- /where__text -->
+
+                        <!-- where__labels -->
+                        <div class="where__labels">
+
+                        </div>
+                        <!-- /where__labels -->
+
+                    </div>
+                    <!-- /where__layout -->
+
+                    <!-- where__links -->
+                    <a class="where__links where_view-all" href="#">VIEW ALL <i class="fa fa-long-arrow-right"></i></a>
+                    <!-- /where__links -->
+
+                    <!-- where__links -->
+                    <a class="where__links where_back" href="#"><i class="fa fa-long-arrow-left"></i> BACK</a>
+                    <!-- /where__links -->
+
+                </div>
+                <!-- /where__popup -->
+
+            </section>
+            <!-- /where -->
 
             <!-- news -->
             <section class="news">
@@ -1328,7 +1642,7 @@
                     <!-- /news__layout -->
 
                     <!-- btn -->
-                    <a href="#" class="btn btn_1">
+                    <a href="#" class="btn btn_1 news__more" data-action="php/news-content.php">
                         LOAD MORE
                     </a>
                     <!-- /btn -->
@@ -1347,14 +1661,14 @@
 
                     <h2 class="subscribe__title">Subscribe to our newsletter now and stay informed!</h2>
 
-                    <form action="php/form.php" class="site__form form-validation" novalidate>
+                    <form action="php/form.php" class="form-validation" novalidate>
 
                         <!-- subscribe__email -->
-                        <input type="email" name="subscribe__email" class="subscribe__email" placeholder="enter your email" />
+                        <input type="email" name="subscribe__email" class="subscribe__email" placeholder="enter your email" required/>
                         <!-- /subscribe__email -->
 
                         <!-- subscribe__email -->
-                        <button type="submit" name="subscribe__btn" class="btn btn_6">SUBSCRIBE</button>
+                        <button type="submit" name="subscribe__btn" class="btn btn_10">SUBSCRIBE</button>
                         <!-- /subscribe__email -->
 
                     </form>
@@ -1365,8 +1679,210 @@
             </div>
             <!-- /subscribe -->
 
-            <!-- gallery -->
-            <section class="gallery">
+            <!-- social-feed -->
+            <div class="social-feed social-feed_load">
+
+                <!-- site__centered -->
+                <div class="site__centered">
+
+                    <!-- social-feed__wrap -->
+                    <div class="social-feed__wrap">
+
+                        <!-- social-feed__item -->
+                        <div class="social-feed__item">
+
+                            <!-- social-feed__head -->
+                            <div class="social-feed__head">
+
+                                <!-- social-feed__logo -->
+                                <div class="social-feed__logo">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <!-- /social-feed__logo -->
+
+                                <!-- social-feed__name -->
+                                <div class="social-feed__name">James Dean</div>
+                                <!-- /social-feed__name -->
+
+                                @jam3sdean
+
+                            </div>
+                            <!-- /social-feed__head -->
+
+                            <!-- social-feed__txt -->
+                            <div class="social-feed__txt">Digital creative agencies can get interest-free #business loans of £20k - £250k</div>
+                            <!-- /social-feed__txt -->
+
+                            <!-- social-feed__hover -->
+                            <div class="social-feed__hover">
+
+                                <!-- btn -->
+                                <a href="#" class="btn btn_11">VIEW ON TWITTER <i class="fa fa-long-arrow-right"></i></a>
+                                <!-- /btn -->
+
+                            </div>
+                            <!-- /social-feed__hover -->
+
+                        </div>
+                        <!-- /social-feed__item -->
+
+                        <!-- social-feed__item -->
+                        <div class="social-feed__item">
+
+                            <!-- social-feed__head -->
+                            <div class="social-feed__head">
+
+                                <!-- social-feed__logo -->
+                                <div class="social-feed__logo">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <!-- /social-feed__logo -->
+
+                                <!-- social-feed__name -->
+                                <div class="social-feed__name">James Dean</div>
+                                <!-- /social-feed__name -->
+
+                                @jam3sdean
+
+                            </div>
+                            <!-- /social-feed__head -->
+
+                            <!-- social-feed__txt -->
+                            <div class="social-feed__txt">Digital creative agencies can get interest-free #business loans of £20k - £250k</div>
+                            <!-- /social-feed__txt -->
+
+                            <!-- social-feed__hover -->
+                            <div class="social-feed__hover">
+
+                                <!-- btn -->
+                                <a href="#" class="btn btn_11">VIEW ON TWITTER <i class="fa fa-long-arrow-right"></i></a>
+                                <!-- /btn -->
+
+                            </div>
+                            <!-- /social-feed__hover -->
+
+                        </div>
+                        <!-- /social-feed__item -->
+
+                        <!-- social-feed__item -->
+                        <div class="social-feed__item">
+
+                            <!-- social-feed__head -->
+                            <div class="social-feed__head">
+
+                                <!-- social-feed__logo -->
+                                <div class="social-feed__logo">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <!-- /social-feed__logo -->
+
+                                <!-- social-feed__name -->
+                                <div class="social-feed__name">James Dean</div>
+                                <!-- /social-feed__name -->
+
+                                @jam3sdean
+
+                            </div>
+                            <!-- /social-feed__head -->
+
+                            <!-- social-feed__txt -->
+                            <div class="social-feed__txt">Digital creative agencies can get interest-free #business loans of £20k - £250k</div>
+                            <!-- /social-feed__txt -->
+
+                            <!-- social-feed__hover -->
+                            <div class="social-feed__hover">
+
+                                <!-- btn -->
+                                <a href="#" class="btn btn_11">VIEW ON TWITTER <i class="fa fa-long-arrow-right"></i></a>
+                                <!-- /btn -->
+
+                            </div>
+                            <!-- /social-feed__hover -->
+
+                        </div>
+                        <!-- /social-feed__item -->
+
+                        <!-- social-feed__item -->
+                        <div class="social-feed__item">
+
+                            <!-- social-feed__head -->
+                            <div class="social-feed__head">
+
+                                <!-- social-feed__logo -->
+                                <div class="social-feed__logo">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <!-- /social-feed__logo -->
+
+                                <!-- social-feed__name -->
+                                <div class="social-feed__name">James Dean</div>
+                                <!-- /social-feed__name -->
+
+                                @jam3sdean
+
+                            </div>
+                            <!-- /social-feed__head -->
+
+                            <!-- social-feed__txt -->
+                            <div class="social-feed__txt">Digital creative agencies can get interest-free #business loans of £20k - £250k</div>
+                            <!-- /social-feed__txt -->
+
+                            <!-- social-feed__hover -->
+                            <div class="social-feed__hover">
+
+                                <!-- btn -->
+                                <a href="#" class="btn btn_11">VIEW ON TWITTER <i class="fa fa-long-arrow-right"></i></a>
+                                <!-- /btn -->
+
+                            </div>
+                            <!-- /social-feed__hover -->
+
+                        </div>
+                        <!-- /social-feed__item -->
+
+                    </div>
+                    <!-- /social-feed__wrap -->
+
+                    <!-- btn -->
+                    <a href="#" class="btn btn_1 social-feed__more" data-action="php/social-feed.php">LOAD MORE</a>
+                    <!-- /btn -->
+
+                </div>
+                <!-- /site__centered -->
+
+            </div>
+            <!-- /social-feed -->
+
+            <!-- follow-us -->
+            <div class="follow-us">
+
+                <!-- site__centered -->
+                <div class="site__centered">
+
+                    <!-- follow-us__title -->
+                    <div class="follow-us__title">FOLLOW US!</div>
+                    <!-- /follow-us__title -->
+
+                    <!-- follow-us__item -->
+                    <a href="#" target="_blank" class="follow-us__item">
+                        <img src="pic/img-twitter.jpg" alt="img"/>
+                    </a>
+                    <!-- /follow-us__item -->
+
+                    <!-- follow-us__item -->
+                    <a href="#" target="_blank" class="follow-us__item">
+                        <img src="pic/img-facebook.png" alt="img"/>
+                    </a>
+                    <!-- /follow-us__item -->
+
+                </div>
+                <!-- /site__centered -->
+
+            </div>
+            <!-- /follow-us -->
+
+            <!-- media-gallery -->
+            <section class="media-gallery">
 
                 <!-- site__title -->
                 <h2 class="site__title site__title_white">MEDIA GALLERY</h2>
@@ -1374,105 +1890,110 @@
 
                 <p>Nullam in dui mauris. Vivamus hendrerit arcu sed erat.</p>
 
-                <!-- gallery__wrap -->
-                <div class="gallery__wrap">
+                <!-- media-gallery__cover -->
+                <div class="media-gallery__cover">
 
-                    <!-- folder "big" made special for big pictures (in popup) -->
+                    <!-- media-gallery__wrap -->
+                    <div class="media-gallery__wrap">
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-1.jpg" title="image name" class="gallery__item gallery__item_height2x fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-1.jpg');">
+                        <!-- folder "big" made special for big pictures (in popup) -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- media-gallery__item -->
+                        <a href="pic/big/gallery__pic-1.jpg" title="image name" class="media-gallery__item media-gallery__item_height2x" style="background-image: url('pic/gallery__pic-1.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- media-gallery__item-title -->
+                            <span class="media-gallery__item-title">Mouse hover</span>
+                            <!-- /media-gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-3.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-3.jpg');">
+                        </a>
+                        <!-- /media-gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- media-gallery__item -->
+                        <a href="pic/big/gallery__pic-3.jpg" title="image name" class="media-gallery__item" style="background-image: url('pic/gallery__pic-3.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- media-gallery__item-title -->
+                            <span class="media-gallery__item-title">Mouse hover</span>
+                            <!-- /media-gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-5.jpg" title="image name" class="gallery__item gallery__item_width2x fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-5.jpg');">
+                        </a>
+                        <!-- /media-gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- media-gallery__item -->
+                        <a href="pic/big/gallery__pic-5.jpg" title="image name" class="media-gallery__item media-gallery__item_width2x" style="background-image: url('pic/gallery__pic-5.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- media-gallery__item-title -->
+                            <span class="media-gallery__item-title">Mouse hover</span>
+                            <!-- /media-gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-6.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-6.jpg');">
+                        </a>
+                        <!-- /media-gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- media-gallery__item -->
+                        <a href="pic/big/gallery__pic-6.jpg" title="image name" class="media-gallery__item" style="background-image: url('pic/gallery__pic-6.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- media-gallery__item-title -->
+                            <span class="media-gallery__item-title">Mouse hover</span>
+                            <!-- /media-gallery__item-title -->
 
-                    <!-- for iframe with video need add class ".iframe" like here-->
-                    <!-- gallery__item -->
-                    <a href="https://www.youtube.com/embed/ymNFyxvIdaM" title="image name" class="gallery__item gallery__item_video gallery__item_height2x gallery__item_width2x fancybox-group fancybox.iframe" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-4.jpg');"></a>
-                    <!-- /gallery__item -->
+                        </a>
+                        <!-- /media-gallery__item -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-7.jpg" title="image name" class="gallery__item gallery__item_width2x fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-7.jpg');">
+                        <!-- media-gallery__item -->
+                        <a href="https://www.youtube.com/embed/ymNFyxvIdaM" title="image name" class="media-gallery__item media-gallery__item_video media-gallery__item_height2x media-gallery__item_width2x" style="background-image: url('pic/gallery__pic-4.jpg');"></a>
+                        <!-- /media-gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- media-gallery__item -->
+                        <a href="pic/big/gallery__pic-7.jpg" title="image name" class="media-gallery__item media-gallery__item_width2x" style="background-image: url('pic/gallery__pic-7.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- media-gallery__item-title -->
+                            <span class="media-gallery__item-title">Mouse hover</span>
+                            <!-- /media-gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-2.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-2.jpg');">
+                        </a>
+                        <!-- /media-gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- media-gallery__item -->
+                        <a href="pic/big/gallery__pic-2.jpg" title="image name" class="media-gallery__item" style="background-image: url('pic/gallery__pic-2.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- media-gallery__item-title -->
+                            <span class="media-gallery__item-title">Mouse hover</span>
+                            <!-- /media-gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-8.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-8.jpg');">
+                        </a>
+                        <!-- /media-gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- media-gallery__item -->
+                        <a href="pic/big/gallery__pic-8.jpg" title="image name" class="media-gallery__item" style="background-image: url('pic/gallery__pic-8.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- media-gallery__item-title -->
+                            <span class="media-gallery__item-title">Mouse hover</span>
+                            <!-- /media-gallery__item-title -->
 
-                    <!-- gallery__item -->
-                    <a href="pic/big/gallery__pic-9.jpg" title="image name" class="gallery__item fancybox-group" data-fancybox-group="gallery" style="background-image: url('pic/gallery__pic-9.jpg');">
+                        </a>
+                        <!-- /media-gallery__item -->
 
-                        <!-- gallery__item-title -->
-                        <span class="gallery__item-title">Mouse hover</span>
-                        <!-- /gallery__item-title -->
+                        <!-- media-gallery__item -->
+                        <a href="pic/big/gallery__pic-9.jpg" title="image name" class="media-gallery__item" style="background-image: url('pic/gallery__pic-9.jpg');">
 
-                    </a>
-                    <!-- /gallery__item -->
+                            <!-- media-gallery__item-title -->
+                            <span class="media-gallery__item-title">Mouse hover</span>
+                            <!-- /media-gallery__item-title -->
+
+                        </a>
+                        <!-- /media-gallery__item -->
+
+                    </div>
+                    <!-- /gallery__wrap -->
 
                 </div>
-                <!-- /gallery__wrap -->
+                <!-- /media-gallery__cover -->
 
                 <!-- btn -->
-                <a href="#" data-action="php/gallery-content.php" class="btn btn_3 gallery__more">LOAD MORE</a>
+                <a href="#" data-action="php/gallery-content.php" class="btn btn_3 media-gallery__more">LOAD MORE</a>
                 <!-- /btn -->
 
             </section>
-            <!-- /gallery -->
+            <!-- /media-gallery -->
 
             <!-- features -->
             <div class="features">
@@ -1820,8 +2341,6 @@
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initMap"
             async defer></script>
-    <script src="js/device.js"></script>
-    <script src="js/jquery.hammer.min.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/jquery.select.js"></script>

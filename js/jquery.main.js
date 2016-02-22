@@ -40,6 +40,10 @@ $(function(){
             new AddMoreContent ( $( this ) );
         } );
 
+        $.each( $('.social-feed' ), function() {
+            new AddMoreSocial ( $( this ) );
+        } );
+
     });
 
     var Page = function( obj ) {
@@ -117,7 +121,7 @@ $(function(){
             _subMenu = _menu.find( '.header-menu__sub-items' ),
             _window = $( window ),
             _action = false,
-            _headerHammer = null,
+            _lastPos,
             _header = $( '.site__header' ),
             _showBtn = $( '.menu-btn' );
 
@@ -138,51 +142,59 @@ $(function(){
 
                     }
                 } );
-                _window.on( {
-                    'resize': function() {
+                _window.on({
+                    'resize': function () {
 
                         _resetStyle();
 
                     },
-                    'scroll': function() {
+                    'scroll': function () {
 
-                        if( _window.scrollTop() >= _header.innerHeight() ) {
-
-                            _action = true;
-
-                        } else {
-
-                            _action = false;
-
-                        }
+                        _action = _window.scrollTop() >= _header.innerHeight();
 
                     },
-                    'DOMMouseScroll': function( e ) {
+                    'DOMMouseScroll': function (e) {
                         var delta = e.originalEvent.detail;
 
-                        if( delta ) {
+                        if (delta) {
                             var direction = ( delta > 0 ) ? 1 : -1;
 
-                            _checkScroll( direction );
+                            _checkScroll(direction);
 
                         }
 
                     },
-                    'mousewheel': function( e ) {
+                    'mousewheel': function (e) {
                         var delta = e.originalEvent.wheelDelta;
 
-                        if( delta ) {
+                        if (delta) {
                             var direction = ( delta > 0 ) ? -1 : 1;
 
-                            _checkScroll( direction );
+                            _checkScroll(direction);
 
                         }
 
+                    },
+                    'touchmove': function (e) {
+
+                        var currentPos = e.originalEvent.touches[0].clientY;
+
+                        if (currentPos > _lastPos) {
+
+                            _checkScroll(-1);
+
+
+                        } else if (currentPos < _lastPos) {
+
+                            _checkScroll(1);
+
+                        }
+
+                        _lastPos = currentPos;
+
                     }
-                } );
-                document.body.addEventListener('touchstart', function(e){
-                    alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
-                }, false);
+
+                });
 
             },
             _checkScroll = function(direction){
@@ -388,7 +400,7 @@ $(function(){
                     prevButton: '.swiper-button-prev',
                     spaceBetween: 30
 
-            });
+                });
 
             },
             _setHeight = function() {
@@ -403,6 +415,7 @@ $(function(){
             _init = function() {
                 _initSlider();
                 _addEvents();
+                _slider[ 0 ].obj = _self;
 
             };
 
@@ -1303,6 +1316,133 @@ $(function(){
 
         _init();
 
+    };
+
+    var AddMoreSocial = function( obj ) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _btnMore = _obj.find( $( '.social-feed__more' ) ),
+            _btnAction = _btnMore.data( 'action' ),
+            _wrapper = _obj.find( $( '.social-feed__wrap' ) ),
+            _request = new XMLHttpRequest();
+
+        //private methods
+        var _addEvents = function() {
+
+                _btnMore.on({
+
+                    click: function(){
+                        _ajaxRequest();
+                        return false;
+                    }
+
+                });
+
+            },
+            _addSocialContent = function( msg ){
+
+                var hasItems = null;
+
+                $.each( msg.items, function( i ){
+
+                    hasItems = msg.has_items;
+
+                    var newBlock = $( '<div class="social-feed__item hidden">'+
+                        '<div class="social-feed__head">'+
+                        '<div class="social-feed__logo">'+
+                        '<i class="fa fa-twitter"></i>'+
+                        '</div>'+
+                        '<div class="social-feed__name">'+this.name+'</div>'+ this.login +
+                    '</div>'+
+                    '<div class="social-feed__txt">'+this.feed_txt+'</div>'+
+                    '<div class="social-feed__hover">'+
+                        '<a href="'+this.href+'" class="btn btn_11">VIEW ON TWITTER <i class="fa fa-long-arrow-right"></i></a>'+
+                        '</div></div>' );
+
+                    _wrapper.append( newBlock );
+
+                } );
+
+                var newItems = _wrapper.find( '.hidden' );
+
+                setTimeout( function(){
+                    _heightAnimation( hasItems, newItems );
+                }, 50 );
+
+            },
+            _heightAnimation = function( hasItems, newItems ){
+
+                newItems.each( function( i ){
+                    _showNewItems( $( this ),i );
+                } );
+
+                if ( hasItems == 0 ){
+                    _removeBtnMore();
+                }
+
+            },
+            _showNewItems = function( item, index ){
+
+                setTimeout( function(){
+                    item.removeClass( 'hidden' );
+                }, index * 100 );
+
+            },
+            _ajaxRequest = function(){
+
+                var newsItem = _obj.find( '.social-feed__item' );
+                _request.abort();
+                _request = $.ajax({
+                    url: _btnAction,
+                    data: {
+                        loadedCount: newsItem.length
+                    },
+                    dataType: 'json',
+                    timeout: 20000,
+                    type: "GET",
+                    success: function ( msg ) {
+
+                        _addSocialContent( msg );
+
+                    },
+                    error: function ( XMLHttpRequest ) {
+                        if( XMLHttpRequest.statusText != "abort" ) {
+                            alert( "Error!" );
+                        }
+                    }
+                });
+
+            },
+            _removeBtnMore = function(){
+
+                _btnMore.css( 'opacity', 0 );
+
+                setTimeout( function(){
+
+                    _btnMore.css( 'padding', 0 );
+
+                    _btnMore.animate({
+                        height: 0
+                    }, {
+                        duration: 500,
+                        complete: function(){
+                            _btnMore.remove();
+                        }
+                    } );
+
+                }, 300 );
+
+            },
+            _init = function() {
+
+                _addEvents();
+                _obj[ 0 ].obj = _self;
+
+            };
+
+        _init();
     };
 
 } );

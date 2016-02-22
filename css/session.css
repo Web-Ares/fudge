@@ -10,7 +10,6 @@
 
 .presented .speakers__layout {
     margin: auto;
-    justify-content: space-between;
 }
 /* ------------ /presented ------------ */
 
@@ -129,18 +128,12 @@
     .session__labels {
         padding-left: 0;
         padding-top: 13px;
-        text-align: center;
+        max-width: 560px;
+        margin: auto;
+        text-align: left;
     }
 
     /* ------------ /session ------------ */
-
-    /* ------------ presented ------------ */
-    .presented .speakers__layout {
-        max-width: 600px;
-        margin: auto;
-        justify-content: space-between;
-    }
-    /* ------------ /presented ------------ */
 
     /* ------------ hero ------------ */
 
@@ -210,11 +203,17 @@
     /* ------------ /session ------------ */
 
     /* ------------ presented ------------ */
-    .presented .speakers__layout {
-        max-width: 850px;
-        margin: auto;
-        justify-content: space-between;
+    .presented {
+        padding: 40px 0 0px;
     }
+    .presented .speakers__layout {
+        margin: auto;
+        text-align: center;
+    }
+    .presented .speakers__item {
+        margin: 0 0 16px;
+    }
+
     /* ------------ /presented ------------ */
     .hero_session .hero__layout {
         padding: 132px 0 31px;

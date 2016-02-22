@@ -534,7 +534,6 @@
     text-align: center;
 }
 .label_big{
-    display: block;
     padding: 8px 13px;
     margin: 0 0 4px;
     cursor: pointer;
@@ -1606,6 +1605,9 @@
     text-align: center;
     box-shadow: 0 0 15px 2px rgba(0,0,0,0.3);
 }
+.where__popup .label_big{
+    display: block;
+}
 .where__links{
     color: #b6b6b6;
     font-size: 14px;
@@ -2009,6 +2011,11 @@ input.subscribe__email{
     height: 290px;
     background: #30a2eb;
     text-align: center;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+.social-feed__item.hidden {
+    opacity: 0;
 }
 .social-feed__item:last-child {
     margin-bottom: 0;

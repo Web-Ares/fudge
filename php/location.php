@@ -2,6 +2,10 @@
 
 $json_str = '{}';
 if (!empty($_GET['getlocations'])) {
+//  "color" -  color of button
+//  "title" - event's title
+//  "icon" - placemark icon
+//  "description" - text for popup
     $json_str = '{
         "locations":
         [
