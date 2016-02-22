@@ -1198,6 +1198,7 @@
     padding: 29px 17px 17px;
 }
 .schedule__items_profile .schedule__event{
+    display: block;
     width: auto;
     padding: 0;
     margin-bottom: 15px;
@@ -1219,7 +1220,6 @@
 }
 .schedule__inner {
     display: inline-block;
-    padding: 0 0 0 33px;
 }
 .schedule__event{
     display: block;
