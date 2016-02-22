@@ -142,64 +142,57 @@ $(function(){
 
                     }
                 } );
-                _window.on( {
-                    'resize': function() {
+                _window.on({
+                    'resize': function () {
 
                         _resetStyle();
 
                     },
-                    'scroll': function() {
+                    'scroll': function () {
 
-                        if( _window.scrollTop() >= _header.innerHeight() ) {
-
-                            _action = true;
-
-                        } else {
-
-                            _action = false;
-
-                        }
+                        _action = _window.scrollTop() >= _header.innerHeight();
 
                     },
-                    'DOMMouseScroll': function( e ) {
+                    'DOMMouseScroll': function (e) {
                         var delta = e.originalEvent.detail;
 
-                        if( delta ) {
+                        if (delta) {
                             var direction = ( delta > 0 ) ? 1 : -1;
 
-                            _checkScroll( direction );
+                            _checkScroll(direction);
 
                         }
 
                     },
-                    'mousewheel': function( e ) {
+                    'mousewheel': function (e) {
                         var delta = e.originalEvent.wheelDelta;
 
-                        if( delta ) {
+                        if (delta) {
                             var direction = ( delta > 0 ) ? -1 : 1;
 
-                            _checkScroll( direction );
+                            _checkScroll(direction);
 
                         }
 
+                    },
+                    'touchmove': function (e) {
+
+                        var currentPos = e.originalEvent.touches[0].clientY;
+
+                        if (currentPos > _lastPos) {
+
+                            _checkScroll(-1);
+
+
+                        } else if (currentPos < _lastPos) {
+
+                            _checkScroll(1);
+
+                        }
+
+                        _lastPos = currentPos;
+
                     }
-                } );
-                $(document).on( 'touchmove', function (e) {
-
-                    var currentPos = e.originalEvent.touches[0].clientY;
-
-                    if( currentPos > _lastPos ) {
-
-                        _checkScroll(-1);
-
-
-                    } else if( currentPos < _lastPos ) {
-
-                        _checkScroll(1);
-
-                    }
-
-                    _lastPos = currentPos;
 
                 });
 
@@ -422,6 +415,7 @@ $(function(){
             _init = function() {
                 _initSlider();
                 _addEvents();
+                _slider[ 0 ].obj = _self;
 
             };
 
