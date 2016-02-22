@@ -981,7 +981,6 @@ $(function(){
             _btnMore = _obj.find($('.speakers__more')),
             _btnAction = _btnMore.data( 'action'),
             _wrapper = _obj.find($('.speakers__layout')),
-            _cover = _obj.find($('.speakers__cover')),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -1012,7 +1011,7 @@ $(function(){
                         '<span class="speakers__post">' + this.post + '" </span>' +
                         '</a></div>' );
 
-                    _cover.append( newBlock );
+                    _wrapper.append( newBlock );
 
                 } );
 
@@ -1025,24 +1024,13 @@ $(function(){
             },
             _heightAnimation = function( hasItems, newItems ){
 
-                _cover.animate( {
-                    height: _wrapper.height()
-                }, {
-                    duration: 500,
-                    complete: function(){
+                newItems.each( function( i ){
+                    _showNewItems( $( this ),i );
+                } );
 
-                        _cover.css( 'height', '' );
-
-                        newItems.each( function( i ){
-                            _showNewItems( $( this ),i );
-                        } );
-
-                        if ( hasItems == 0 ){
-                            _removeBtnMore();
-                        }
-
-                    }
-                } )
+                if ( hasItems == 0 ){
+                    _removeBtnMore();
+                }
 
 
             },

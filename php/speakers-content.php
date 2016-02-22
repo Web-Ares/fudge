@@ -2,13 +2,15 @@
 
 $loadedCount = $_GET['loadedCount'];
 
-//  "has_items" - the number of not downloaded speakers
-//  "name" - name of speaker
-//  "post" - post of speaker
-//  "href" - link to speaker profile
+if ( $loadedCount == 4 ){
 
-$json_data = '{
+//  "has_items" - the number of not downloaded images
+//  "title" - title of news
+//  "picture" - preview picture
+//  "date" - date of news
+//  "href" - link to main news
 
+    $json_data = '{
         "has_items": 1,
                     "items":[
 
@@ -48,6 +50,40 @@ $json_data = '{
                     ]
     }';
 
+} else {
+
+//  "has_items" - the number of not downloaded news
+//  "title" - title of news
+//  "picture" - preview picture
+//  "date" - date of news
+//  "href" - link to main news
+
+    $json_data = '{
+
+        "has_items": 0,
+                    "items":[
+
+                        {
+                            "id":5,
+                            "picture": "pic/speaker-001.jpg",
+                            "name": "Jane ROTENBERG",
+                            "post": "Design Director and Co-founder of Stellar Artworks",
+                            "href": "#",
+                            "favorite": " "
+                            },
+                        {
+                            "id":6,
+                            "picture": "pic/speaker-002.jpg",
+                            "name": "James Smith",
+                            "post": "Founder of Smart Tech Co.",
+                            "href": "#",
+                            "favorite": "speakers-favorite"
+                            }
+
+                    ]
+        }';
+
+};
 echo $json_data;
 exit;
 ?>
