@@ -831,12 +831,12 @@ $(function(){
             },
             _ajaxRequest = function(){
 
-                var newsItem = _obj.find( '.speakers__person' );
+                var newsItem = 4;
                 _request.abort();
                 _request = $.ajax({
                     url: _btnAction,
                     data: {
-                        loadedCount: newsItem.length
+                        loadedCount: newsItem
                     },
                     dataType: 'json',
                     timeout: 20000,

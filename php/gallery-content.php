@@ -11,6 +11,56 @@ if ( $loadedCount == 9 ){
 //  "video" - if it is a block with a link to video frame
 
     $json_data = '{
+                    "has_items": 2,
+                    "items":[
+
+                        {
+                            "title": "Mouse hover",
+                            "dummy": "pic/gallery__pic-1.jpg",
+                            "href": "pic/big/gallery__pic-1.jpg"
+                            },
+                        {
+                            "title": "Mouse hover",
+                            "dummy": "pic/gallery__pic-3.jpg",
+                            "href": "pic/big/gallery__pic-3.jpg"
+                            },
+                        {
+                            "title": "Mouse hover",
+                            "dummy": "pic/gallery__pic-5.jpg",
+                            "href": "pic/big/gallery__pic-5.jpg"
+                            },
+                        {
+                            "title": "Mouse hover",
+                            "dummy": "pic/gallery__pic-6.jpg",
+                            "href": "pic/big/gallery__pic-6.jpg"
+                            },
+                        {
+                            "title": "Mouse hover",
+                            "dummy": "pic/gallery__pic-4.jpg",
+                            "video": "https://www.youtube.com/embed/3PYLnSrP3eE"
+                            },
+                        {
+                            "title": "Mouse hover",
+                            "dummy": "pic/gallery__pic-7.jpg",
+                            "href": "pic/big/gallery__pic-7.jpg"
+                            },
+                        {
+                            "title": "Mouse hover",
+                            "dummy": "pic/gallery__pic-2.jpg",
+                            "href": "pic/big/gallery__pic-2.jpg"
+                            },
+                        {
+                            "title": "Mouse hover",
+                            "dummy": "pic/gallery__pic-8.jpg",
+                            "href": "pic/big/gallery__pic-8.jpg"
+                            },
+                        {
+                            "title": "Mouse hover",
+                            "dummy": "pic/gallery__pic-9.jpg",
+                            "href": "pic/big/gallery__pic-9.jpg"
+                        }
+
+                    ],
                     "has_items": 1,
                     "items":[
 
