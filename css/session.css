@@ -1,3 +1,17 @@
+/* ------------ presented ------------ */
+.presented{
+    padding: 40px 0 23px;
+    background: #f3f3f3;
+}
+.presented .speakers__person,.presented .speakers__post{
+    text-align: center;
+}
+.presented .speakers__layout {
+    justify-content: space-between;
+    margin: auto;
+}
+
+/* ------------ /presented ------------ */
 /* ------------ registration ------------ */
 .registration {
     padding: 39px 0 51px 0;
@@ -31,25 +45,6 @@
     text-align: center;
 }
 
-.session-inner__title {
-    position: relative;
-    padding-bottom: 43px;
-    font: 700 26px/42px 'Roboto Slab', sans-serif;
-    text-transform: uppercase;
-}
-
-.session-inner__title:after {
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    width: 80px;
-    height: 6px;
-    background: #ffdc1a;
-    content: '';
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-}
-
 .session__text p {
     margin-bottom: 25px;
     font: 400 16px/25px 'Roboto', sans-serif;
@@ -73,11 +68,39 @@
 .session__labels .label {
     padding: 3px 8px;
     min-width: 71px;
-    font: 500 11px/1 'Robobo', sans-serif;
+    font: 500 10px/1 'Robobo', sans-serif;
     white-space: nowrap;
 }
 
 /* ------------ /session ------------ */
+
+.site__title_session{
+    font-size: 36px;
+    line-height: 38px;
+}
+.time-schedule__session{
+    border-left: 2px solid rgba(255,255,255,0.3);
+    border-right: 2px solid rgba(255,255,255,0.3);
+    margin: auto;
+    font: 400 16px/20px "Roboto",sans-serif;
+    text-transform: uppercase;
+    padding: 10px 0;
+}
+
+.time-schedule__session__place{
+    width: 100%;
+    display: block;
+    padding-bottom: 7px;
+}
+.time-schedule__session time{
+    width: 100%;
+    display: block;
+}
+
+.time-schedule__session__place i{
+    color:#b5b5b5;
+    padding-right: 10px;
+}
 
 @media (min-width: 768px) {
     /* ------------ registration ------------ */
@@ -87,16 +110,8 @@
 
     /* ------------ /registration ------------ */
     /* ------------ session ------------ */
-    .session-inner {
+    .session {
         padding: 43px 0 96px 0;
-    }
-
-    .session-inner__title:after {
-        bottom: 19px;
-    }
-
-    .session-inner__title {
-        padding-bottom: 38px;
     }
 
     .session__text p {
@@ -111,6 +126,38 @@
         text-align: center;
     }
     /* ------------ /session ------------ */
+
+    /* ------------ presented ------------ */
+    .presented .speakers__layout {
+        justify-content: space-between;
+        margin: auto;
+        max-width: 600px;
+    }
+
+    /* ------------ /presented ------------ */
+    .site__title_session{
+        font-size: 40px;
+        line-height: 42px;
+    }
+    .time-schedule__session {
+        padding: 0;
+        overflow: hidden;
+        display: inline-block;
+        width: auto;
+    }
+    .time-schedule__session__place{
+        border-right: 2px solid rgba(255,255,255,0.3);
+        width: auto;
+    }
+    .time-schedule__session time{
+        width: auto;
+    }
+
+    .time-schedule__session__place, .time-schedule__session time{
+        float: left;
+        text-align: center;
+        padding: 13px 30px;
+    }
 }
 
 @media (min-width: 1000px) {
@@ -138,13 +185,15 @@
         max-width: 775px;
         margin: auto;
     }
-
-    .session-inner__title:after {
-        bottom: 19px;
-    }
-
-    .session-inner__title {
-        padding-bottom: 37px;
-    }
     /* ------------ /session ------------ */
+
+    /* ------------ presented ------------ */
+    .presented .speakers__layout {
+        justify-content: space-between;
+        margin: auto;
+        max-width: 850px;
+    }
+    /* ------------ /presented ------------ */
+
+
 }
