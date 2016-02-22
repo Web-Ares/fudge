@@ -70,6 +70,8 @@
     social-feed
 
     media
+
+    more-content
 */
 
 /* --------------- placeholder --------------- */
@@ -1268,11 +1270,14 @@
     display: none;
 }
 .schedule__main-place{
-    display: block;
+    display: inline-block;
+    vertical-align: top;
     margin: 0 0 42px;
     color: #b5b5b5;
     font-size: 16px;
     line-height: 19px;
+    -webkit-transition: color .3s;
+    transition: color .3s;
 }
 .schedule__main-place:hover{
     color: #000;
@@ -2076,6 +2081,17 @@ input.subscribe__email{
     margin: 0 4px 22px;
 }
 /*--------------/media------------*/
+
+/*--------------more-content------------*/
+.more-content__btn{
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.more-content__btn.hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+/*--------------/more-content------------*/
 
 @media (min-width: 460px) {
 
