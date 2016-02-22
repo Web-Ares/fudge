@@ -426,7 +426,7 @@ $(function(){
 
         var _self = this,
             _obj = obj,
-            _wrapper = _obj.find( '.gallery__wrap' ),
+            _wrapper = _obj.find( '.media-gallery__wrap' ),
             _cover = _obj.find( '.media-gallery__cover' ),
             _galleryItemClass = null,
             _window = $( window ),
