@@ -3,25 +3,25 @@ $(function () {
 
     'use strict';
 
-    Location = function (obj) {
+    Location = function ( obj ) {
 
         //private properties
         var _self = this,
             _obj = obj,
-            _path = _obj.data('action'),
-            _lat = _obj.attr('data-lat'),
-            _lng = _obj.attr('data-lng'),
-            _myLatLng = {lat: parseFloat(_lat), lng: parseFloat(_lng)},
-            _wherePopup = $('.where__popup'),
-            _where__labels = $('.where__labels'),
-            _where__text = _wherePopup.find('.where__text'),
-            _moreBtnAll = _wherePopup.find('.where__links.where_view-all'),
-            _moreBtnBack = _wherePopup.find('.where__links.where_back'),
+            _path = _obj.data( 'action' ),
+            _lat = _obj.attr( 'data-lat' ),
+            _lng = _obj.attr( 'data-lng' ),
+            _myLatLng = {lat: parseFloat( _lat ), lng: parseFloat( _lng )},
+            _wherePopup = $( '.where__popup' ),
+            _where__labels = $( '.where__labels' ),
+            _where__text = _wherePopup.find( '.where__text' ),
+            _moreBtnAll = _wherePopup.find( '.where__links.where_view-all' ),
+            _moreBtnBack = _wherePopup.find( '.where__links.where_back' ),
             _map = null,
             _scroll = null,
             _isRequest = true,
             _request = new XMLHttpRequest(),
-            _window = $(window),
+            _window = $( window ),
             delta = 0.35,
             markerZoom = 14;
         _self.markers = [];
@@ -29,10 +29,10 @@ $(function () {
 
         //private methods
         var _addEvents = function () {
-                if (_moreBtnAll.length > 0) {
-                    $(_moreBtnAll).on('click', function () {
+                if ( _moreBtnAll.length > 0 ) {
+                    $(_moreBtnAll).on( 'click' , function () {
                         _where__text.fadeOut();
-                        _moreBtnAll.css('display', 'none');
+                        _moreBtnAll.css( 'display', 'none' );
                         _moreBtnBack.fadeIn();
                         if (_isRequest) {
                             _ajaxRequest();
@@ -44,21 +44,21 @@ $(function () {
                     });
                 }
                 if (_moreBtnBack.length > 0) {
-                    $(_moreBtnBack).on('click', function () {
+                    $(_moreBtnBack).on( 'click', function () {
                         _where__text.fadeIn();
-                        _moreBtnBack.css('display', 'none');
+                        _moreBtnBack.css( 'display', 'none');
                         _moreBtnAll.fadeIn();
                         _hidePlacemarks();
                         _destroyScroll();
                         return false;
                     });
                 }
-                $(_where__labels).on('click', '.label', function () {
-                    var location_id = $(this).data('id');
+                $(_where__labels).on( 'click', '.label', function () {
+                    var location_id = $( this ).data( 'id' );
 
                     if (location_id > 0) {
                         _hideAllInfo();
-                        _checkPlacemerk(location_id);
+                        _checkPlacemerk( location_id );
                     }
                 });
             },
@@ -72,32 +72,38 @@ $(function () {
                     dataType: 'json',
                     timeout: 20000,
                     type: "GET",
-                    success: function (data) {
+                    success: function ( data ) {
                         _isRequest = false;
-                        _getLocations(_map, data.locations, _self.markers);
+                        _getLocations( _map, data.locations, _self.markers );
                     },
-                    error: function (XMLHttpRequest) {
-                        if (XMLHttpRequest.statusText != "abort") {
+                    error: function ( XMLHttpRequest ) {
+                        if ( XMLHttpRequest.statusText != "abort" ) {
                             alert("Error!");
                         }
                     }
                 });
             },
-            _checkPlacemerk = function (id) {
-                var place = _findPlacemark(id);
-                if (place !== false) {
-                    if(_window.width()>=767){
-                        _map.panTo({lat: place.getPosition().lat(), lng: place.getPosition().lng()-delta/markerZoom});
-                    }else{
-                        _map.panTo({lat: place.getPosition().lat()-delta/markerZoom, lng: place.getPosition().lng()});
+            _checkPlacemerk = function ( id ) {
+                var place = _findPlacemark( id );
+                if ( place !== false ) {
+                    if ( _window.width() >= 767 ) {
+                        _map.panTo({
+                            lat: place.getPosition().lat(),
+                            lng: place.getPosition().lng() - delta / markerZoom
+                        });
+                    } else {
+                        _map.panTo({
+                            lat: place.getPosition().lat() - delta / markerZoom,
+                            lng: place.getPosition().lng()
+                        });
                     }
-                    _map.setZoom(markerZoom);
+                    _map.setZoom( markerZoom );
                     //place.info.open(_map, place);
                 }
             },
-            _findPlacemark = function (id) {
+            _findPlacemark = function ( id ) {
                 for (var i = 0; i < _self.markers.length; i++) {
-                    if (_self.markers[i].id == id) {
+                    if ( _self.markers[i].id == id ) {
                         return _self.markers[i];
                     }
                 }
@@ -109,14 +115,14 @@ $(function () {
                     _scroll = null;
                 }
             },
-            _getLocations = function (map, data, container) {
+            _getLocations = function ( map, data, container ) {
 
-                _self.data = data || JSON.parse(_obj.attr('data-map')).locations;
+                _self.data = data || JSON.parse(_obj.attr( 'data-map' )).locations;
 
-                $.each(_self.data, function (i) {
+                $.each(_self.data, function ( i ) {
 
-                    var curLatLng = new google.maps.LatLng(this.coordinates[0], this.coordinates[1]);
-                    _self.bounds.extend(curLatLng);
+                    var curLatLng = new google.maps.LatLng( this.coordinates[0], this.coordinates[1] );
+                    _self.bounds.extend( curLatLng );
                     var place = new google.maps.Marker({
                         position: curLatLng,
                         map: map,
@@ -139,14 +145,14 @@ $(function () {
                         content: this.description
                     });
 
-                    _showAllLocations(this);
+                    _showAllLocations( this );
 
-                    container.push(place);
+                    container.push( place );
 
-                    _setInfoWindow(i, place);
+                    _setInfoWindow( i, place );
 
                 });
-                map.fitBounds(_self.bounds);
+                map.fitBounds( _self.bounds );
             },
             _hideAllInfo = function () {
                 for (var i = 0; i < _self.markers.length; i++) {
@@ -155,9 +161,9 @@ $(function () {
             },
             _hidePlacemarks = function () {
                 for (var i = 0; i < _self.markers.length; i++) {
-                    if (_self.markers[i]._new == true) {
-                        $(_where__labels).find('.label[data-id=' + _self.markers[i].id + ']').remove();
-                        _self.markers[i].setMap(null);
+                    if ( _self.markers[i]._new == true ) {
+                        $( _where__labels ).find('.label[data-id=' + _self.markers[i].id + ']').remove();
+                        _self.markers[i].setMap( null );
                     }
                 }
             },
@@ -171,11 +177,11 @@ $(function () {
                 });
 
                 _self.bounds = new google.maps.LatLngBounds(),
-                    _getLocations(_map, null, _self.markers);
+                    _getLocations( _map, null, _self.markers );
             },
             _initScroll = function () {
-                if (_scroll == null)
-                    _scroll = _wherePopup.find('.where__layout').niceScroll({
+                if ( _scroll == null )
+                    _scroll = _wherePopup.find( '.where__layout' ).niceScroll({
                         cursorcolor: "#f3f3f3",
                         cursoropacitymin: "1",
                         cursorborderradius: "3px",
@@ -185,17 +191,17 @@ $(function () {
                     });
 
             },
-            _setInfoWindow = function (index, place) {
-                google.maps.event.addListener(place, 'click', function (e) {
-                    _checkPlacemerk(place.id);
-                    place.info.open(_map, place);
+            _setInfoWindow = function ( index, place ) {
+                google.maps.event.addListener( place, 'click', function (e) {
+                    _checkPlacemerk( place.id );
+                    place.info.open( _map, place );
                     return false;
                 });
             },
-            _showAllLocations = function (data) {
+            _showAllLocations = function ( data ) {
                 var listLocations = '';
                 listLocations += '<span class="label label_big" style="background-color: ' + data.color + '" data-id="' + data.id + '">' + data.title + '</span>';
-                _where__labels.append(listLocations);
+                _where__labels.append( listLocations );
             },
             _showPlacemark = function () {
                 for (var i = 0; i < _self.markers.length; i++) {
@@ -217,7 +223,7 @@ $(function () {
 });
 
 var initMap = function () {
-    new Location($('#map'));
+    new Location( $( '#map' ) );
 };
 
 
