@@ -4,11 +4,11 @@ $loadedCount = $_GET['loadedCount'];
 
 if ( $loadedCount == 4 ){
 
-//  "has_items" - the number of not downloaded images
-//  "title" - title of news
-//  "picture" - preview picture
-//  "date" - date of news
-//  "href" - link to main news
+//  "has_items" - the number of not downloaded tweets
+//  "name" -  user name
+//  "login" - user login
+//  "feed_txt" - text of feed
+//  "href" - link to twitter
 
     $json_data = '{
         "has_items": 1,
@@ -16,30 +16,30 @@ if ( $loadedCount == 4 ){
 
                         {
                             "id":1,
-                            "title": "A New Conference. Be Inspired, Get Creative.",
-                            "picture": "pic/news-01.jpg",
-                            "date": "17 Feb. 2016",
+                            "name": "James Smith1",
+                            "login": "@jam3sdean",
+                            "feed_txt": "Digital creative agencies can get interest-free #business loans of £20k - £250k",
                             "href": "#"
                             },
                         {
                             "id":2,
-                            "title": "A New Conference. Be Inspired, Get Creative.",
-                            "picture": "pic/news-01.jpg",
-                            "date": "17 Feb. 2016",
+                            "name": "James Smith2",
+                            "login": "@jam3sdean",
+                            "feed_txt": "Digital creative agencies can get interest-free #business loans of £20k - £250k",
                             "href": "#"
                             },
                         {
                             "id":3,
-                            "title": "A New Conference. Be Inspired, Get Creative.",
-                            "picture": "pic/news-01.jpg",
-                            "date": "17 Feb. 2016",
+                            "name": "James Smith3",
+                            "login": "@jam3sdean",
+                            "feed_txt": "Digital creative agencies can get interest-free #business loans of £20k - £250k",
                             "href": "#"
                             },
                         {
                             "id":4,
-                            "title": "A New Conference. Be Inspired, Get Creative.",
-                            "picture": "pic/news-01.jpg",
-                            "date": "17 Feb. 2016",
+                            "name": "James Smith4",
+                            "login": "@jam3sdean",
+                            "feed_txt": "Digital creative agencies can get interest-free #business loans of £20k - £250k",
                             "href": "#"
                             }
 
@@ -48,11 +48,11 @@ if ( $loadedCount == 4 ){
 
 } else {
 
-//  "has_items" - the number of not downloaded news
-//  "title" - title of news
-//  "picture" - preview picture
-//  "date" - date of news
-//  "href" - link to main news
+//  "has_items" - the number of not downloaded tweets
+//  "name" -  user name
+//  "login" - user login
+//  "feed_txt" - text of feed
+//  "href" - link to twitter
 
     $json_data = '{
 
@@ -61,16 +61,16 @@ if ( $loadedCount == 4 ){
 
                         {
                             "id":5,
-                            "title": "A New Conference. Be Inspired, Get Creative.",
-                            "picture": "pic/news-01.jpg",
-                            "date": "17 Feb. 2016",
+                            "name": "James Smith1",
+                            "login": "@jam3sdean",
+                            "feed_txt": "Digital creative agencies can get interest-free #business loans of £20k - £250k",
                             "href": "#"
                             },
                         {
                             "id":6,
-                            "title": "A New Conference. Be Inspired, Get Creative.",
-                            "picture": "pic/news-01.jpg",
-                            "date": "17 Feb. 2016",
+                            "name": "James Smith2",
+                            "login": "@jam3sdean",
+                            "feed_txt": "Digital creative agencies can get interest-free #business loans of £20k - £250k",
                             "href": "#"
                             }
             ]

@@ -1344,22 +1344,25 @@ $(function(){
                 });
 
             },
-            _addNewsContent = function( msg ){
+            _addSocialContent = function( msg ){
 
                 var hasItems = null;
 
                 $.each( msg.items, function( i ){
 
-                    var path;
                     hasItems = msg.has_items;
 
-                    var newBlock = $( '<article class="news__item hidden">' +
-                        '<div class="news__picture" style="background-image:url( ' + this.picture +  ' )"></div>' +
-                        '<div class="news__content">' +
-                        '<time datetime="' + this.date + '" class="news__date">' + this.date + '</time>' +
-                        '<h2 class="news__title">' + this.title + '</h2>' +
-                        '<a href="' + this.href + '" class="btn btn_4">READ MORE</a>' +
-                        '</div></article>' );
+                    var newBlock = $( '<div class="social-feed__item">'+
+                        '<div class="social-feed__head">'+
+                        '<div class="social-feed__logo">'+
+                        '<i class="fa fa-twitter"></i>'+
+                        '</div>'+
+                        '<div class="social-feed__name">'+this.name+'</div>'+ this.login +
+                    '</div>'+
+                    '<div class="social-feed__txt">'+this.feed_txt+'</div>'+
+                    '<div class="social-feed__hover">'+
+                        '<a href="#" class="btn btn_11">VIEW ON TWITTER <i class="fa fa-long-arrow-right"></i></a>'+
+                        '</div></div>' );
 
                     _wrapper.append( newBlock );
 
@@ -1392,7 +1395,7 @@ $(function(){
             },
             _ajaxRequest = function(){
 
-                var newsItem = _obj.find( '.news__item' );
+                var newsItem = _obj.find( '.social-feed__item' );
                 _request.abort();
                 _request = $.ajax({
                     url: _btnAction,
@@ -1404,7 +1407,7 @@ $(function(){
                     type: "GET",
                     success: function ( msg ) {
 
-                        _addNewsContent( msg );
+                        _addSocialContent( msg );
 
                     },
                     error: function ( XMLHttpRequest ) {

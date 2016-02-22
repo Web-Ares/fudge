@@ -136,9 +136,7 @@
 
     /* ------------ presented ------------ */
     .presented .speakers__layout {
-        max-width: 600px;
-        margin: auto;
-        justify-content: space-between;
+
     }
     /* ------------ /presented ------------ */
 
@@ -213,7 +211,6 @@
     .presented .speakers__layout {
         max-width: 850px;
         margin: auto;
-        justify-content: space-between;
     }
     /* ------------ /presented ------------ */
     .hero_session .hero__layout {
