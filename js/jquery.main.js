@@ -1006,8 +1006,8 @@ $(function(){
             },
             _heightAnimation = function( hasItems, newItems ){
 
-                _wrapper.animate( {
-                    height: _cover.height()
+                _cover.animate( {
+                    height: _wrapper.height()
                 }, {
                     duration: 500,
                     complete: function(){
