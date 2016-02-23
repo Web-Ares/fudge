@@ -148,46 +148,6 @@
     width: 100%;
     height: 100%;
 }
-.sponsors-description__pics {
-    margin-top: 86px;
-    margin-bottom: 0;
-}
-.sponsors-description__pics:after {
-    display: inline-block;
-    width: 100%;
-    content: '';
-}
-.sponsors-description__pics-item {
-    vertical-align: top;
-    position: relative;
-    display: inline-block;
-    width: 291px;
-    height: 291px;
-    margin-bottom: 15px;
-    background: #ededed;
-}
-.sponsors-description__pics-item a {
-    position: absolute;
-    display: block;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    -webkit-transition: opacity .3s ease-in-out;
-    transition: opacity .3s ease-in-out;
-}
-.sponsors-description__pics-item a:hover {
-    opacity: 0.85;
-}
-.sponsors-description__pics-item i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: #d4d4d4;
-    font-size: 48px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
 /*----------/sponsors-description---------*/
 
 @media (min-width: 768px) {
@@ -260,15 +220,6 @@
         height: 402px;
         width: 96.9%;
     }
-    .sponsors-description__pics {
-        margin-top: 64px;
-        margin-bottom: 14px;
-        text-align: justify;
-    }
-    .sponsors-description__pics-item {
-        width: 344px;
-        height: 347px;
-    }
     /*----------/sponsors-description---------*/
 
 }
@@ -303,16 +254,8 @@
         height: 642px;
         width: 100%;
     }
-    .sponsors-description__pics {
-        margin-top: 86px;
-        margin-bottom: 42px;
-    }
-    .sponsors-description__pics-item {
-        width: 30%;
-        height: auto;
-        padding-bottom: 30%;
-    }
     /*----------/sponsors-description---------*/
+
 
 }
 
@@ -322,19 +265,8 @@
     .sponsors-description__contacts-item {
         width: auto;
     }
-
-    .sponsors-description__pics {
-        margin-left: -221px;
-        margin-right: -220px;
-        margin-bottom: 27px;
-    }
-
-    .sponsors-description__pics-item {
-        width: 360px;
-        height: 360px;
-        padding: 0;
-    }
     /*------------/sponsors-description-----------*/
+
 }
 
 
