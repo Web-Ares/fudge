@@ -746,21 +746,21 @@ $(function(){
         //private methods
         var _addEvents = function() {
 
-                _btnMore.on({
+                _btnMore.on( {
 
-                    click: function(){
+                    click: function() {
                         _ajaxRequest();
                         return false;
                     }
 
-                });
+                } );
 
             },
-            _addNewsContent = function( msg ){
+            _addNewsContent = function( msg ) {
 
                 var hasItems = msg.has_items;
 
-                $.each( msg.items, function(){
+                $.each( msg.items, function() {
 
                     var newBlock = $( '<div class="news__item"><article class="news__article hidden">' +
                         '<div class="news__picture" style="background-image:url( ' + this.picture +  ' )"></div>' +
@@ -776,7 +776,7 @@ $(function(){
 
                 var newItems = _wrapper.find( '.hidden' );
 
-                setTimeout( function(){
+                setTimeout( function() {
                     _heightAnimation( hasItems, newItems );
                 }, 50 );
 
@@ -784,22 +784,22 @@ $(function(){
             _heightAnimation = function( hasItems, newItems ){
 
                 newItems.each( function( i ){
-                    _showNewItems( $( this ),i );
+                    _showNewItems( $( this ), i );
                 } );
 
-                if ( hasItems == 0 ){
+                if ( hasItems == 0 ) {
                     _removeBtnMore();
                 }
 
             },
-            _showNewItems = function( item, index ){
+            _showNewItems = function( item, index ) {
 
-                setTimeout( function(){
+                setTimeout( function() {
                     item.removeClass( 'hidden' );
                 }, index * 100 );
 
             },
-            _ajaxRequest = function(){
+            _ajaxRequest = function() {
 
                 var newsItem = _obj.find( '.news__item' );
                 _request.abort();
@@ -824,19 +824,19 @@ $(function(){
                 });
 
             },
-            _removeBtnMore = function(){
+            _removeBtnMore = function() {
 
                 _btnMore.css( 'opacity', 0 );
 
-                setTimeout( function(){
+                setTimeout( function() {
 
                     _btnMore.css( 'padding', 0 );
 
-                    _btnMore.animate({
+                    _btnMore.animate( {
                         height: 0
                     }, {
                         duration: 500,
-                        complete: function(){
+                        complete: function() {
                             _btnMore.remove();
                         }
                     } );
@@ -978,21 +978,21 @@ $(function(){
         //private methods
         var _addEvents = function() {
 
-                _btnMore.on({
+                _btnMore.on( {
 
-                    click: function(){
+                    click: function() {
                         _ajaxRequest();
                         return false;
                     }
 
-                });
+                } );
 
             },
             _addNewsContent = function( msg ){
 
                 var hasItems = msg.has_items;
 
-                $.each( msg.items, function(){
+                $.each( msg.items, function() {
 
                     var newBlock = $( '<div class="speakers__item"><a href="' + this.href + '" class="speakers__person hidden ' + this.favorite + ' ">' +
                         '<div class="speakers__photo" style="background-image:url( ' + this.picture +  ' )"></div>' +
@@ -1006,7 +1006,7 @@ $(function(){
 
                 var newItems = _wrapper.find( '.hidden' );
 
-                setTimeout( function(){
+                setTimeout( function() {
                     _heightAnimation( hasItems, newItems );
                 }, 50 );
 
@@ -1024,16 +1024,16 @@ $(function(){
             },
             _showNewItems = function( item, index ){
 
-                setTimeout( function(){
+                setTimeout( function() {
                     item.removeClass( 'hidden' );
                 }, index * 100 );
 
             },
-            _ajaxRequest = function(){
+            _ajaxRequest = function() {
 
                 var newsItem = _obj.find( '.speakers__person' );
                 _request.abort();
-                _request = $.ajax({
+                _request = $.ajax( {
                     url: _btnAction,
                     data: {
                         loadedCount: newsItem.length
@@ -1054,19 +1054,19 @@ $(function(){
                 });
 
             },
-            _removeBtnMore = function(){
+            _removeBtnMore = function() {
 
                 _btnMore.css( 'opacity', 0 );
 
-                setTimeout( function(){
+                setTimeout( function() {
 
                     _btnMore.css( 'padding', 0 );
 
-                    _btnMore.animate({
+                    _btnMore.animate( {
                         height: 0
                     }, {
                         duration: 500,
-                        complete: function(){
+                        complete: function() {
                             _btnMore.remove();
                         }
                     } );
@@ -1455,5 +1455,3 @@ $(function(){
     };
 
 } );
-
-
