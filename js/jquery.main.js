@@ -774,7 +774,7 @@ $(function(){
 
                 } );
 
-                var newItems = _wrapper.find( 'hidden' );
+                var newItems = _wrapper.find( '.hidden' );
 
                 setTimeout( function(){
                     _heightAnimation( hasItems, newItems );
@@ -1004,7 +1004,7 @@ $(function(){
 
                 } );
 
-                var newItems = _wrapper.find( 'hidden' );
+                var newItems = _wrapper.find( '.hidden' );
 
                 setTimeout( function(){
                     _heightAnimation( hasItems, newItems );
@@ -1031,7 +1031,7 @@ $(function(){
             },
             _ajaxRequest = function(){
 
-                var newsItem = _obj.find( 'speakers__person' );
+                var newsItem = _obj.find( '.speakers__person' );
                 _request.abort();
                 _request = $.ajax({
                     url: _btnAction,
