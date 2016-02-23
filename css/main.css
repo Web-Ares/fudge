@@ -19,6 +19,12 @@
 
     btn
 
+    content
+
+    row
+
+    col
+
     label
 
     logo
@@ -72,6 +78,7 @@
     media
 
     more-content
+
 */
 
 /* --------------- placeholder --------------- */
@@ -517,6 +524,160 @@
     color: #1566a4;
 }
 /* --------------- /btn --------------- */
+
+/*--------------content------------*/
+.content {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 25px;
+}
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5 {
+    font-size: 36px;
+    line-height: 42px;
+    margin-bottom: 20px;
+    font-family: 'Roboto Slab', sans-serif;
+    text-align: center;
+}
+.content h2{
+    font-size: 30px;
+    line-height: 36px;
+}
+.content h3{
+    font-size: 24px;
+    line-height: 30px;
+}
+.content h4{
+    font-size: 20px;
+    line-height: 26px;
+}
+.content h5{
+    font-size: 16px;
+    line-height: 22px;
+}
+.content h6 {
+    font-size: 12px;
+    line-height: 18px;
+}
+.content p {
+    margin-bottom: 15px;
+}
+.content ul {
+    list-style: disc;
+    margin: 0 15px 10px 15px;
+}
+.content ul ul {
+    margin: 10px 0 10px 25px;
+}
+.content ol {
+    list-style: decimal;
+    margin: 0 15px 10px 20px;
+}
+.content ol ol {
+    margin: 10px 0 10px 25px;
+}
+.content li {
+    margin-bottom: 5px;
+}
+.content table {
+    margin-bottom: 15px;
+    font-size: 100%;
+    width: auto;
+    border: 1px solid #f3f3f3;
+}
+.content th,
+.content td {
+    border: 1px solid #f3f3f3;
+    padding: 4px;
+    text-align: left;
+}
+.content th {
+    font-weight: bold;
+    text-align: center;
+}
+.content img[align=left] {
+    margin: 0 10px 10px 0;
+    float: left;
+}
+.content img[align=right] {
+    margin: 0 0 10px 10px;
+    float: right;
+}
+.content dl {
+    margin: 0 0 15px 0;
+}
+.content dt {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.content dd {
+    margin-bottom: 5px;
+}
+.content hr {
+    height: 1px;
+    border: none;
+    color: #f3f3f3;
+    background: #f3f3f3;
+    margin: 10px 0;
+    clear: both;
+}
+
+/*--------------/content------------*/
+
+/*--------------row------------*/
+.row{
+    margin: 0 -15px;
+    overflow: hidden;
+}
+/*--------------/row------------*/
+
+/* --------------- col --------------- */
+.col {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0 15px;
+}
+.col-xs-1{
+    width: 8.33333333%;
+}
+.col-xs-2{
+    width: 16.66666666%;
+}
+.col-xs-3{
+    width: 25%;
+}
+.col-xs-4{
+    width: 33.33333333%;
+}
+.col-xs-5{
+    width: 41.66666666%;
+}
+.col-xs-6{
+    width: 50%;
+}
+.col-xs-7{
+    width: 58.33333333%;
+}
+.col-xs-8{
+    width: 66.66666666%;
+}
+.col-xs-9{
+    width: 75%;
+}
+.col-xs-10{
+    width: 83.33333333%;
+}
+.col-xs-11{
+    width: 91.66666666%;
+}
+.col-xs-12{
+    width: 100%;
+}
+/* --------------- /col --------------- */
 
 /* --------------- label --------------- */
 .label{
@@ -2172,6 +2333,44 @@ input.subscribe__email{
 
 @media (min-width: 768px) {
 
+    /* --------------- col --------------- */
+    .col-sm-1{
+        width: 8.33333333%;
+    }
+    .col-sm-2{
+        width: 16.66666666%;
+    }
+    .col-sm-3{
+        width: 25%;
+    }
+    .col-sm-4{
+        width: 33.33333333%;
+    }
+    .col-sm-5{
+        width: 41.66666666%;
+    }
+    .col-sm-6{
+        width: 50%;
+    }
+    .col-sm-7{
+        width: 58.33333333%;
+    }
+    .col-sm-8{
+        width: 66.66666666%;
+    }
+    .col-sm-9{
+        width: 75%;
+    }
+    .col-sm-10{
+        width: 83.33333333%;
+    }
+    .col-sm-11{
+        width: 91.66666666%;
+    }
+    .col-sm-12{
+        width: 100%;
+    }
+    /* --------------- /col --------------- */
 
     /* ------------ social ------------ */
     .social a {
@@ -3067,6 +3266,45 @@ input.subscribe__email{
 }
 
 @media (min-width: 1000px) {
+
+    /* --------------- col --------------- */
+    .col-md-1{
+        width: 8.33333333%;
+    }
+    .col-md-2{
+        width: 16.66666666%;
+    }
+    .col-md-3{
+        width: 25%;
+    }
+    .col-md-4{
+        width: 33.33333333%;
+    }
+    .col-md-5{
+        width: 41.66666666%;
+    }
+    .col-md-6{
+        width: 50%;
+    }
+    .col-md-7{
+        width: 58.33333333%;
+    }
+    .col-md-8{
+        width: 66.66666666%;
+    }
+    .col-md-9{
+        width: 75%;
+    }
+    .col-md-10{
+        width: 83.33333333%;
+    }
+    .col-md-11{
+        width: 91.66666666%;
+    }
+    .col-md-12{
+        width: 100%;
+    }
+    /* --------------- /col --------------- */
 
     /* --------------- btn --------------- */
     .btn{
