@@ -99,7 +99,7 @@ $(function () {
                         });
                     }
                     _map.setZoom( markerZoom );
-                    //place.info.open(_map, place);
+                    place.info.open(_map, place);
                 }
             },
             _findPlacemark = function ( id ) {
