@@ -36,11 +36,11 @@ $(function(){
             new ScheduleOpen ( $( this ) )
         } );
 
-        $.each( $('.more-content' ), function() {
+        $.each( $( '.more-content' ), function() {
             new AddMoreContent ( $( this ) );
         } );
 
-        $.each( $('.social-feed' ), function() {
+        $.each( $( '.social-feed' ), function() {
             new AddMoreSocial ( $( this ) );
         } );
 
@@ -142,7 +142,7 @@ $(function(){
 
                     }
                 } );
-                _window.on({
+                _window.on( {
                     'resize': function () {
 
                         _resetStyle();
@@ -153,40 +153,42 @@ $(function(){
                         _action = _window.scrollTop() >= _header.innerHeight();
 
                     },
-                    'DOMMouseScroll': function (e) {
+                    'DOMMouseScroll': function ( e ) {
+
                         var delta = e.originalEvent.detail;
 
-                        if (delta) {
+                        if ( delta ) {
                             var direction = ( delta > 0 ) ? 1 : -1;
 
-                            _checkScroll(direction);
+                            _checkScroll( direction );
 
                         }
 
                     },
-                    'mousewheel': function (e) {
+                    'mousewheel': function ( e ) {
+
                         var delta = e.originalEvent.wheelDelta;
 
-                        if (delta) {
+                        if ( delta ) {
                             var direction = ( delta > 0 ) ? -1 : 1;
 
-                            _checkScroll(direction);
+                            _checkScroll( direction );
 
                         }
 
                     },
-                    'touchmove': function (e) {
+                    'touchmove': function ( e ) {
 
                         var currentPos = e.originalEvent.touches[0].clientY;
 
-                        if (currentPos > _lastPos) {
+                        if ( currentPos > _lastPos ) {
 
-                            _checkScroll(-1);
+                            _checkScroll( -1 );
 
 
-                        } else if (currentPos < _lastPos) {
+                        } else if ( currentPos < _lastPos ) {
 
-                            _checkScroll(1);
+                            _checkScroll( 1 );
 
                         }
 
@@ -197,14 +199,18 @@ $(function(){
                 });
 
             },
-            _checkScroll = function(direction){
+            _checkScroll = function( direction ){
 
-                if(direction > 0 && !_header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened') && _action){
-                    _header.addClass('site__header_hidden');
+                if( direction > 0 && !_header.hasClass( 'site__header_hidden' ) && !_showBtn.hasClass( 'opened' ) && _action ){
+
+                    _header.addClass( 'site__header_hidden' );
+
                 }
 
-                if(direction < 0 && _header.hasClass('site__header_hidden') && !_showBtn.hasClass('opened')  && _action){
+                if( direction < 0 && _header.hasClass( 'site__header_hidden' ) && !_showBtn.hasClass( 'opened' )  && _action ){
+
                     _header.removeClass('site__header_hidden');
+
                 }
 
             },
@@ -413,6 +419,7 @@ $(function(){
 
             },
             _init = function() {
+
                 _initSlider();
                 _addEvents();
                 _slider[ 0 ].obj = _self;
@@ -657,18 +664,33 @@ $(function(){
         var _self = this,
             _obj = obj,
             _items = _obj.find( '.schedule__item-drop-down' ),
+            _close = _obj.find( '.schedule__close' ),
             _btnOpen = _items.find( '.schedule__event' );
 
         //private methods
         var _addEvents = function() {
 
+                _close.on( {
+                    'click': function() {
+
+                        _closeScheduleDetails( $( this ) );
+
+                        return false;
+
+                    }
+                } );
+
                 _btnOpen.on( {
                     'click': function() {
 
-                        if ($( '.schedule__items_profile' ).length ) {
-                            _openProfileDetails( $( this ) )
-                        }else{
+                        if ( _obj.hasClass( 'schedule__items_profile' ) ) {
+
+                            _openProfileDetails( $( this ) );
+
+                        } else {
+
                             _openScheduleDetails( $( this ) );
+
                         }
                     }
                 } );
@@ -680,7 +702,7 @@ $(function(){
                     curItemParent = curItem.parent( _items ),
                     details = curItem.next();
 
-                if ($( '.schedule__items_profile' ).length ) {
+                if ( _obj.hasClass( 'schedule__items_profile' ) ) {
                     details = curItem.parent().next();
                 }
 
@@ -721,9 +743,21 @@ $(function(){
                 }
 
             },
+            _closeScheduleDetails = function( elem )  {
+
+                var curItem = elem,
+                    curItemParent = curItem.parents( _items ),
+                    details = curItem.parent();
+
+                curItemParent.removeClass( 'opened' );
+                details.slideUp( 300 );
+
+            },
             _init = function() {
 
                 _btnOpen.off();
+
+                _close.off();
 
                 _addEvents();
                 _obj[ 0 ].obj = _self;
@@ -746,21 +780,21 @@ $(function(){
         //private methods
         var _addEvents = function() {
 
-                _btnMore.on({
+                _btnMore.on( {
 
-                    click: function(){
+                    click: function() {
                         _ajaxRequest();
                         return false;
                     }
 
-                });
+                } );
 
             },
-            _addNewsContent = function( msg ){
+            _addNewsContent = function( msg ) {
 
                 var hasItems = msg.has_items;
 
-                $.each( msg.items, function(){
+                $.each( msg.items, function() {
 
                     var newBlock = $( '<div class="news__item"><article class="news__article hidden">' +
                         '<div class="news__picture" style="background-image:url( ' + this.picture +  ' )"></div>' +
@@ -776,7 +810,7 @@ $(function(){
 
                 var newItems = _wrapper.find( '.hidden' );
 
-                setTimeout( function(){
+                setTimeout( function() {
                     _heightAnimation( hasItems, newItems );
                 }, 50 );
 
@@ -784,22 +818,22 @@ $(function(){
             _heightAnimation = function( hasItems, newItems ){
 
                 newItems.each( function( i ){
-                    _showNewItems( $( this ),i );
+                    _showNewItems( $( this ), i );
                 } );
 
-                if ( hasItems == 0 ){
+                if ( hasItems == 0 ) {
                     _removeBtnMore();
                 }
 
             },
-            _showNewItems = function( item, index ){
+            _showNewItems = function( item, index ) {
 
-                setTimeout( function(){
+                setTimeout( function() {
                     item.removeClass( 'hidden' );
                 }, index * 100 );
 
             },
-            _ajaxRequest = function(){
+            _ajaxRequest = function() {
 
                 var newsItem = _obj.find( '.news__item' );
                 _request.abort();
@@ -824,19 +858,19 @@ $(function(){
                 });
 
             },
-            _removeBtnMore = function(){
+            _removeBtnMore = function() {
 
                 _btnMore.css( 'opacity', 0 );
 
-                setTimeout( function(){
+                setTimeout( function() {
 
                     _btnMore.css( 'padding', 0 );
 
-                    _btnMore.animate({
+                    _btnMore.animate( {
                         height: 0
                     }, {
                         duration: 500,
-                        complete: function(){
+                        complete: function() {
                             _btnMore.remove();
                         }
                     } );
@@ -859,15 +893,15 @@ $(function(){
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find($('.more-content__btn')),
+            _btnMore = _obj.find( $( '.more-content__btn' ) ),
             _btnAction = _btnMore.data( 'action'),
-            _wrapper = _obj.find($('.more-content__wrapper')),
+            _wrapper = _obj.find( $( '.more-content__wrapper' ) ),
             _request = new XMLHttpRequest();
 
         //private methods
         var _addEvents = function() {
 
-                _btnMore.on({
+                _btnMore.on( {
 
                     click: function() {
 
@@ -876,21 +910,23 @@ $(function(){
                         return false;
                     }
 
-                });
+                } );
 
             },
             _addNewContent = function( msg ) {
 
                 var contentMsg = msg.html;
 
-                _wrapper.append(contentMsg);
+                _wrapper.append( contentMsg );
 
                 var newItems = _wrapper.find( '.hidden' );
 
                 setTimeout( function() {
 
                     $.each( $( '.schedule__items' ), function(){
-                        new ScheduleOpen ( $( this ) )
+
+                        new ScheduleOpen ( $( this ) );
+
                     } );
 
                 }, 10  );
@@ -901,7 +937,7 @@ $(function(){
 
                 }, 50 );
 
-                if ( msg.has_items == "0" ) {
+                if ( !msg.has_items ) {
 
                     _removeBtnMore();
 
@@ -919,12 +955,14 @@ $(function(){
             },
             _showNewItems = function( item, index ){
 
-                setTimeout( function(){
+                setTimeout( function() {
+
                     item.removeClass( 'hidden' );
+
                 }, index * 300 );
 
             },
-            _removeBtnMore = function(){
+            _removeBtnMore = function() {
 
                 _btnMore.addClass( 'hidden' );
 
@@ -934,6 +972,7 @@ $(function(){
                 var items = _obj.find( '.more-content__item' );
 
                 _request.abort();
+
                 _request = $.ajax( {
                     url: _btnAction,
                     data: {
@@ -948,8 +987,11 @@ $(function(){
 
                     },
                     error: function ( XMLHttpRequest ) {
+
                         if( XMLHttpRequest.statusText != "abort" ) {
+
                             alert( "Error!" );
+
                         }
                     }
                 } );
@@ -978,21 +1020,21 @@ $(function(){
         //private methods
         var _addEvents = function() {
 
-                _btnMore.on({
+                _btnMore.on( {
 
-                    click: function(){
+                    click: function() {
                         _ajaxRequest();
                         return false;
                     }
 
-                });
+                } );
 
             },
             _addNewsContent = function( msg ){
 
                 var hasItems = msg.has_items;
 
-                $.each( msg.items, function(){
+                $.each( msg.items, function() {
 
                     var newBlock = $( '<div class="speakers__item"><a href="' + this.href + '" class="speakers__person hidden ' + this.favorite + ' ">' +
                         '<div class="speakers__photo" style="background-image:url( ' + this.picture +  ' )"></div>' +
@@ -1006,7 +1048,7 @@ $(function(){
 
                 var newItems = _wrapper.find( '.hidden' );
 
-                setTimeout( function(){
+                setTimeout( function() {
                     _heightAnimation( hasItems, newItems );
                 }, 50 );
 
@@ -1024,16 +1066,16 @@ $(function(){
             },
             _showNewItems = function( item, index ){
 
-                setTimeout( function(){
+                setTimeout( function() {
                     item.removeClass( 'hidden' );
                 }, index * 100 );
 
             },
-            _ajaxRequest = function(){
+            _ajaxRequest = function() {
 
                 var newsItem = _obj.find( '.speakers__person' );
                 _request.abort();
-                _request = $.ajax({
+                _request = $.ajax( {
                     url: _btnAction,
                     data: {
                         loadedCount: newsItem.length
@@ -1054,19 +1096,19 @@ $(function(){
                 });
 
             },
-            _removeBtnMore = function(){
+            _removeBtnMore = function() {
 
                 _btnMore.css( 'opacity', 0 );
 
-                setTimeout( function(){
+                setTimeout( function() {
 
                     _btnMore.css( 'padding', 0 );
 
-                    _btnMore.animate({
+                    _btnMore.animate( {
                         height: 0
                     }, {
                         duration: 500,
-                        complete: function(){
+                        complete: function() {
                             _btnMore.remove();
                         }
                     } );
@@ -1453,5 +1495,3 @@ $(function(){
     };
 
 } );
-
-
