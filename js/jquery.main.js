@@ -523,7 +523,7 @@ $(function(){
 
             },
             _getScrollWidth = function(){
-                var div = document.createElement( 'div'),
+                var div = document.createElement( 'div' ),
                     scrollWidth = null;
 
                 div.style.overflowY = 'scroll';
@@ -1091,7 +1091,7 @@ $(function(){
             _body = $( 'body' ),
             _wrapper = _obj.parent(),
             _links = _wrapper.find( '.media-gallery__item' ),
-            _html = $( 'html'),
+            _html = $( 'html' ),
             _window = $( window ),
             _popup = null,
             _popupInner = null,
@@ -1167,7 +1167,7 @@ $(function(){
                     src = activeSlide.find( '[data-src]' ).data( 'src' ),
                     innerContent = $( '<iframe src="' + src + '"> frameborder="0" allowfullscreen></iframe>' );
 
-                $( '.swiper-slide-active').find( '.swiper-popup__video').prepend( innerContent );
+                $( '.swiper-slide-active' ).find( '.swiper-popup__video' ).prepend( innerContent );
 
             },
             _buildPopup = function(){
@@ -1175,7 +1175,7 @@ $(function(){
                 _addingVariables();
                 _contentFilling();
                 _initSwiper();
-                _swiper.slideTo( index, 0);
+                _swiper.slideTo( index, 0 );
                 _popup.addClass( 'active' );
                 _setStyles();
                 _swiper.onResize();
@@ -1206,7 +1206,7 @@ $(function(){
                     } else {
 
                         preloader = '';
-                        innerContent = '<img src="' + $(this).attr( "href" ) + '">';
+                        innerContent = '<img src="' + $( this ).attr( 'href' ) + '">';
                         dataSRC = '';
 
                     }
@@ -1216,7 +1216,7 @@ $(function(){
                                             <a href="#" class="swiper-popup__close"></a>\
                                             ' + preloader + '\
                                             ' + innerContent + '\
-                                            <span class="swiper-slide__title">' + $(this).attr( "title" ) + '</span>\
+                                            <span class="swiper-slide__title">' + $( this ).attr( 'title' ) + '</span>\
                                         </div>\
                                     </div>' );
 
@@ -1226,7 +1226,7 @@ $(function(){
                         load: function(){
                             $( this ).attr( 'data-width', this.width );
                             $( this ).attr( 'data-height', this.height );
-                            _setPictureSize( this.width, this.height, $(this) );
+                            _setPictureSize( this.width, this.height, $( this ) );
                         }
                     });
 
@@ -1239,7 +1239,7 @@ $(function(){
 
             },
             _getScrollWidth = function (){
-                var scrollDiv = document.createElement( 'div'),
+                var scrollDiv = document.createElement( 'div' ),
                     scrollbarWidth = null;
                 document.body.appendChild( scrollDiv );
                 scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
