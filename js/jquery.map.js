@@ -22,8 +22,9 @@ $(function () {
             _isRequest = true,
             _request = new XMLHttpRequest(),
             _window = $( window ),
-            delta = 0.35,
-            markerZoom = 14;
+            delta = 3.3,
+            deltaY = 1.4,
+            markerZoom = 10;
         _self.markers = [];
         _self.bounds = [];
 
@@ -93,7 +94,7 @@ $(function () {
                         });
                     } else {
                         _map.panTo({
-                            lat: place.getPosition().lat() - delta / markerZoom,
+                            lat: place.getPosition().lat() - deltaY / markerZoom,
                             lng: place.getPosition().lng()
                         });
                     }
