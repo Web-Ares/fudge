@@ -3316,9 +3316,6 @@ input.subscribe__email{
         vertical-align: top;
         margin: 0 0 15px;
     }
-    .instagramm-pics__item_long {
-
-    }
     /*-------------/instagramm-pics-----------*/
 
 }
@@ -4291,11 +4288,6 @@ input.subscribe__email{
         padding-bottom: 30%;
         margin-bottom: 46px;
     }
-    .instagramm-pics__item_long {
-
-        /* margin-bottom: 46px; */
-
-    }
     /*----------/instagramm-pics-----------*/
 }
 
@@ -4338,9 +4330,6 @@ input.subscribe__email{
         width: 360px;
         height: 360px;
         padding: 0;
-    }
-    .instagramm-pics__item_long {
-
     }
     /*------------/instagramm-pics----------*/
 
