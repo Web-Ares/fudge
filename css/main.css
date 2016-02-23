@@ -1263,10 +1263,23 @@
     border-top: none;
 }
 .schedule__details{
-    padding: 13px 0 36px;
+    position: relative;
+    padding: 40px 0 36px;
 }
 .schedule__item-drop-down .schedule__details{
     display: none;
+}
+.schedule__close{
+    position: absolute;
+    top: 4px;
+    right: 50%;
+    font-size: 25px;
+    line-height: 25px;
+    color: #b5b5b5;
+    margin: 0 -10px 0 0;
+}
+.schedule__close:hover{
+    opacity: 0.6;
 }
 .schedule__main-place{
     display: inline-block;
@@ -1339,7 +1352,7 @@
     line-height: 22px;
 }
 .schedule__labels{
-    height: 43px;
+    max-height: 43px;
     overflow: hidden;
     margin: 0 15px 16px;
 }
@@ -1365,7 +1378,7 @@
     padding: 34px 0;
 }
 .schedule_inner .schedule__details {
-    padding: 13px 0 21px;
+    padding: 15px 0 21px;
 }
 .schedule__concurrent{
     padding: 0;
@@ -2606,6 +2619,14 @@ input.subscribe__email{
         display: inline-block;
         padding: 0 0 0 33px;
     }
+    .schedule__close{
+        top: -21px;
+        right: 0;
+        margin: 0;
+    }
+    .schedule__items_profile .schedule__close{
+        top: -50px;
+    }
     .schedule__event{
         display: inline-block;
         vertical-align: top;
@@ -2633,7 +2654,8 @@ input.subscribe__email{
         margin: 0 0 23px;
     }
     .schedule__labels {
-        margin: 0 0 6px;
+        margin: 0 0 20px;
+        max-height: 39px;
     }
     .schedule__concurrent{
         padding: 0 0 6px;
@@ -2697,9 +2719,6 @@ input.subscribe__email{
     }
     .schedule_inner .schedule__speaker {
         width: 16.3%;
-    }
-    .schedule_inner .schedule__labels {
-        margin: 0 0 16px;
     }
     .schedule_inner .schedule__concurrent-title {
         display: block;
@@ -3569,6 +3588,10 @@ input.subscribe__email{
         padding: 0;
         margin: 0 0 22px;
     }
+    .schedule__labels {
+        margin: 0 0 20px;
+        max-height: 43px;
+    }
     .schedule__item.hidden {
         opacity: 0;
         -webkit-transform: scale(0);
@@ -3619,9 +3642,6 @@ input.subscribe__email{
         min-width: 71px;
         font-size: 12px;
         line-height: 12px;
-    }
-    .schedule_inner .schedule__labels {
-        margin: 0 0 23px;
     }
     .schedule_inner .schedule__speaker {
         width: 31.8%;
