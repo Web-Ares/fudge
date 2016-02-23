@@ -738,9 +738,9 @@ $(function(){
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find( '.news__more' ),
+            _btnMore = _obj.find( 'news__more' ),
             _btnAction = _btnMore.data( 'action' ),
-            _wrapper = _obj.find( '.news__layout' ),
+            _wrapper = _obj.find( 'news__layout' ),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -774,7 +774,7 @@ $(function(){
 
                 } );
 
-                var newItems = _wrapper.find( '.hidden' );
+                var newItems = _wrapper.find( 'hidden' );
 
                 setTimeout( function(){
                     _heightAnimation( hasItems, newItems );
@@ -810,15 +810,15 @@ $(function(){
                     },
                     dataType: 'json',
                     timeout: 20000,
-                    type: "GET",
+                    type: 'GET',
                     success: function ( msg ) {
 
                         _addNewsContent( msg );
 
                     },
                     error: function ( XMLHttpRequest ) {
-                        if( XMLHttpRequest.statusText != "abort" ) {
-                            alert( "Error!" );
+                        if( XMLHttpRequest.statusText != 'abort' ) {
+                            alert( 'Error!' );
                         }
                     }
                 });
@@ -970,9 +970,9 @@ $(function(){
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find( '.speakers__more' ),
+            _btnMore = _obj.find( 'speakers__more' ),
             _btnAction = _btnMore.data( 'action' ),
-            _wrapper = _obj.find( '.speakers__layout' ),
+            _wrapper = _obj.find( 'speakers__layout' ),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -1004,7 +1004,7 @@ $(function(){
 
                 } );
 
-                var newItems = _wrapper.find( '.hidden' );
+                var newItems = _wrapper.find( 'hidden' );
 
                 setTimeout( function(){
                     _heightAnimation( hasItems, newItems );
@@ -1031,7 +1031,7 @@ $(function(){
             },
             _ajaxRequest = function(){
 
-                var newsItem = _obj.find( '.speakers__person' );
+                var newsItem = _obj.find( 'speakers__person' );
                 _request.abort();
                 _request = $.ajax({
                     url: _btnAction,
@@ -1040,15 +1040,15 @@ $(function(){
                     },
                     dataType: 'json',
                     timeout: 20000,
-                    type: "GET",
+                    type: 'GET',
                     success: function ( msg ) {
 
                         _addNewsContent( msg );
 
                     },
                     error: function ( XMLHttpRequest ) {
-                        if( XMLHttpRequest.statusText != "abort" ) {
-                            alert( "Error!" );
+                        if( XMLHttpRequest.statusText != 'abort' ) {
+                            alert( 'Error!' );
                         }
                     }
                 });
