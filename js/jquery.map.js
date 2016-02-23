@@ -47,7 +47,7 @@ $(function () {
                 if (_moreBtnBack.length > 0) {
                     $(_moreBtnBack).on( 'click', function () {
                         _where__text.fadeIn();
-                        _moreBtnBack.css( 'display', 'none');
+                        _moreBtnBack.css( 'display', 'none' );
                         _moreBtnAll.fadeIn();
                         _hidePlacemarks();
                         _destroyScroll();
@@ -57,7 +57,7 @@ $(function () {
                 $(_where__labels).on( 'click', '.label', function () {
                     var location_id = $( this ).data( 'id' );
 
-                    if (location_id > 0) {
+                    if ( location_id > 0 ) {
                         _hideAllInfo();
                         _checkPlacemerk( location_id );
                     }
@@ -103,35 +103,35 @@ $(function () {
                 }
             },
             _findPlacemark = function ( id ) {
-                for (var i = 0; i < _self.markers.length; i++) {
-                    if ( _self.markers[i].id == id ) {
-                        return _self.markers[i];
+                for ( var i = 0; i < _self.markers.length; i++ ) {
+                    if ( _self.markers[ i ].id == id ) {
+                        return _self.markers[ i ];
                     }
                 }
                 return false;
             },
             _destroyScroll = function () {
-                if (_scroll !== null) {
+                if ( _scroll !== null ) {
                     _scroll.remove();
                     _scroll = null;
                 }
             },
             _getLocations = function ( map, data, container ) {
 
-                _self.data = data || JSON.parse(_obj.attr( 'data-map' )).locations;
+                _self.data = data || JSON.parse( _obj.attr( 'data-map' ) ).locations;
 
-                $.each(_self.data, function ( i ) {
+                $.each( _self.data, function ( i ) {
 
-                    var curLatLng = new google.maps.LatLng( this.coordinates[0], this.coordinates[1] );
+                    var curLatLng = new google.maps.LatLng( this.coordinates[ 0 ], this.coordinates[ 1 ] );
                     _self.bounds.extend( curLatLng );
                     var place = new google.maps.Marker({
                         position: curLatLng,
                         map: map,
                         icon: {
                             url: this.icon,
-                            size: new google.maps.Size(40, 47),
-                            origin: new google.maps.Point(0, 0),
-                            anchor: new google.maps.Point(20, 59)
+                            size: new google.maps.Size( 40, 47 ),
+                            origin: new google.maps.Point( 0, 0 ),
+                            anchor: new google.maps.Point( 20, 59 )
                         },
                         title: this.title
                     });
@@ -156,21 +156,21 @@ $(function () {
                 map.fitBounds( _self.bounds );
             },
             _hideAllInfo = function () {
-                for (var i = 0; i < _self.markers.length; i++) {
-                    _self.markers[i].info.close();
+                for ( var i = 0; i < _self.markers.length; i++ ) {
+                    _self.markers[ i ].info.close();
                 }
             },
             _hidePlacemarks = function () {
-                for (var i = 0; i < _self.markers.length; i++) {
-                    if ( _self.markers[i]._new == true ) {
-                        $( _where__labels ).find('.label[data-id=' + _self.markers[i].id + ']').remove();
-                        _self.markers[i].setMap( null );
+                for ( var i = 0; i < _self.markers.length; i++ ) {
+                    if ( _self.markers[ i ]._new == true ) {
+                        $( _where__labels ).find( '.label[data-id=' + _self.markers[ i ].id + ']' ).remove();
+                        _self.markers[ i ].setMap( null );
                     }
                 }
             },
             _initMap = function () {
 
-                _map = new google.maps.Map(_obj[0], {
+                _map = new google.maps.Map( _obj[ 0 ], {
                     zoom: 10,
                     center: _myLatLng,
                     scrollwheel: false,
@@ -205,10 +205,10 @@ $(function () {
                 _where__labels.append( listLocations );
             },
             _showPlacemark = function () {
-                for (var i = 0; i < _self.markers.length; i++) {
-                    if (_self.markers[i]._new == true) {
-                        _showAllLocations(_self.markers[i]);
-                        _self.markers[i].setMap(_map);
+                for ( var i = 0; i < _self.markers.length; i++ ) {
+                    if (_self.markers[ i ]._new == true) {
+                        _showAllLocations( _self.markers[ i ] );
+                        _self.markers[ i ].setMap( _map );
                     }
                 }
             },
