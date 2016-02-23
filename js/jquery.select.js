@@ -87,19 +87,15 @@ AresSelect.prototype = {
                     curScroll = self.window.scrollTop(),
                     offset = self.wrap.offset(),
                     maxHeight = 0,
-                    curIndex = self.obj.find( 'option:selected' ).index(),
-                    id = Math.round( Math.random() * 1000 );
+                    curIndex = self.obj.find( 'option:selected' ).index();
+                self.id = Math.round( Math.random() * 1000 );
 
                 if( self.opened ){
                     self.popup.remove();
                 }
                 self.opened = true;
 
-                self.popup = $( '<div class="ares-select__popup" id="ares-select__popup' + id + '"></div>' );
-
-                if ( self.curParent.length ){
-                    self.popup.addClass('ares-select__popup_search')
-                }
+                self.popup = $( '<div class="ares-select__popup" id="ares-select__popup' + self.id + '"></div>' );
 
                 self.obj.find( 'option' ).each( function(i){
                     var curItem = $( this );
@@ -125,7 +121,7 @@ AresSelect.prototype = {
 
                 if( maxHeight > self.popup.find( 'li' ).eq( 0 ).outerHeight() * self.visible ){
                     self.popup.outerHeight(self.popup.find( 'li' ).eq( 0 ).outerHeight() * self.visible);
-                    $('#ares-select__popup' + id).niceScroll({
+                    $('#ares-select__popup' + self.id).niceScroll({
                         cursorcolor:"#ffd100",
                         cursoropacitymin: "1",
                         cursorborderradius: "5px",
@@ -208,16 +204,23 @@ AresSelect.prototype = {
                             } else {
                                 event.cancelBubble = true
                             }
-                            $('.ares-select__popup').remove();
-                            $('.ares-select').removeClass('active');
-                            self.opened = false;
-                            if( self.opened ){
+
+                            if( self.opened ) {
+
                                 self.wrap.removeClass('active');
                                 self.core.hidePopup();
+
                             } else {
-                                self.wrap.addClass('active');
-                                self.core.showPopup();
+
+                                $( 'body').trigger('click');
+
+                                setTimeout(function(){
+                                    self.wrap.addClass('active');
+                                    self.core.showPopup();
+                                },10);
+
                             }
+
                         }
                     } );
                     $( 'body' ).on( {

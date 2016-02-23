@@ -53,7 +53,7 @@
 .speaker-profile .schedule {
     padding: 55px 0 70px;
 }
-.speaker-profile .schedule__text {
+.speaker-profile .schedule__text-block {
     text-align: center;
     font-size: 17px;
     line-height: 32px;
@@ -95,7 +95,7 @@
     .speaker-profile .schedule {
         padding: 84px 0 57px;
     }
-    .speaker-profile .schedule__text {
+    .speaker-profile .schedule__text-block {
         font-size: 20px;
         line-height: 38px;
         padding: 0;

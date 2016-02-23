@@ -657,18 +657,33 @@ $(function(){
         var _self = this,
             _obj = obj,
             _items = _obj.find( '.schedule__item-drop-down' ),
+            _close = _obj.find( '.schedule__close' ),
             _btnOpen = _items.find( '.schedule__event' );
 
         //private methods
         var _addEvents = function() {
 
+                _close.on( {
+                    'click': function() {
+
+                        _closeScheduleDetails( $( this ) );
+
+                        return false;
+
+                    }
+                } );
+
                 _btnOpen.on( {
                     'click': function() {
 
-                        if ($( '.schedule__items_profile' ).length ) {
-                            _openProfileDetails( $( this ) )
-                        }else{
+                        if ( _obj.hasClass( 'schedule__items_profile' ) ) {
+
+                            _openProfileDetails( $( this ) );
+
+                        } else {
+
                             _openScheduleDetails( $( this ) );
+
                         }
                     }
                 } );
@@ -680,7 +695,7 @@ $(function(){
                     curItemParent = curItem.parent( _items ),
                     details = curItem.next();
 
-                if ($( '.schedule__items_profile' ).length ) {
+                if ( _obj.hasClass( 'schedule__items_profile' ) ) {
                     details = curItem.parent().next();
                 }
 
@@ -721,9 +736,21 @@ $(function(){
                 }
 
             },
+            _closeScheduleDetails = function( elem )  {
+
+                var curItem = elem,
+                    curItemParent = curItem.parents( _items ),
+                    details = curItem.parent();
+
+                curItemParent.removeClass( 'opened' );
+                details.slideUp( 300 );
+
+            },
             _init = function() {
 
                 _btnOpen.off();
+
+                _close.off();
 
                 _addEvents();
                 _obj[ 0 ].obj = _self;
@@ -859,9 +886,9 @@ $(function(){
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find($('.more-content__btn')),
+            _btnMore = _obj.find( $('.more-content__btn') ),
             _btnAction = _btnMore.data( 'action'),
-            _wrapper = _obj.find($('.more-content__wrapper')),
+            _wrapper = _obj.find( $('.more-content__wrapper') ),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -901,7 +928,7 @@ $(function(){
 
                 }, 50 );
 
-                if ( msg.has_items == "0" ) {
+                if ( !msg.has_items ) {
 
                     _removeBtnMore();
 
@@ -920,7 +947,9 @@ $(function(){
             _showNewItems = function( item, index ){
 
                 setTimeout( function(){
+
                     item.removeClass( 'hidden' );
+
                 }, index * 300 );
 
             },
@@ -934,6 +963,7 @@ $(function(){
                 var items = _obj.find( '.more-content__item' );
 
                 _request.abort();
+
                 _request = $.ajax( {
                     url: _btnAction,
                     data: {
@@ -948,8 +978,11 @@ $(function(){
 
                     },
                     error: function ( XMLHttpRequest ) {
+
                         if( XMLHttpRequest.statusText != "abort" ) {
+
                             alert( "Error!" );
+
                         }
                     }
                 } );
