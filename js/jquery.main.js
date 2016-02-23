@@ -1181,6 +1181,7 @@ $(function(){
                     click: function(){
 
                         _closePopup();
+                        return false;
 
                     }
                 })
