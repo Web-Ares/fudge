@@ -1991,6 +1991,38 @@ input.subscribe__email{
     -webkit-transform: rotate(225deg);
     transform: rotate(225deg);
 }
+.swiper-popup__close {
+    display: block;
+    position: absolute;
+    top: -31px;
+    right: -31px;
+    width: 32px;
+    height: 32px;
+}
+.swiper-popup__close:after,
+.swiper-popup__close:before {
+    position: absolute;
+    top: 15px;
+    left: 8px;
+    width: 16px;
+    height: 2px;
+    background: #fff;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    content:'';
+}
+.swiper-popup__close:after {
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.swiper-popup__close:hover:before,
+.swiper-popup__close:hover:after {
+    background-color: #ffdc1a;
+}
 /* ------------ /swiper-popup ------------ */
 
 /* ------------ social-feed ------------ */
@@ -2988,6 +3020,16 @@ input.subscribe__email{
 
 @media (min-width: 930px) {
 
+    /* ------------ social-feed ------------ */
+    .social-feed__item {
+        width: 40%;
+    }
+    /* ------------ /social-feed ------------ */
+
+}
+
+@media (min-width: 930px) {
+
     /* --------------- speakers --------------- */
     .speakers__item{
         width: 33%;
@@ -2999,20 +3041,6 @@ input.subscribe__email{
         width: 33%;
     }
     /* --------------- /news --------------- */
-
-    /* ------------ social-feed ------------ */
-    .social-feed__wrap {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: row wrap;
-    }
-    .social-feed__item {
-        width: 33%;
-    }
-    /* ------------ /social-feed ------------ */
 
 }
 
@@ -3875,12 +3903,19 @@ input.subscribe__email{
     }
     .social-feed__item {
         margin: 0 0 31px;
+        width: 33%;
     }
     .social-feed__inner {
         margin-bottom: 0;
     }
     .social-feed__wrap {
         margin: 0 -15px 18px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
     }
     /* ------------ /social-feed ------------ */
 

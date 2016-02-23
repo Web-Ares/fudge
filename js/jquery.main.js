@@ -29,7 +29,7 @@ $(function(){
         } );
 
         $.each( $( '.media-gallery' ), function(){
-            new Gallery ( $( this ) )
+            new MediaGallery ( $( this ) )
         } );
 
         $.each( $( '.schedule__items' ), function(){
@@ -422,7 +422,7 @@ $(function(){
         _init();
     };
 
-    var Gallery = function ( obj ) {
+    var MediaGallery = function ( obj ) {
 
         var _self = this,
             _obj = obj,
@@ -1095,6 +1095,7 @@ $(function(){
             _window = $( window ),
             _popup = null,
             _popupInner = null,
+            _popupClose = null,
             _swiperWrapper = null,
             _swiperContainer = null,
             _swiperPagination = null,
@@ -1118,11 +1119,7 @@ $(function(){
 
                     click: function(){
 
-                        _popup.removeClass( 'active' );
-                        setTimeout( function(){
-                            _html.css({overflow: '', paddingRight: ''});
-                            _popup.remove();
-                        }, 300 );
+                        _closePopup();
 
                     }
 
@@ -1137,6 +1134,14 @@ $(function(){
                     }
 
                 });
+
+                _popupClose.on({
+                    click: function(){
+
+                        _closePopup();
+
+                    }
+                })
 
             },
             _addingVariables = function(){
@@ -1175,6 +1180,15 @@ $(function(){
                 _setStyles();
                 _swiper.onResize();
             },
+            _closePopup = function(){
+
+                _popup.removeClass( 'active' );
+                setTimeout( function(){
+                    _html.css({overflow: '', paddingRight: ''});
+                    _popup.remove();
+                }, 300 );
+
+            },
             _contentFilling = function(){
 
                 $.each( _links, function(){
@@ -1199,6 +1213,7 @@ $(function(){
 
                     var newItem = $( '<div class="swiper-slide">\
                                         <div class="swiper-popup__inner" ' + dataSRC + '>\
+                                            <a href="#" class="swiper-popup__close"></a>\
                                             ' + preloader + '\
                                             ' + innerContent + '\
                                             <span class="swiper-slide__title">' + $(this).attr( "title" ) + '</span>\
@@ -1220,6 +1235,7 @@ $(function(){
                 _body.append( _popup );
 
                 _popupInner = _popup.find( '.swiper-popup__inner' );
+                _popupClose = _popup.find( '.swiper-popup__close' );
 
             },
             _getScrollWidth = function (){
