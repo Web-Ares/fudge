@@ -142,7 +142,7 @@ $(function () {
                     if (data !== null) {
                         place._new = true;
                     }
-                    place.info = new google.maps.InfoWindow({
+                    place.info = new google.maps.InfoWindow( {
                         content: this.description
                     });
 
@@ -182,7 +182,7 @@ $(function () {
             },
             _initScroll = function () {
                 if ( _scroll == null )
-                    _scroll = _wherePopup.find( '.where__layout' ).niceScroll({
+                    _scroll = _wherePopup.find( '.where__layout' ).niceScroll( {
                         cursorcolor: "#f3f3f3",
                         cursoropacitymin: "1",
                         cursorborderradius: "3px",

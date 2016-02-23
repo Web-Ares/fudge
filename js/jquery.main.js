@@ -1339,7 +1339,7 @@ $(function(){
 
                 _btnMore.on({
 
-                    click: function(){
+                    click: function() {
                         _ajaxRequest();
                         return false;
                     }
@@ -1347,13 +1347,11 @@ $(function(){
                 });
 
             },
-            _addSocialContent = function( msg ){
+            _addSocialContent = function( msg ) {
 
-                var hasItems = null;
+                var hasItems = msg.has_items;
 
-                $.each( msg.items, function( i ){
-
-                    hasItems = msg.has_items;
+                $.each( msg.items, function() {
 
                     var newBlock = $( '<div class="social-feed__item hidden">'+
                                         '<div class="social-feed__inner">' +
@@ -1376,25 +1374,25 @@ $(function(){
 
                 var newItems = _wrapper.find( '.hidden' );
 
-                setTimeout( function(){
+                setTimeout( function() {
                     _heightAnimation( hasItems, newItems );
                 }, 50 );
 
             },
-            _heightAnimation = function( hasItems, newItems ){
+            _heightAnimation = function( hasItems, newItems ) {
 
-                newItems.each( function( i ){
-                    _showNewItems( $( this ),i );
+                newItems.each( function( i ) {
+                    _showNewItems( $( this ), i );
                 } );
 
-                if ( hasItems == 0 ){
+                if ( hasItems == 0 ) {
                     _removeBtnMore();
                 }
 
             },
             _showNewItems = function( item, index ){
 
-                setTimeout( function(){
+                setTimeout( function() {
                     item.removeClass( 'hidden' );
                 }, index * 100 );
 
@@ -1403,7 +1401,7 @@ $(function(){
 
                 var newsItem = _obj.find( '.social-feed__item' );
                 _request.abort();
-                _request = $.ajax({
+                _request = $.ajax( {
                     url: _btnAction,
                     data: {
                         loadedCount: newsItem.length
@@ -1424,7 +1422,7 @@ $(function(){
                 });
 
             },
-            _removeBtnMore = function(){
+            _removeBtnMore = function() {
 
                 _btnMore.css( 'opacity', 0 );
 
@@ -1436,7 +1434,7 @@ $(function(){
                         height: 0
                     }, {
                         duration: 500,
-                        complete: function(){
+                        complete: function() {
                             _btnMore.remove();
                         }
                     } );
