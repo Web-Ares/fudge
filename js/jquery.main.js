@@ -273,8 +273,8 @@ $(function(){
         var _self = this,
             _obj = obj,
             _path = _obj.attr( 'action' ),
-            _inputs = _obj.find( $( "[required]" ) ),
-            _sentMessageMark = _obj.find( $( ".site__form-sent" ) ),
+            _inputs = _obj.find( '[required]' ),
+            _sentMessageMark = _obj.find( '.site__form-sent' ),
             _request = new XMLHttpRequest();
 
         var _addEvents = function() {
@@ -301,7 +301,7 @@ $(function(){
 
                         } );
 
-                        if ( _obj.find( '.form-validation__error').length ){
+                        if ( _obj.find( '.form-validation__error' ).length ){
                             return false;
                         } else {
                             _ajaxRequest();
@@ -348,7 +348,7 @@ $(function(){
                     },
                     error: function ( XMLHttpRequest ) {
                         if( XMLHttpRequest.statusText != "abort" ) {
-                            alert( "Error!" );
+                            alert( 'Error!' );
                         }
                     }
                 });
@@ -611,8 +611,8 @@ $(function(){
 
                     },
                     error: function ( XMLHttpRequest ) {
-                        if( XMLHttpRequest.statusText != "abort" ) {
-                            alert( "Error!" );
+                        if( XMLHttpRequest.statusText != 'abort' ) {
+                            alert( 'Error!' );
                         }
                     }
                 });
@@ -1329,9 +1329,9 @@ $(function(){
         //private properties
         var _self = this,
             _obj = obj,
-            _btnMore = _obj.find( $( '.social-feed__more' ) ),
+            _btnMore = _obj.find( '.social-feed__more' ),
             _btnAction = _btnMore.data( 'action' ),
-            _wrapper = _obj.find( $( '.social-feed__wrap' ) ),
+            _wrapper = _obj.find( '.social-feed__wrap' ),
             _request = new XMLHttpRequest();
 
         //private methods
@@ -1410,15 +1410,15 @@ $(function(){
                     },
                     dataType: 'json',
                     timeout: 20000,
-                    type: "GET",
+                    type: 'GET',
                     success: function ( msg ) {
 
                         _addSocialContent( msg );
 
                     },
                     error: function ( XMLHttpRequest ) {
-                        if( XMLHttpRequest.statusText != "abort" ) {
-                            alert( "Error!" );
+                        if( XMLHttpRequest.statusText != 'abort' ) {
+                            alert( 'Error!' );
                         }
                     }
                 });
