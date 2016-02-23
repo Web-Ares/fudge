@@ -3023,16 +3023,6 @@ input.subscribe__email{
 
 @media (min-width: 930px) {
 
-    /* ------------ social-feed ------------ */
-    .social-feed__item {
-        width: 40%;
-    }
-    /* ------------ /social-feed ------------ */
-
-}
-
-@media (min-width: 930px) {
-
     /* --------------- speakers --------------- */
     .speakers__item{
         width: 33%;
@@ -3044,6 +3034,12 @@ input.subscribe__email{
         width: 33%;
     }
     /* --------------- /news --------------- */
+
+    /* ------------ social-feed ------------ */
+    .social-feed__item {
+        width: 40%;
+    }
+    /* ------------ /social-feed ------------ */
 
 }
 
