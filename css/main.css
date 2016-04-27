@@ -2480,9 +2480,6 @@ input.subscribe__email{
 .facebook-content__icon:hover{
     opacity: .8;
 }
-.facebook-content__desktop{
-    display: none;
-}
 /*-----------/facebook-content------------*/
 
 @media (min-width: 460px) {
@@ -4439,9 +4436,6 @@ input.subscribe__email{
     }
     .facebook-content__plugin{
         width: 520px;
-    }
-    .facebook-content__desktop{
-        display: inline-block;
     }
     /*-----------/facebook-content------------*/
 
