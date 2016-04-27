@@ -2374,6 +2374,116 @@ input.subscribe__email{
 }
 /*-----------/instagramm-pics------------*/
 
+/*-----------facebook-content------------*/
+.facebook-content{
+    padding: 67px 0 60px;
+    background-color: #f3f3f3;
+    overflow: hidden;
+}
+.facebook-content__centered{
+    position: relative;
+    z-index: 1;
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.facebook-content__number{
+    display: block;
+    color: #000;
+    font: 600 50px 'Roboto Slab', sans-serif;
+}
+.facebook-content__interested{
+    position: relative;
+    width: 254px;
+    margin: 0 auto 13px;
+    padding: 18px 0 21px;
+    color: #d4d4d4;
+    font-size: 24px;
+    background-color: #fff;
+    text-align: center;
+}
+.facebook-content__going{
+    width: 254px;
+    margin: 0 auto 13px;
+    padding: 18px 0 21px;
+    color: #d4d4d4;
+    font-size: 24px;
+    background-color: #fff;
+    text-align: center;
+}
+.facebook-content__wrap{
+    width: 254px;
+    margin: 0 auto 13px;
+    padding: 27px 23px 24px;
+    color: #b5b5b5;
+    font-size: 16px;
+    background-color: #fff;
+    text-align: left;
+}
+.facebook-content__plugin{
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e3e3e3;
+    text-align: center;
+    overflow: hidden;
+}
+.facebook-content__link{
+    display: block;
+    width: 100%;
+    color: #3a71b5;
+    font: 600 20px 'Roboto Slab', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.facebook-content__link:hover{
+    text-decoration: underline;
+}
+.facebook-content__send{
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 3px;
+    padding-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.facebook-content__send:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 17px;
+    height: 15px;
+    background: url("../img/icons-link.png");
+    content: '';
+}
+.facebook-content__icon{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    position: absolute;
+    top: -24px;
+    left: -21px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-size: 29px;
+    color: #fff;
+    background-color: #3a71b5;
+    transition: opacity .3s ease;
+    -webkit-transition: opacity .3s ease;
+}
+.facebook-content__icon:hover{
+    opacity: .8;
+}
+.facebook-content__desktop{
+    display: none;
+}
+/*-----------/facebook-content------------*/
 
 @media (min-width: 460px) {
 
@@ -3317,6 +3427,37 @@ input.subscribe__email{
         margin: 0 0 15px;
     }
     /*-------------/instagramm-pics-----------*/
+
+    /*-----------facebook-content------------*/
+    .facebook-content__centered{
+        display: flex;
+        display: -webkit-flex;
+        align-content: stretch;
+        -webkit-align-content: stretch;
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+        width: 640px;
+        padding: 0 10px 0 0;
+    }
+    .facebook-content__wrap{
+        width: 100%;
+        margin-left: 14px;
+    }
+    .facebook-content__plugin{
+        width: 311px;
+    }
+    .facebook-content__statistics{
+        display: flex;
+        display: -webkit-flex;
+        flex-flow: column;
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+    }
+    .facebook-content__interested,
+    .facebook-content__going{
+        width: 260px;
+    }
+    /*-----------/facebook-content------------*/
 
 }
 
@@ -4290,6 +4431,20 @@ input.subscribe__email{
         margin-bottom: 46px;
     }
     /*----------/instagramm-pics-----------*/
+
+    /*-----------facebook-content------------*/
+    .facebook-content__centered{
+        width: 845px;
+        padding: 0;
+    }
+    .facebook-content__plugin{
+        width: 520px;
+    }
+    .facebook-content__desktop{
+        display: inline-block;
+    }
+    /*-----------/facebook-content------------*/
+
 }
 
 @media (min-width: 1180px) {
